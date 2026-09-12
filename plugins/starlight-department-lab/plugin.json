@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starlight-department-lab",
+  "version": "0.1.0+codex.20260907044049",
+  "description": "Practice human judgment, agentic systems and scientific inference with portable mission records; design departments and test workflow evidence.",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Starlight Intelligence Systems"
+  },
+  "homepage": "https://starlightintelligence.academy/academy/install"
+}

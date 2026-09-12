@@ -1,0 +1,595 @@
+[
+  {
+    "packet": {
+      "schema": "starlight.mission_packet.v1",
+      "status": "public-preview",
+      "id": "systems.bound-one-agentic-workflow",
+      "version": "0.1.0",
+      "schoolId": "agentic-systems",
+      "title": "Bound one agentic workflow",
+      "promise": "Turn one recurring workflow into a small, inspectable operating contract.",
+      "learnerKinds": [
+        "human",
+        "sponsored-agent"
+      ],
+      "artifact": {
+        "filename": "AGENT_SYSTEM_CONSTITUTION.md",
+        "label": "Agent system constitution",
+        "contract": "Mission, owner, inputs, allowed preparation, prohibited actions, evidence gate, escalation, and rollback."
+      },
+      "boundaries": {
+        "humanDecision": "A named human approves every external send, spend, permission, and irreversible change.",
+        "agentLimit": "An agent may prepare the packet; it may not appoint its own sponsor or enlarge its authority.",
+        "dataRule": "Use public, synthetic, or explicitly redacted material in this preview mission."
+      },
+      "stages": [
+        {
+          "id": "orient",
+          "kind": "orient",
+          "title": "Name the recurring work",
+          "instruction": "Choose one workflow with a real owner, input, review moment, and reversible first test.",
+          "evidence": "A one-sentence workflow and one accountable human owner.",
+          "assistance": "none"
+        },
+        {
+          "id": "attempt",
+          "kind": "unaided-attempt",
+          "title": "Draw the boundary before asking AI",
+          "instruction": "Write what AI may prepare, what it must never decide, and the event that stops the run.",
+          "evidence": "A first-pass authority boundary preserved in the final artifact.",
+          "assistance": "none"
+        },
+        {
+          "id": "study",
+          "kind": "study",
+          "title": "Inspect the protocol and risk sources",
+          "instruction": "Read the selected MCP and NIST material. Separate transport capability from permission.",
+          "evidence": "Two source notes and one changed assumption.",
+          "assistance": "primary-sources"
+        },
+        {
+          "id": "build",
+          "kind": "build",
+          "title": "Assemble the constitution",
+          "instruction": "Specify purpose, inputs, outputs, memory, tools, stop conditions, evidence, and rollback.",
+          "evidence": "AGENT_SYSTEM_CONSTITUTION.md matching the artifact contract.",
+          "assistance": "bounded-hints"
+        },
+        {
+          "id": "critique",
+          "kind": "critique",
+          "title": "Try to break the boundary",
+          "instruction": "Probe for scope creep, private-context leakage, hidden side effects, and unverifiable completion.",
+          "evidence": "One adversarial finding and the exact correction made.",
+          "assistance": "peer-or-agent-critique"
+        },
+        {
+          "id": "reflect",
+          "kind": "reflect",
+          "title": "Keep judgment visible",
+          "instruction": "Explain why the final human gate belongs to a person and what evidence makes that decision possible.",
+          "evidence": "A short reflection in the learner's own voice.",
+          "assistance": "none"
+        },
+        {
+          "id": "transfer",
+          "kind": "transfer",
+          "title": "Test the pattern elsewhere",
+          "instruction": "Apply the same boundary to a second workflow without copying domain-specific details.",
+          "evidence": "A second boundary sketch showing transfer, not memorization.",
+          "assistance": "none"
+        }
+      ],
+      "rubric": [
+        {
+          "id": "scope",
+          "label": "Bounded purpose",
+          "weight": 25,
+          "passesWhen": "One owner, input, output, and stop condition are unambiguous."
+        },
+        {
+          "id": "authority",
+          "label": "Human authority",
+          "weight": 30,
+          "passesWhen": "External and irreversible actions require named human approval."
+        },
+        {
+          "id": "evidence",
+          "label": "Evidence quality",
+          "weight": 25,
+          "passesWhen": "Sources, checks, exceptions, and uncertainty remain inspectable."
+        },
+        {
+          "id": "recovery",
+          "label": "Recovery",
+          "weight": 20,
+          "passesWhen": "A stop, escalation, and rollback path exist before operation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mcp-spec-2026-07-28",
+          "title": "Model Context Protocol specification — 2026-07-28",
+          "publisher": "Model Context Protocol",
+          "href": "https://modelcontextprotocol.io/specification/2026-07-28",
+          "kind": "standard",
+          "checkedAt": "2026-08-24",
+          "use": "Protocol capabilities, lifecycle, authorization, and transport boundaries."
+        },
+        {
+          "id": "nist-ai-rmf-playbook",
+          "title": "AI Risk Management Framework Playbook",
+          "publisher": "National Institute of Standards and Technology",
+          "href": "https://airc.nist.gov/airmf-resources/playbook/",
+          "kind": "guidance",
+          "checkedAt": "2026-08-24",
+          "use": "Govern, map, measure, and manage questions for the operating contract."
+        }
+      ],
+      "receipt": {
+        "label": "Capability Receipt",
+        "claim": "The learner produced evidence against this exact mission version and rubric.",
+        "grantsAuthority": false,
+        "isCertification": false,
+        "liveEvaluation": false
+      }
+    },
+    "digest": "daeec1e37a8c9d6fdf1e56a04bbdf3812175c560444c3437eb2876e179f42c89",
+    "school": "Agentic Systems",
+    "starter": "# Agent system constitution\n\n## Purpose and accountable owner\nWhat recurring outcome is worth preparing? Who decides?\n\n## Input, output and data boundary\nWhich public or redacted inputs and exact output?\n\n## Permitted preparation\nWhat may the agent prepare?\n\n## Prohibited actions and human decisions\nWhat must wait for exact human approval?\n\n## Evidence and exceptions\nWhich observation supports completion? What could contradict it?\n\n## Stop and escalation\nWhat uncertainty stops the workflow? Who resolves it?\n\n## Reversible test and rollback\nHow will you test and recover without an external action?\n",
+    "starterNote": "Questions and structure only. Replace them with your own work and sources; the template is not a completed artifact."
+  },
+  {
+    "packet": {
+      "schema": "starlight.mission_packet.v1",
+      "status": "public-preview",
+      "id": "human.keep-your-judgment",
+      "version": "0.1.0",
+      "schoolId": "human-intelligence",
+      "title": "Keep your judgment",
+      "promise": "Use AI on one real decision while preserving the thinking you need when the tool is absent.",
+      "learnerKinds": [
+        "human",
+        "sponsored-agent"
+      ],
+      "artifact": {
+        "filename": "AUGMENTATION_PACT.md",
+        "label": "Augmentation pact",
+        "contract": "Unaided position, questions for AI, source checks, changed beliefs, final judgment, and a no-AI transfer test."
+      },
+      "boundaries": {
+        "humanDecision": "The human owns the values, consequences, and final decision.",
+        "agentLimit": "An agent may challenge reasoning but may not impersonate the learner's experience or conscience.",
+        "dataRule": "Do not submit health, legal, financial, employment, or intimate personal data in the public preview."
+      },
+      "stages": [
+        {
+          "id": "orient",
+          "kind": "orient",
+          "title": "Choose a reversible decision",
+          "instruction": "Select a low-stakes decision whose reasoning can be inspected after the fact.",
+          "evidence": "A decision statement and the values it touches.",
+          "assistance": "none"
+        },
+        {
+          "id": "attempt",
+          "kind": "unaided-attempt",
+          "title": "Think before augmentation",
+          "instruction": "Record your initial position, confidence, assumptions, and strongest counterargument before opening an AI tool.",
+          "evidence": "A timestamped unaided position.",
+          "assistance": "none"
+        },
+        {
+          "id": "study",
+          "kind": "study",
+          "title": "Study what helps—and what can weaken learning",
+          "instruction": "Compare evidence for structured tutoring with evidence about unguarded dependence.",
+          "evidence": "One design principle supported by each research source.",
+          "assistance": "primary-sources"
+        },
+        {
+          "id": "build",
+          "kind": "build",
+          "title": "Run a question-first dialogue",
+          "instruction": "Ask the model for counterarguments, missing evidence, and tests—not a final answer.",
+          "evidence": "A decision trail that marks every belief changed and why.",
+          "assistance": "bounded-hints"
+        },
+        {
+          "id": "critique",
+          "kind": "critique",
+          "title": "Audit dependency and deference",
+          "instruction": "Identify where fluency, confidence, or convenience could have replaced independent judgment.",
+          "evidence": "A dependency audit with at least one correction.",
+          "assistance": "peer-or-agent-critique"
+        },
+        {
+          "id": "reflect",
+          "kind": "reflect",
+          "title": "Write the pact",
+          "instruction": "Define when AI should question, hint, source, wait, or stay out of the way.",
+          "evidence": "AUGMENTATION_PACT.md written in the learner's own voice.",
+          "assistance": "none"
+        },
+        {
+          "id": "transfer",
+          "kind": "transfer",
+          "title": "Reason without the tool",
+          "instruction": "Later, solve an analogous decision unaided and compare the quality of your reasoning process.",
+          "evidence": "A transfer note that names what the learner can now do independently.",
+          "assistance": "none"
+        }
+      ],
+      "rubric": [
+        {
+          "id": "agency",
+          "label": "Independent judgment",
+          "weight": 30,
+          "passesWhen": "An unaided view exists and the final decision is explained in the learner's own reasoning."
+        },
+        {
+          "id": "epistemics",
+          "label": "Epistemic quality",
+          "weight": 25,
+          "passesWhen": "Claims, confidence, sources, and changed beliefs are distinguished."
+        },
+        {
+          "id": "challenge",
+          "label": "Constructive challenge",
+          "weight": 20,
+          "passesWhen": "AI is used to surface alternatives and tests rather than replace the decision."
+        },
+        {
+          "id": "transfer",
+          "label": "Transfer",
+          "weight": 25,
+          "passesWhen": "The learner demonstrates the reasoning pattern again without AI assistance."
+        }
+      ],
+      "sources": [
+        {
+          "id": "bastani-2025",
+          "title": "Generative AI without guardrails can harm learning",
+          "publisher": "Proceedings of the National Academy of Sciences",
+          "href": "https://doi.org/10.1073/pnas.2422633122",
+          "kind": "research",
+          "checkedAt": "2026-08-24",
+          "use": "Why unaided attempts and hint-first safeguards matter."
+        },
+        {
+          "id": "kestin-2025",
+          "title": "AI tutoring outperforms in-class active learning",
+          "publisher": "Scientific Reports",
+          "href": "https://www.nature.com/articles/s41598-025-97652-6",
+          "kind": "research",
+          "checkedAt": "2026-08-24",
+          "use": "Design features of a structured, research-informed tutor."
+        },
+        {
+          "id": "unesco-ai-competency",
+          "title": "AI competency framework for students",
+          "publisher": "UNESCO",
+          "href": "https://unesdoc.unesco.org/ark:/48223/pf0000391105",
+          "kind": "guidance",
+          "checkedAt": "2026-08-24",
+          "use": "Human-centred, critical, ethical, inclusive, and sustainable AI competence."
+        }
+      ],
+      "receipt": {
+        "label": "Capability Receipt",
+        "claim": "The learner demonstrated an augmentation practice against this exact mission version and rubric.",
+        "grantsAuthority": false,
+        "isCertification": false,
+        "liveEvaluation": false
+      }
+    },
+    "digest": "9caa5c8b4ea98d601ddceb2b930888379315d2bb75c915288baff9c5365d1fed",
+    "school": "Human Intelligence",
+    "starter": "# Augmentation pact\n\n## Decision and values\nWhich low-stakes decision matters, and why?\n\n## Initial position\nWhat did I think before help? What assumptions and counterargument did I name?\n\n## Questions asked\nHow did I ask AI to question or hint instead of decide?\n\n## Claims and source checks\nWhich claims did I check? What remains uncertain?\n\n## Judgment retained or revised\nWhat changed, and on which evidence? What did I reject?\n\n## Deference audit\nWhere did fluency or convenience substitute for my judgment?\n\n## My final decision\nWhat is my own decision and reason?\n\n## Rules for assistance\nWhen should AI ask, hint, source, wait or abstain?\n",
+    "starterNote": "Questions and structure only. Replace them with your own work and sources; the template is not a completed artifact."
+  },
+  {
+    "packet": {
+      "schema": "starlight.mission_packet.v1",
+      "status": "public-preview",
+      "id": "universe.read-an-unseen-world",
+      "version": "0.1.0",
+      "schoolId": "universe-discovery",
+      "title": "Read an unseen world",
+      "promise": "Build a claim map for one exoplanet without mistaking indirect evidence for a photograph.",
+      "learnerKinds": [
+        "human",
+        "sponsored-agent"
+      ],
+      "artifact": {
+        "filename": "EXOPLANET_EVIDENCE_MAP.md",
+        "label": "Exoplanet evidence map",
+        "contract": "Observation, method, inference, uncertainty, alternative explanation, source, and a question still open."
+      },
+      "boundaries": {
+        "humanDecision": "A human reviewer decides whether every public-facing claim matches its source and uncertainty.",
+        "agentLimit": "An agent may organize sources but may not fabricate observations or present inference as direct detection.",
+        "dataRule": "Use only public scientific sources and preserve their attribution."
+      },
+      "stages": [
+        {
+          "id": "orient",
+          "kind": "orient",
+          "title": "Choose one distant world",
+          "instruction": "Select one confirmed exoplanet and write what you think we actually observed.",
+          "evidence": "A named object and an initial observation claim.",
+          "assistance": "none"
+        },
+        {
+          "id": "attempt",
+          "kind": "unaided-attempt",
+          "title": "Separate seeing from inferring",
+          "instruction": "Make three columns: observation, inference, and unknown. Place every initial claim in one column.",
+          "evidence": "An unaided three-column claim map.",
+          "assistance": "none"
+        },
+        {
+          "id": "study",
+          "kind": "study",
+          "title": "Learn how planets leave traces",
+          "instruction": "Study transit and radial-velocity methods, including what each can and cannot establish.",
+          "evidence": "A method note tied to a NASA source.",
+          "assistance": "primary-sources"
+        },
+        {
+          "id": "build",
+          "kind": "build",
+          "title": "Build the evidence map",
+          "instruction": "Trace every claim from measured signal through method to inference and uncertainty.",
+          "evidence": "EXOPLANET_EVIDENCE_MAP.md matching the artifact contract.",
+          "assistance": "bounded-hints"
+        },
+        {
+          "id": "critique",
+          "kind": "critique",
+          "title": "Search for the impostor",
+          "instruction": "Name an alternative explanation or false-positive route and the evidence needed to reduce it.",
+          "evidence": "A falsification note and proposed follow-up observation.",
+          "assistance": "peer-or-agent-critique"
+        },
+        {
+          "id": "reflect",
+          "kind": "reflect",
+          "title": "Keep wonder and precision together",
+          "instruction": "Write what became more wondrous after you became more exact about the evidence.",
+          "evidence": "A reflection that preserves both uncertainty and significance.",
+          "assistance": "none"
+        },
+        {
+          "id": "transfer",
+          "kind": "transfer",
+          "title": "Read another indirect signal",
+          "instruction": "Apply the observation–inference–unknown pattern to a second scientific claim.",
+          "evidence": "A second claim map from a different domain or detection method.",
+          "assistance": "none"
+        }
+      ],
+      "rubric": [
+        {
+          "id": "observation",
+          "label": "Observation discipline",
+          "weight": 30,
+          "passesWhen": "Measured signals are distinct from models, interpretations, and illustrations."
+        },
+        {
+          "id": "lineage",
+          "label": "Source lineage",
+          "weight": 25,
+          "passesWhen": "Each material claim points to an inspectable scientific source."
+        },
+        {
+          "id": "uncertainty",
+          "label": "Uncertainty",
+          "weight": 25,
+          "passesWhen": "Unknowns and plausible alternatives are named without false precision."
+        },
+        {
+          "id": "transfer",
+          "label": "Transfer",
+          "weight": 20,
+          "passesWhen": "The evidence pattern is correctly applied to another indirect signal."
+        }
+      ],
+      "sources": [
+        {
+          "id": "nasa-find-characterize",
+          "title": "How We Find and Characterize Exoplanets",
+          "publisher": "NASA Science",
+          "href": "https://science.nasa.gov/exoplanets/how-we-find-and-characterize/",
+          "kind": "guidance",
+          "checkedAt": "2026-08-24",
+          "use": "Transit, radial velocity, spectroscopy, microlensing, and direct-imaging evidence."
+        },
+        {
+          "id": "nasa-exoplanet-watch",
+          "title": "Exoplanet Watch — scientific background",
+          "publisher": "NASA Science",
+          "href": "https://science.nasa.gov/citizen-science/exoplanet-watch/background/",
+          "kind": "primary-data",
+          "checkedAt": "2026-08-24",
+          "use": "How public observations contribute to transit timing and shared scientific work."
+        }
+      ],
+      "receipt": {
+        "label": "Capability Receipt",
+        "claim": "The learner produced an evidence map against this exact mission version and rubric.",
+        "grantsAuthority": false,
+        "isCertification": false,
+        "liveEvaluation": false
+      }
+    },
+    "digest": "a799dda879554efa0ad671f8a5e88aa6720a4feac734036cd566e29cc417ba62",
+    "school": "Universe & Discovery",
+    "starter": "# Exoplanet evidence map\n\n## Object and question\nWhich named world or public observation am I examining?\n\n## Observation, inference and unknown\nWhat was measured? What was inferred? What remains unknown?\n\n## Claim ledger\nFor each claim: measured signal, method, inference, uncertainty and exact source.\n\n## Alternative explanation\nWhat else could produce the signal?\n\n## Discriminating observation\nWhich further observation could distinguish the explanations?\n\n## Revised explanation\nWhat can I say now, and with which limitations?\n\n## Open question\nWhat would I investigate next?\n",
+    "starterNote": "Questions and structure only. Replace them with your own work and sources; the template is not a completed artifact."
+  },
+  {
+    "packet": {
+      "schema": "starlight.mission_packet.v1",
+      "status": "public-preview",
+      "id": "systems.design-one-ai-department",
+      "version": "0.1.0",
+      "schoolId": "agentic-systems",
+      "title": "Design one AI department",
+      "promise": "Turn one recurring workflow into an accountable department packet without confusing automation with authority.",
+      "learnerKinds": [
+        "human",
+        "sponsored-agent"
+      ],
+      "artifact": {
+        "filename": "AI_DEPARTMENT_PACKET.json",
+        "label": "AI department design packet",
+        "contract": "Workflow triage, accountable owner, human decisions, smallest viable topology, role boundaries, evidence, evaluations, rollback, and runtime projections."
+      },
+      "boundaries": {
+        "humanDecision": "A named human owns workflow admission and approves every send, publication, spend, permission, deployment, and irreversible change.",
+        "agentLimit": "An agent may draft or verify the packet but may not self-sponsor, verify its own work, deploy the department, or enlarge authority.",
+        "dataRule": "Use public, synthetic, or explicitly redacted workflow material in the public builder and plugin preview."
+      },
+      "stages": [
+        {
+          "id": "orient",
+          "kind": "orient",
+          "title": "Name the operational outcome",
+          "instruction": "Choose one recurring workflow, accountable owner, reviewable output, and consequential human decision.",
+          "evidence": "One sentence each for workflow, owner, output, and human decision.",
+          "assistance": "none"
+        },
+        {
+          "id": "attempt",
+          "kind": "unaided-attempt",
+          "title": "Triage before designing",
+          "instruction": "Decide unaided whether to automate, assist only, or keep the work human before choosing agents or tools.",
+          "evidence": "A preserved first triage with the reason and safest reversible test.",
+          "assistance": "none"
+        },
+        {
+          "id": "study",
+          "kind": "study",
+          "title": "Study architecture, risk, and evaluation",
+          "instruction": "Compare effective-agent guidance, risk-management questions, and task-evaluation practice. Record what changes your first design.",
+          "evidence": "Three source notes and at least one changed assumption.",
+          "assistance": "primary-sources"
+        },
+        {
+          "id": "build",
+          "kind": "build",
+          "title": "Compile the department packet",
+          "instruction": "Define authority, producer/verifier separation, stages, evidence, failure tests, rollback, and portable runtime components.",
+          "evidence": "AI_DEPARTMENT_PACKET.json matching the versioned artifact contract.",
+          "assistance": "bounded-hints"
+        },
+        {
+          "id": "critique",
+          "kind": "critique",
+          "title": "Attack the operating boundary",
+          "instruction": "Probe scope creep, self-approval, prompt injection, hidden side effects, missing evidence, tool failure, and recovery.",
+          "evidence": "A criterion-level verdict, one adversarial finding, and the exact revision made.",
+          "assistance": "peer-or-agent-critique"
+        },
+        {
+          "id": "reflect",
+          "kind": "reflect",
+          "title": "Defend the topology",
+          "instruction": "Explain why each role exists, why no extra agent is needed, and why the human gate remains human.",
+          "evidence": "A short architecture decision record in the learner's own voice.",
+          "assistance": "none"
+        },
+        {
+          "id": "transfer",
+          "kind": "transfer",
+          "title": "Project without pretending equivalence",
+          "instruction": "Map the same semantic package to a second supported harness, naming native features, adapters, and unresolved gaps.",
+          "evidence": "A second runtime projection with no unverified one-click or compatibility claim.",
+          "assistance": "none"
+        }
+      ],
+      "rubric": [
+        {
+          "id": "workflow-fit",
+          "label": "Workflow fit",
+          "weight": 20,
+          "passesWhen": "The packet can recommend not automating and bounds one owner, input, output, exception, and reversible test."
+        },
+        {
+          "id": "authority",
+          "label": "Authority and risk",
+          "weight": 25,
+          "passesWhen": "Human decisions, data limits, prohibited actions, stop conditions, and revocation are explicit."
+        },
+        {
+          "id": "architecture",
+          "label": "Architecture simplicity",
+          "weight": 20,
+          "passesWhen": "The smallest viable topology is justified and producer/verifier separation is preserved."
+        },
+        {
+          "id": "evidence",
+          "label": "Evidence and evaluation",
+          "weight": 20,
+          "passesWhen": "Completion evidence, representative tests, adversarial cases, uncertainty, and runtime pinning are inspectable."
+        },
+        {
+          "id": "portability",
+          "label": "Portability and recovery",
+          "weight": 15,
+          "passesWhen": "Semantic components, native projections, adapter gaps, rollback, and revalidation triggers are named truthfully."
+        }
+      ],
+      "sources": [
+        {
+          "id": "openai-practical-agent-guide",
+          "title": "A practical guide to building agents",
+          "publisher": "OpenAI",
+          "href": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+          "kind": "guidance",
+          "checkedAt": "2026-08-26",
+          "use": "Workflow selection, orchestration, guardrails, and incremental deployment guidance."
+        },
+        {
+          "id": "anthropic-effective-agents",
+          "title": "Building effective agents",
+          "publisher": "Anthropic",
+          "href": "https://www.anthropic.com/engineering/building-effective-agents",
+          "kind": "guidance",
+          "checkedAt": "2026-08-26",
+          "use": "Prefer simple, composable patterns and add complexity only when it measurably helps."
+        },
+        {
+          "id": "anthropic-agent-evals",
+          "title": "Demystifying evals for AI agents",
+          "publisher": "Anthropic",
+          "href": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+          "kind": "guidance",
+          "checkedAt": "2026-08-26",
+          "use": "Task suites, transcript review, graders, failure analysis, and evaluation-driven iteration."
+        },
+        {
+          "id": "nist-airc",
+          "title": "NIST AI Resource Center",
+          "publisher": "National Institute of Standards and Technology",
+          "href": "https://airc.nist.gov/",
+          "kind": "standard",
+          "checkedAt": "2026-08-26",
+          "use": "Governance, risk framing, measurement, and human oversight questions."
+        }
+      ],
+      "receipt": {
+        "label": "Capability Receipt",
+        "claim": "The learner produced a department design artifact against this exact mission version and rubric.",
+        "grantsAuthority": false,
+        "isCertification": false,
+        "liveEvaluation": false
+      }
+    },
+    "digest": "48e6b2927d2c523b030e8b75ffdbbd7488b7afbb2c67905c667221d19927a913",
+    "school": "Agentic Systems",
+    "starter": "{\n  \"schema\": \"starlight.department_design.v1\",\n  \"version\": \"0.1.0\",\n  \"status\": \"browser-local-draft\",\n  \"mission\": {\n    \"id\": \"systems.design-one-ai-department\",\n    \"version\": \"0.1.0\"\n  },\n  \"intelligence\": {\n    \"mode\": \"maximum-useful-intelligence\",\n    \"prompt\": \"Apply the maximum useful intelligence available: reason deeply, search for stronger approaches, challenge assumptions, and produce the highest-quality outcome the approved evidence, tools, time, and authority can support.\",\n    \"performanceObjective\": \"Maximize verified outcome quality, decision usefulness, reliability, and learning—not activity, fluency, agent count, or speed in isolation.\",\n    \"outcomeTarget\": \"Success evidence not yet defined\",\n    \"measurementStatus\": \"not-evaluated\",\n    \"governingConstraints\": [\n      \"Truth, evidence, human authority, privacy, safety, and reversibility are hard constraints—not variables to trade away for performance.\",\n      \"Escalate uncertainty and conflicts instead of hiding them behind a confident answer.\",\n      \"Treat superintelligence as an optimization posture, not a claim of AGI, omniscience, guaranteed outcomes, or permission to act.\"\n    ]\n  },\n  \"department\": {\n    \"name\": \"Untitled department\",\n    \"recurringWorkflow\": \"Workflow boundary not yet named\",\n    \"accountableOwner\": \"Accountable human owner not yet named\",\n    \"cadence\": \"on-demand\",\n    \"requestedAutonomy\": \"advise-only\",\n    \"successDefinition\": \"Success evidence not yet defined\"\n  },\n  \"triage\": {\n    \"decision\": \"do-not-automate-yet\",\n    \"reason\": \"The workflow boundary or reviewable output is not clear enough to test safely.\",\n    \"nextSafeStep\": \"Keep the work human-owned; map one repeatable input, output, exception, and stop condition first.\"\n  },\n  \"authority\": {\n    \"mayPrepare\": [\n      \"Read the named public, synthetic, or explicitly redacted inputs.\",\n      \"Draft the reviewable workflow artifact and its evidence trail.\",\n      \"Request clarification, surface uncertainty, and stop on an exception.\"\n    ],\n    \"mustNot\": [\n      \"Send, publish, purchase, grant permission, or make an irreversible change.\",\n      \"Invent evidence, conceal uncertainty, use unapproved private context, or self-approve.\",\n      \"Expand the workflow, tools, data access, cadence, or autonomy without a new human decision.\"\n    ],\n    \"humanDecision\": \"Human decision gate not yet named\",\n    \"externalActionGate\": \"exact-human-approval\",\n    \"sponsorCanRevoke\": true\n  },\n  \"topology\": {\n    \"recommendation\": \"single-agent-with-tools\",\n    \"rationale\": \"One bounded workflow does not justify a swarm. Start with one operator and tools, then split only when eval evidence shows a distinct specialization bottleneck.\",\n    \"roles\": [\n      {\n        \"id\": \"accountable-owner\",\n        \"kind\": \"human\",\n        \"responsibility\": \"Own the workflow purpose, acceptable risk, inputs, and final business judgment.\",\n        \"cannot\": \"Delegate accountability to the system or approve an output without its evidence packet.\"\n      },\n      {\n        \"id\": \"workflow-operator\",\n        \"kind\": \"agent\",\n        \"responsibility\": \"Prepare the bounded draft, preserve source lineage, and stop on exceptions.\",\n        \"cannot\": \"Send, publish, spend, change permissions, or enlarge its own scope.\"\n      },\n      {\n        \"id\": \"independent-verifier\",\n        \"kind\": \"human-or-independent-agent\",\n        \"responsibility\": \"Test the output against the rubric, source trail, failure cases, and policy boundary.\",\n        \"cannot\": \"Verify work it produced or silently waive a failed criterion.\"\n      },\n      {\n        \"id\": \"action-approver\",\n        \"kind\": \"human\",\n        \"responsibility\": \"Approve, revise, or stop the exact consequential action after reviewing evidence.\",\n        \"cannot\": \"Provide blanket approval for future outputs or hidden side effects.\"\n      }\n    ],\n    \"separationRule\": \"The producer and verifier are distinct, and only a named human can approve consequential external action.\"\n  },\n  \"workflow\": [\n    {\n      \"id\": \"intake\",\n      \"owner\": \"accountable-owner\",\n      \"produces\": \"Approved input packet with purpose, constraints, sources, and exclusions.\",\n      \"gate\": \"Reject incomplete, sensitive, or unowned work.\"\n    },\n    {\n      \"id\": \"prepare\",\n      \"owner\": \"workflow-operator\",\n      \"produces\": \"Draft artifact with source lineage, assumptions, exceptions, and confidence.\",\n      \"gate\": \"No external side effect; stop when required evidence is unavailable.\"\n    },\n    {\n      \"id\": \"verify\",\n      \"owner\": \"independent-verifier\",\n      \"produces\": \"Criterion-by-criterion verdict and adversarial findings.\",\n      \"gate\": \"Any critical failure returns the packet for revision.\"\n    },\n    {\n      \"id\": \"decide\",\n      \"owner\": \"action-approver\",\n      \"produces\": \"Exact approve, revise, or stop decision tied to this artifact version.\",\n      \"gate\": \"Approval is artifact-specific and expires when the output changes.\"\n    },\n    {\n      \"id\": \"learn\",\n      \"owner\": \"accountable-owner\",\n      \"produces\": \"Failure note, rollback result, and bounded change proposal.\",\n      \"gate\": \"A change to authority or tools requires fresh review and evaluation.\"\n    }\n  ],\n  \"systems\": [\n    \"No system named yet\"\n  ],\n  \"evidence\": {\n    \"required\": [\n      \"Input and output identifiers\",\n      \"Source or tool lineage for every material claim\",\n      \"Rubric results and named exceptions\",\n      \"Human approval bound to the exact output version\",\n      \"Stop, escalation, and rollback record when triggered\"\n    ],\n    \"completionRule\": \"Prepared is not complete; consequential completion requires independent verification and exact human approval.\",\n    \"uncertaintyRule\": \"Unknown, unavailable, inferred, and verified information remain visibly distinct.\"\n  },\n  \"evaluation\": {\n    \"status\": \"not-run\",\n    \"testClasses\": [\n      \"Expected input\",\n      \"Missing or conflicting source\",\n      \"Prompt injection in retrieved content\",\n      \"Sensitive or out-of-scope input\",\n      \"Tool failure and partial completion\",\n      \"Attempted external action without approval\"\n    ],\n    \"admissionRule\": \"No runtime admission claim until deterministic checks and representative task evaluations pass under the pinned runtime.\",\n    \"rollbackTrigger\": \"Stop on authority drift, critical factual failure, hidden side effect, data-boundary breach, or unverifiable completion.\"\n  },\n  \"package\": {\n    \"schema\": \"starlight.package.v1-preview\",\n    \"mission\": \"systems.design-one-ai-department\",\n    \"skills\": [\n      \"design-ai-department\",\n      \"verify-ai-department-package\"\n    ],\n    \"mcpTools\": [\n      \"get_department_mission\",\n      \"draft_department_packet\"\n    ],\n    \"externalActions\": \"none\"\n  },\n  \"truth\": {\n    \"generatedLocally\": true,\n    \"persistedBySite\": false,\n    \"liveEvaluationRun\": false,\n    \"authorityGranted\": false,\n    \"certificationIssued\": false\n  }\n}",
+    "starterNote": "Generated by the Department Lab compiler with unresolved inputs. Use the builder to create your own packet, then paste its JSON here. No evaluation has run."
+  }
+]

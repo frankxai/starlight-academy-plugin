@@ -1,0 +1,58 @@
+{
+  "schema": "starlight.runtime_projection_matrix.v1",
+  "checkedAt": "2026-09-06",
+  "targets": [
+    {
+      "id": "codex",
+      "name": "Codex",
+      "format": "Native plugin and Starlight marketplace",
+      "command": "node install.mjs codex",
+      "detail": "Registers the local marketplace and installs the plugin. Open a new task after installation.",
+      "validation": "Manifest validated; root-resolved MCP handshake checked",
+      "source": "https://developers.openai.com/plugins/build/plugins",
+      "uninstall": "codex plugin remove starlight-department-lab@starlight-academy"
+    },
+    {
+      "id": "claude",
+      "name": "Claude Code",
+      "format": "Native plugin and synchronized marketplace",
+      "command": "node install.mjs claude",
+      "detail": "Installs from the same package source through Claude's marketplace manager.",
+      "validation": "Claude CLI manifest validated; root-resolved MCP handshake checked",
+      "source": "https://code.claude.com/docs/en/plugins-reference",
+      "uninstall": "claude plugin uninstall starlight-department-lab@starlight-academy"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "format": "Claude-compatible native plugin",
+      "command": "node install.mjs grok",
+      "detail": "Uses Grok's local plugin installer. Skills and MCP use the documented Claude-compatible format.",
+      "validation": "Grok CLI manifest validated; full host startup not verified",
+      "source": "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+      "uninstall": "grok plugin uninstall starlight-department-lab"
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes Agent",
+      "format": "Portable Agent Plugins v1 extension",
+      "command": "node install.mjs hermes",
+      "detail": "Copies the verified portable package into the selected Hermes profile, initially disabled. Enable starlight-department-lab after inspecting it.",
+      "validation": "Actual Hermes loader and resolved MCP handshake checked",
+      "source": "https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/",
+      "uninstall": "hermes plugins remove starlight-department-lab"
+    },
+    {
+      "id": "antigravity",
+      "name": "Antigravity",
+      "format": "Native plugin with an anchored local MCP path",
+      "command": "node install.mjs antigravity",
+      "detail": "Prepares an absolute path to the extracted server, then invokes the native installer. Keep the extracted release directory in place.",
+      "validation": "Antigravity CLI manifest validated; full host startup not verified",
+      "source": "https://www.antigravity.google/docs/cli/plugins/",
+      "uninstall": "agy plugin uninstall starlight-department-lab"
+    }
+  ],
+  "remoteMarketplaceInstallLive": false,
+  "publicDownloadPath": "/downloads/starlight-academy.zip"
+}

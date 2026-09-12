@@ -1,0 +1,19 @@
+{
+  "name": "starlight-department-lab",
+  "version": "0.1.0+codex.20260907044049",
+  "description": "Practice human judgment, agentic systems and scientific inference with portable mission records; design departments and test workflow evidence.",
+  "author": {
+    "name": "Starlight Intelligence Systems",
+    "url": "https://starlightintelligence.org/"
+  },
+  "homepage": "https://starlightintelligence.academy/academy/install",
+  "repository": "https://github.com/frankxai/starlight-academy-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ai-departments",
+    "agent-skills",
+    "mcp",
+    "evaluation",
+    "human-approval"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "starlight-academy",
+  "description": "Public-safe Starlight Academy mission and operating-method plugins for humans and agents.",
+  "owner": {
+    "name": "Starlight Intelligence Systems",
+    "url": "https://starlightintelligence.org/"
+  },
+  "plugins": [
+    {
+      "name": "starlight-department-lab",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/frankxai/starlight-academy-plugin.git",
+        "path": "plugins/starlight-department-lab",
+        "sha": "e06bbe8d4377ef7c439e83beacd6431072c89e58"
+      },
+      "description": "Prompt for maximum useful intelligence and outcome quality while designing and independently verifying one accountable AI department.",
+      "version": "0.1.0+codex.20260907044049",
+      "author": {
+        "name": "Starlight Intelligence Systems",
+        "url": "https://starlightintelligence.org/"
+      },
+      "homepage": "https://starlightintelligence.academy/academy/departments",
+      "repository": "https://github.com/frankxai/starlight-academy-plugin",
+      "license": "Apache-2.0",
+      "keywords": [
+        "ai-departments",
+        "agent-skills",
+        "mcp",
+        "evaluation",
+        "human-approval"
+      ]
+    }
+  ]
+}

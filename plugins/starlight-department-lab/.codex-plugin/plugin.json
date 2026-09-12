@@ -1,0 +1,50 @@
+{
+  "name": "starlight-department-lab",
+  "version": "0.1.0+codex.20260907044049",
+  "description": "Practice human judgment, agentic systems and scientific inference with portable mission records; design departments and test workflow evidence.",
+  "author": {
+    "name": "Starlight Intelligence Systems",
+    "url": "https://starlightintelligence.org/"
+  },
+  "homepage": "https://starlightintelligence.academy/academy/install",
+  "repository": "https://github.com/frankxai/starlight-academy-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ai-departments",
+    "agent-skills",
+    "mcp",
+    "evaluation",
+    "human-approval",
+    "workflow-design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Starlight Department Lab",
+    "shortDescription": "Maximize useful intelligence. Prove the outcome.",
+    "longDescription": "Work through four versioned missions across three schools. Preserve a first attempt, assistance, critique, revision and transfer in portable JSON. Design accountable departments and run synthetic acceptance checks. Practice grants no credentials or authority.",
+    "developerName": "Starlight Intelligence Systems",
+    "category": "Education",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://starlightintelligence.academy/academy/studio",
+    "privacyPolicyURL": "https://starlightintelligence.academy/privacy",
+    "defaultPrompt": [
+      "Apply maximum useful intelligence to this workflow and design the highest-performing accountable AI department for its explicit outcome.",
+      "Use learn-starlight-mission to open Mission Studio. Let me choose a mission, preserve my first attempt before help, and create a portable practice record.",
+      "Independently verify this AI department packet before I install or test it."
+    ],
+    "brandColor": "#76A8F8"
+  },
+  "mcpServers": {
+    "starlight-department-lab": {
+      "command": "node",
+      "args": [
+        "./mcp/server.mjs"
+      ],
+      "cwd": "."
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learn a Starlight Mission"
+  short_description: "Complete one evidence-based Academy mission"
+  default_prompt: "Use $learn-starlight-mission to complete one public Academy mission without enlarging agent authority."
