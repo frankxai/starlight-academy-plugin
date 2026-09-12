@@ -1,9 +1,10 @@
-# Install Starlight Academy from the public source
+# Install the Starlight Academy learning pack
 
-This directory describes the Academy plugin projection in
-`frankxai/starlight-academy-plugin`. Check that the catalogs and plugin files are
-present on the ref you select before installing. A projection receipt alone
-does not establish publication or a successful installation.
+The verified installation path is the [Academy learning pack](https://starlightintelligence.academy/academy/install).
+The Git projection in `frankxai/starlight-academy-plugin` is a publication candidate;
+clean installation from a public Git revision has not yet been verified. A
+projection receipt alone does not establish a successful installation. Use the
+archive commands below until this guide names a tested immutable Git revision.
 
 The plugin offers five skills and eight local MCP tools for four missions across
 agentic systems, human judgment and scientific inference. Start with an unaided
@@ -13,24 +14,25 @@ required by the plugin. The host agent's own access and charges remain separate.
 
 ## Codex
 
-Use a current Codex CLI that supports `plugin marketplace`. Install Node.js 22
-or later first. Review the source, then run:
+Download and extract the complete learning pack. Use a current Codex CLI that
+supports `plugin marketplace` and Node.js 22 or later. Review the source, open a
+terminal in the extracted `starlight-academy` directory, then run:
 
 ```sh
-codex plugin marketplace add frankxai/starlight-academy-plugin
-codex plugin add starlight-department-lab@starlight-academy
+node install.mjs codex
 ```
 
 ## Claude Code
 
+In the same extracted learning-pack directory, with Claude Code installed, run:
+
 ```sh
-claude plugin marketplace add frankxai/starlight-academy-plugin
-claude plugin install starlight-department-lab@starlight-academy
+node install.mjs claude
 ```
 
-In Claude Code's interactive interface, the same operations are `/plugin
-marketplace add frankxai/starlight-academy-plugin` and `/plugin install
-starlight-department-lab@starlight-academy`. Keep native trust prompts enabled.
+Both launchers register the extracted local marketplace and invoke the native
+plugin manager. Append `--dry-run` to inspect the commands first. Keep native
+trust prompts enabled and preserve the extracted directory for updates.
 
 If `starlight-academy` is already registered from an extracted local pack, inspect
 that source in your host's marketplace manager before replacing it. Do not mix
@@ -64,11 +66,10 @@ public mirror changes only source-repository URLs in the known native manifests,
 then adds this guide, a plugin README and its Apache-2.0 license. Executable MCP
 and skill bytes remain identical to the source archive.
 
-To pin a reviewed revision, use the host's Git ref option when adding the
-marketplace: Codex `--ref <reviewed-commit-or-tag>` or Claude's
-`frankxai/starlight-academy-plugin@<reviewed-commit-or-tag>`. Replace the placeholder
-with the actual reviewed ref; do not type the brackets. Inspect updates before
-refreshing through your host's marketplace manager. Disable or remove only
+Future Git installation will name a tested 40-character commit using Codex's
+`--ref` or Claude's `@` suffix. This candidate guide provides no floating Git
+installation command. Inspect updates before refreshing through your host's
+marketplace manager. Disable or remove only
 `starlight-department-lab` to roll back an installation; saved practice files are
 independent of the package.
 
