@@ -1,0 +1,35 @@
+{
+  "name": "starlight-academy",
+  "version": "0.1.0",
+  "description": "Practice with Academy teaching guides, source-backed challenges and useful AI feedback in your own conversation.",
+  "author": {
+    "name": "Starlight Intelligence Systems",
+    "url": "https://starlightintelligence.academy"
+  },
+  "homepage": "https://starlightintelligence.academy/academy/connect",
+  "repository": "https://github.com/frankxai/starlight-academy-plugin",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Starlight Academy",
+    "shortDescription": "A challenge. A guide. Your own judgment.",
+    "longDescription": "Choose a public mission, preserve your first attempt, practice with fictional teaching methods, critique the evidence and test transfer. Your AI host guides the conversation. The public connection accepts catalog IDs only and does not store work, run models or issue credentials.",
+    "developerName": "Starlight Intelligence Systems",
+    "category": "Education",
+    "capabilities": [
+      "Read",
+      "Interactive"
+    ],
+    "websiteURL": "https://starlightintelligence.academy/academy/connect",
+    "privacyPolicyURL": "https://starlightintelligence.academy/privacy",
+    "defaultPrompt": [
+      "Help me choose a Starlight Academy challenge.",
+      "Guide my first attempt before showing a solution.",
+      "Help me give useful feedback when AI gets something wrong."
+    ],
+    "brandColor": "#275A43",
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
+  }
+}

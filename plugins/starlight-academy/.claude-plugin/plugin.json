@@ -1,0 +1,12 @@
+{
+  "name": "starlight-academy",
+  "version": "0.1.0",
+  "description": "Practice with Academy teaching guides, source-backed challenges and useful AI feedback in your own conversation.",
+  "author": {
+    "name": "Starlight Intelligence Systems",
+    "url": "https://starlightintelligence.academy"
+  },
+  "homepage": "https://starlightintelligence.academy/academy/connect",
+  "repository": "https://github.com/frankxai/starlight-academy-plugin",
+  "license": "Apache-2.0"
+}
