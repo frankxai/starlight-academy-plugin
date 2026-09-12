@@ -5,7 +5,7 @@ Preserve an initial attempt, assistance, artifact, critique, revision and transf
 The server uses bundled public examples. It makes no network calls or external actions.
 Practice is unsigned self-study, not certification or permission to act.
 
-Installation and verification: ../../docs/academy/README.md
+[Installation and verification](../../docs/academy/README.md)
 
 Website: https://starlightintelligence.academy/academy/studio
 

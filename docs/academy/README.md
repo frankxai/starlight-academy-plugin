@@ -58,7 +58,7 @@ projections, with different trust and update behavior.
 
 ## Reproducibility and updates
 
-`release.json` lists the source ZIP hash and every projected file hash. These are
+The [release receipt](release.json) lists the source ZIP hash and every projected file hash. These are
 consistency checks, not signatures or independent publisher authentication. The
 public mirror changes only source-repository URLs in the known native manifests,
 then adds this guide, a plugin README and its Apache-2.0 license. Executable MCP
