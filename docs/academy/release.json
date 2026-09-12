@@ -18,14 +18,14 @@
     "path": "plugins/starlight-department-lab",
     "sha": "e06bbe8d4377ef7c439e83beacd6431072c89e58"
   },
-  "publicationState": "candidate; verify the remote commit and native install separately",
+  "publicationState": "Projection receipt; native installation evidence and exact tested revisions are recorded in README.md",
   "integrity": "Content consistency only; not a publisher signature or provider directory approval",
   "files": {
     ".agents/plugins/marketplace.json": "acbe222e6ab4c32f9de3f2da0b94439de8437b4a76515ab74a5b2e0810909157",
     ".claude-plugin/marketplace.json": "f0ca579fb9a56d9c9dbc17c80a11d1883310f59dfb34d09dfda8a4cb23a770e1",
     "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
-    "README.md": "b0971f122cd6dc5974aec2bd49576bccd1ca862ce6291258f785408c440909b6",
-    "docs/academy/README.md": "57c97492a609406948111cb6d2917ccdd3327834e7bb7be2244f000dda4a21db",
+    "README.md": "92042886c3b536ac54d3fc0cb07d37a6cbbf9bf245479dfb8f7d80346f5ea012",
+    "docs/academy/README.md": "8b68ed4ed6ab9376147967926c0e63c51b2a8343d54edd248c2f4cf16a1edaf7",
     "plugins/starlight-department-lab/.claude-plugin/plugin.json": "254a970f5792f10ee37b37c9b21754ece6246947bb0295cf05c6de6528aa149f",
     "plugins/starlight-department-lab/.codex-mcp.json": "53e0730054eaa36a6af6eb0720cb68bc9e8758b5bceaf9fb4bce91863e42cf7d",
     "plugins/starlight-department-lab/.codex-plugin/plugin.json": "9159bb175ca11f5b2f69e42984cd1f463cf81086549f17e41b37a23f4069850f",
