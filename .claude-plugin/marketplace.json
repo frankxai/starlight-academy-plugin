@@ -30,6 +30,17 @@
         "evaluation",
         "human-approval"
       ]
+    },
+    {
+      "name": "starlight-academy",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/frankxai/starlight-academy-plugin.git",
+        "path": "plugins/starlight-academy",
+        "sha": "5a03a810f2abfd6b744c1677b6b410f310f6f595"
+      },
+      "description": "Practice with public Academy teachers, challenges and feedback guides in your AI conversation.",
+      "version": "0.1.0"
     }
   ]
 }

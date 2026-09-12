@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "starlight-academy": {
+      "type": "http",
+      "url": "https://starlightintelligence.academy/mcp"
+    }
+  }
+}
