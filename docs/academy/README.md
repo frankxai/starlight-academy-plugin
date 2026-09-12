@@ -62,13 +62,16 @@ projections, with different trust and update behavior.
 
 The [release receipt](release.json) lists the source ZIP hash and every projected file hash. These are
 consistency checks, not signatures or independent publisher authentication. The
-public mirror changes only source-repository URLs in the known native manifests,
-then adds this guide, a plugin README and its Apache-2.0 license. Executable MCP
-and skill bytes remain identical to the source archive.
+public mirror changes source-repository URLs in the known native manifests and
+gives Claude an HTTPS `git-subdir` source pinned to an examined 40-character
+payload commit. It adds this guide, a plugin README and the Apache-2.0 license.
+Executable MCP and skill bytes remain identical to the source archive.
 
-Future Git installation will name a tested 40-character commit using Codex's
-`--ref` or Claude's `@` suffix. This candidate guide provides no floating Git
-installation command. Inspect updates before refreshing through your host's
+Future remote installation will name a tested 40-character catalog commit.
+Codex uses `--ref`; Claude uses a commit-pinned HTTPS catalog whose plugin source
+has its own exact payload SHA. Claude's marketplace URL suffix accepts branches
+or tags, so it is not used as a commit pin. This candidate guide provides no
+floating Git installation command. Inspect updates before refreshing through your host's
 marketplace manager. Disable or remove only
 `starlight-department-lab` to roll back an installation; saved practice files are
 independent of the package.
