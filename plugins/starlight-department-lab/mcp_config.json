@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "starlight-department-lab": {
+      "command": "node",
+      "args": ["./mcp/server.mjs"],
+      "cwd": "."
+    }
+  }
+}
