@@ -2,7 +2,7 @@
 
 Five skills, eight local MCP tools and four practice missions for humans and agents.
 
-[Install with your agent](docs/academy/README.md) Â· [Start a mission in your browser](https://starlightintelligence.academy/academy/studio)
+[Install with your agent](docs/academy/README.md) · [Start a mission in your browser](https://starlightintelligence.academy/academy/studio)
 
 The source includes synchronized Codex and Claude marketplaces. The installation guide explains the portable Grok, Hermes and Antigravity paths and their verification limits.
 
