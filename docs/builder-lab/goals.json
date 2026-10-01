@@ -1,0 +1,224 @@
+{
+  "schema": "starlight.builder_goals.v1",
+  "observed_at": "2026-10-01T19:26:57.765708+00:00",
+  "timezone": "Europe/Amsterdam",
+  "project_url": "https://github.com/users/frankxai/projects/8",
+  "authority": "GitHub owning issues; this file is a dated projection",
+  "scope": "Builder Lab derived workflow products; existing wider revenue objectives are preserved",
+  "budget_authority": "Proposed API-equivalent ceilings only; no cash-spend or unattended-run authorization",
+  "goals": [
+    {
+      "id": "BL-01",
+      "title": "Validate Builder Lab in two hosts and verify Dots eligibility",
+      "target_date": "2026-10-08",
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+      "status": "In review",
+      "owner_role": "Academy steward; host maker and checker unassigned",
+      "agent_state": "Codex source handoff; Anthropic historical review; no live host worker verified",
+      "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
+      "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
+      "next_gate": "Machine-admitted final independent review, then actual host fixtures and Dots eligibility",
+      "proposed_api_equivalent_budget_usd": "5",
+      "dependencies": [],
+      "acceptance": [
+        {
+          "id": "source",
+          "description": "Offline scaffold/check/pack source and package evidence",
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4"
+        },
+        {
+          "id": "review",
+          "description": "Independent review of final exact source",
+          "state": "blocked"
+        },
+        {
+          "id": "hosts",
+          "description": "Codex and Claude behavioral cases with missing/malicious evidence",
+          "state": "not-run"
+        },
+        {
+          "id": "dots",
+          "description": "Actual Dots eligibility and bounded connected-computer responsibility, or documented ineligibility",
+          "state": "not-run"
+        }
+      ]
+    },
+    {
+      "id": "BL-02",
+      "title": "Report per-goal usage, costs and unknown ROI from attributed receipts",
+      "target_date": "2026-10-05",
+      "status": "In review",
+      "owner_role": "Codex reporting maker; independent checker unassigned",
+      "agent_state": "Codex source handoff; independent source review and native run-receipt adoption pending",
+      "measure": "Report all six goals; reconcile both existing review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
+      "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
+      "next_gate": "Exact-source independent review and adoption of native run receipts",
+      "proposed_api_equivalent_budget_usd": "3",
+      "dependencies": [
+        "https://github.com/frankxai/agentic-ops/issues/93",
+        "https://github.com/frankxai/agentic-ops/issues/85",
+        "https://github.com/frankxai/agentic-ops/issues/51"
+      ],
+      "acceptance": [
+        {
+          "id": "report",
+          "description": "Working offline JSON/Markdown report and sanitized CLI importer",
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4"
+        },
+        {
+          "id": "tests",
+          "description": "Cache, missing cost, duplicates, refund period, zero investment and invalid completion regressions",
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4"
+        },
+        {
+          "id": "adoption",
+          "description": "Real maker run receipt and independently checked scoped report",
+          "state": "not-run"
+        }
+      ],
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/6"
+    },
+    {
+      "id": "BL-03",
+      "title": "Capture twenty qualified buyer signals for one workflow offer",
+      "target_date": "2026-10-10",
+      "status": "Backlog",
+      "owner_role": "Product marketing steward; maker unassigned",
+      "agent_state": "Candidate work only; no outreach or demand collection executed",
+      "measure": "Twenty unique qualified signals with role, reason and buyer-chosen price band; at least three permissioned workflow sample reactions",
+      "rationale": "Buyers reward solved tasks; free generic skill volume does not prove willingness to pay",
+      "next_gate": "Verified per-product consent-aware demand sink and owner-approved channel plan",
+      "proposed_api_equivalent_budget_usd": "10",
+      "dependencies": [
+        "https://github.com/frankxai/agentic-ops/issues/62",
+        "https://github.com/frankxai/frankx.ai-vercel-website/issues/796"
+      ],
+      "acceptance": [
+        {
+          "id": "capture",
+          "description": "Actual demand endpoint and durable sink proof",
+          "state": "not-run"
+        },
+        {
+          "id": "signals",
+          "description": "Twenty anonymized, qualified, nonduplicate signals",
+          "state": "not-run"
+        },
+        {
+          "id": "selection",
+          "description": "Offer selection from evidence and price bands, with rejected alternatives recorded",
+          "state": "not-run"
+        }
+      ],
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/7"
+    },
+    {
+      "id": "BL-04",
+      "title": "Produce one original paid workflow pack with cold-use evidence",
+      "target_date": "2026-10-15",
+      "status": "Backlog",
+      "owner_role": "Selected product-repository steward; maker/checker unassigned",
+      "agent_state": "Candidate product, no paid pack accepted",
+      "measure": "One original buyer-specific package; at least eight of ten cold-use tasks succeed; every unsafe fixture stops; complete sample and recovery guide",
+      "rationale": "Sell maintained domain outcomes and inspectable evidence built from existing technology",
+      "next_gate": "Buyer-evidenced offer selection, exact product repo/rights/owner and measured free baseline",
+      "proposed_api_equivalent_budget_usd": "25",
+      "dependencies": [
+        "BL-01",
+        "BL-03"
+      ],
+      "acceptance": [
+        {
+          "id": "domain",
+          "description": "Original domain artifact and rights inventory in a verified owning repo",
+          "state": "not-run"
+        },
+        {
+          "id": "quality",
+          "description": "Eight of ten cold uses succeed, all unsafe cases stop, comparative baseline recorded",
+          "state": "not-run"
+        },
+        {
+          "id": "support",
+          "description": "Complete sample, first run, troubleshooting, updates and uninstall/rollback",
+          "state": "not-run"
+        }
+      ],
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/8"
+    },
+    {
+      "id": "BL-05",
+      "title": "Verify seller, licensing and external delivery lifecycle",
+      "target_date": "2026-10-20",
+      "status": "Backlog",
+      "owner_role": "Founder seller/legal owner plus commerce steward; agent implementer unassigned",
+      "agent_state": "No legal approval, merchant setup or live checkout inferred",
+      "measure": "One eligible external channel with verified seller/rights/terms/fees and sandbox purchase, duplicate event, refund/revocation and update proofs",
+      "rationale": "Use managed delivery and owned contracts to earn without creating hosted customer inference or custom support",
+      "next_gate": "Actual merchant/seller evidence and use-case rights/compliance review",
+      "proposed_api_equivalent_budget_usd": "10",
+      "dependencies": [
+        "BL-04",
+        "https://github.com/frankxai/agentic-ops/issues/77",
+        "https://github.com/frankxai/agentic-ops/issues/85"
+      ],
+      "acceptance": [
+        {
+          "id": "rights",
+          "description": "Reviewed seller, license/notices, terms, privacy and consumer duties",
+          "state": "not-run"
+        },
+        {
+          "id": "delivery",
+          "description": "Native benefit lifecycle and duplicate/refund/update sandbox proof",
+          "state": "not-run"
+        },
+        {
+          "id": "release",
+          "description": "Independent product release gate and approved actual fee model",
+          "state": "not-run"
+        }
+      ],
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/9"
+    },
+    {
+      "id": "BL-06",
+      "title": "Reach ten buyers and EUR 1000 net receipts for the selected pack",
+      "target_date": "2026-10-31",
+      "status": "Backlog",
+      "owner_role": "Selected product sales steward; founder commercial approval required",
+      "agent_state": "Revenue target only; actual receipts and ROI unknown",
+      "measure": "At least ten distinct paid buyers and EUR 1000 receipts excluding VAT and refunds; reconcile contribution and acquisition/maintenance costs",
+      "rationale": "Fund continuation from attributable customer value and contribution, preserving wider revenue goals",
+      "next_gate": "Passed product release gate and owner-approved truthful sales assets",
+      "proposed_api_equivalent_budget_usd": "10",
+      "dependencies": [
+        "BL-03",
+        "BL-04",
+        "BL-05"
+      ],
+      "acceptance": [
+        {
+          "id": "customers",
+          "description": "Ten distinct paid buyers with anonymized merchant evidence",
+          "state": "not-run"
+        },
+        {
+          "id": "receipts",
+          "description": "EUR 1000 net receipts in the dated product period",
+          "state": "not-run"
+        },
+        {
+          "id": "economics",
+          "description": "Reconciled cash contribution, refunds and investment before ROI claim",
+          "state": "not-run"
+        }
+      ],
+      "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/10"
+    }
+  ],
+  "programme_issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/5"
+}

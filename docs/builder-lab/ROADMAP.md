@@ -4,6 +4,11 @@ Date: 2026-10-01. Owner: Starlight Academy plugin. Scope: a reusable builder lab
 and external-distribution blueprints. This is an implementation packet; it grants
 no cross-repository dispatch, new service, payment or publishing authority.
 
+The continuation adds [SMART goals](GOALS.md), an [operating model](operating-model.md),
+an offline goal/usage reporting tool, [rights review](licensing-and-compliance.md)
+and [self-service support](support.md). GitHub issues and Project 8 retain
+execution authority; dated JSON/Markdown files are inspectable projections.
+
 ## Current artifact
 
 `plugins/starlight-builder-lab` contains three skills, offline source generation,

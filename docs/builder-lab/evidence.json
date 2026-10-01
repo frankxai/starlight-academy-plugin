@@ -1,0 +1,52 @@
+{
+  "schema": "starlight.builder_evidence.v1",
+  "observed_at": "2026-10-01T19:44:09.377845+00:00",
+  "coverage": "Two audited prior Claude review receipts only; no fleet-wide or invoiced-cash claim",
+  "runs": [
+    {
+      "id": "builder-review-1",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "e0b5de047c8effe6f0c6706a7c7623630f18cf85d75c2f9f1042749b2875f0c4",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.276531",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 14408,
+      "input_tokens": 2,
+      "output_tokens": 16726,
+      "cache_creation_input_tokens": 27290,
+      "cache_read_input_tokens": 535
+    },
+    {
+      "id": "builder-review-2",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "2b8cee9a805041f63d05755585bffc504e2250f4360fd5bb094372da49b345f9",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.27119899999999997",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 11814,
+      "input_tokens": 2,
+      "output_tokens": 13270,
+      "cache_creation_input_tokens": 34516,
+      "cache_read_input_tokens": 2155
+    }
+  ],
+  "telemetry_gaps": [
+    {
+      "goal_id": "BL-01",
+      "reason": "Prior Codex maker token and subscription allocation unavailable for this scope"
+    },
+    {
+      "goal_id": "BL-02",
+      "reason": "Current Codex input/output/cache telemetry and allocated invoice cost unavailable; goal counter alone is not a native billing receipt"
+    },
+    {
+      "goal_id": "BL-02",
+      "reason": "One tool-free independent review was admitted BOUNDED and timed out at180 seconds without a verdict or usage/cost receipt; its actual expenditure is unknown"
+    }
+  ],
+  "financials": []
+}
