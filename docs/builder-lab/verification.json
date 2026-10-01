@@ -1,0 +1,79 @@
+{
+  "schema": "starlight.builder_lab.verification.v1",
+  "observedAt": "2026-10-01T18:48:59.803393+00:00",
+  "sourceBranch": "agent/codex/dots-builder-lab-20261001",
+  "issue": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+  "scope": {
+    "pluginSkills": 3,
+    "externalSkills": 1,
+    "liveCommerce": false,
+    "catalogRegistered": false
+  },
+  "tests": {
+    "run": 25,
+    "passed": 24,
+    "skipped": 1,
+    "skipReason": "Windows symlink creation privilege unavailable",
+    "windowsJunction": "passed",
+    "newlineNormalization": "passed",
+    "goldenStoredZipFixture": "11cf5adb7781594369ab2ce16066893ae191fa4d3ca1ea7d8970b93db2eea8b5",
+    "observedHosts": [
+      "Windows"
+    ],
+    "crossOSExecution": "not-run"
+  },
+  "manifestSchema": {
+    "url": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "ownAndGeneratedExample": "passed"
+  },
+  "skillFrontmatterAndLinks": {
+    "count": 4,
+    "status": "passed"
+  },
+  "secretScan": {
+    "tool": "gitleaks",
+    "status": "passed-before-final-narrow-fixes",
+    "finalStagedHook": "passed on source commit"
+  },
+  "review": {
+    "provider": "Anthropic",
+    "model": "claude-sonnet-5-5",
+    "firstVerdict": "ITERATE",
+    "followupVerdict": "ITERATE-narrow",
+    "draftSourcePR": "reviewer-approved",
+    "latestFindings": "ZIP host marker/compression dependence corrected; raw string prescan corrected; external tool path clarified",
+    "finalSourceVerdict": "pending",
+    "blocker": "Fresh review-lite admission HOLD: below RAM reserve; no further reviewer started",
+    "providerCostUSD": "0.54773"
+  },
+  "notClaimed": [
+    "Host workflow quality",
+    "Dots account eligibility",
+    "Directory approval",
+    "Commercial demand or price proof",
+    "Paid release gate",
+    "Linux/macOS execution"
+  ],
+  "sourceFileSha256": {
+    "plugins/starlight-builder-lab/.claude-plugin/plugin.json": "654c6ca71b76514c54693e82019e822abf92a905a2971af78ef907f1ff222b68",
+    "plugins/starlight-builder-lab/examples/research-brief.json": "60102bd66a86df50a440ff836aa11736bd5097d956b962eb5a3929e0955819ec",
+    "plugins/starlight-builder-lab/LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "plugins/starlight-builder-lab/plugin.json": "7eff6619f0987a832f020cfacc556005a7af2535309dc4109f18b78c4fa83a60",
+    "plugins/starlight-builder-lab/README.md": "f3662a8c31fd39a78d89a07fc53c6bdb58e8f2b6e24cf6e26c5abaa439a51d4f",
+    "plugins/starlight-builder-lab/references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "plugins/starlight-builder-lab/references/product-blueprints.md": "c9514b97ce51edb45339966b7e841a570e8964b3111f51289f2bb7ad7d1c727f",
+    "plugins/starlight-builder-lab/scripts/package_lab.py": "2611830234a5dcc3db33db389e71180fd0ddf955b7905cf569bc26beffb23dd6",
+    "plugins/starlight-builder-lab/skills/build-portable-plugin/SKILL.md": "32ff156624ee5684328db60725ed60052cf70ca4f7267c26839168665299aa60",
+    "plugins/starlight-builder-lab/skills/design-agent-product/SKILL.md": "fbf417bf56c5fc62d6536b002d99fc26da3c830decf7af5be7e635044783aa80",
+    "plugins/starlight-builder-lab/skills/map-agent-ecosystem/SKILL.md": "d629ff9f72b0f81d2770183723318388abb4ea99b17d5d680dfdda577c6e9329",
+    "plugins/starlight-builder-lab/tests/test_package_lab.py": "68ad5d8300f88ab61bc52857f6d03fe3a8da75033bfdc9ce0a384903e7cb2f1f",
+    "docs/builder-lab/distribution.md": "f7cae7ea0103d8aa9a5905ff2963ae6e5995d591ad15b2a13ae74b149d01f562",
+    "docs/builder-lab/product-blueprints.md": "ccf77df88c08f7999da5f88ff4419e31b00933516fe2704eef101bbc721c91f7",
+    "docs/builder-lab/ROADMAP.md": "5bc69554449a7f7fe4314f8599fd7b89bd682529a1b4b78ef1a2c183a091f296",
+    "docs/builder-lab/scripts/distribution_lab.py": "961632b57a7c2fdccadd8a08c22eac28e46386b2d7e54e0e9df9f55d072ca175",
+    "docs/builder-lab/skills/prepare-package-distribution/SKILL.md": "91708c1cb088d08f18dd4c666125e861974d27eb6e48cd19fcc271648011cd27",
+    "docs/builder-lab/tests/test_distribution_lab.py": "0bfd9bc71024265914f6d8dc0a47bdb3cbbf52ff888b154fbb7b363f009e3d0d",
+    "README.md": "34d695b00ba4a34ba131fe66537f0407d011b599dc204873139ed13d1b0d8312"
+  },
+  "hashesExcludeReceipt": true
+}

@@ -1,0 +1,7 @@
+{
+  "name": "starlight-builder-lab",
+  "version": "0.1.0",
+  "description": "Build portable agent skills and packages with source-backed ecosystem research, worked examples and inspectable package checks.",
+  "author": {"name": "Starlight Intelligence Systems"},
+  "license": "Apache-2.0"
+}
