@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline skills-only scaffolding, package checks and reproducible text ZIPs.
+"""Offline skills-only scaffolding, checks, text ZIPs and checksum-bound restoration.
 
 Standard library only. No installation, network, credential or commerce actions.
 The checks are a bounded project contract, not a provider certification.
@@ -8,12 +8,14 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
 import re
 import stat
 import sys
+import tempfile
 import zipfile
 
 SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
@@ -26,6 +28,22 @@ ROOT_FILES = {"plugin.json", "README.md", "LICENSE", "NOTICE"}
 ROOT_DIRS = {"skills", "scripts", "references", "examples", "tests", "LICENSES", ".claude-plugin"}
 SECRET = re.compile(r"-----BEGIN (?:(?:[A-Z][A-Z0-9 ]* )?PRIVATE KEY|PGP PRIVATE KEY BLOCK)-----|\b(?:sk-(?:proj-|ant-)?|polar_oat_|sk_live_|whsec_|ghp_|github_pat_)[A-Za-z0-9_-]{24,}|\bAKIA[0-9A-Z]{16}\b")
 LOCAL_PATH = re.compile(r"(?<![A-Za-z0-9/:])(?:[A-Za-z]:[/\\]+Users|/Users|/home)[/\\]+[A-Za-z0-9_.-]+[/\\]+")
+MAX_ARCHIVE = 32 * 1024 * 1024
+MAX_RESTORED = 16 * 1024 * 1024
+MAX_MEMBER = 1024 * 1024
+MAX_ENTRIES = 512
+RESTORE_MARKER = ".restore-incomplete"
+
+
+def indirect(path: Path) -> bool:
+    info = path.lstat()
+    return stat.S_ISLNK(info.st_mode) or bool(getattr(info, "st_file_attributes", 0) & 0x400)
+
+
+def ordinary_parents(path: Path) -> None:
+    for parent in (path, *path.parents):
+        if indirect(parent) or not parent.is_dir():
+            raise ValueError("Use an ordinary fully local output parent without links or reparse points")
 
 
 def read_json(path: Path) -> dict:
@@ -115,11 +133,10 @@ def scaffold(spec: dict, target: Path) -> dict:
 
 
 def package_files(root: Path) -> list[Path]:
-    def indirect(path: Path) -> bool:
-        info = path.lstat()
-        return stat.S_ISLNK(info.st_mode) or bool(getattr(info, "st_file_attributes", 0) & 0x400)
     if indirect(root) or not root.is_dir():
         raise ValueError("Package must be a real directory")
+    if os.path.lexists(root / RESTORE_MARKER):
+        raise ValueError("Incomplete restore; preserve this directory and retry into a fresh sibling")
     files = []
     paths = []
     pending = [root]
@@ -156,7 +173,7 @@ def package_files(root: Path) -> list[Path]:
         if (len(rel.parts) == 1 and path.is_file() and rel.name not in ROOT_FILES) or (path.is_dir() and len(rel.parts) == 1 and rel.name not in ROOT_DIRS):
             raise ValueError(f"Unexpected package content: {rel.as_posix()}")
         if path.is_file():
-            if path.suffix.lower() not in {".md", ".json", ".py", ".txt"} and path.name not in {"LICENSE", "NOTICE"}:
+            if path.suffix.lower() not in {".md", ".json", ".py", ".js", ".mjs", ".txt"} and path.name not in {"LICENSE", "NOTICE"}:
                 raise ValueError(f"Unsupported file type: {rel.as_posix()}")
             if path.stat().st_size > 1024 * 1024:
                 raise ValueError(f"File exceeds this lab's 1 MiB limit: {rel.as_posix()}")
@@ -245,12 +262,108 @@ def pack(root: Path, output: Path) -> dict:
                 info.create_system = 3
                 info.compress_type = zipfile.ZIP_STORED
                 info.external_attr = 0o100644 << 16
-                archive.writestr(info, path.read_text(encoding="utf-8").encode("utf-8"))
+                content = path.read_bytes()
+                content.decode("utf-8")  # Validate text without translating CRLF/CR bytes.
+                archive.writestr(info, content)
     except Exception:
         if created:
             output.unlink(missing_ok=True)
         raise
     return {**result, "zip": str(output), "sha256": hashlib.sha256(output.read_bytes()).hexdigest()}
+
+
+def restore(source: Path, output: Path, expected_sha256: str) -> dict:
+    """Restore checked bytes into a new folder; never install or execute them."""
+    if not isinstance(expected_sha256, str) or not re.fullmatch(r"[a-fA-F0-9]{64}", expected_sha256):
+        raise ValueError("Supply the publisher's independently obtained 64-character SHA-256")
+    if indirect(source) or not source.is_file() or source.stat().st_size > MAX_ARCHIVE:
+        raise ValueError("ZIP must be an ordinary local file of at most 32 MiB")
+    output = Path(os.path.abspath(output))
+    ordinary_parents(output.parent)
+    portable_component(output.name)
+    if os.path.lexists(output):
+        raise ValueError("Output directory already exists; existing versions and edits are preserved")
+    # Hash and parse the same bounded immutable in-memory bytes, not a reread path.
+    with source.open("rb") as stream:
+        raw = stream.read(MAX_ARCHIVE + 1)
+    if len(raw) > MAX_ARCHIVE:
+        raise ValueError("ZIP exceeds 32 MiB; input may have changed")
+    actual = hashlib.sha256(raw).hexdigest()
+    if actual != expected_sha256.lower():
+        raise ValueError("ZIP checksum mismatch; preserve the download and obtain the correct release")
+    payload, directories, prefixes, seen = {}, set(), {}, set()
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        entries = archive.infolist()
+        if not entries or len(entries) > MAX_ENTRIES or sum(entry.file_size for entry in entries) > MAX_RESTORED:
+            raise ValueError("ZIP must have 1-512 entries and at most 16 MiB of uncompressed content")
+        for entry in entries:
+            name = entry.filename
+            if entry.orig_filename != name or len(name) > 240:
+                raise ValueError("ZIP entry has a truncated or oversized name")
+            is_directory = entry.is_dir()
+            parts = name[:-1].split("/") if is_directory else name.split("/")
+            if len(parts) > 12:
+                raise ValueError("ZIP entry exceeds the 12-component path limit")
+            for part in parts:
+                portable_component(part)
+            canonical = "/".join(parts)
+            if canonical.casefold() in seen:
+                raise ValueError("Duplicate or case-colliding ZIP entry")
+            seen.add(canonical.casefold())
+            for index in range(1, len(parts) + 1):
+                prefix = "/".join(parts[:index])
+                kind = "directory" if index < len(parts) or is_directory else "file"
+                previous = prefixes.setdefault(prefix.casefold(), (prefix, kind))
+                if previous != (prefix, kind):
+                    raise ValueError("ZIP has a case collision or file/directory conflict")
+                if kind == "directory":
+                    directories.add(prefix)
+            mode = stat.S_IFMT(entry.external_attr >> 16)
+            if mode not in (0, stat.S_IFDIR if is_directory else stat.S_IFREG) or entry.external_attr & 0x400:
+                raise ValueError("ZIP links, reparse points and special files are unsupported")
+            if entry.flag_bits & 1 or entry.compress_type not in (zipfile.ZIP_STORED, zipfile.ZIP_DEFLATED):
+                raise ValueError("Encrypted or unsupported-compression ZIP entries are refused")
+            if entry.file_size > MAX_MEMBER or (is_directory and entry.file_size != 0):
+                raise ValueError("ZIP member exceeds 1 MiB or directory carries content")
+            if not is_directory:
+                with archive.open(entry) as stream:
+                    content = stream.read(MAX_MEMBER + 1)
+                if len(content) != entry.file_size or len(content) > MAX_MEMBER:
+                    raise ValueError("ZIP member length differs from its bounded declaration")
+                content.decode("utf-8", errors="strict")
+                payload[canonical] = content
+    # Validate the full package contract before creating the requested output.
+    # Only this session's TemporaryDirectory is cleaned; partial customer output is kept.
+    with tempfile.TemporaryDirectory(prefix="builder-restore-check-") as temporary:
+        stage = Path(temporary)
+        for name in sorted(directories, key=lambda value: (value.count("/"), value)):
+            (stage / name).mkdir()
+        for name, content in payload.items():
+            (stage / name).write_bytes(content)
+        result = check(stage)
+    ordinary_parents(output.parent)
+    output.mkdir(mode=0o700)  # Exclusive on every supported OS, even for an empty existing directory.
+    try:
+        marker = output / RESTORE_MARKER
+        with marker.open("xb") as stream:
+            stream.write(("Incomplete restore. Preserve this folder; retry into a fresh sibling.\n"
+                          f"Expected archive SHA-256: {actual}\n").encode("utf-8"))
+            stream.flush()
+            os.fsync(stream.fileno())
+        for name in sorted(directories, key=lambda value: (value.count("/"), value)):
+            (output / name).mkdir(mode=0o700)
+        for name, content in payload.items():
+            with (output / name).open("xb") as stream:
+                stream.write(content)
+                stream.flush()
+                os.fsync(stream.fileno())
+        marker.unlink()  # Only a completely written output becomes eligible for check/pack.
+    except OSError as exc:
+        raise ValueError(f"Restore write failed; preserve the partial directory and retry into a fresh sibling. {exc}") from exc
+    return {**result, "status": "restored-structural-pass", "directory": str(output),
+            "archive_sha256": actual, "files_sha256": {name: hashlib.sha256(content).hexdigest() for name, content in sorted(payload.items())},
+            "bytes_restored": sum(map(len, payload.values())), "installation": "not-performed",
+            "publisherIdentity": "not-verified-by-checksum", "priorVersions": "not-modified"}
 
 
 def main() -> int:
@@ -262,6 +375,10 @@ def main() -> int:
         action.add_argument("output", type=Path)
     for command in ("check",):
         sub.add_parser(command).add_argument("source", type=Path)
+    action = sub.add_parser("restore")
+    action.add_argument("source", type=Path)
+    action.add_argument("output", type=Path)
+    action.add_argument("--sha256", required=True)
     args = parser.parse_args()
     try:
         if args.command == "scaffold":
@@ -270,9 +387,11 @@ def main() -> int:
             result = pack(args.source, args.output)
         elif args.command == "check":
             result = check(args.source)
+        elif args.command == "restore":
+            result = restore(args.source, args.output, args.sha256)
         print(json.dumps(result, indent=2))
         return 0
-    except (ValueError, OSError, KeyError, TypeError) as exc:
+    except Exception as exc:
         print(json.dumps({"status": "fail", "error": str(exc)}), file=sys.stderr)
         return 1
 

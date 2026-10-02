@@ -1,0 +1,382 @@
+{
+  "observed_at": "2026-10-02T17:51:42.494386+00:00",
+  "execution_source_revision": "213afd21233cbd2c9e4bcde7a1281a4f2c6b5afb",
+  "builder_version": "0.1.4",
+  "runtime_sha256": "52635fec31939394be317177729a9d763c05c408ca0b5eb0c4286d4f789974c2",
+  "copied_builder_files_sha256": {
+    ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+    "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "README.md": "113fac19c882540c082255af10dfdcf692c0d4c1ac278d8c6cf510050d351ef2",
+    "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+    "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+    "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+    "scripts/package_lab.py": "52635fec31939394be317177729a9d763c05c408ca0b5eb0c4286d4f789974c2",
+    "skills/build-portable-plugin/SKILL.md": "d00ea1c3f4a27dd9a06f1690e52e504310a31995af953cec98fff418dd2b7b82",
+    "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+    "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+    "tests/test_package_lab.py": "f71a9074124ae8bdc9d504f3a680da1e0eeb36fe879669155d6f4536e73ca27b",
+    "tests/test_restore.py": "84a346d17c8341c857124d0ea65063d073058344584e167ece539264a1dff405"
+  },
+  "builder_archive_sha256": "cac0f747a6b2b2369fae7a949e936c473504bc40c7e1c74615e5b3e47be2c303",
+  "builder_repacked_sha256": "cac0f747a6b2b2369fae7a949e936c473504bc40c7e1c74615e5b3e47be2c303",
+  "builder_restored_files_sha256": {
+    ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+    "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "README.md": "113fac19c882540c082255af10dfdcf692c0d4c1ac278d8c6cf510050d351ef2",
+    "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+    "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+    "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+    "scripts/package_lab.py": "52635fec31939394be317177729a9d763c05c408ca0b5eb0c4286d4f789974c2",
+    "skills/build-portable-plugin/SKILL.md": "d00ea1c3f4a27dd9a06f1690e52e504310a31995af953cec98fff418dd2b7b82",
+    "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+    "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+    "tests/test_package_lab.py": "f71a9074124ae8bdc9d504f3a680da1e0eeb36fe879669155d6f4536e73ca27b",
+    "tests/test_restore.py": "84a346d17c8341c857124d0ea65063d073058344584e167ece539264a1dff405"
+  },
+  "prior_edit_sha256": "c15678686379bdd614a69cfb142281fd5eb25f9367027e2867e2b3c9eedcc2c7",
+  "prior_edit_preserved_after_refusal_and_fresh_copy": true,
+  "existing_folder_refusal": "Output directory already exists; existing versions and edits are preserved",
+  "wrong_hash_refusal": "ZIP checksum mismatch; preserve the download and obtain the correct release",
+  "wrong_hash_destination_absent": true,
+  "quote_source_revision": "907ada31c536bbb53d8746a4b47dca4856c68981",
+  "quote_source_skill_files_sha256": {
+    "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+    "examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+    "examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+    "examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+    "scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+  },
+  "quote_archive_sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+  "quote_restored_files_sha256": {
+    ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+    "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "README.md": "d89a2cc21ed6d4cc91f754515b7e37bf108263ee5726cdff0a0fa7de46684423",
+    "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+    "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "skills/quote-desk/SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+    "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+    "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+    "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+    "skills/quote-desk/scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+  },
+  "quote_complete_mit_sha256": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+  "quote_outcome": {
+    "id": "07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7",
+    "saved_revision": 2,
+    "reopened_snapshot_hash": "ff565933d746495102e4e87f24cec6c56aa05c705bd3c8ac35f28e5d2464838a",
+    "buyer_wording": "Thank you for your inspection request. The catalogue amount for one equipment inspection is EUR 120.00. Please confirm the equipment details and access arrangements. Scope, tax treatment, timing and the final quote still need review. This is a nonbinding draft.\n",
+    "owner_notes": "Synthetic reference trial from the restored existing MIT quote skill. Supplied principal and prices are declarations, not verified identity or approval. No send, connector or payment capability is available. Review source and buyer wording before use.\n",
+    "export_files_sha256": {
+      "quote.md": "5495b7fe9535545d222f504a5db968cb342e01046cc8a2f03c76ae52578bf0e9",
+      "quote.txt": "1ec3f86145dd3dce6c5dc0c50b2a826d384c23b6243e2f309ca60ba454c2f2e1",
+      "owner-notes.txt": "a984a0ac58ea572b8b29f6a3f4123834fd11262cb239f4ad0626ae3c492f3edd",
+      "record.json": "ff565933d746495102e4e87f24cec6c56aa05c705bd3c8ac35f28e5d2464838a",
+      "request.json": "13d9a2c4abe4590558b05f7ab6337bfe761d76bd412254a2203ca142960006c4",
+      "catalog.json": "150c86581ed8e4a523efbbbb0f9d0135599112e2325c97f07748d5380a4e7dc2",
+      "workspace.json": "7468af78e71b60a76bbcf33096a344208b10d4caab10c34b871713a6a6f01b69",
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079"
+    },
+    "outbound": "disabled",
+    "approvals_verified": false
+  },
+  "calls": [
+    {
+      "command": "pack",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "99847c3f3554ee84492c1c7917da3993c20ee63cc33844487d155a964213626b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "restore",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "fc3f907e679d5a0d357fd5765a7e97cf542107a240e861653db8dafa9793ef8a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "pack",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "46b7ccb138e11f2f12f0e184aca1fc42ee8f9329cba899d4559f32f7e75d73cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "restore",
+      "runtime": "Python",
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255"
+    },
+    {
+      "command": "restore",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "57757cc5455ecaf8d36beae85bac27c970ecbcc886e589847c1731b0f7d35c0d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "restore",
+      "runtime": "Python",
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8aaa6b334109dd44f847c8f6f6543e95023ee49091f8c67a0cc4e2bf56f6e0fe"
+    },
+    {
+      "command": "pack",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "1c7026e9731649b7e6a7c188f90668690a0b5d3318ce8a7bd4ef32b96e01073d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "restore",
+      "runtime": "Python",
+      "exit_code": 0,
+      "stdout_sha256": "baa9205c9dad85cfb86e9756c72cc07560749fb675b9e6b5642e749410af8c58",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "init",
+      "runtime": "Node",
+      "exit_code": 0,
+      "stdout_sha256": "f92565988952ded0948814c488f9e96c3642aec2f4f9451128b2198a28d40f8b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "intake",
+      "runtime": "Node",
+      "exit_code": 0,
+      "stdout_sha256": "f22bf6ae154451fedaa69feb23a3a912b6d4c918fcca583321ae1b53865b43b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "edit",
+      "runtime": "Node",
+      "exit_code": 0,
+      "stdout_sha256": "3bff1eeb4ed5c106147afe0ae59c0d9974d8fbfd45604357484a9e3c92d55463",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "show",
+      "runtime": "Node",
+      "exit_code": 0,
+      "stdout_sha256": "d4939c8555d64430fbafdf5ddd56978689a8f01d856fb15e33583d2ad50c615b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "export",
+      "runtime": "Node",
+      "exit_code": 0,
+      "stdout_sha256": "5539c4a4c777b7665f9af84cc183003f09454ccc5c42d65ce7f6b2def6330dd1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "execution": "All synchronous Python/Node CLI calls completed in separate processes; no persistent worker or model API in these runtimes",
+  "usage": {
+    "root_codex_authorship": null,
+    "invoice_cash_usd": null,
+    "revenue": null,
+    "cash_roi": "unknown"
+  },
+  "limits": [
+    "Trusted local synthetic artifact trial, not Polar delivery, entitlement/refund/update proof or outside-user/paid acceptance.",
+    "Expected hashes in this controlled replay come from the local producer receipt; customer publisher identity remains unverified.",
+    "Copied quote metadata is a trial adapter, not a live catalog listing or new product.",
+    "Original0.1.3 native host receipts remain unchanged; no new native host discovery/installation claim."
+  ],
+  "refinement_replay": {
+    "observed_at": "2026-10-02T18:06:14.160854+00:00",
+    "execution_source_revision": "3b58cde5846b0a03d9ace2b20d539c8cdd84e526",
+    "builder_version": "0.1.4",
+    "runtime_sha256": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+    "copied_builder_files_sha256": {
+      ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+      "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+      "README.md": "16ff2ce983c1ac2e4bf03c7ca8cc133297fe46c638a74bae9f010e1c887febfa",
+      "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+      "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+      "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+      "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+      "scripts/package_lab.py": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+      "skills/build-portable-plugin/SKILL.md": "568ca843d86581f7adafb4698cc1420e8104fd0b0006de3f8a0c5a37d6705eab",
+      "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+      "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+      "tests/test_package_lab.py": "8fa91e8039a3cfddac26420c64d1f73b3d22936ba8f9188f043e43507238f831",
+      "tests/test_restore.py": "fa45a36293440f4c391c66cb17ad2dbd362731c31c61c1d0249d81d2438e3966"
+    },
+    "builder_archive_sha256": "82e4bae136a6ffd8cdf7686f4f8415551e75892913247a6288ffdab5672972d5",
+    "builder_repacked_sha256": "82e4bae136a6ffd8cdf7686f4f8415551e75892913247a6288ffdab5672972d5",
+    "builder_restored_files_sha256": {
+      ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+      "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+      "README.md": "16ff2ce983c1ac2e4bf03c7ca8cc133297fe46c638a74bae9f010e1c887febfa",
+      "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+      "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+      "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+      "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+      "scripts/package_lab.py": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+      "skills/build-portable-plugin/SKILL.md": "568ca843d86581f7adafb4698cc1420e8104fd0b0006de3f8a0c5a37d6705eab",
+      "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+      "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+      "tests/test_package_lab.py": "8fa91e8039a3cfddac26420c64d1f73b3d22936ba8f9188f043e43507238f831",
+      "tests/test_restore.py": "fa45a36293440f4c391c66cb17ad2dbd362731c31c61c1d0249d81d2438e3966"
+    },
+    "prior_edit_sha256": "c15678686379bdd614a69cfb142281fd5eb25f9367027e2867e2b3c9eedcc2c7",
+    "prior_edit_preserved_after_refusal_and_fresh_copy": true,
+    "existing_folder_refusal": "Output directory already exists; existing versions and edits are preserved",
+    "wrong_hash_refusal": "ZIP checksum mismatch; preserve the download and obtain the correct release",
+    "wrong_hash_destination_absent": true,
+    "quote_source_revision": "907ada31c536bbb53d8746a4b47dca4856c68981",
+    "quote_source_skill_files_sha256": {
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+      "examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+      "examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+      "examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+      "scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+    },
+    "quote_archive_sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+    "quote_restored_files_sha256": {
+      ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "README.md": "d89a2cc21ed6d4cc91f754515b7e37bf108263ee5726cdff0a0fa7de46684423",
+      "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+      "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "skills/quote-desk/SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+      "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+      "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+      "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+      "skills/quote-desk/scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+    },
+    "quote_complete_mit_sha256": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "quote_outcome": {
+      "id": "07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7",
+      "saved_revision": 2,
+      "reopened_snapshot_hash": "9a6a5e7b8f4957a3b0216f9757a601a707463b99a3a4964ab1b68ba1e1519ddd",
+      "buyer_wording": "Thank you for your inspection request. The catalogue amount for one equipment inspection is EUR 120.00. Please confirm the equipment details and access arrangements. Scope, tax treatment, timing and the final quote still need review. This is a nonbinding draft.\n",
+      "owner_notes": "Synthetic reference trial from the restored existing MIT quote skill. Supplied principal and prices are declarations, not verified identity or approval. No send, connector or payment capability is available. Review source and buyer wording before use.\n",
+      "export_files_sha256": {
+        "quote.md": "5495b7fe9535545d222f504a5db968cb342e01046cc8a2f03c76ae52578bf0e9",
+        "quote.txt": "1ec3f86145dd3dce6c5dc0c50b2a826d384c23b6243e2f309ca60ba454c2f2e1",
+        "owner-notes.txt": "a984a0ac58ea572b8b29f6a3f4123834fd11262cb239f4ad0626ae3c492f3edd",
+        "record.json": "9a6a5e7b8f4957a3b0216f9757a601a707463b99a3a4964ab1b68ba1e1519ddd",
+        "request.json": "13d9a2c4abe4590558b05f7ab6337bfe761d76bd412254a2203ca142960006c4",
+        "catalog.json": "150c86581ed8e4a523efbbbb0f9d0135599112e2325c97f07748d5380a4e7dc2",
+        "workspace.json": "7468af78e71b60a76bbcf33096a344208b10d4caab10c34b871713a6a6f01b69",
+        "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079"
+      },
+      "outbound": "disabled",
+      "approvals_verified": false
+    },
+    "calls": [
+      {
+        "command": "pack",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "3ecd33a561b8835e6249aa029b569ebe3256759b34194d378376cc940f6f5865",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "restore",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "27866e9ba8ff9d49785f794d0681c12ccd6aba0563e1a9b2eaaaa6bd54e9febe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "pack",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "800fccdaa5ce898e322011b3d01263e1d57886ed0f02313330bee17802af4a44",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "restore",
+        "runtime": "Python",
+        "exit_code": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255"
+      },
+      {
+        "command": "restore",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "fc56da451db449f18edd0a3eacb3c8fee976746ead6baafb5b6819fda603c530",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "restore",
+        "runtime": "Python",
+        "exit_code": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8aaa6b334109dd44f847c8f6f6543e95023ee49091f8c67a0cc4e2bf56f6e0fe"
+      },
+      {
+        "command": "pack",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "6e003dcb62f45c2d759d89feb492b087d8eeafb7cb45c1a4f0ce41a992daeaf2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "restore",
+        "runtime": "Python",
+        "exit_code": 0,
+        "stdout_sha256": "dcef0080a41ec6e0de2702c960ee38ecf70f3165329cc24e319132c629050892",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "init",
+        "runtime": "Node",
+        "exit_code": 0,
+        "stdout_sha256": "db8661ff7ec04c16cc56630d5922a50c5642c6952054deb6eda32d399ed58dd5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "intake",
+        "runtime": "Node",
+        "exit_code": 0,
+        "stdout_sha256": "27140372f54db0b6836c9ce61aca75210a9784789dacc5042455e035205f8bd5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "edit",
+        "runtime": "Node",
+        "exit_code": 0,
+        "stdout_sha256": "d7c0d4cb1a83782335655d30512107c5e8b35a43e93b95e4616bba8fb4edccf3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "show",
+        "runtime": "Node",
+        "exit_code": 0,
+        "stdout_sha256": "e9341cc651cffd799b7a3a402a7c815d265800a48ec238abbf4519a463cdfeb7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": "export",
+        "runtime": "Node",
+        "exit_code": 0,
+        "stdout_sha256": "8b114e2192417f977fdac18764d214fab30fe0b8f00afd004957022ddd241cea",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "execution": "All synchronous Python/Node CLI calls completed in separate processes; no persistent worker or model API in these runtimes",
+    "usage": {
+      "root_codex_authorship": null,
+      "invoice_cash_usd": null,
+      "revenue": null,
+      "cash_roi": "unknown"
+    },
+    "limits": [
+      "Trusted local synthetic artifact trial, not Polar delivery, entitlement/refund/update proof or outside-user/paid acceptance.",
+      "Expected hashes in this controlled replay come from the local producer receipt; customer publisher identity remains unverified.",
+      "Copied quote metadata is a trial adapter, not a live catalog listing or new product.",
+      "Original0.1.3 native host receipts remain unchanged; no new native host discovery/installation claim."
+    ]
+  }
+}

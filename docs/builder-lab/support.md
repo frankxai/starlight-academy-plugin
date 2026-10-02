@@ -9,6 +9,8 @@ host and runtime. Dots availability must be verified for the actual account.
 | Symptom | Recovery | Evidence to include in a safe issue |
 | --- | --- | --- |
 | Package path already exists | Pick a new output path; preserve existing work | Command, tool version, short error |
+| Download hash mismatch | Preserve the ZIP; obtain the release hash independently from the trusted publisher/channel | Version, expected/actual public hash, no account token |
+| Restore rejected or interrupted | Use the [restore path](restore.md); preserve partial output and prior versions, retry into a fresh sibling | Version, short error and anonymous case ID |
 | Junction/reparse or cloud-placeholder rejection | Use an ordinary fully local directory, then check again | Relative affected path, no personal home path |
 | Licence missing | Supply the complete authorized licence and inventory; identifier alone is insufficient | Licence ID and public upstream revision |
 | Unknown spend or ROI | Supply a scoped usage receipt or reconciled financial evidence; do not substitute zero | Receipt type/hash and missing field names |
@@ -40,3 +42,9 @@ flow through the actual merchant/channel contract. Count unresolved defects,
 time to recovery, return rate and maintenance cash per product; use those values
 in continuation decisions. No always-on support bot or recurring job is installed
 by this document.
+
+Builder Lab 0.1.4 implements checksum-bound source restoration, with a copied-skill
+guide and preservation tests. This makes downloaded packages inspectable without
+manual raw extraction. It does not verify Polar or any other merchant's purchase,
+refund, revocation or update entitlement. Existing 0.1.3 native host receipts remain
+historical; new host/cold-user and commercial lifecycle acceptance is pending.

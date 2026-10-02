@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "starlight-builder-lab",
-  "version": "0.1.3",
-  "description": "Build portable agent skills and packages with source-backed ecosystem research, worked examples and inspectable package checks.",
+  "version": "0.1.4",
+  "description": "Build and restore portable agent skills and packages with source-backed ecosystem research, worked examples and inspectable package checks.",
   "author": {"name": "Starlight Intelligence Systems", "url": "https://starlightintelligence.academy"},
   "repository": "https://github.com/frankxai/starlight-academy-plugin",
   "license": "Apache-2.0",
@@ -11,8 +11,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Starlight Builder Lab",
-        "shortDescription": "Build and test agent packages",
-        "longDescription": "Research agent ecosystems, define one useful workflow, generate a portable skills-only plugin and inspect its package. Includes worked examples and adverse cases. Requires host file tools to generate files and Python 3.10 or later to run checks. Structural checks do not prove workflow quality, host compatibility or directory approval. No billing, accounts, remote services or automatic publishing are included.",
+        "shortDescription": "Build and restore agent packages",
+        "longDescription": "Research agent ecosystems, define one useful workflow, generate a portable skills-only plugin, inspect its package and restore checksum-bound downloads into a fresh folder. Includes worked examples and adverse cases. Requires host file tools and Python 3.10 or later to run scripts. Structural checks do not prove workflow quality, host compatibility, publisher identity or directory approval. No billing, accounts, remote services or automatic installation or publishing are included.",
         "developerName": "Starlight Intelligence Systems",
         "category": "Developer Tools",
         "capabilities": ["Read", "Write"],
