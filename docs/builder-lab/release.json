@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_release.v2",
-  "observed_at": "2026-10-02T12:00:16.062741+00:00",
-  "status": "0.1.3 development source and separate lifecycle evidence accepted through PR15. Six generated research-brief calls produced usable drafts in both arms with no clear decision-quality/speed advantage; this packet awaits its own independent review and exact CI. Parent hosts/cold use, catalogs, Dots and commerce remain open.",
+  "observed_at": "2026-10-02T13:00:55.274723+00:00",
+  "status": "PR16 outcome evidence accepted on main. Native Claude built three inspected identical editable packages across two assisted conditions; the direct-command baseline also succeeded. Codex Python denied and one timeout retained. This cold evidence packet awaits independent review; parent host/cold-user and actual Dots gates remain open.",
   "dots": {
     "state": "unverified",
     "plugin_version": "0.1.3",
@@ -32,7 +32,7 @@
     "state_observed_at": "2026-10-02T10:08:06.818045+00:00",
     "reason": "not verified"
   },
-  "machine_gate": "Six sequential native outcome workers completed under fresh RAM/disk floors. Task-owned profile removed, global config semantics unchanged; read-only fixture/traces retained. Native plugin lifecycle cleanup previously verified; 42 prior evaluator folders retained after rejected cleanup.",
+  "machine_gate": "One sequential admitted worker; all six attempts terminal, exact timed-out worker tree stopped after marker/PID check. Owned Codex cache/profile removed and parsed global configuration restored. Claude session-only plugin paths made no native registry installation. Private fixtures retained; no owned worker remains.",
   "secret_checks": "Full-history gitleaks on 2026-10-02 inspected 27 commits / 989730 bytes with no leaks. Lifecycle evidence staged hooks scanned 32443 bytes with no leaks. Package checker remains heuristic-only; retain repository security hooks.",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
@@ -41,16 +41,16 @@
     "No public or priced checkout enabled"
   ],
   "usage": {
-    "receipts": 128,
-    "complete_token_receipts": 93,
-    "missing_token_receipts": 35,
-    "processed_tokens": 3017458,
-    "known_api_equivalent_usd": "7.784707",
+    "receipts": 137,
+    "complete_token_receipts": 101,
+    "missing_token_receipts": 36,
+    "processed_tokens": 4024663,
+    "known_api_equivalent_usd": "8.756534",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown",
-    "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
-    "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
-    "scope": "Latest122 plus six native Codex outcome trials once. Nineteen costs, root lead and invoice cash remain unknown; this packet review will postdate the frozen snapshot."
+    "state_observed_at": "2026-10-02T13:00:55.274723+00:00",
+    "plugin_version": "mixed0.1.0–0.1.3 receipts",
+    "scope": "Five new complete native receipts plus one unknown timeout included once; twenty-one costs, root lead/invoices/cash missing. Current independent publication review postdates this frozen snapshot."
   },
   "comparison_candidate": {
     "plugin_version": "0.1.3",
@@ -365,11 +365,52 @@
   "research_brief_outcomes": {
     "record": "research-brief-outcomes.json",
     "comparison": "outcome-comparison.md",
-    "state": "lead-accepted-drafts-independent-review-pending",
+    "state": "accepted-on-main-through-pr16",
     "source_revision": "967f03be641dcfcaa1794ed81431e112be4f50ef",
     "builder_version": "0.1.3",
     "generated_example_version": "0.1.1",
     "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
-    "scope": "Three fresh paired tasks, one run per arm; no parent-suite, paid product, general causal advantage or human buyer acceptance."
+    "scope": "Three fresh paired tasks, one run per arm; no parent-suite, paid product, general causal advantage or human buyer acceptance.",
+    "review_url": "https://github.com/frankxai/starlight-academy-plugin/pull/16#issuecomment-5952043704",
+    "merge_revision": "1e9b159330d87e754f9265f17564432d3638a2cb",
+    "post_merge_ci": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/37005378173"
+  },
+  "historical_pr16_checkpoint_before_native_cold_workflow": {
+    "observed_at": "2026-10-02T12:00:16.062741+00:00",
+    "status": "0.1.3 development source and separate lifecycle evidence accepted through PR15. Six generated research-brief calls produced usable drafts in both arms with no clear decision-quality/speed advantage; this packet awaits its own independent review and exact CI. Parent hosts/cold use, catalogs, Dots and commerce remain open.",
+    "usage": {
+      "receipts": 128,
+      "complete_token_receipts": 93,
+      "missing_token_receipts": 35,
+      "processed_tokens": 3017458,
+      "known_api_equivalent_usd": "7.784707",
+      "invoiced_cash_usd": null,
+      "cash_roi": "unknown",
+      "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
+      "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
+      "scope": "Latest122 plus six native Codex outcome trials once. Nineteen costs, root lead and invoice cash remain unknown; this packet review will postdate the frozen snapshot."
+    },
+    "machine_gate": "Six sequential native outcome workers completed under fresh RAM/disk floors. Task-owned profile removed, global config semantics unchanged; read-only fixture/traces retained. Native plugin lifecycle cleanup previously verified; 42 prior evaluator folders retained after rejected cleanup.",
+    "research_brief_outcomes": {
+      "record": "research-brief-outcomes.json",
+      "comparison": "outcome-comparison.md",
+      "state": "accepted-on-main-through-pr16",
+      "source_revision": "967f03be641dcfcaa1794ed81431e112be4f50ef",
+      "builder_version": "0.1.3",
+      "generated_example_version": "0.1.1",
+      "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
+      "scope": "Three fresh paired tasks, one run per arm; no parent-suite, paid product, general causal advantage or human buyer acceptance.",
+      "review_url": "https://github.com/frankxai/starlight-academy-plugin/pull/16#issuecomment-5952043704",
+      "merge_revision": "1e9b159330d87e754f9265f17564432d3638a2cb",
+      "post_merge_ci": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/37005378173"
+    }
+  },
+  "native_cold_workflow": {
+    "record": "cold-workflow.json",
+    "guide": "cold-workflow.md",
+    "state": "claude-core-builds-lead-accepted-codex-runtime-open",
+    "source_revision": "1e9b159330d87e754f9265f17564432d3638a2cb",
+    "state_observed_at": "2026-10-02T13:00:55.274723+00:00",
+    "scope": "Three actual Claude core builds and identical assisted baseline; native ZIP inspection incomplete, lead inspected archives. One Codex interpreter failure and one180s timeout retained. No full-host, human cold-use, Dots or paid acceptance."
   }
 }

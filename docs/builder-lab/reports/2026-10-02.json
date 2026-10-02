@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_report.v1",
-  "observed_at": "2026-10-02T12:00:16.062741+00:00",
-  "evidence_observed_at": "2026-10-02T12:00:16.062741+00:00",
+  "observed_at": "2026-10-02T13:00:55.274723+00:00",
+  "evidence_observed_at": "2026-10-02T13:00:55.274723+00:00",
   "scope": "Dated supplied evidence; not live-agent telemetry",
   "goals": [
     {
@@ -10,39 +10,39 @@
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "target_date": "2026-10-08",
       "status": "In review",
-      "agent_state": "Source/lifecycle evidence accepted on main through PR15. Six generated research-brief case calls completed; lead found usable drafts in both arms and no clear decision-quality/speed advantage. Outcome packet pending its independent review; full parent workflows, cold use and Dots remain open.",
+      "agent_state": "PR16 outcome evidence accepted on main. Native Claude built three inspected identical editable packages across two assisted conditions; the direct-command baseline also succeeded. Codex Python denied and one timeout retained. This cold evidence packet awaits independent review; parent host/cold-user and actual Dots gates remain open.",
       "accepted_criteria": 2,
       "criteria_total": 4,
-      "known_runs": 123,
-      "complete_token_receipts": 88,
-      "missing_token_receipts": 35,
+      "known_runs": 132,
+      "complete_token_receipts": 96,
+      "missing_token_receipts": 36,
       "telemetry_gaps": [
         "Prior Codex maker token and subscription allocation unavailable for this scope",
         "One patch reviewer was stopped after RAM 4540 MiB was found below the 5120 MiB reserve requirement; no verdict or complete native usage/cost receipt returned, so expenditure is unknown",
         "First two native Claude suites completed 34 model runs with native list-cost receipts; default trace removal left no token receipts or actual responses. Later retained runs are separately attributed."
       ],
       "tokens_known_complete_subset": {
-        "input_tokens": 519240,
-        "output_tokens": 197001,
-        "cache_creation_input_tokens": 820888,
-        "cache_read_input_tokens": 1111504,
-        "fresh_input_tokens": 1340128,
-        "fresh_io_tokens": 1537129,
-        "processed_tokens": 2648633
+        "input_tokens": 571845,
+        "output_tokens": 226121,
+        "cache_creation_input_tokens": 975892,
+        "cache_read_input_tokens": 1881980,
+        "fresh_input_tokens": 1547737,
+        "fresh_io_tokens": 1773858,
+        "processed_tokens": 3655838
       },
-      "api_equivalent_usd_known_subset": "6.099002",
+      "api_equivalent_usd_known_subset": "7.070828",
       "api_equivalent_usd_by_cost_basis": {
-        "list": "6.099002"
+        "list": "7.070828"
       },
       "cost_basis": "list",
-      "unknown_cost_receipts": 19,
+      "unknown_cost_receipts": 21,
       "invoiced_cash_usd_known_subset": null,
-      "missing_invoice_receipts": 123,
+      "missing_invoice_receipts": 132,
       "cash_roi": {
         "status": "unknown",
         "reason": "No reconciled cash period"
       },
-      "next_gate": "Retain original P2/P4/P5/N2/N3 length and N2 advice failures; complete parent host/cold-use gates. Treat generated research brief as a free example with no demonstrated paid advantage; choose buyer-specific useful outcome against the capable baseline. Verify actual Dots eligibility; portable registry inventory remains issue6."
+      "next_gate": "Resolve native Codex Python execution without broadening account/global permissions; retain timeout and original response-suite length/advice failures. Native ZIP inspection remains separate from lead inspection. Verify actual Dots eligibility and human cold use. Select a buyer-specific useful outcome against the capable baseline before a paid package; portable inventory remains registry issue6."
     },
     {
       "id": "BL-02",
