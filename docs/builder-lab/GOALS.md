@@ -1,13 +1,13 @@
 # Builder Lab SMART goals
 
-Observed: 2026-10-01T19:26:57.765708+00:00. Targets are dated objectives; admission and revenue are not inferred.
+Observed: 2026-10-02. Targets are dated objectives; admission and revenue are not inferred.
 
 Programme: https://github.com/frankxai/starlight-academy-plugin/issues/5. Portfolio: https://github.com/users/frankxai/projects/8.
 
 | Goal | Target date | Specific measure | Owner role and state |
 | --- | --- | --- | --- |
-| [BL-01](https://github.com/frankxai/starlight-academy-plugin/issues/3) | 2026-10-08 | At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible | Academy steward; host maker and checker unassigned; In review |
-| [BL-02](https://github.com/frankxai/starlight-academy-plugin/issues/6) | 2026-10-05 | Report all six goals; reconcile both existing review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash | Codex reporting maker; independent checker unassigned; In review |
+| [BL-01](https://github.com/frankxai/starlight-academy-plugin/issues/3) | 2026-10-08 | At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible | Codex source handoff; current CI green; final delta review and native hosts pending; In review |
+| [BL-02](https://github.com/frankxai/starlight-academy-plugin/issues/6) | 2026-10-05 | Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash | Codex reporting handoff; four real review receipts attributed; final delta review pending; In review |
 | [BL-03](https://github.com/frankxai/starlight-academy-plugin/issues/7) | 2026-10-10 | Twenty unique qualified signals with role, reason and buyer-chosen price band; at least three permissioned workflow sample reactions | Product marketing steward; maker unassigned; Backlog |
 | [BL-04](https://github.com/frankxai/starlight-academy-plugin/issues/8) | 2026-10-15 | One original buyer-specific package; at least eight of ten cold-use tasks succeed; every unsafe fixture stops; complete sample and recovery guide | Selected product-repository steward; maker/checker unassigned; Backlog |
 | [BL-05](https://github.com/frankxai/starlight-academy-plugin/issues/9) | 2026-10-20 | One eligible external channel with verified seller/rights/terms/fees and sandbox purchase, duplicate event, refund/revocation and update proofs | Founder seller/legal owner plus commerce steward; agent implementer unassigned; Backlog |
@@ -17,4 +17,4 @@ The programme adds a dated goal projection to the existing GitHub system. It pre
 
 Proposed API-equivalent goal ceilings total USD 63. They authorize no paid provider calls, ad campaigns, subscription changes or unattended workers. Actual invoiced cash, founder time, revenue and ROI remain unknown until scoped receipts are reconciled.
 
-[Operating model](operating-model.md) · [Measured progress](reports/2026-10-01.md) · [Rights and obligations](licensing-and-compliance.md) · [Support](support.md).
+[Operating model](operating-model.md) · [Measured progress](reports/2026-10-02.md) · [Release evidence](release.md) · [Rights and obligations](licensing-and-compliance.md) · [Support](support.md).

@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-01T19:26:57.765708+00:00",
+  "observed_at": "2026-10-02T03:45:05.415931+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -13,11 +13,11 @@
       "target_date": "2026-10-08",
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "status": "In review",
-      "owner_role": "Academy steward; host maker and checker unassigned",
-      "agent_state": "Codex source handoff; Anthropic historical review; no live host worker verified",
+      "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
+      "agent_state": "Codex source handoff; four completed Anthropic review receipts; final delta and native hosts awaiting machine admission; no live host worker",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Machine-admitted final independent review, then actual host fixtures and Dots eligibility",
+      "next_gate": "Machine-admitted final delta review, current CI, then bounded native host cases; cash and ROI remain unknown",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
@@ -30,7 +30,7 @@
         {
           "id": "review",
           "description": "Independent review of final exact source",
-          "state": "blocked"
+          "state": "pending"
         },
         {
           "id": "hosts",
@@ -49,11 +49,11 @@
       "title": "Report per-goal usage, costs and unknown ROI from attributed receipts",
       "target_date": "2026-10-05",
       "status": "In review",
-      "owner_role": "Codex reporting maker; independent checker unassigned",
-      "agent_state": "Codex source handoff; independent source review and native run-receipt adoption pending",
-      "measure": "Report all six goals; reconcile both existing review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
+      "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
+      "agent_state": "Codex source handoff; four completed Anthropic review receipts; final delta and native hosts awaiting machine admission; no live host worker",
+      "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Exact-source independent review and adoption of native run receipts",
+      "next_gate": "Machine-admitted final delta review, current CI, then bounded native host cases; cash and ROI remain unknown",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",

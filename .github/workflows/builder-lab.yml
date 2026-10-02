@@ -3,7 +3,7 @@ name: Builder lab source checks
 on:
   pull_request:
   push:
-    branches: [main, agent/codex/dots-builder-lab-20261001]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 
 concurrency:
   group: builder-lab-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   source:
