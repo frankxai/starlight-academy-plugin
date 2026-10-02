@@ -10,7 +10,7 @@ The [dated usage report](reports/2026-10-02.md) now contains 137 attributed rece
 
 The following text retains the frozen snapshot and its original pending scope. PR16 acceptance is recorded above and in [release.json](release.json).
 
-# Current release checkpoint
+### Current release checkpoint
 
 Builder Lab 0.1.3 development source and separately reviewed lifecycle evidence are accepted through [PR15](https://github.com/frankxai/starlight-academy-plugin/pull/15), merged as `967f03b`; the reviewed/merged trees match and [four post-merge CI jobs passed](https://github.com/frankxai/starlight-academy-plugin/actions/runs/36999994079).
 
@@ -22,7 +22,7 @@ The [dated usage report](reports/2026-10-02.md) contains 128 attributed receipts
 
 The following snapshot retains its original pending and cost scope. Later PR15 review acceptance is recorded above and in [release.json](release.json).
 
-# Current release checkpoint
+### Current release checkpoint
 
 Builder Lab 0.1.3 development source is accepted on main as `392e2a7` through [PR14](https://github.com/frankxai/starlight-academy-plugin/pull/14). The [independent correction review passed](https://github.com/frankxai/starlight-academy-plugin/pull/14#issuecomment-5950302439), the reviewed and merged trees match, and [all four post-merge CI jobs passed](https://github.com/frankxai/starlight-academy-plugin/actions/runs/36995338500). The new lifecycle evidence below awaits its own review and exact CI.
 
@@ -38,7 +38,7 @@ The task-scoped activation index was refreshed after installation and removal. T
 
 The dated sections below retain their original source and receipt scopes. Their pending states are historical; the current machine-readable checkpoint is [release.json](release.json).
 
-# Builder Lab release checks
+### Builder Lab release checks
 
 Run `python -B scripts/verify_builder_release.py` from a checkout with Python
 3.10 or later. It runs scaffold, check, pack, restore and repack, checks that

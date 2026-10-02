@@ -22,17 +22,23 @@
     {
       "name": "original cold task",
       "prompt": "Build a usable local plugin package from the bundled research-brief specification in ./source-plugin. Read its tool guide and supplied specification, retain the complete supplied licence and existing notices, then actually scaffold, check and pack an editable plugin under ./scratch. Source files are read-only; do not change the workflow or invent missing rights.\n\nExisting paths must survive: ./scratch/preserve-work contains earlier customer work; ./scratch/empty-existing is an existing empty directory; ./scratch/research-brief-demo.zip is an earlier export. Use the supplied generator once against each existing directory to observe its actual refusal without force, deletion, cleanup or reuse. Try packing against the earlier ZIP once and preserve it; recover using a new sibling ZIP path. Demonstrate reproducibility by making a second new ZIP from the same generated source. Also try ./invalid-spec.json with a new scratch output path and retain the real failed-input result; do not invent a successful package from it.\n\nReturn actual created paths, package/check/refusal results, the exported hash and first-run commands. If a step is denied or fails, preserve all artifacts and state the unresolved step. No publication, installation, account changes, sends, browsing or network. Reads are limited to this task fixture and the applicable installed Builder skill/guide. Commands are limited to running the supplied source-plugin/scripts/package_lab.py with Python and ordinary read-only inspection of those inputs/outputs. Writes are limited to new source and ZIP outputs inside ./scratch; no source/fixture/protected-path edits and no arbitrary code execution. This is a free demonstration, not a paid product or a marketplace approval claim.",
-      "raw_prompt_sha256": "aadab9deab09f3e95abce68ae3e5553619582abcb124fd7f404411da0c3cfd1e"
+      "raw_prompt_sha256": "aadab9deab09f3e95abce68ae3e5553619582abcb124fd7f404411da0c3cfd1e",
+      "prompt_export_scope": "Public prompt replaces private fixture/interpreter paths; raw_prompt_sha256 hashes the private exact native prompt and sanitized_prompt_sha256 hashes this public text.",
+      "sanitized_prompt_sha256": "aadab9deab09f3e95abce68ae3e5553619582abcb124fd7f404411da0c3cfd1e"
     },
     {
-      "name": "interpreter assistance",
+      "name": "verified interpreter assistance",
       "prompt": "Build a usable local plugin package from the bundled research-brief specification in ./source-plugin. Read its tool guide and supplied specification, retain the complete supplied licence and existing notices, then actually scaffold, check and pack an editable plugin under ./scratch. Source files are read-only; do not change the workflow or invent missing rights.\n\nExisting paths must survive: ./scratch/preserve-work contains earlier customer work; ./scratch/empty-existing is an existing empty directory; ./scratch/research-brief-demo.zip is an earlier export. Use the supplied generator once against each existing directory to observe its actual refusal without force, deletion, cleanup or reuse. Try packing against the earlier ZIP once and preserve it; recover using a new sibling ZIP path. Demonstrate reproducibility by making a second new ZIP from the same generated source. Also try ./invalid-spec.json with a new scratch output path and retain the real failed-input result; do not invent a successful package from it.\n\nReturn actual created paths, package/check/refusal results, the exported hash and first-run commands. If a step is denied or fails, preserve all artifacts and state the unresolved step. No publication, installation, account changes, sends, browsing or network. Reads are limited to this task fixture and the applicable installed Builder skill/guide. Commands are limited to running the supplied source-plugin/scripts/package_lab.py with Python and ordinary read-only inspection of those inputs/outputs. Writes are limited to new source and ZIP outputs inside ./scratch; no source/fixture/protected-path edits and no arbitrary code execution. This is a free demonstration, not a paid product or a marketplace approval claim.\n\nRuntime assistance, identical for both arms: the lead verified the installed Python 3.13 executable from Git Bash. For every generator command use PYTHON -B source-plugin/scripts/package_lab.py. This provides the interpreter path, not proof that any generator operation has run in your session. Use Read for ordinary source/output inspection; do not execute arbitrary generated files or other commands.",
-      "raw_prompt_sha256": "234c02650cfd7cef2633b92cd844cbd129c9708620076f1967227958597ba941"
+      "raw_prompt_sha256": "234c02650cfd7cef2633b92cd844cbd129c9708620076f1967227958597ba941",
+      "prompt_export_scope": "Public prompt replaces private fixture/interpreter paths; raw_prompt_sha256 hashes the private exact native prompt and sanitized_prompt_sha256 hashes this public text.",
+      "sanitized_prompt_sha256": "ecde1b1bd49e3926021a54bf5d71f8314160f5633e32f967ce17f325ae119f1e"
     },
     {
-      "name": "interpreter and direct-command assistance",
+      "name": "verified interpreter plus direct-command clarification",
       "prompt": "Build a usable local plugin package from the bundled research-brief specification in ./source-plugin. Read its tool guide and supplied specification, retain the complete supplied licence and existing notices, then actually scaffold, check and pack an editable plugin under ./scratch. Source files are read-only; do not change the workflow or invent missing rights.\n\nExisting paths must survive: ./scratch/preserve-work contains earlier customer work; ./scratch/empty-existing is an existing empty directory; ./scratch/research-brief-demo.zip is an earlier export. Use the supplied generator once against each existing directory to observe its actual refusal without force, deletion, cleanup or reuse. Try packing against the earlier ZIP once and preserve it; recover using a new sibling ZIP path. Demonstrate reproducibility by making a second new ZIP from the same generated source. Also try ./invalid-spec.json with a new scratch output path and retain the real failed-input result; do not invent a successful package from it.\n\nReturn actual created paths, package/check/refusal results, the exported hash and first-run commands. If a step is denied or fails, preserve all artifacts and state the unresolved step. No publication, installation, account changes, sends, browsing or network. Reads are limited to this task fixture and the applicable installed Builder skill/guide. Commands are limited to running the supplied source-plugin/scripts/package_lab.py with Python and ordinary read-only inspection of those inputs/outputs. Writes are limited to new source and ZIP outputs inside ./scratch; no source/fixture/protected-path edits and no arbitrary code execution. This is a free demonstration, not a paid product or a marketplace approval claim.\n\nRuntime assistance, identical for both arms: the lead verified the installed Python 3.13 executable from Git Bash. For every generator command use PYTHON -B source-plugin/scripts/package_lab.py. This provides the interpreter path, not proof that any generator operation has run in your session. Use Read for ordinary source/output inspection; do not execute arbitrary generated files or other commands.\n\nDirect-command clarification, identical for both arms: the working directory is already the task root. Run each generator Bash command directly with the complete interpreter prefix above. Do not wrap it with cd, variable assignments, environment changes, semicolons, echoes, pipelines or shell functions; these wrappers are outside the allowed prefix. Read ordinary source files through Read. A direct generator command may return an expected collision/invalid-input error; retain that result and continue only with another already authorized operation. If an exact direct command is denied, report it without broadening permissions. Archive inspection beyond the supplied helper may remain unresolved and must be labeled separately.",
-      "raw_prompt_sha256": "a643bd3bedb3878b79d391ffb264fba510783d46708a33726ce33ccd0d400862"
+      "raw_prompt_sha256": "a643bd3bedb3878b79d391ffb264fba510783d46708a33726ce33ccd0d400862",
+      "prompt_export_scope": "Public prompt replaces private fixture/interpreter paths; raw_prompt_sha256 hashes the private exact native prompt and sanitized_prompt_sha256 hashes this public text.",
+      "sanitized_prompt_sha256": "0b5e71d25ffe2f2e1548c6846c1e883862c64d83f42cb1590fdf3ea58487ebc2"
     }
   ],
   "trials": [
@@ -64,7 +70,7 @@
       },
       "condition": "original cold task",
       "response": "Blocked before generation: `python`, `python3`, `py`, and `C:/Windows/py.exe` were unavailable. No generator invocation reached the script.\n\n- **Created paths:** none.\n- **Existing-directory and invalid-input attempts:** failed at interpreter lookup; no actual generator refusal or validation result was observed.\n- **Check, existing-ZIP refusal, new exports and reproducibility:** unresolved.\n- **Exported SHA-256:** unavailable; no export exists.\n- **Preservation:** source files were untouched. Final inspection showed the original customer file, empty directory and earlier export still present with unchanged displayed contents and sizes.\n\nI read the Builder skill, bundled guide, generator and specification. The supplied specification contains the complete MIT licence and `Copyright (c) 2026 Example publisher`; no attribution or workflow was changed.\n\nOnce Python is available, run these commands from the fixture directory. The new paths below have **not** been created:\n\n```powershell\npython -B ./source-plugin/scripts/package_lab.py scaffold ./source-plugin/examples/research-brief.json ./scratch/preserve-work\npython -B ./source-plugin/scripts/package_lab.py scaffold ./source-plugin/examples/research-brief.json ./scratch/empty-existing\npython -B ./source-plugin/scripts/package_lab.py scaffold ./invalid-spec.json ./scratch/research-brief-invalid-attempt\npython -B ./source-plugin/scripts/package_lab.py scaffold ./source-plugin/examples/research-brief.json ./scratch/research-brief-editable\npython -B ./source-plugin/scripts/package_lab.py check ./scratch/research-brief-editable\npython -B ./source-plugin/scripts/package_lab.py pack ./scratch/research-brief-editable ./scratch/research-brief-demo.zip\npython -B ./source-plugin/scripts/package_lab.py pack ./scratch/research-brief-editable ./scratch/research-brief-export-1.zip\npython -B ./source-plugin/scripts/package_lab.py pack ./scratch/research-brief-editable ./scratch/research-brief-export-2.zip\n```\n\nThe two successful pack results must report identical hashes before reproducibility can be claimed.",
-      "response_export_scope": "Native response, with private fixture/runtime paths replaced; response_sha256 hashes the private raw native response, sanitized_response_sha256 hashes this public text.",
+      "response_export_scope": "Native response, with private fixture/runtime paths replaced; response_sha256 hashes the private raw native response, sanitized_response_sha256 hashes this public text. No replacement was needed in this response; its public and raw hashes are identical.",
       "sanitized_response_sha256": "068488710a0643ca2c35bba0a682dc7c5f5572c1b795b964bb1ba5c3e452a746",
       "operations": [
         {
@@ -134,10 +140,12 @@
       ],
       "lead_acceptance": {
         "state": "not-completed",
-        "reviewer": "Codex lead, unblinded",
-        "reviewed_at": "2026-10-02T13:00:55.274723+00:00",
-        "scope": "Interpreter/permission denial prevented package creation; completion of the native conversation is not acceptance of the task."
-      }
+        "reviewer": "Codex source maker/lead, unblinded",
+        "scope": "Interpreter/permission denial prevented package creation; completion of the native conversation is not acceptance of the task.",
+        "snapshot_recorded_at": "2026-10-02T13:00:55.274723+00:00",
+        "inspection_time": "Not separately measured; snapshot_recorded_at is the publication stamp."
+      },
+      "private_path_replacements_applied": false
     },
     {
       "id": "builder-cold-claude-runtime-without",
@@ -259,10 +267,13 @@
       ],
       "lead_acceptance": {
         "state": "not-completed",
-        "reviewer": "Codex lead, unblinded",
-        "reviewed_at": "2026-10-02T13:00:55.274723+00:00",
-        "scope": "Interpreter/permission denial prevented package creation; completion of the native conversation is not acceptance of the task."
-      }
+        "reviewer": "Codex source maker/lead, unblinded",
+        "scope": "Interpreter/permission denial prevented package creation; completion of the native conversation is not acceptance of the task.",
+        "snapshot_recorded_at": "2026-10-02T13:00:55.274723+00:00",
+        "inspection_time": "Not separately measured; snapshot_recorded_at is the publication stamp."
+      },
+      "private_path_replacements_applied": true,
+      "native_result_json_sha256": "5ce0161daf2f83944a80481fcda2a5bcca7944960f7a68186f36c2c71f8015a4"
     },
     {
       "id": "builder-cold-claude-runtime-with",
@@ -549,10 +560,13 @@
       ],
       "lead_acceptance": {
         "state": "accepted-core-build-and-recovery",
-        "reviewer": "Codex lead, unblinded",
-        "reviewed_at": "2026-10-02T13:00:55.274723+00:00",
-        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open."
-      }
+        "reviewer": "Codex source maker/lead, unblinded",
+        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open.",
+        "snapshot_recorded_at": "2026-10-02T13:00:55.274723+00:00",
+        "inspection_time": "Not separately measured; snapshot_recorded_at is the publication stamp."
+      },
+      "private_path_replacements_applied": true,
+      "native_result_json_sha256": "90eaf7ec6ae632ee49cc4b0261da3ca8bf1e69766ce17f98e69bac0e159174f7"
     },
     {
       "id": "builder-cold-claude-direct-without",
@@ -814,10 +828,13 @@
       "native_permission_denials": [],
       "lead_acceptance": {
         "state": "accepted-core-build-and-recovery",
-        "reviewer": "Codex lead, unblinded",
-        "reviewed_at": "2026-10-02T13:00:55.274723+00:00",
-        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open."
-      }
+        "reviewer": "Codex source maker/lead, unblinded",
+        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open.",
+        "snapshot_recorded_at": "2026-10-02T13:00:55.274723+00:00",
+        "inspection_time": "Not separately measured; snapshot_recorded_at is the publication stamp."
+      },
+      "private_path_replacements_applied": true,
+      "native_result_json_sha256": "1315f07d6f1c6ce36dcbcf21c374af2cc56b4b207bb14d39e000ca1562205bbf"
     },
     {
       "id": "builder-cold-claude-direct-with",
@@ -1060,10 +1077,13 @@
       "native_permission_denials": [],
       "lead_acceptance": {
         "state": "accepted-core-build-and-recovery",
-        "reviewer": "Codex lead, unblinded",
-        "reviewed_at": "2026-10-02T13:00:55.274723+00:00",
-        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open."
-      }
+        "reviewer": "Codex source maker/lead, unblinded",
+        "scope": "Actual scaffold/check/pack, expected directory/ZIP refusals, malformed-input refusal and lead byte/archive inspection. Native ZIP-entry inspection was not completed; parent response/host suite and human cold-use acceptance remain open.",
+        "snapshot_recorded_at": "2026-10-02T13:00:55.274723+00:00",
+        "inspection_time": "Not separately measured; snapshot_recorded_at is the publication stamp."
+      },
+      "private_path_replacements_applied": true,
+      "native_result_json_sha256": "ffb5b12ec492d0a72ede9d3352edc6e47cdca67deb128b200d2417e0c8c6f4a8"
     }
   ],
   "incomplete_attempts": [
@@ -1089,12 +1109,14 @@
   "local_dependency_diagnostics": [
     {
       "kind": "non-model local sandbox dependency diagnostic",
-      "config_scope": "CLI-only profile extends built-in read-only; exact installed Python313 directory read access; network disabled; elevated Windows sandbox unchanged",
+      "config_scope": "All three retained diagnostics used the CLI-only builder-python-read profile extending :read-only, exact Python313-directory read grant, network disabled; Windows elevated setting unchanged. This records selected config, not universal enforcement.",
       "exit_code": 1,
       "stdout": "",
       "stderr": "windows sandbox failed: runner failed during SpawnChild: CreateProcessAsUserW failed: 5 (Access is denied.) | cwd=[fixture-root]\\builder-cold-codex-with | cmd=PYTHON --version | env_u16_len=13135 | si_flags=256 | creation_flags=134743040 (Windows error 5)\n",
       "elapsed_seconds": 1.332,
-      "raw_receipt_sha256": "073a15b92184360f2b7e190016a68805482498f558eac800a1d13b9f98ab1d61"
+      "raw_receipt_sha256": "073a15b92184360f2b7e190016a68805482498f558eac800a1d13b9f98ab1d61",
+      "stderr_export_scope": "Sanitized native stderr; raw_receipt_sha256 identifies the private original diagnostic JSON.",
+      "sanitized_stderr_sha256": "85d42cb8623b0d9753fce2c8ee3dd22a73d49a16c66b92d56e4a7d891b906c73"
     },
     {
       "kind": "non-model local sandbox dependency diagnostic with Windows-native backslash executable path",
@@ -1102,15 +1124,21 @@
       "stdout": "",
       "stderr": "windows sandbox failed: runner failed during SpawnChild: CreateProcessAsUserW failed: 5 (Access is denied.) | cwd=[fixture-root]\\builder-cold-codex-with | cmd=PYTHON --version | env_u16_len=13135 | si_flags=256 | creation_flags=134743040 (Windows error 5)\n",
       "elapsed_seconds": 1.237,
-      "raw_receipt_sha256": "141c43500ae3cead7900a4a96b55a52c43547c24b1b20e36757730e619b08069"
+      "raw_receipt_sha256": "141c43500ae3cead7900a4a96b55a52c43547c24b1b20e36757730e619b08069",
+      "config_scope": "All three retained diagnostics used the CLI-only builder-python-read profile extending :read-only, exact Python313-directory read grant, network disabled; Windows elevated setting unchanged. This records selected config, not universal enforcement.",
+      "stderr_export_scope": "Sanitized native stderr; raw_receipt_sha256 identifies the private original diagnostic JSON.",
+      "sanitized_stderr_sha256": "85d42cb8623b0d9753fce2c8ee3dd22a73d49a16c66b92d56e4a7d891b906c73"
     },
     {
       "kind": "non-model local sandbox shell/interpreter diagnostic",
       "exit_code": 0,
       "stdout": "shell-started\n",
-      "stderr": "& : The term 'PYTHON' is not recognized as the name of a \ncmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify \nthat the path is correct and try again.\nAt line:1 char:33\n+ ... started'; & 'C:\\Users\\frank\\AppData\\Local\\Programs\\Python\\Python313\\p ...\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : ObjectNotFound: (C:\\Users\\frank\\...n313\\python.exe:String) [], CommandNotFoundException\n    + FullyQualifiedErrorId : CommandNotFoundException\n \n",
+      "stderr": "& : The term 'PYTHON' is not recognized as the name of a \ncmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify \nthat the path is correct and try again.\nAt line:1 char:33\n+ ... started'; & '[local-profile]\\AppData\\Local\\Programs\\Python\\Python313\\p ...\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : ObjectNotFound: ([local-profile]\\...n313\\python.exe:String) [], CommandNotFoundException\n    + FullyQualifiedErrorId : CommandNotFoundException\n \n",
       "elapsed_seconds": 1.764,
-      "raw_receipt_sha256": "9a7c9234191a397178816bf85b42c59c1396da6e630e7aeb018e75b0d32c925e"
+      "raw_receipt_sha256": "9a7c9234191a397178816bf85b42c59c1396da6e630e7aeb018e75b0d32c925e",
+      "config_scope": "All three retained diagnostics used the CLI-only builder-python-read profile extending :read-only, exact Python313-directory read grant, network disabled; Windows elevated setting unchanged. This records selected config, not universal enforcement.",
+      "stderr_export_scope": "Sanitized native stderr; raw_receipt_sha256 identifies the private original diagnostic JSON.",
+      "sanitized_stderr_sha256": "bb5467c62080a456b961664f2a1fc48e7fea24ce4b4142132a525c20b587dd40"
     }
   ],
   "cleanup": {
@@ -1120,7 +1148,7 @@
     "global_config_semantics_restored": true
   },
   "native_permissions": "Codex workspace-write with never approvals and elevated Windows sandbox; non-model diagnostics use built-in read-only plus exact Python-runtime read grant, network disabled. Claude restricted mode with explicit Bash/Read/Skill, supplied-helper prefix rules and dontAsk. Read-only Bash inspection sometimes allowed by native safe-command classification; prefix rules are not an OS sandbox.",
-  "comparison": "Four Claude sessions in two paired assistance conditions. First baseline stopped at a wrapped command denial while plugin arm used a permitted direct command. Under identical direct-command guidance both arms created byte-identical packages. No demonstrated paid advantage or causal speed advantage.",
+  "comparison": "Four Claude sessions in two paired assistance conditions. Both first-condition arms initially issued denied wrappers. The baseline stopped and reported its denial; the plugin arm retried an already permitted direct helper prefix and produced the package. One run per arm cannot attribute retry behaviour to the skill. Both baselines read the same SKILL.md/README/helper from their fixtures; the contrast is native plugin auto-loading versus source-guide reads. Under identical direct-command clarification both arms created byte-identical packages. No demonstrated paid advantage or causal speed/quality advantage.",
   "limits": [
     "One full multi-operation fresh session per host/arm; assisted task with explicit collision checks, not independent per-fixture trigger precision.",
     "No human cold user, buyer, paid advantage, catalog/directory approval or Dots account evidence.",
@@ -1129,10 +1157,12 @@
     "One assisted run per arm; fixed without-then-with order. Timing/cache/context do not establish causal advantage.",
     "Codex interpreter denial and baseline timeout remain open. Six attempts contain five complete usage receipts and one unknown. No retry of the timed-out session or extrapolated usage.",
     "Non-model parser/diagnostic attempts are not model receipts. A shell diagnostic returned process exit0 while Python failed to resolve; this is not an interpreter pass.",
-    "Three accepted core package builds each contain model-level ZIP-inspection limitations, completed separately by lead inspection. No product or whole-host-suite closure."
+    "Three accepted core package builds each contain model-level ZIP-inspection limitations, completed separately by lead inspection. No product or whole-host-suite closure.",
+    "Original Codex model session reported command-not-found; the separately configured non-model direct-process diagnostics reported Windows error5. No root-cause equivalence or dependency recovery is claimed."
   ],
   "independent_review": {
     "state": "pending-exact-revision-static-review",
     "scope": "This source/evidence publication only; no buyer, legal, Dots or commercial certification."
-  }
+  },
+  "instruction_compliance": "Claude arms ran or attempted read-only Bash inspection beyond the helper prefix, despite the assistance prompt requiring Read for ordinary inspection and prohibiting other commands. Some inspections were natively safe-classified and allowed; others were denied. Core build/recovery acceptance does not close this prompt-instruction compliance gap or native ZIP-inspection gap."
 }
