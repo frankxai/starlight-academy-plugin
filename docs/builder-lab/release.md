@@ -8,7 +8,7 @@ The [native installed-plugin lifecycle](native-plugin-lifecycle.json) adds three
 
 The [dated usage report](reports/2026-10-02.md) includes 120 attributed receipts: 85 complete token receipts and 35 incomplete ones, totaling 2,673,123 processed tokens in the complete subset. It includes the final PR14 correction review and three lifecycle sessions once. Known native list/API-equivalent cost is USD 7.403816; thirteen costs, root lead usage, allocated invoices, revenue and cash ROI remain unknown. The lifecycle evidence review will postdate this snapshot.
 
-The task-scoped activation index was refreshed after installation and removal. The dirty shared index remains in its foreign checkout, with no global refresh claim. [Registry issue6](https://github.com/frankxai/ai-capability-registry/issues/6) tracks portable-manifest inventory and configured-state separation by 8 October. Complete current host/cold-use behavior, Dots eligibility, catalog release, buyers, seller/rights evidence and sandbox delivery remain open.
+The task-scoped activation index was refreshed after installation and removal. The dirty shared index remains in its foreign checkout, with no global refresh claim. [Registry issue6](https://github.com/frankxai/ai-capability-registry/issues/6) tracks portable-manifest inventory and configured-state separation by 8 October; implementation is planned and unassigned. Complete current host/cold-use behavior, Dots eligibility, catalog release, buyers, seller/rights evidence and sandbox delivery remain open.
 
 ## Historical snapshots
 

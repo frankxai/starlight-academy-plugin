@@ -10,7 +10,7 @@ The [lifecycle receipt](native-plugin-lifecycle.json) tests the accepted PR14
 source at `392e2a7` through Codex CLI 0.159.3. The portable and Claude manifests
 matched the package name and version. The package checker passed; the package
 contained no hooks or MCP configuration. Native `plugin add` installed the
-temporary local marketplace selector, and all twelve cached files matched
+plugin named by the temporary local marketplace selector; all twelve cached files matched
 their Git blobs.
 
 Three fresh, read-only, ephemeral sessions answered the same catalog question:
@@ -29,7 +29,9 @@ scope; they do not prove that disabling a plugin revokes filesystem access.
 
 After the final session, the lead verified that the test selector, owned plugin
 cache and temporary profile were absent and global configuration semantics
-matched the pre-install state. All owned workers stopped. The three model
+matched the pre-install state. The receipt includes a dated read-only
+post-session cleanup check. Private fixtures and traces remain as evidence.
+All owned workers stopped. The three model
 receipts contain 87,545 processed tokens; Codex billed cost remains unknown.
 
 The existing activation scanner ran after installation and removal with an
@@ -38,7 +40,7 @@ then zero. Its legacy plugin count does not inventory portable `plugin.json`
 packages or establish configured enablement. The shared canonical index is
 dirty on another branch; no global router refresh is claimed.
 [Registry issue6](https://github.com/frankxai/ai-capability-registry/issues/6)
-tracks that gap, with six fixtures and a target of 8 October.
+tracks that gap, planned and unassigned, with six fixtures and a target of 8 October.
 
 The [OpenAI packaging guide](https://developers.openai.com/plugins/build/plugins)
 documents repository-backed marketplaces and local configuration disablement.

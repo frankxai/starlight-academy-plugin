@@ -67,7 +67,7 @@
         "unavailable": []
       },
       "accepted": true,
-      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "acceptance": "Native runner accepted flag checks available names only; lead separately checked exact available/unavailable sets and empty observed tool list",
       "native_usage": {
         "input_tokens": 29156,
         "cached_input_tokens": 0,
@@ -99,7 +99,7 @@
         ]
       },
       "accepted": true,
-      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "acceptance": "Native runner accepted flag checks available names only; lead separately checked exact available/unavailable sets and empty observed tool list",
       "native_usage": {
         "input_tokens": 29116,
         "cached_input_tokens": 0,
@@ -131,7 +131,7 @@
         ]
       },
       "accepted": true,
-      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "acceptance": "Native runner accepted flag checks available names only; lead separately checked exact available/unavailable sets and empty observed tool list",
       "native_usage": {
         "input_tokens": 29116,
         "cached_input_tokens": 0,
@@ -188,5 +188,24 @@
   ],
   "processed_tokens_complete_subset": 87545,
   "actual_model_calls": 3,
-  "activation_scope": "Existing scanner invoked with an explicit private OutputPath; portable-plugin metadata added separately from legacy inventory. Shared-index byte preservation was not measured before the run and is not attested."
+  "activation_scope": "Existing scanner invoked with an explicit private OutputPath; portable-plugin metadata added separately from legacy inventory. Shared-index byte preservation was not measured before the run and is not attested.",
+  "post_session_cleanup_check": {
+    "schema": "starlight.builder_post_session_cleanup.v1",
+    "observed_at": "2026-10-02T11:09:17.166747+00:00",
+    "after_session_completed_at": "2026-10-02T10:49:17.547921+00:00",
+    "selector": "starlight-builder-lab@builder-lifecycle-validation",
+    "selector_absent": true,
+    "owned_plugin_cache_absent": true,
+    "temporary_profile_absent": true,
+    "global_configuration_semantics_equal_before_install": true,
+    "scope": "Lead read-only check after all three native sessions; semantic hash comparison in memory, no configuration values exported",
+    "private_record_sha256": "6b3ac665dce52e9f9cc28a2b0c101a903ccd92be4d5ad51cb7a0b6ccd4eab0e6"
+  },
+  "registry_followup": {
+    "state": "planned",
+    "implementation_maker": "unassigned",
+    "independent_checker": "unassigned",
+    "target_date": "2026-10-08",
+    "issue_url": "https://github.com/frankxai/ai-capability-registry/issues/6"
+  }
 }
