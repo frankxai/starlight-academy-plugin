@@ -4,6 +4,56 @@ Builder Lab is source on main. It is still absent from the repository's Codex
 and Claude catalogs. The receipts below describe bounded local tests, with
 production distribution gates remaining open.
 
+## Current 0.1.3 native plugin lifecycle
+
+The [lifecycle receipt](native-plugin-lifecycle.json) tests the accepted PR14
+source at `392e2a7` through Codex CLI 0.159.3. The portable and Claude manifests
+matched the package name and version. The package checker passed; the package
+contained no hooks or MCP configuration. Native `plugin add` installed the
+plugin named by the temporary local marketplace selector; all twelve cached files matched
+their Git blobs.
+
+Three fresh, read-only, ephemeral sessions answered the same catalog question:
+
+| Native plugin state | Builder skills reported available | Observed tool calls |
+| --- | --- | --- |
+| Enabled | All three | None |
+| Disabled by the plugin flag | None | None |
+| Removed through `plugin remove` | None | None |
+
+The temporary profile disabled other configured plugins and MCP connections,
+retained existing disabled skill entries, and used a 10,000-token skill context
+limit. It supplied no targeted per-skill enable overrides. Other skill
+descriptors remained present. These replies establish discovery in this
+scope; they do not prove that disabling a plugin revokes filesystem access.
+
+After the final session, the lead verified that the test selector, owned plugin
+cache and temporary profile were absent and global configuration semantics
+matched the pre-install state. The receipt includes a dated read-only
+post-session cleanup check. Private fixtures and traces remain as evidence.
+All owned workers stopped. The three model
+receipts contain 87,545 processed tokens; Codex billed cost remains unknown.
+
+The existing activation scanner ran after installation and removal with an
+explicit private output path. It found three matching cache-skill records,
+then zero. Its legacy plugin count does not inventory portable `plugin.json`
+packages or establish configured enablement. The shared canonical index is
+dirty on another branch; no global router refresh is claimed.
+[Registry issue6](https://github.com/frankxai/ai-capability-registry/issues/6)
+tracks that gap, planned and unassigned, with six fixtures and a target of 8 October.
+
+The [OpenAI packaging guide](https://developers.openai.com/plugins/build/plugins)
+documents repository-backed marketplaces and local configuration disablement.
+The observations here concern the tested local client. Dots eligibility,
+ChatGPT cloud behavior, directory approval and catalog release retain their
+own gates in [release.json](release.json).
+
+## Historical trials
+
+The following sections retain their original version, assistance and pending
+states. The native 0.1.3 lifecycle receipt above supersedes the earlier debug-only
+disable uncertainty for its stated scope.
+
 ## Claude Code 2.1.287
 
 The response trial used `--plugin-dir` with the committed plugin snapshot,

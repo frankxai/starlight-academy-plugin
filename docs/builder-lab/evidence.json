@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_evidence.v1",
-  "observed_at": "2026-10-02T10:19:40.317100+00:00",
-  "coverage": "Dated attributed receipts including the first PR14 provider review once; the final correction review will postdate this snapshot; cash/root lead usage unknown",
+  "observed_at": "2026-10-02T10:57:54.192239+00:00",
+  "coverage": "120 attributed receipts, including final PR14 correction review and three actual native plugin-lifecycle trials once; root lead, allocated invoice cash and ROI unknown",
   "runs": [
     {
       "id": "builder-review-1",
@@ -2246,6 +2246,94 @@
       "cache_creation_input_tokens": 102740,
       "cache_read_input_tokens": 0,
       "scope": "Independent frozen 0f2aef3 development source/evidence review; PASS with fidelity recommendations; primary BL-01 once, no per-subtask allocation"
+    },
+    {
+      "id": "builder-013-provider-review-2",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/14#issuecomment-5950302439",
+      "source_sha256": "1908f1a59c7299eda1acc79856a522259621ce0fbbfe9807eee71893b0d07be9",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.1498316",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 2238,
+      "input_tokens": 2,
+      "output_tokens": 4799,
+      "cache_creation_input_tokens": 25359,
+      "cache_read_input_tokens": 2008,
+      "scope": "Independent frozen 7e1a65d correction review: PASS for truthful development source/evidence; primary BL-01 once, no synthetic subtask allocation"
+    },
+    {
+      "id": "builder-plugin-lifecycle-enabled",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+      "source_sha256": "98a8b5bf3ce075ed44061eb576c12a75ef1bd3e8971d42f5dacc74327b2c63e1",
+      "provider": "OpenAI / Codex CLI",
+      "cost_basis": "unavailable",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 25,
+      "native_usage": {
+        "input_tokens": 29156,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 54,
+        "reasoning_output_tokens": 25
+      },
+      "token_normalization": "Input total partitioned into ordinary/cache-read/cache-write; output includes reasoning",
+      "scope": "Fresh native installed-plugin enabled catalog trial at accepted source 392e2a7; not a workflow or cash receipt",
+      "input_tokens": 29156,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 54
+    },
+    {
+      "id": "builder-plugin-lifecycle-disabled",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+      "source_sha256": "38686f648b10bdeddd095faa3f291461e5e5d0478b510b517f2a840f5f6b3597",
+      "provider": "OpenAI / Codex CLI",
+      "cost_basis": "unavailable",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 28,
+      "native_usage": {
+        "input_tokens": 29116,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 57,
+        "reasoning_output_tokens": 28
+      },
+      "token_normalization": "Input total partitioned into ordinary/cache-read/cache-write; output includes reasoning",
+      "scope": "Fresh native installed-plugin disabled catalog trial at accepted source 392e2a7; not a workflow or cash receipt",
+      "input_tokens": 29116,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 57
+    },
+    {
+      "id": "builder-plugin-lifecycle-removed",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+      "source_sha256": "9942b9a89fec5180316467614f01237ff3c1aa40309872137cb620ed950e0ed1",
+      "provider": "OpenAI / Codex CLI",
+      "cost_basis": "unavailable",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 17,
+      "native_usage": {
+        "input_tokens": 29116,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 46,
+        "reasoning_output_tokens": 17
+      },
+      "token_normalization": "Input total partitioned into ordinary/cache-read/cache-write; output includes reasoning",
+      "scope": "Fresh native installed-plugin removed catalog trial at accepted source 392e2a7; not a workflow or cash receipt",
+      "input_tokens": 29116,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 46
     }
   ],
   "telemetry_gaps": [
