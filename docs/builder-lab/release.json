@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_release.v2",
-  "observed_at": "2026-10-02T10:57:54.192239+00:00",
-  "status": "0.1.3 development source accepted on main in PR14. Native local plugin lifecycle observed in three sessions; this evidence slice awaits its independent review and exact CI. Full host/cold-use, catalog, Dots and commerce gates remain open.",
+  "observed_at": "2026-10-02T12:00:16.062741+00:00",
+  "status": "0.1.3 development source and separate lifecycle evidence accepted through PR15. Six generated research-brief calls produced usable drafts in both arms with no clear decision-quality/speed advantage; this packet awaits its own independent review and exact CI. Parent hosts/cold use, catalogs, Dots and commerce remain open.",
   "dots": {
     "state": "unverified",
     "plugin_version": "0.1.3",
@@ -32,7 +32,7 @@
     "state_observed_at": "2026-10-02T10:08:06.818045+00:00",
     "reason": "not verified"
   },
-  "machine_gate": "One sequential admitted worker at a time; fresh 5120 MiB floor with 1 GiB reserve; native lifecycle workers stopped. Owned cache/profile removed through targeted native lifecycle; global semantics restored. Prior 42 evaluator folders remain after rejected cleanup.",
+  "machine_gate": "Six sequential native outcome workers completed under fresh RAM/disk floors. Task-owned profile removed, global config semantics unchanged; read-only fixture/traces retained. Native plugin lifecycle cleanup previously verified; 42 prior evaluator folders retained after rejected cleanup.",
   "secret_checks": "Full-history gitleaks on 2026-10-02 inspected 27 commits / 989730 bytes with no leaks. Lifecycle evidence staged hooks scanned 32443 bytes with no leaks. Package checker remains heuristic-only; retain repository security hooks.",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
@@ -41,16 +41,16 @@
     "No public or priced checkout enabled"
   ],
   "usage": {
-    "receipts": 120,
-    "complete_token_receipts": 85,
+    "receipts": 128,
+    "complete_token_receipts": 93,
     "missing_token_receipts": 35,
-    "processed_tokens": 2673123,
-    "known_api_equivalent_usd": "7.403816",
+    "processed_tokens": 3017458,
+    "known_api_equivalent_usd": "7.784707",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown",
-    "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
+    "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
     "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
-    "scope": "Final PR14 correction review and three actual Codex lifecycle trials included once. Current lifecycle evidence review will postdate this checkpoint; thirteen native costs, invoices and root lead unknown."
+    "scope": "Latest122 plus six native Codex outcome trials once. Nineteen costs, root lead and invoice cash remain unknown; this packet review will postdate the frozen snapshot."
   },
   "comparison_candidate": {
     "plugin_version": "0.1.3",
@@ -335,13 +335,41 @@
     "record": "native-plugin-lifecycle.json",
     "source_revision": "392e2a75c4987024a30bf572dcbd59d922b394fa",
     "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
-    "independent_evidence_review": "pending",
+    "independent_evidence_review": "PASS at9df4601; PR15 merged967f03b with identical tree, four post-merge CI jobs passed.",
     "catalog_available_counts": {
       "enabled": 3,
       "disabled": 0,
       "removed": 0
     },
     "cleanup": "verified after final session",
-    "scope": "Native installed-plugin flag; no targeted per-skill enable overrides. Descriptor discovery, not access revocation or workflow certification."
+    "scope": "Native installed-plugin flag; no targeted per-skill enable overrides. Descriptor discovery, not access revocation or workflow certification.",
+    "review_url": "https://github.com/frankxai/starlight-academy-plugin/pull/15#issuecomment-5951103981",
+    "post_merge_ci_url": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36999994079"
+  },
+  "historical_pr15_checkpoint_before_outcome_comparison": {
+    "observed_at": "2026-10-02T10:57:54.192239+00:00",
+    "status": "0.1.3 development source accepted on main in PR14. Native local plugin lifecycle observed in three sessions; this evidence slice awaits its independent review and exact CI. Full host/cold-use, catalog, Dots and commerce gates remain open.",
+    "usage": {
+      "receipts": 120,
+      "complete_token_receipts": 85,
+      "missing_token_receipts": 35,
+      "processed_tokens": 2673123,
+      "known_api_equivalent_usd": "7.403816",
+      "invoiced_cash_usd": null,
+      "cash_roi": "unknown",
+      "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
+      "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
+      "scope": "Final PR14 correction review and three actual Codex lifecycle trials included once. Current lifecycle evidence review will postdate this checkpoint; thirteen native costs, invoices and root lead unknown."
+    }
+  },
+  "research_brief_outcomes": {
+    "record": "research-brief-outcomes.json",
+    "comparison": "outcome-comparison.md",
+    "state": "lead-accepted-drafts-independent-review-pending",
+    "source_revision": "967f03be641dcfcaa1794ed81431e112be4f50ef",
+    "builder_version": "0.1.3",
+    "generated_example_version": "0.1.1",
+    "state_observed_at": "2026-10-02T12:00:16.062741+00:00",
+    "scope": "Three fresh paired tasks, one run per arm; no parent-suite, paid product, general causal advantage or human buyer acceptance."
   }
 }
