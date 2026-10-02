@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T08:50:37.606453+00:00",
+  "observed_at": "2026-10-02T10:19:40.317100+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -14,28 +14,28 @@
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Codex source maker; revised 0.1.2 native Claude comparisons retained with trigger/semantic failures and repairs; workers stopped. Historical 0.1.1 source, both assisted host batches and independent review accepted.",
+      "agent_state": "Codex source maker; first PR14 provider PASS at 0f2aef3 with data fidelity corrections pending final review. Native and historical failures retained; all recorded trial/review workers stopped; broad host and Dots gates remain open.",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Accept the corrected 0.1.2 source/evidence review; resolve empty-directory advice and length proxy misses, run native Codex 0.1.2 comparison and runtime-disable proof before catalogs; verify actual Dots eligibility.",
+      "next_gate": "Exact-source correction review and CI for PR14; length misses P2/P4/P5/N2/N3 and generic N2 non-existing-target advice remain failed. Add held-out phrasings/repeats; complete native Codex bundle behavior and plugin lifecycle/cold-use proof before catalogs; verify actual Dots eligibility.",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
         {
           "id": "source",
-          "description": "Offline 0.1.2 scaffold/check/pack checks on ba1162a payload; current source review and host behavior remain separate",
+          "description": "Current 0.1.3 offline scaffold/check/pack and four-matrix source checks passed; source payload unchanged by reporting corrections",
           "state": "passed",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/13"
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/14"
         },
         {
           "id": "review",
-          "description": "Independent review of current 0.1.2 exact source; historical 0.1.1 acceptance retained in release evidence",
-          "state": "pending",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
+          "description": "Independent 0.1.3 source/evidence PASS at 0f2aef3; final reporting correction review remains separate",
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/14#issuecomment-5950216372"
         },
         {
           "id": "hosts",
-          "description": "Current 0.1.2 behavioral cases in Codex and Claude; historical 0.1.1 assisted batches accepted",
+          "description": "Current 0.1.3 full Codex/Claude behavior remains incomplete; 5/5 Claude positives selected the skill, 2/5 meet full proxy/semantic contract; scoped runtime catalog toggle observed",
           "state": "pending",
           "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
         },
@@ -44,7 +44,14 @@
           "description": "Actual Dots eligibility and bounded connected-computer responsibility, or documented ineligibility",
           "state": "not-run"
         }
-      ]
+      ],
+      "budget_observation": {
+        "observed_at": "2026-10-02T10:19:40.317100+00:00",
+        "original_proposed_api_equivalent_usd": "5",
+        "known_list_api_equivalent_usd": "5.568279",
+        "difference_above_proposal_usd": "0.568279",
+        "scope": "Proposal exceeded by actual attributed reviews/host trials; not allocated invoice cash or permission for unattended work"
+      }
     },
     {
       "id": "BL-02",
@@ -52,10 +59,10 @@
       "target_date": "2026-10-05",
       "status": "Done",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Three scoped reporting criteria independently accepted in merged PR12; Claude maker output checked by Codex. Native-eval importer expansion awaits its own source review; whole-goal lead usage and cash remain unknown.",
+      "agent_state": "Scoped BL-02 adoption completed in PR12; native-eval importer corrections accepted in PR13. Whole-goal lead/cash attribution remains unknown.",
       "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Keep future receipts and cash attribution with existing accounting owners; review the new native-eval importer without reclassifying completed scoped adoption.",
+      "next_gate": "Reconcile subsequent actual receipts with existing accounting owners; preserve scoped completion and missing invoice/lead usage.",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",

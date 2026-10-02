@@ -15,8 +15,13 @@ marketplace catalog. Installation in Codex does not establish
 access in Dots, ChatGPT Work or another host. For Dots, verify the account's
 availability and computer connection; local skills need its connected computer.
 
-Return a compact evidence table: claim, primary URL, checked date, supported
-surface, limit and confidence. Label inferred lab incentives as inference.
+Match the requested output and length limit. For a short role/evidence answer,
+use one compact row per role and state common missing verification once. Include
+the requested distinctions and uncertainty without appending a full research plan.
+Use a single table instead of repeating role definitions in a separate list.
+Aim below three quarters of a supplied word limit so table markers and labels fit.
+For a source-backed research packet, include claim, primary URL, checked date,
+supported surface, limit and confidence. Label inferred lab incentives as inference.
 Do not claim knowledge of a lab's private roadmap or revenue-sharing program.
 Verification steps also require evidence: do not invent an account interface,
 dashboard or payout programme. If current official programme terms and account
