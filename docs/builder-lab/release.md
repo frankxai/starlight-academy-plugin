@@ -101,4 +101,4 @@ hashes, commands, assistance and scope. It covers one report-maker use; whole-go
 source-maker telemetry and cash remain unknown. Final patch publication review
 is pending.
 
-The updated snapshot contains 18 attributed receipts, 1,071,459 processed tokens and USD 2.499784 known list-price API-equivalent cost. Six Codex costs and all allocated invoices remain unknown.
+The updated snapshot contains 18 attributed receipts, 1,071,459 processed tokens and USD 2.499784 known list-price API-equivalent cost. Six Codex costs and all allocated invoices remain unknown. One subsequent patch review was stopped for a RAM reserve shortfall without final usage/cost or verdict. Its incomplete attempt is retained separately and excluded from complete-subset token totals.

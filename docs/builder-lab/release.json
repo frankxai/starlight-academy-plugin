@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_release.v1",
-  "observed_at": "2026-10-02T06:18:46.006614+00:00",
+  "observed_at": "2026-10-02T06:34:14.840359+00:00",
   "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
   "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
   "status": "Original 0.1.0 proof retained; final 0.1.1 native batches accepted by lead; patch publication and remaining release gates pending",
@@ -60,10 +60,12 @@
   "usage": {
     "completed_model_receipts": 18,
     "known_api_equivalent_usd": "2.499784",
-    "unknown_cost_receipts": 6,
-    "coverage": "BL-01: source reviews and versioned native host trials, including discovery and behavior failures. BL-02: two reporting checker receipts plus one scoped native report maker; no whole-goal lead or invoice cash coverage.",
+    "unknown_cost_receipts": 7,
+    "coverage": "Eighteen complete model receipts plus one interrupted patch review; complete-subset totals exclude the incomplete attempt",
     "invoiced_cash_usd": null,
-    "cash_roi": "unknown"
+    "cash_roi": "unknown",
+    "attributed_attempt_receipts": 19,
+    "incomplete_model_receipts": 1
   },
   "reporting_review": {
     "revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",

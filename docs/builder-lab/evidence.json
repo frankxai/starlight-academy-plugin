@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_evidence.v1",
-  "observed_at": "2026-10-02T06:18:46.006614+00:00",
+  "observed_at": "2026-10-02T06:34:14.840359+00:00",
   "coverage": "BL-01: source reviews and versioned native host trials, including discovery and behavior failures. BL-02: two reporting checker receipts plus one scoped native report maker; no whole-goal lead or invoice cash coverage.",
   "runs": [
     {
@@ -345,6 +345,24 @@
       "source_revision": "1af40b25a7486f8493fd051f4fc28a99777104e1",
       "outcome": "lead-assessed 8/8",
       "scope": "Three native skills; explicitly prompted eight-case batch, not isolated triggers or baseline comparison"
+    },
+    {
+      "id": "builder-patch-provider-review-1-interrupted",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+      "source_sha256": "10cd489c96f8ab1fd1d2ce9880dbb35d04f4de144fecba5bda06cba919d9a3a8",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "unknown",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "input_tokens": null,
+      "output_tokens": null,
+      "cache_creation_input_tokens": null,
+      "cache_read_input_tokens": null,
+      "thinking_tokens_included_in_output": null,
+      "outcome": "Interrupted after RAM reserve shortfall was recognized; no verdict or final usage receipt",
+      "source_revision": "b6e4fca4e9b0b76f49cce3f0034a8b5424a7e3bb",
+      "scope": "Owned reviewer stopped by exact PID and creation-time verification; partial thinking events are not complete usage"
     }
   ],
   "telemetry_gaps": [
@@ -359,6 +377,10 @@
     {
       "goal_id": "BL-02",
       "reason": "One tool-free independent review was admitted BOUNDED and timed out at 180 seconds without a verdict or usage/cost receipt; its actual expenditure is unknown"
+    },
+    {
+      "goal_id": "BL-01",
+      "reason": "One patch reviewer was stopped after RAM 4540 MiB was found below the 5120 MiB reserve requirement; no verdict or complete native usage/cost receipt returned, so expenditure is unknown"
     }
   ],
   "financials": []
