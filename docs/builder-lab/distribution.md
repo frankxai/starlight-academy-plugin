@@ -200,7 +200,7 @@ account rates and cost assumptions.
 Example requirements request:
 
 ```json
-{"name":"Research brief package","channels":["openai","claude","polar","gumroad","whop"],"openai_commerce":"usage-only"}
+{"name":"Research brief package","channels":["openai","claude","polar","gumroad","whop"],"openai_commerce":"usage-only","directory_candidate_commerce_free":true}
 ```
 
 `plan` returns a draft and required evidence; it never certifies readiness or

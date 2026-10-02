@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_evidence.v1",
-  "observed_at": "2026-10-01T19:44:09.377845+00:00",
-  "coverage": "Two audited prior Claude review receipts only; no fleet-wide or invoiced-cash claim",
+  "observed_at": "2026-10-02T03:38:24.108519+00:00",
+  "coverage": "Four audited completed Claude review receipts only; final delta review and native hosts pending. No fleet-wide or invoice-cash claim.",
   "runs": [
     {
       "id": "builder-review-1",
@@ -31,6 +31,36 @@
       "input_tokens": 2,
       "output_tokens": 13270,
       "cache_creation_input_tokens": 34516,
+      "cache_read_input_tokens": 2155
+    },
+    {
+      "id": "builder-review-3",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "6ad3bebc127403c0852d960a62e01c19253c57cecf309bfb669f417ef1862bb1",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.352141",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 18060,
+      "input_tokens": 2,
+      "output_tokens": 20227,
+      "cache_creation_input_tokens": 37440,
+      "cache_read_input_tokens": 535
+    },
+    {
+      "id": "builder-review-4",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "c17e72302ecaccb0ac7d1d01d2c92e08603d2e3ffdb36e216e0a15adddcd9473",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.457523",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 24375,
+      "input_tokens": 2,
+      "output_tokens": 26488,
+      "cache_creation_input_tokens": 48052,
       "cache_read_input_tokens": 2155
     }
   ],

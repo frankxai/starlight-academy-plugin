@@ -20,7 +20,7 @@ TOKEN_FIELDS = ("input_tokens", "output_tokens", "cache_creation_input_tokens", 
 STATUSES = {"Backlog", "Ready", "In progress", "In review", "Done", "Blocked"}
 STATES = {"passed", "pending", "not-run", "blocked", "failed"}
 MAX_INPUT = 1024 * 1024
-SECRET = re.compile(r"-----BEGIN .*PRIVATE KEY-----|\b(?:sk-(?:proj-|ant-)?|polar_oat_|sk_live_|whsec_|ghp_|github_pat_)[A-Za-z0-9_-]{24,}")
+SECRET = re.compile(r"-----BEGIN .*PRIVATE KEY-----|\b(?:sk-(?:proj-|ant-)?|polar_oat_|sk_live_|whsec_|ghp_|github_pat_)[A-Za-z0-9_-]{24,}|\bAKIA[0-9A-Z]{16}\b")
 
 
 def read_json(path: Path) -> dict:
@@ -127,7 +127,7 @@ def validate(goals: dict, evidence: dict) -> None:
         if row["status"] == "Done" and any(c["state"] != "passed" for c in checks):
             raise ValueError("Done requires all criteria passed")
     runs = records(evidence.get("runs", []), 10000)
-    run_ids, hashes = set(), set()
+    run_ids, hashes, invoice_ids = set(), set(), set()
     for run in runs:
         run_id = text(run.get("id"), 120)
         digest = text(run.get("source_sha256"), 64)
@@ -151,6 +151,10 @@ def validate(goals: dict, evidence: dict) -> None:
         money(run.get("invoiced_cash_usd"))
         if run.get("invoiced_cash_usd") is not None:
             issue_url(run.get("invoice_evidence_url"))
+            invoice_id = text(run.get('invoice_id'), 120)
+            if invoice_id in invoice_ids:
+                raise ValueError('Invoice already attributed; shared invoices require external allocation')
+            invoice_ids.add(invoice_id)
     for gap in records(evidence.get("telemetry_gaps", []), 10000):
         if gap.get("goal_id") not in ids:
             raise ValueError("Telemetry gap has unknown goal")
@@ -170,6 +174,11 @@ def validate(goals: dict, evidence: dict) -> None:
             end = date.fromisoformat(text(entry.get("period_end")))
             if end < start:
                 raise ValueError("Financial period is reversed")
+            reconciled_at = timestamp(entry.get("reconciled_at"))
+            text(entry.get("reconciled_by"))
+            observed = timestamp(evidence["observed_at"])
+            if reconciled_at > observed or end > reconciled_at.date():
+                raise ValueError("Financial period or reconciliation is later than the evidence snapshot")
 
 
 def cash_roi(entry: dict | None) -> dict:
@@ -183,9 +192,10 @@ def cash_roi(entry: dict | None) -> dict:
     contribution = sales - variable
     if investment == 0:
         return {"status": "undefined", "contribution_eur": str(contribution), "reason": "Investment denominator is zero"}
-    return {"status": "measured", "contribution_eur": str(contribution),
+    return {"status": "calculated-from-supplied-cash", "contribution_eur": str(contribution),
             "roi_percent": str(((contribution - investment) / investment * 100).quantize(Decimal("0.01"))),
-            "source_url": entry["source_url"]}
+            "source_url": entry["source_url"], "reconciliation": "caller-attested; not independently verified",
+            "reconciled_by": entry["reconciled_by"], "reconciled_at": entry["reconciled_at"]}
 
 
 def project(goals: dict, evidence: dict) -> dict:
@@ -199,6 +209,12 @@ def project(goals: dict, evidence: dict) -> dict:
         totals = {f: sum(r[f] for r in complete) for f in TOKEN_FIELDS}
         costs = [money(r.get("api_equivalent_usd")) for r in runs]
         known_costs = [c for c in costs if c is not None]
+        by_basis = {}
+        for run, cost in zip(runs, costs):
+            if cost is not None:
+                basis = run["cost_basis"]
+                by_basis[basis] = by_basis.get(basis, Decimal(0)) + cost
+        cost_subtotals = {basis: str(value.quantize(Decimal("0.000001"))) for basis, value in sorted(by_basis.items())}
         gaps = [g["reason"] for g in evidence.get("telemetry_gaps", []) if g["goal_id"] == row["id"]]
         totals.update(fresh_input_tokens=totals["input_tokens"] + totals["cache_creation_input_tokens"],
                       fresh_io_tokens=totals["input_tokens"] + totals["cache_creation_input_tokens"] + totals["output_tokens"],
@@ -211,9 +227,12 @@ def project(goals: dict, evidence: dict) -> dict:
             "known_runs": len(runs), "complete_token_receipts": len(complete),
             "missing_token_receipts": len(runs) - len(complete), "telemetry_gaps": gaps,
             "tokens_known_complete_subset": totals if complete else None,
-            "api_equivalent_usd_known_subset": str(sum(known_costs, Decimal(0)).quantize(Decimal("0.000001"))) if known_costs else None,
+            "api_equivalent_usd_known_subset": next(iter(cost_subtotals.values())) if len(cost_subtotals) == 1 else None,
+            "api_equivalent_usd_by_cost_basis": cost_subtotals,
+            "cost_basis": next(iter(cost_subtotals)) if len(cost_subtotals) == 1 else "mixed-or-unavailable",
             "unknown_cost_receipts": len(runs) - len(known_costs),
             "invoiced_cash_usd_known_subset": str(sum((money(r["invoiced_cash_usd"]) for r in runs if r.get("invoiced_cash_usd") is not None), Decimal(0))) if any(r.get("invoiced_cash_usd") is not None for r in runs) else None,
+            "missing_invoice_receipts": sum(r.get("invoiced_cash_usd") is None for r in runs),
             "cash_roi": cash_roi(financial), "next_gate": row["next_gate"]})
     return output
 
@@ -227,7 +246,8 @@ def markdown(report: dict) -> str:
              "", report["scope"] + ". Criteria are counts of accepted evidence, not an estimate of effort completed.", "",
              "| Goal | Target | State | Accepted criteria | API-equivalent USD, known subset | Cash ROI |", "| --- | --- | --- | --- | --- | --- |"]
     for row in report["goals"]:
-        cost = row["api_equivalent_usd_known_subset"] or "unknown"
+        cost = row["api_equivalent_usd_known_subset"]
+        cost = (cost + " (" + cell(row["cost_basis"]) + ")") if cost is not None else "unknown or mixed bases; see detail"
         roi = row["cash_roi"].get("roi_percent", row["cash_roi"]["status"])
         lines.append(f"| [{cell(row['id'])}]({row['issue_url']}) {cell(row['title'])} | {row['target_date']} | {row['status']} | {row['accepted_criteria']}/{row['criteria_total']} | {cost} | {roi} |")
     for row in report["goals"]:
@@ -237,7 +257,11 @@ def markdown(report: dict) -> str:
             lines.append(f"Audited subset: {row['complete_token_receipts']} model receipts; fresh input {t['fresh_input_tokens']:,}; generated output {t['output_tokens']:,}; cache reads {t['cache_read_input_tokens']:,}; cache writes {t['cache_creation_input_tokens']:,}; processed {t['processed_tokens']:,}. Thinking tokens are included in output, never added twice.")
         else:
             lines.append("Token totals unknown: no complete model receipt supplied.")
-        lines.append(f"Incomplete token receipts: {row['missing_token_receipts']}; unknown-cost receipts: {row['unknown_cost_receipts']}. Invoiced cash: {row['invoiced_cash_usd_known_subset'] or 'unknown'} USD.")
+        lines.append(f"Incomplete token receipts: {row['missing_token_receipts']}; unknown-cost receipts: {row['unknown_cost_receipts']}. Invoiced cash, known subset: {row['invoiced_cash_usd_known_subset'] if row['invoiced_cash_usd_known_subset'] is not None else 'unknown'} USD; runs without invoice evidence: {row['missing_invoice_receipts']}.")
+        for basis, cost in row["api_equivalent_usd_by_cost_basis"].items():
+            lines.append(f"API-equivalent USD, known subset for {cell(basis)}: {cost}.")
+        if row["cash_roi"].get("roi_percent") is not None:
+            lines.append("ROI is calculated from caller-attested cash inputs; reconciliation is not independently verified by this tool.")
         for gap in row["telemetry_gaps"]:
             lines.append("Telemetry gap: " + cell(gap) + ".")
     return "\n".join(lines) + "\n"
@@ -263,6 +287,9 @@ def import_claude(path: Path, goal: str, run_id: str, source_url: str) -> dict:
            "invoiced_cash_usd": None,
            "thinking_tokens_included_in_output": token(details.get("thinking_tokens"))}
     row.update({f: token(usage.get(f)) for f in TOKEN_FIELDS})
+    if (row['thinking_tokens_included_in_output'] is not None and row['output_tokens'] is not None
+            and row['thinking_tokens_included_in_output'] > row['output_tokens']):
+        raise ValueError('Included thinking cannot exceed output')
     return row
 
 

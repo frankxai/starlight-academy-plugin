@@ -57,6 +57,45 @@ class PackageTests(unittest.TestCase):
             lab.scaffold(invalid, self.package)
         self.assertFalse(self.package.exists())
 
+    def test_portable_components_reject_windows_extractor_hazards(self):
+        for name in ('..\\..\\escape.md', 'a:b.md', 'aux.md', 'CON.txt', 'con .txt', 'COM¹.md', 'CONIN$.txt', 'lpt1.data', 'trailing.', 'trailing ', 'bad?.md'):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                lab.portable_component(name)
+        lab.portable_component('workflow-example.md')
+
+    @unittest.skipIf(os.name == "nt", "POSIX can create names Windows rejects")
+    def test_posix_hostile_zip_entry_is_rejected_before_output(self):
+        self.build()
+        (self.package / 'references').mkdir()
+        (self.package / 'references' / '..\\..\\escape.md').write_text('fixture', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            lab.pack(self.package, self.base / 'hostile.zip')
+        self.assertFalse((self.base / 'hostile.zip').exists())
+
+    @unittest.skipIf(os.name == 'nt', 'Requires case-sensitive POSIX filesystem')
+    def test_case_collisions_and_special_files_are_rejected(self):
+        self.build()
+        folder = self.package / 'references'
+        folder.mkdir()
+        (folder / 'a.md').write_text('a', encoding='utf-8')
+        (folder / 'A.md').write_text('A', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            lab.check(self.package)
+        (folder / 'A.md').unlink()
+        os.mkfifo(folder / 'pipe.txt')
+        with self.assertRaises(ValueError):
+            lab.check(self.package)
+
+    def test_notice_and_license_inventory_survive_packaging(self):
+        self.build()
+        (self.package / 'NOTICE').write_text('Required notices', encoding='utf-8')
+        (self.package / 'LICENSES').mkdir()
+        (self.package / 'LICENSES/upstream.txt').write_text('Supplied licence', encoding='utf-8')
+        lab.pack(self.package, self.base / 'notices.zip')
+        with zipfile.ZipFile(self.base / 'notices.zip') as archive:
+            self.assertIn('NOTICE', archive.namelist())
+            self.assertIn('LICENSES/upstream.txt', archive.namelist())
+
     def test_names_cannot_escape_package(self):
         for name in ("../escape", "a/b", "A-name", "CON:", "con", "lpt1"):
             with self.subTest(name=name), self.assertRaises(ValueError):

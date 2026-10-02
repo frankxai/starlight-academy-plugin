@@ -47,6 +47,8 @@ def economics(data: dict) -> dict:
              for key in ("tax_rate", "fee_rate", "refund_rate", "affiliate_rate", "dispute_rate")}
     if any(value > 1 for value in rates.values()):
         raise ValueError("Rates must be between 0 and 1")
+    if rates["refund_rate"] + rates["dispute_rate"] > 1:
+        raise ValueError("Refunds and lost disputes must represent disjoint orders")
     sales = number(data, "monthly_orders")
     if sales == 0 or sales != sales.to_integral_value():
         raise ValueError("monthly_orders must be a positive integer")
@@ -56,14 +58,17 @@ def economics(data: dict) -> dict:
     contribution = (price * (1 - rates["refund_rate"]) - payment
                     - price * rates["affiliate_rate"] - number(data, "variable_cost", "0")
                     - number(data, "support_reserve", "0")
-                    - rates["dispute_rate"] * number(data, "dispute_fee", "0"))
+                    - rates["dispute_rate"] * (price + number(data, "dispute_fee", "0")))
     month = contribution * sales - number(data, "monthly_maintenance", "0") - number(data, "monthly_acquisition", "0")
     def money(value: Decimal) -> str:
         return str(value.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
     return {"status": "scenario-only", "currency": currency, "transaction_fee": money(payment),
             "contribution_per_order": money(contribution), "monthly_contribution": money(month),
             "assumptions": ["Fee base includes tax", "Refunded orders retain initial transaction fees",
-                            "Affiliate commissions have no assumed refund clawback", "Orders are an input, not a forecast"],
+                            "Affiliate commissions have no assumed refund clawback",
+                            "Dispute rate means lost disputes, with principal and dispute fee lost",
+                            "Refunded orders and lost disputes are disjoint; initial fees remain",
+                            "Orders are an input, not a forecast"],
             "excludes": ["Income tax", "Unspecified payout/FX/platform fees", "Unpriced founder time"]}
 
 
@@ -73,8 +78,9 @@ def plan(data: dict) -> dict:
     known = {"openai", "claude", "polar", "gumroad", "whop", "etsy", "stripe"}
     if not isinstance(channels, list) or not channels or any(not isinstance(c, str) or c not in known for c in channels):
         raise ValueError("Choose supported channel names")
-    if "openai" in channels and data.get("openai_commerce", "usage-only") != "usage-only":
-        raise ValueError("OpenAI directory: digital checkout and upgrade promotion are prohibited in the dated policy snapshot")
+    if "openai" in channels and (data.get("openai_commerce") != "usage-only"
+            or data.get("directory_candidate_commerce_free") is not True):
+        raise ValueError("Explicitly declare a commerce-free OpenAI candidate and usage-only surface; external sales are separate")
     if "etsy" in channels and data.get("artifact_type") != "original-design":
         raise ValueError("Etsy requires separate eligibility review; prompt bundles are excluded")
     requirements = {

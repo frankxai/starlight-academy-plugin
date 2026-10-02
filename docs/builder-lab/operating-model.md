@@ -76,12 +76,18 @@ sanitized evidence; this CLI does not inspect actual agents, invoices or GitHub.
 Fresh input = uncached input + cache writes. Fresh I/O adds generated output.
 Processed tokens additionally include cache reads. Thinking is included in output.
 Partial token receipts are counted and excluded from the complete subtotal.
-Claude CLI list-price costs are API-equivalent values; subscription invoices
+Cost subtotals remain separated by the supplied `cost_basis`; mixed bases have
+no combined total. Invoice totals are labelled as a known subset, with the count
+of runs missing invoice evidence. Claude CLI list-price costs are API-equivalent values; subscription invoices
 and actual cash remain separate. A telemetry gap is never a free run.
 
 Cash contribution = receipts excluding tax and refunds minus variable cash cost.
 Cash ROI = (contribution minus allocated investment) / allocated investment.
-It requires one reconciled period and currency. Unknown inputs stay unknown;
+It requires one period, currency, `reconciled_by` and a timezone-bearing
+`reconciled_at` at or before the evidence observation, on or after the period's
+end date in the declared reconciliation offset.
+The reconciliation remains a caller attestation. The calculated ROI does not
+certify cash or invoices. Unknown inputs stay unknown;
 zero investment gives undefined ROI. Founder time, subscription allocation and
 FX must be explicitly included in an investment record if used. Revenue targets
 are objectives, not forecasts. No useful-life savings or customer success is
@@ -92,6 +98,10 @@ basis recorded privately. Refund-dominated periods may have negative net receipt
 This source projection checks data shape and arithmetic; the accountable human
 must reconcile invoices, bank/merchant records and whether costs were included
 once. It cannot certify a submitted financial record.
+
+Known invoice cash requires an anonymized `invoice_id` and evidence link. The
+same invoice cannot be attributed to two runs here. Shared subscription invoices
+need the existing accounting owner's external allocation before inclusion.
 
 Shared dependencies retain their existing owners:
 [usage capture 93](https://github.com/frankxai/agentic-ops/issues/93),

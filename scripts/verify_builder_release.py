@@ -33,9 +33,9 @@ def run_json(script: Path, *args: object, succeeds: bool = True) -> dict:
     return data
 
 
-def relative_references(root: Path) -> int:
+def relative_references(root: Path, scope: Path | None = None) -> int:
     count = 0
-    for path in sorted(root.rglob("*.md")):
+    for path in sorted((scope or root).rglob("*.md")):
         for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
             if target.startswith(("https://", "http://", "mailto:", "#")):
                 continue
@@ -80,6 +80,7 @@ def verify() -> dict:
     if checked.get("skills") != 3 or checked.get("hostTests") != "not-run":
         raise ValueError("Unexpected package scope or host claim")
     refs = relative_references(PLUGIN)
+    document_refs = relative_references(ROOT, ROOT / 'docs/builder-lab')
     with tempfile.TemporaryDirectory(prefix="builder-release-") as scratch:
         base = Path(scratch)
         generated = base / "research-brief"
@@ -110,8 +111,33 @@ def verify() -> dict:
             raise ValueError("Rejected archive was created")
         package = run_json(PACKAGE, "pack", PLUGIN, base / "builder.zip")
         with zipfile.ZipFile(base / "builder.zip") as archive:
-            if archive.testzip() is not None or any(p.startswith("docs/") for p in archive.namelist()):
-                raise ValueError("Portable artifact has corruption or external commerce content")
+            if archive.testzip() is not None:
+                raise ValueError("Portable artifact has corruption")
+            expected = sorted(p.relative_to(PLUGIN).as_posix() for p in PLUGIN.rglob('*') if p.is_file())
+            if sorted(archive.namelist()) != expected:
+                raise ValueError("Portable artifact differs from the checked plugin-only tree")
+        receipt = base / 'usage.json'
+        receipt.write_text(json.dumps({'usage': {'input_tokens': 2, 'output_tokens': 10,
+                           'cache_creation_input_tokens': 20, 'cache_read_input_tokens': 30},
+                           'modelUsage': {'example': {'costBasis': 'list'}}, 'total_cost_usd': 0.1,
+                           'result': 'fixture: this response must stay out of the imported receipt'}), encoding='utf-8')
+        imported = run_json(GOALS, 'import-claude', receipt, '--goal', 'BL-01', '--id', 'cli-fixture',
+                            '--source-url', 'https://github.com/frankxai/starlight-academy-plugin/pull/4')
+        if 'result' in imported or imported['invoiced_cash_usd'] is not None:
+            raise ValueError('CLI importer exported response content or inferred cash')
+        economics = base / 'economics.json'
+        economics.write_text(json.dumps({'currency': 'USD', 'fee_currency': 'USD', 'price_ex_tax': '30',
+                            'tax_rate': '0.25', 'fee_rate': '0.065', 'fixed_fee': '0.50',
+                            'refund_rate': '0.1', 'monthly_orders': 10, 'monthly_maintenance': '20'}), encoding='utf-8')
+        distribution = ROOT / 'docs/builder-lab/scripts/distribution_lab.py'
+        scenario = run_json(distribution, 'economics', economics)
+        if scenario['monthly_contribution'] != '220.63' or scenario['status'] != 'scenario-only':
+            raise ValueError('Distribution CLI scenario drift')
+        plan = base / 'plan.json'
+        plan.write_text(json.dumps({'name': 'CLI fixture', 'channels': ['openai', 'polar'],
+                                   'openai_commerce': 'usage-only', 'directory_candidate_commerce_free': True}), encoding='utf-8')
+        if run_json(distribution, 'plan', plan)['releaseReady'] is not False:
+            raise ValueError('Distribution CLI fabricated release readiness')
     report = run_json(GOALS, "report", ROOT / "docs/builder-lab/goals.json",
                       ROOT / "docs/builder-lab/evidence.json", "--format", "json")
     if len(report["goals"]) != 6:
@@ -119,6 +145,7 @@ def verify() -> dict:
     return {"status": "offline-release-checks-pass", "plugin": checked["name"],
             "package_sha256": package["sha256"], "example_sha256": first["sha256"],
             "relative_references_checked": refs, "goals_reported": len(report["goals"]),
+            "document_references_checked": document_refs,
             "catalogs": catalogs(ROOT), "host_behavior": "not-proven-by-this-check",
             "directory_approval": "not-proven-by-this-check", "commerce": "not-proven-by-this-check",
             "secret_scan": "package-heuristic-only; retain full repository secret checks"}

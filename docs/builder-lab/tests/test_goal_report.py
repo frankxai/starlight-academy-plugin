@@ -59,6 +59,35 @@ class GoalReportTests(unittest.TestCase):
         self.assertEqual(self.report()["api_equivalent_usd_known_subset"], "0.300000")
         self.assertIsNone(self.report()["invoiced_cash_usd_known_subset"])
 
+    def test_mixed_cost_bases_have_separate_subtotals(self):
+        self.evidence['runs'].append(dict(self.run, id='estimate', source_sha256='b' * 64,
+                                         cost_basis='estimate', api_equivalent_usd='0.20'))
+        result = self.report()
+        self.assertIsNone(result['api_equivalent_usd_known_subset'])
+        self.assertEqual(result['api_equivalent_usd_by_cost_basis'], {'estimate': '0.200000', 'list': '0.100000'})
+
+    def test_partial_invoice_prose_names_coverage(self):
+        self.run.update(invoiced_cash_usd='0', invoice_evidence_url=URL, invoice_id='example-invoice')
+        self.evidence['runs'].append(dict(self.run, id='missing', source_sha256='b' * 64, invoiced_cash_usd=None))
+        result = self.report()
+        self.assertEqual(result['missing_invoice_receipts'], 1)
+        output = lab.markdown(lab.project(self.goals, self.evidence))
+        self.assertIn('Invoiced cash, known subset: 0 USD', output)
+        self.assertIn('runs without invoice evidence: 1', output)
+
+    def test_repeated_invoice_attribution_is_rejected(self):
+        self.run.update(invoiced_cash_usd='10', invoice_evidence_url=URL, invoice_id='same-invoice')
+        self.evidence['runs'].append(dict(self.run, id='run2', source_sha256='b' * 64))
+        with self.assertRaises(ValueError):
+            self.report()
+
+    def test_sanitized_real_cli_receipt_preserves_native_basis(self):
+        result = lab.import_claude(Path(__file__).parent / 'fixtures/claude-cli-review.json', 'G1', 'native-fixture', URL)
+        self.assertEqual(result['cost_basis'], 'list')
+        self.assertEqual(result['thinking_tokens_included_in_output'], 18060)
+        self.assertEqual(result['output_tokens'], 20227)
+        self.assertIsNone(result['invoiced_cash_usd'])
+
     def test_false_done_rejected(self):
         self.goals["goals"][0]["status"] = "Done"
         with self.assertRaises(ValueError):
@@ -91,22 +120,38 @@ class GoalReportTests(unittest.TestCase):
                     self.report()
 
     def test_roi_uses_reconciled_cash_only(self):
+        self.evidence['observed_at'] = '2026-10-31T23:59:00Z'
         self.evidence["financials"] = [{"goal_id": "G1", "currency": "EUR", "net_receipts_ex_tax_refunds": "1000",
                                        "variable_cash_cost": "200", "allocated_investment_cash": "400", "source_url": URL,
-                                       "period_start": "2026-10-01", "period_end": "2026-10-31"}]
+                                       "period_start": "2026-10-01", "period_end": "2026-10-31",
+                                       "reconciled_by": "Example reconciler", "reconciled_at": "2026-10-31T23:00:00Z"}]
         self.assertEqual(self.report()["cash_roi"]["roi_percent"], "100.00")
+        self.assertEqual(self.report()['cash_roi']['status'], 'calculated-from-supplied-cash')
         self.evidence["financials"][0]["allocated_investment_cash"] = "0"
         self.assertEqual(self.report()["cash_roi"]["status"], "undefined")
         self.evidence["financials"][0]["allocated_investment_cash"] = None
         self.assertEqual(self.report()["cash_roi"]["status"], "unknown")
 
     def test_refund_dominated_period_and_period_proof(self):
+        self.evidence['observed_at'] = '2026-10-31T23:59:00Z'
         entry = {"goal_id": "G1", "currency": "EUR", "net_receipts_ex_tax_refunds": "-100",
                  "variable_cash_cost": "20", "allocated_investment_cash": "100", "source_url": URL,
-                 "period_start": "2026-10-01", "period_end": "2026-10-31"}
+                 "period_start": "2026-10-01", "period_end": "2026-10-31",
+                 "reconciled_by": "Example reconciler", "reconciled_at": "2026-10-31T23:00:00Z"}
         self.evidence["financials"] = [entry]
         self.assertEqual(self.report()["cash_roi"]["roi_percent"], "-220.00")
         entry["period_end"] = "2026-09-01"
+        with self.assertRaises(ValueError):
+            self.report()
+
+    def test_missing_or_future_financial_attestation_fails(self):
+        entry = {'goal_id': 'G1', 'currency': 'EUR', 'net_receipts_ex_tax_refunds': '10',
+                 'variable_cash_cost': '1', 'allocated_investment_cash': '1', 'source_url': URL,
+                 'period_start': '2026-09-01', 'period_end': '2026-09-30'}
+        self.evidence['financials'] = [entry]
+        with self.assertRaises(ValueError):
+            self.report()
+        entry.update(reconciled_by='Example reconciler', reconciled_at='2026-10-02T23:00:00Z')
         with self.assertRaises(ValueError):
             self.report()
 

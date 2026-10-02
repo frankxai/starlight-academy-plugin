@@ -19,12 +19,13 @@ import zipfile
 SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
-WINDOWS_RESERVED = {"con", "prn", "aux", "nul", *(f"com{i}" for i in range(1, 10)), *(f"lpt{i}" for i in range(1, 10))}
+WINDOWS_RESERVED = {"con", "prn", "aux", "nul", "conin$", "conout$",
+                    *(f"com{i}" for i in "123456789¹²³"), *(f"lpt{i}" for i in "123456789¹²³")}
 DENIED_PARTS = {".git", "node_modules", "__pycache__", ".venv", ".env"}
-ROOT_FILES = {"plugin.json", "README.md", "LICENSE"}
-ROOT_DIRS = {"skills", "scripts", "references", "examples", "tests", ".claude-plugin"}
-SECRET = re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\b(?:sk-(?:proj-|ant-)?|polar_oat_|sk_live_|whsec_|ghp_|github_pat_)[A-Za-z0-9_-]{24,}|\bAKIA[0-9A-Z]{16}\b")
-LOCAL_PATH = re.compile(r"(?<![A-Za-z0-9/:])(?:[A-Za-z]:[/\\]Users|/Users|/home)[/\\][A-Za-z0-9_.-]+[/\\]")
+ROOT_FILES = {"plugin.json", "README.md", "LICENSE", "NOTICE"}
+ROOT_DIRS = {"skills", "scripts", "references", "examples", "tests", "LICENSES", ".claude-plugin"}
+SECRET = re.compile(r"-----BEGIN (?:(?:[A-Z][A-Z0-9 ]* )?PRIVATE KEY|PGP PRIVATE KEY BLOCK)-----|\b(?:sk-(?:proj-|ant-)?|polar_oat_|sk_live_|whsec_|ghp_|github_pat_)[A-Za-z0-9_-]{24,}|\bAKIA[0-9A-Z]{16}\b")
+LOCAL_PATH = re.compile(r"(?<![A-Za-z0-9/:])(?:[A-Za-z]:[/\\]+Users|/Users|/home)[/\\]+[A-Za-z0-9_.-]+[/\\]+")
 
 
 def read_json(path: Path) -> dict:
@@ -45,6 +46,15 @@ def slug(value: object) -> str:
     if not isinstance(value, str) or len(value) > 64 or not SLUG.fullmatch(value) or value in WINDOWS_RESERVED:
         raise ValueError("Names must be kebab-case, at most 64 characters")
     return value
+
+
+def portable_component(value: str) -> None:
+    # Names must remain single ordinary components in Windows extractors,
+    # even when the package was authored on POSIX.
+    if (not value or value in {".", ".."} or value.endswith((".", " "))
+            or re.search(r'[<>:"/\\|?*\x00-\x1f]', value)
+            or value.split(".", 1)[0].rstrip(' ').lower() in WINDOWS_RESERVED):
+        raise ValueError("Unsafe cross-platform package filename")
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -115,12 +125,21 @@ def package_files(root: Path) -> list[Path]:
     pending = [root]
     while pending:
         folder = pending.pop()
+        sibling_names = set()
         with os.scandir(folder) as entries:
             for entry in entries:
                 path = Path(entry.path)
                 rel = path.relative_to(root)
+                for component in rel.parts:
+                    portable_component(component)
+                folded = entry.name.casefold()
+                if folded in sibling_names:
+                    raise ValueError(f"Case-insensitive sibling collision: {rel.as_posix()}")
+                sibling_names.add(folded)
                 if indirect(path):
                     raise ValueError(f"Symlink or reparse point: {rel.as_posix()}")
+                if not entry.is_dir(follow_symlinks=False) and not entry.is_file(follow_symlinks=False):
+                    raise ValueError(f"Unsupported special file: {rel.as_posix()}")
                 if any(part.lower() in DENIED_PARTS or part.lower().startswith(".env.") for part in rel.parts):
                     raise ValueError(f"Forbidden package path: {rel.as_posix()}")
                 if len(rel.parts) == 1 and entry.is_dir(follow_symlinks=False) and rel.name not in ROOT_DIRS:
@@ -137,7 +156,7 @@ def package_files(root: Path) -> list[Path]:
         if (len(rel.parts) == 1 and path.is_file() and rel.name not in ROOT_FILES) or (path.is_dir() and len(rel.parts) == 1 and rel.name not in ROOT_DIRS):
             raise ValueError(f"Unexpected package content: {rel.as_posix()}")
         if path.is_file():
-            if path.suffix.lower() not in {".md", ".json", ".py", ".txt"} and path.name != "LICENSE":
+            if path.suffix.lower() not in {".md", ".json", ".py", ".txt"} and path.name not in {"LICENSE", "NOTICE"}:
                 raise ValueError(f"Unsupported file type: {rel.as_posix()}")
             if path.stat().st_size > 1024 * 1024:
                 raise ValueError(f"File exceeds this lab's 1 MiB limit: {rel.as_posix()}")
@@ -199,6 +218,11 @@ def check(root: Path) -> dict:
         for field in ("name", "version", "description", "license"):
             if other.get(field) != manifest.get(field):
                 raise ValueError(f"Claude manifest {field} drift")
+        native_author = other.get('author')
+        if not isinstance(native_author, dict) or native_author.get('name') != author['name']:
+            raise ValueError('Claude manifest author identity drift')
+        if native_author.get('url') is not None and native_author['url'] != author.get('url'):
+            raise ValueError('Claude manifest author URL drift')
     return {"status": "structural-pass", "name": manifest["name"], "skills": len(skills),
             "files": len(files), "hostTests": "not-run", "directoryApproval": "not-submitted",
             "commercialRelease": "not-evaluated", "secretScan": "heuristic-only"}
