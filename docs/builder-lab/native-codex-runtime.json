@@ -1,0 +1,645 @@
+{
+  "schema": "starlight.builder_native_codex_runtime.v1",
+  "observed_at": "2026-10-02T20:28:22.848413+00:00",
+  "builder_source_revision": "a653f01cd69bbc30aa3394b9a4a3485231cd92ec",
+  "builder_version": "0.1.4",
+  "builder_files_sha256": {
+    ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+    "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "README.md": "16ff2ce983c1ac2e4bf03c7ca8cc133297fe46c638a74bae9f010e1c887febfa",
+    "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+    "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+    "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+    "scripts/package_lab.py": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+    "skills/build-portable-plugin/SKILL.md": "568ca843d86581f7adafb4698cc1420e8104fd0b0006de3f8a0c5a37d6705eab",
+    "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+    "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+    "tests/test_package_lab.py": "8fa91e8039a3cfddac26420c64d1f73b3d22936ba8f9188f043e43507238f831",
+    "tests/test_restore.py": "fa45a36293440f4c391c66cb17ad2dbd362731c31c61c1d0249d81d2438e3966"
+  },
+  "quote_source_revision": "8fbd3ae606f256d25a59aeea6a52ac063654ff5c",
+  "quote_git_files_sha256": {
+    "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+    "skills/quote-desk/SKILL.md": "5843dfff28c2ff3cd6c131d0349907103c2dbf4ff20f1da70a13e10f95feacae",
+    "skills/quote-desk/scripts/quote-desk.mjs": "b0262da2d0b7dc1043a5136e6908c0e78fc5e42eefbdb4b8773cf238108b514e",
+    "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+    "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+    "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611"
+  },
+  "host": {
+    "cli": "Codex0.159.3",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "python": "Existing CPython3.11.15",
+    "node": "24.16.0",
+    "sandbox": "workspace-write; elevated Windows offline sandbox",
+    "task_scope": "One controlled assisted trial; explicit interpreters, paths, operation cases, producer-known hashes and supplied fictional service selection",
+    "local_skill_discovery": "Debug alias r3 resolves exactly to task-owned current .agents/skills; source read by native model",
+    "native_plugin_install": false,
+    "network_setting": "sandbox_workspace_write.network_access=false; no outbound workflow actions observed; no network denial probe",
+    "runtime_acl": "Pre-existing Python executable ACL grants CodexSandboxUsers modify. Not changed; this trial does not establish immutable runtime or a complete OS security boundary."
+  },
+  "session": {
+    "state": "timed-out",
+    "worker_state": "stopped",
+    "elapsed_seconds": 241.159,
+    "timeout_seconds": 240,
+    "final_response": "absent",
+    "turn_completed": false,
+    "native_usage": null,
+    "native_cost": null,
+    "scope": "All specified tool operations observed before timeout; no complete native session, usage total or final prose receipt."
+  },
+  "counts": {
+    "native_command_items": 28,
+    "target_cli_calls": 19,
+    "target_success": 11,
+    "target_expected_refusals": 8,
+    "package_cli_calls": 12,
+    "quote_cli_calls": 7,
+    "other_failed_command_items": 2
+  },
+  "commands": [
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath '.agents/skills/build-portable-plugin/SKILL.md'; Get-Content -LiteralPath 'C:/Users/frank/.agents/skills/agent-workspace-bootstrap/SKILL.md'; Get-Content -LiteralPath 'C:/Users/frank/.codex/skills/humanizer/SKILL.md'\"",
+      "exit_code": 0,
+      "output_sha256": "af8c553b31013f59da30855798fc0530567d5dbdc9681df90f892e06887b6592",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath 'C:/Users/frank/.agents/skills/skill-router/SKILL.md'; Get-Content -LiteralPath 'C:/Users/frank/.starlight/policies/product-outcome-quality.md'\"",
+      "exit_code": 0,
+      "output_sha256": "c2d24e4b5d90af28ac2c961e3563a6fb2b490d73488e255788ad9bf399febd33",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath '.agents/README.md'; Get-ChildItem -Force; Get-ChildItem -LiteralPath 'scratch' -Force; Get-ChildItem -LiteralPath 'fixtures' -Force\"",
+      "exit_code": 1,
+      "output_sha256": "a7b3cf95d376ce8278a3e761c0b936216827b157a5ac9cc3b01e3efe301dccad",
+      "error_excerpt": "ved.stderr\r\n-a---           10/2/2026  9:58 PM          31073 debug-prompt-resolved.stdout\r\n-a---           10/2/2026  9:56 PM              0 debug-prompt.stderr\r\n-a---           10/2/2026  9:56 PM          31074 debug-prompt.stdout\r\n-a---           10/2/2026  9:58 PM            374 discovery-lead-correction.json\r\n-a---           10/2/2026  9:58 PM            596 discovery.json\r\n-a---           10/2/2026  9:56 PM          12001 fixture.json\r\n-a---           10/2/2026  9:58 PM              0 native.jsonl\r\n-a---           10/2/2026  9:58 PM              0 native.stderr\r\n-a---           10/2/2026  9:56 PM              0 producer-pack.stderr\r\n-a---           10/2/2026  9:56 PM            426 producer-pack.stdout\r\n-a---           10/2/2026  9:58 PM            885 worker.json\r\n\r\n    Directory: <trial>\\scratch\r\n\r\nMode                 LastWriteTime         Length Name\r\n----                 -------------         ------ ----\r\nd----           10/2/2026  9:56 PM                edited-prior\r\nd----           10/2/2026  9:56 PM                empty-existing\r\nd----           10/2/2026  9:56 PM                marked-partial\r\nGet-ChildItem: \r\nLine |\r\n   2 |  … alPath 'scratch' -Force; Get-ChildItem -LiteralPath 'fixtures' -Force\r\n     |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Cannot find path '<trial>\\fixtures' because it does not exist.\r\n\r\n"
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath '.agents/scripts/package_lab.py'\"",
+      "exit_code": 0,
+      "output_sha256": "8bdb84f6a32a6a78c0da55bd4a1e1af53fab03629683564a84aadf968c166a0b",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath 'fixture.json'; Get-Content -LiteralPath '.agents/.claude-plugin/plugin.json'; Get-ChildItem -LiteralPath 'inputs' -Force; Get-ChildItem -LiteralPath 'scratch/edited-prior' -Force; Get-ChildItem -LiteralPath 'scratch/marked-partial' -Force; Get-Content -LiteralPath 'scratch/marked-partial/.restore-incomplete'\"",
+      "exit_code": 0,
+      "output_sha256": "81df1ad38e1b99ea685c73a0b160828d12ef99887a8b09a9095b28e565bcc830",
+      "error_excerpt": null
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/quote-desk.zip' 'scratch/quote-v1' --sha256 '0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95'\"",
+      "exit_code": 0,
+      "output_sha256": "dad8d4deea4a0b04c00d9deb180f4baa70cee5fafdc1c02c65e037fa5dbd64ca",
+      "error_excerpt": null
+    },
+    {
+      "kind": "package-check",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' check 'scratch/quote-v1'\"",
+      "exit_code": 0,
+      "output_sha256": "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath 'scratch/quote-v1/LICENSE'; Get-Content -LiteralPath 'scratch/quote-v1/plugin.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-desk/SKILL.md'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-desk/examples/principal.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-desk/examples/catalog.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-desk/examples/request.json'\"",
+      "exit_code": 1,
+      "output_sha256": "b1922f606634a88dff85abee3437cd3f8febfd6c27682e4acca17a517c180ead",
+      "error_excerpt": "/quote-d …\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Cannot find path 'scratch/quote-v1/skills/quote-desk/examples/principal.json' because it does not exist.\r\nGet-Content: \r\nLine |\r\n   2 |  … ipal.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-d …\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Access to the path '<trial>\\scratch\\quote-v1\\skills\\quote-desk\\examples\\catalog.json' is denied.\r\nGet-Content: \r\nLine |\r\n   2 |  … ipal.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-d …\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Cannot find path 'scratch/quote-v1/skills/quote-desk/examples/catalog.json' because it does not exist.\r\nGet-Content: \r\nLine |\r\n   2 |  … alog.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-d …\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Access to the path '<trial>\\scratch\\quote-v1\\skills\\quote-desk\\examples\\request.json' is denied.\r\nGet-Content: \r\nLine |\r\n   2 |  … alog.json'; Get-Content -LiteralPath 'scratch/quote-v1/skills/quote-d …\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Cannot find path 'scratch/quote-v1/skills/quote-desk/examples/request.json' because it does not exist.\r\n"
+    },
+    {
+      "kind": "package-pack",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' pack 'scratch/quote-v1' 'scratch/quote-v1-repacked.zip'\"",
+      "exit_code": 0,
+      "output_sha256": "7288c8fb55dafd9ecae3b21dc221da1495668db3dcb75953d7140bac18c97705",
+      "error_excerpt": null
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/quote-desk.zip' 'scratch/quote-v2' --sha256 '0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95'\"",
+      "exit_code": 0,
+      "output_sha256": "0ff2f259fd32ceaa211ce05aff27b02e6b96ca866a9aeda88ddf3ed1afc3550d",
+      "error_excerpt": null
+    },
+    {
+      "kind": "package-check",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' check 'scratch/quote-v2'\"",
+      "exit_code": 0,
+      "output_sha256": "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+      "error_excerpt": null
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/quote-desk.zip' 'scratch/wrong-hash' --sha256 '0000000000000000000000000000000000000000000000000000000000000000'\"",
+      "exit_code": 1,
+      "output_sha256": "8aaa6b334109dd44f847c8f6f6543e95023ee49091f8c67a0cc4e2bf56f6e0fe",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"ZIP checksum mismatch; preserve the download and obtain the correct release\"}\r\n"
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/quote-desk.zip' 'scratch/empty-existing' --sha256 '0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95'\"",
+      "exit_code": 1,
+      "output_sha256": "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Output directory already exists; existing versions and edits are preserved\"}\r\n"
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/quote-desk.zip' 'scratch/edited-prior' --sha256 '0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95'\"",
+      "exit_code": 1,
+      "output_sha256": "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Output directory already exists; existing versions and edits are preserved\"}\r\n"
+    },
+    {
+      "kind": "package-check",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' check 'scratch/marked-partial'\"",
+      "exit_code": 1,
+      "output_sha256": "df59bc066c6805e821cdcb5230f8e7233181f89c3506ba1898cf37bac962993d",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Incomplete restore; preserve this directory and retry into a fresh sibling\"}\r\n"
+    },
+    {
+      "kind": "package-pack",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' pack 'scratch/marked-partial' 'scratch/marked-partial.zip'\"",
+      "exit_code": 1,
+      "output_sha256": "df59bc066c6805e821cdcb5230f8e7233181f89c3506ba1898cf37bac962993d",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Incomplete restore; preserve this directory and retry into a fresh sibling\"}\r\n"
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/unsafe.zip' 'scratch/unsafe-output' --sha256 '22498dc02a70c85045729b3c0b2f8aa2bd3f17da6a8b94c54066cb68548f5a8e'\"",
+      "exit_code": 1,
+      "output_sha256": "24602dc5e19b791b92b14db6a4a2dfc2d600bb9d7ce04cd310c3b72f302c8c07",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Unsafe cross-platform package filename\"}\r\n"
+    },
+    {
+      "kind": "package-restore",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-python-3.11>' -B '.agents/scripts/package_lab.py' restore 'inputs/corrupt.zip' 'scratch/corrupt-output' --sha256 'dec5549632c9a052b231b4001405b225e6dabd01c906292184b0f7136aa94924'\"",
+      "exit_code": 1,
+      "output_sha256": "b551a2f6ebf25e6e8b148c204f17426a58f3a4fe6cd975ad9011445c7b594368",
+      "error_excerpt": "{\"status\": \"fail\", \"error\": \"Bad CRC-32 for file 'LICENSE'\"}\r\n"
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"Get-Content -LiteralPath 'producer-quote-source/skills/quote-desk/SKILL.md'; Get-Content -LiteralPath 'producer-quote-source/plugin.json'; Get-Content -LiteralPath 'producer-quote-source/LICENSE'; Get-Content -LiteralPath 'producer-quote-source/skills/quote-desk/examples/principal.json'; Get-Content -LiteralPath 'producer-quote-source/skills/quote-desk/examples/catalog.json'; Get-Content -LiteralPath 'producer-quote-source/skills/quote-desk/examples/request.json'; Get-Content -LiteralPath 'producer-quote-source/skills/quote-desk/scripts/quote-desk.mjs'\"",
+      "exit_code": 0,
+      "output_sha256": "5562d27a2bd2f6c54ea7c377abbc7131d2d8e3a820fd95e359a200ed8dfc396b",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-init",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' init --workspace 'scratch/quote-workspace' --principal 'scratch/quote-v1/skills/quote-desk/examples/principal.json' --catalog 'scratch/quote-v1/skills/quote-desk/examples/catalog.json'\"",
+      "exit_code": 0,
+      "output_sha256": "6fd42d9e4a258728334ee71d3fa1eae63a9dbfc58b1a0826235569cf207a9535",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-intake",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' intake --workspace 'scratch/quote-workspace' --request 'scratch/quote-v1/skills/quote-desk/examples/request.json' --service 'inspect' --quantity '1'\"",
+      "exit_code": 0,
+      "output_sha256": "ab7d57b14c2cfebb7e3b9e26725e33783f4a79a745ba72d543ec66d54aa1428e",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command '$buyerTextPath = Join-Path (Get-Location) '\"'scratch/buyer-wording.txt'\n\"'$ownerTextPath = Join-Path (Get-Location) '\"'scratch/owner-notes.txt'\n\"'$buyerText = @'\"'\nThank you for requesting an inspection of one unit at your workshop.\n\nFor one equipment inspection visit, the draft amount is EUR 120.00. The scope, final price and tax treatment still need the owner's approval.\n\nYou proposed next week. Availability has not yet been confirmed, and no appointment is booked. Please share the equipment type and model, the workshop address and any access requirements, along with your preferred days next week, so the owner can review the scope and timing.\n\nThis is a draft for review, not a confirmed booking or binding offer.\n'@\n\"'$ownerText = @'\"'\nSynthetic demonstration using the supplied fictional principal, catalogue and request. This is assistant-authored wording; no human review has occurred.\n\nSource: synthetic-request-001, email received 2026-10-02T00:00:00Z. Request: inspect one unit at the buyer's workshop, proposed timing next week. The test owner selected service inspect and quantity 1; quantity was not inferred from the prose.\n\nCatalogue: synthetic-catalog-v1, Equipment inspection, one visit at EUR 120.00 draft unit price, draft subtotal EUR 120.00. Confirm that one visit covers the requested unit and scope; check any travel or other charges rather than inventing them. Final price, tax treatment, scope and scheduling remain pending owner approval. The runtime qualification fit and empty missing list do not establish commercial completeness.\n\nBefore approving wording, confirm equipment details, workshop address/access requirements and preferred dates; review availability without committing to next week. No inspection findings, credentials, discount, guarantee or booking has been invented. Verify source use and final wording before any real use.\n\nLocal drafting only. Outbound disabled; no accounts connected or messages sent. Buyer wording and these internal notes are separate; separation does not verify prose or rights. This controlled assisted trial does not establish paid advantage, human cold use, directory acceptance, Dots access or installation. PowerShell reads of the restored v1 licence/manifest/skill/examples were denied; the preserved producer-source files were inspected instead. No ACL changes or permission escalation were attempted.\n'@\nif ((Test-Path -LiteralPath \"'$buyerTextPath) -or (Test-Path -LiteralPath $ownerTextPath)) { throw '\"'Fresh text paths required; preserve existing files' }\n\"'$utf8NoBom = [System.Text.UTF8Encoding]::new($false)\n[System.IO.File]::WriteAllText($buyerTextPath, $buyerText + [Environment]::NewLine, $utf8NoBom)\n[System.IO.File]::WriteAllText($ownerTextPath, $ownerText + [Environment]::NewLine, $utf8NoBom)\nGet-Content -LiteralPath $buyerTextPath\nGet-Content -LiteralPath $ownerTextPath'",
+      "exit_code": 0,
+      "output_sha256": "de9932f4db02b4cc1cb093f83403ab608409fe20d8490a8b6bdc173783c5fea3",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-edit",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' edit --workspace 'scratch/quote-workspace' --id '07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7' --revision '1' --draft 'scratch/buyer-wording.txt' --owner-notes 'scratch/owner-notes.txt'\"",
+      "exit_code": 0,
+      "output_sha256": "e12cb41a51c4a56a6e802bdf405e6be7c9d78e3007debcbacac03f3a627a91b7",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-show",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' show --workspace 'scratch/quote-workspace' --id '07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7'\"",
+      "exit_code": 0,
+      "output_sha256": "4c03b2f07550f66066dd4edbaa50f57cad6cc03326fcb7389deb409be1f5f98b",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-export-buyer",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' export-buyer --workspace 'scratch/quote-workspace' --id '07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7' --revision '2' --snapshot-sha256 '0bd6bc91a85a04705290b438089701be0a24e463a6dbaa1e07b96bf65ed7cf38' --output 'scratch/buyer-v1'\"",
+      "exit_code": 0,
+      "output_sha256": "39c10902e08268de076fe38e5b7999bf0aa50387caddaec41404aca228fa27fb",
+      "error_excerpt": null
+    },
+    {
+      "kind": "inspection-or-authored-text-write",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command '$retainedNotesPath = Join-Path (Get-Location) '\"'scratch/owner-export-notes.txt'\nif (Test-Path -LiteralPath \"'$retainedNotesPath) { throw '\"'Fresh owner notes path required; preserve existing file' }\n\"'$retainedNotes = @'\"'\nPrivate owner export notes for the controlled assisted synthetic trial.\nThese values are retained from the export-buyer command result, outside buyer-v1. They were not computed from the received buyer folder.\nTrace: 07b8ba832485411b99af70bac9894a68e09c14e398a14e0d2ae1d13350e377c7\nSelected revision: 2\nSelected snapshotHash: 0bd6bc91a85a04705290b438089701be0a24e463a6dbaa1e07b96bf65ed7cf38\nExport directory: <trial>\\\\scratch\\\\buyer-v1\nRetained receiptHash: c4b45c8f09c9e4afaa8fe1ef13b5bcdcfe66208ab1fa6aee2abe01055d1244a5\nBuyer wording SHA-256 reported by export: 9ded0454f2f8fae3b331f8ad6a32e191f05afeabd311ab4613d24810ca8c4354\nHuman source, wording, price, tax, timing and rights review remain pending. Outbound disabled. Verification must use the retained receiptHash in a separate command.\n'@\n[System.IO.File]::WriteAllText(\"'$retainedNotesPath, $retainedNotes + [Environment]::NewLine, [System.Text.UTF8Encoding]::new($false))\nGet-Content -LiteralPath $retainedNotesPath'",
+      "exit_code": 0,
+      "output_sha256": "34729fd9d1dc7ae44bcb2b896075e9f5f1f4c165d835f955235a7334a269c7e3",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-verify-buyer",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command '$retainedHashLine = Get-Content -LiteralPath '\"'scratch/owner-export-notes.txt' | Where-Object { \"'$_.StartsWith('\"'Retained receiptHash: ') }\n\"'$retainedExportHash = $retainedHashLine.Substring('\"'Retained receiptHash: '.Length)\n& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' verify-buyer --directory 'scratch/buyer-v1' --receipt-sha256 \"'$retainedExportHash'",
+      "exit_code": 0,
+      "output_sha256": "f2c20aa45ea48099432831142211f5f049b11867ef9df812e4648ef9f62946fa",
+      "error_excerpt": null
+    },
+    {
+      "kind": "quote-verify-buyer",
+      "command": "\"<native-powershell-7.6.6>\" -NoProfile -Command \"& '<existing-node-24>' 'scratch/quote-v1/skills/quote-desk/scripts/quote-desk.mjs' verify-buyer --directory 'scratch/buyer-v1' --receipt-sha256 '0000000000000000000000000000000000000000000000000000000000000000'\"",
+      "exit_code": 1,
+      "output_sha256": "34d0b744157ec99a1cb5b6258c886519e26e1721af5f44c4ed04af18fe16efc5",
+      "error_excerpt": "[quote-desk] Receipt checksum mismatch; use the separately retained export hash and preserve this folder\n"
+    }
+  ],
+  "lead_artifact_checks": {
+    "old_restored_payload_operator_verification": "unavailable-access-denied",
+    "repack_byte_identical": true,
+    "download_sha256": "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95",
+    "all_original_fixture_bytes_preserved": true,
+    "empty_existing_directory_preserved": true,
+    "refused_output_and_escape_paths_absent": true,
+    "marked_partial_bytes_preserved": true,
+    "download_and_repacked_zip_MIT_notice_bytes_equal": true,
+    "buyer_exact_four_file_layout": true,
+    "buyer_wording_equal_authored_source_and_reopened_record": true,
+    "revision": 2,
+    "snapshot_hash": "0bd6bc91a85a04705290b438089701be0a24e463a6dbaa1e07b96bf65ed7cf38",
+    "owner_receipt_hash_retained_outside_buyer_folder": "c4b45c8f09c9e4afaa8fe1ef13b5bcdcfe66208ab1fa6aee2abe01055d1244a5",
+    "receipt_payload_hashes_verified": true,
+    "ordinary_user_config_and_python_exe_dll_bytes_preserved": true,
+    "temporary_profile_removed": true,
+    "scope": "Old restored folder inspection denied; old repack and buyer files verified after worker stopped; not model-completed inspection, publisher trust, human approval or semantic rights assessment."
+  },
+  "buyer_artifact": {
+    "quote_text": "Thank you for requesting an inspection of one unit at your workshop.\n\nFor one equipment inspection visit, the draft amount is EUR 120.00. The scope, final price and tax treatment still need the owner's approval.\n\nYou proposed next week. Availability has not yet been confirmed, and no appointment is booked. Please share the equipment type and model, the workshop address and any access requirements, along with your preferred days next week, so the owner can review the scope and timing.\n\nThis is a draft for review, not a confirmed booking or binding offer.\r\n",
+    "quote_sha256": "9ded0454f2f8fae3b331f8ad6a32e191f05afeabd311ab4613d24810ca8c4354",
+    "files_sha256": {
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "quote.txt": "9ded0454f2f8fae3b331f8ad6a32e191f05afeabd311ab4613d24810ca8c4354",
+      "README.md": "92f91c502876b9a720972cc7bc8bebfb918c96f97732a50a7d6bc7ebd88a718b",
+      "receipt.json": "c4b45c8f09c9e4afaa8fe1ef13b5bcdcfe66208ab1fa6aee2abe01055d1244a5"
+    },
+    "internal_notes_sha256": "c99e9d5b870b781b6916e03783dfac9f351687d9a20cb8d22d78396ec669695a",
+    "outbound": "disabled",
+    "approvalsVerified": false,
+    "proseReviewRequired": true,
+    "synthetic": true
+  },
+  "raw_evidence_sha256": {
+    "native.jsonl": "b2efa1f943e4866ee2b55e5305b57d902b22b299534bd2822f97180bd9f7ce35",
+    "native.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture.json": "485339cfb0b22334df98fff52e030f9e61458ca9f2a46509ad797941fb2d2f15",
+    "debug-prompt.stdout": "823d32284f983c624ac279c4622270075cee7744bd059938e50e859eabb451e6",
+    "debug-prompt-resolved.stdout": "225f6b52036406fb071850c607de999703c7b5e2db39280baabc71c0e1e52155",
+    "lead-inspection.json": "09f83e52067714724a8a579e28a3f4b00443b344130650e34cffb85976aa38c2",
+    "cleanup-runtime.json": "42e7bb8ac771046f4f991a714402c04e2421fa9d3f5070f1307fbdb0e463f3e1",
+    "discovery-lead-correction.json": "5c6e2c936a5712404359672bc3cb8c5f0c75c947ff5679f676c6316aa1d83c09"
+  },
+  "diagnostics": {
+    "python313": "Built-in workspace and correctly parsed inherited-workspace exact read subtree still return Windows5/AccessDenied",
+    "positive_controls": "Native system identity and Node24 launch; existing CPython3.11 launches under inherited workspace/read subtree",
+    "lead_preparation_errors_retained": "Wrong sandbox subcommand, malformed cmd control/quoted config key, failed shell-quoted preparer, alias-resolution assertion and missing base variable occurred before model trial. No model receipt added for those diagnostics/preparations.",
+    "source_inspection_gaps": "Original native six-file Get-Content inspection and maintaining-account source reads were denied. The model inspected producer source instead. Old restored-folder byte verification is unavailable; the old repacked ZIP is byte-identical. A separate 0.1.5 model-free replay verifies new folder source reading/editing and unchanged/fresh-sibling payload bytes. Original denied folders were preserved.",
+    "python313_root_cause": "Unresolved; different pre-existing executable access rules correlate with results, not a full OS access-check diagnosis."
+  },
+  "limits": [
+    "No final native response/usage/cost receipt; incomplete attempt, never zero cost.",
+    "No native interrupted mid-write restoration; pre-marked partial fixture only.",
+    "Local current skill discovery and execution, not native plugin lifecycle/isolated installation acceptance.",
+    "No identical fresh two-host suite, human cold-user trial, active repair time or causal skill/paid advantage.",
+    "Manual extraction and identical wording copy remain capable alternatives; restored source/repack identity is parity.",
+    "Producer-controlled ZIP/hash/private metadata not publisher, merchant, licence-completeness or entitlement evidence.",
+    "Current quote data/wording synthetic; no operator/domain/buyer or legal approval.",
+    "Dots eligibility, marketplace approval, actual seller/terms/refund/update and cash revenue/ROI remain unknown.",
+    "No account/global configuration, install, catalogue/price/payment/send/service changes. Policy loading is not universal runtime enforcement.",
+    "Original 0.1.4 restored directories are unreadable to the maintaining account. The 0.1.5 model-free replay fixes fresh source access, preserving original folders and the timed-out model attempt. Two PowerShell spawn diagnostics failed before file reads; existing Python3.11 read all five inspected source files."
+  ],
+  "original_access_defect": {
+    "quote-v1": "ordinary-maintaining-account-read-denied",
+    "quote-v2": "ordinary-maintaining-account-read-denied"
+  },
+  "refinement_replay": {
+    "schema": "starlight.builder_windows_access_replay.v1",
+    "observed_at": "2026-10-02T20:25:46.802325+00:00",
+    "execution_source_revision": "4412e79a4117a689f2e49f8f7687167cba6a2218",
+    "builder_version": "0.1.5",
+    "copied_builder_files_sha256": {
+      ".claude-plugin/plugin.json": "e9676c68d22f0879c8aba035b139719d3ebc9b687530516262028af385482a0a",
+      "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+      "README.md": "7e3de1d643f2f55761399609be6216afe06827f2076eb51537ad19de84b7b69e",
+      "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+      "plugin.json": "5e29257fe15eaa4c7a2d124482ec35519e457fc8833a13502d01aa8802525637",
+      "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+      "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+      "scripts/package_lab.py": "fa21850fca92e3d0b0241a401006ceaa21aa7e9314eea45d773425c85de12d6c",
+      "skills/build-portable-plugin/SKILL.md": "568ca843d86581f7adafb4698cc1420e8104fd0b0006de3f8a0c5a37d6705eab",
+      "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+      "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+      "tests/test_package_lab.py": "59dac5ac88343134c9a541ddc8af8995fdb900020661cdcc2510c4af57a3f01b",
+      "tests/test_restore.py": "fa45a36293440f4c391c66cb17ad2dbd362731c31c61c1d0249d81d2438e3966"
+    },
+    "download_sha256": "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95",
+    "native_identity": "<dedicated-offline-sandbox-account>",
+    "calls": [
+      {
+        "case": "01-sandbox-identity",
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "<installed-codex-launcher>",
+          "--no-daemon",
+          "sandbox",
+          "--include-managed-config",
+          "-P",
+          ":workspace",
+          "-C",
+          "<trial>",
+          "--",
+          "C:/Windows/System32/whoami.exe"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.325,
+        "stdout_sha256": "60ec4b92899611d00f95fb8a5260f250d665b27f2385257cf6356f4592113a74",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "02-restore-fresh-v3",
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "<installed-codex-launcher>",
+          "--no-daemon",
+          "sandbox",
+          "--include-managed-config",
+          "-P",
+          ":workspace",
+          "-C",
+          "<trial>",
+          "--",
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "restore",
+          "<trial>\\inputs\\quote-desk.zip",
+          "<trial>\\readable-replay\\quote-v3",
+          "--sha256",
+          "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.405,
+        "stdout_sha256": "0c9a9e602e3954f73e7d42cfc0642202cc1177ea40f27e4ba427ddcb1858a331",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "03-native-source-read",
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "<installed-codex-launcher>",
+          "--no-daemon",
+          "sandbox",
+          "--include-managed-config",
+          "-P",
+          ":workspace",
+          "-C",
+          "<trial>",
+          "--",
+          "pwsh",
+          "-NoProfile",
+          "-Command",
+          "$ErrorActionPreference='Stop'; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\LICENSE' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\README.md' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\LICENSE' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\SKILL.md' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\scripts\\quote-desk.mjs' -Raw | Out-Null; Write-Output 'five restored source files read'"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 1,
+        "elapsed_seconds": 1.217,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e333647f186728723749f1126932d83f95a059c86456d6ab42d4cf1c54a7764b"
+      },
+      {
+        "case": "03b-native-source-read-explicit-shell",
+        "command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "<installed-codex-launcher>",
+          "--no-daemon",
+          "sandbox",
+          "--include-managed-config",
+          "-P",
+          ":workspace",
+          "-C",
+          "<trial>",
+          "--",
+          "<installed-store-powershell>",
+          "-NoProfile",
+          "-Command",
+          "$ErrorActionPreference='Stop'; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\LICENSE' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\README.md' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\LICENSE' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\SKILL.md' -Raw | Out-Null; Get-Content -LiteralPath '<trial>\\readable-replay\\quote-v3\\skills\\quote-desk\\scripts\\quote-desk.mjs' -Raw | Out-Null; Write-Output 'five restored source files read'"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 1,
+        "elapsed_seconds": 1.855,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "4dece97bbceb73c8c9d179d682842ef93d1b9adab4bf87a5e1427cece4bf9c06"
+      },
+      {
+        "case": "03c-native-source-read-python",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\native-source-read.py"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.371,
+        "stdout_sha256": "3e026dd8521b2a1ae1a492fe84e569d34d954cc82233d74d0f2ad1f8947c8652",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "04-check-v3",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "check",
+          "<trial>\\readable-replay\\quote-v3"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.364,
+        "stdout_sha256": "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "05-pack-unedited-v3",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "pack",
+          "<trial>\\readable-replay\\quote-v3",
+          "<trial>\\readable-replay\\unedited.zip"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.433,
+        "stdout_sha256": "b15906beb61084b77146804163eb76ae773a9075d430c0b83b3c16f6c43234cd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "06-check-operator-edit",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "check",
+          "<trial>\\readable-replay\\quote-v3"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.338,
+        "stdout_sha256": "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "07-pack-operator-edit",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "pack",
+          "<trial>\\readable-replay\\quote-v3",
+          "<trial>\\readable-replay\\edited.zip"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.346,
+        "stdout_sha256": "febc402ea832da920f65139f16110d8e14a0041709ee81f1c3ffbaf91eb862d0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "08-refuse-existing-edited-v3",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "restore",
+          "<trial>\\inputs\\quote-desk.zip",
+          "<trial>\\readable-replay\\quote-v3",
+          "--sha256",
+          "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 1,
+        "elapsed_seconds": 1.36,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255"
+      },
+      {
+        "case": "09-restore-fresh-v4",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "restore",
+          "<trial>\\inputs\\quote-desk.zip",
+          "<trial>\\readable-replay\\quote-v4",
+          "--sha256",
+          "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.379,
+        "stdout_sha256": "d857d9a78b44d34f26e4bc7a7ab696310ca1e3c4b1c63f30e28735cbbb4ebebf",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "10-check-fresh-v4",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "<trial>\\readable-replay\\builder-source\\scripts\\package_lab.py",
+          "check",
+          "<trial>\\readable-replay\\quote-v4"
+        ],
+        "native_sandbox": true,
+        "model_call": false,
+        "exit_code": 0,
+        "elapsed_seconds": 1.292,
+        "stdout_sha256": "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "case": "11-regression-rejects-old-runtime",
+        "command": [
+          "<existing-python-3.11>",
+          "-B",
+          "-m",
+          "unittest",
+          "test_package_lab.PackageTests.test_restore_inherits_workspace_reader_acl_through_nested_directories",
+          "-v"
+        ],
+        "native_sandbox": false,
+        "model_call": false,
+        "exit_code": 1,
+        "elapsed_seconds": 2.474,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "45ea637696f012446863980aa3b1f7a49b7f319c071dfb71671d47396b602c6f"
+      }
+    ],
+    "operator_file_count": 10,
+    "operator_initial_payload_sha256": {
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+      "README.md": "d5c515c95fc11e97d2351d017220c31567b1d9ee810147a8a55f4111d93b363c",
+      ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+      "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "skills/quote-desk/SKILL.md": "5843dfff28c2ff3cd6c131d0349907103c2dbf4ff20f1da70a13e10f95feacae",
+      "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+      "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+      "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+      "skills/quote-desk/scripts/quote-desk.mjs": "b0262da2d0b7dc1043a5136e6908c0e78fc5e42eefbdb4b8773cf238108b514e"
+    },
+    "operator_edit_sha256": "8080164f0e6888ccc815fd91611ff8f63f603184e560ca8fd4e0b36eb364354b",
+    "unedited_repack_byte_identical": true,
+    "edited_repack_preserves_only_authorized_readme_change": true,
+    "existing_edited_output_preserved": true,
+    "fresh_sibling_payload_identical": true,
+    "native_source_reads_pass": true,
+    "operator_nested_directory_acl_inheritance_pass": true,
+    "acl_directory_count": 6,
+    "old_runtime_rejected_by_new_regression": true,
+    "old_unreadable_outputs_preserved": {
+      "quote-v1": "operator-read-denied",
+      "quote-v2": "operator-read-denied"
+    },
+    "original_fixture_and_global_config_preserved": true,
+    "all_workers_terminal": true,
+    "model_calls": 0,
+    "scope": "Model-free controlled native elevated sandbox replay with existing CPython3.11.15. Ordinary maintaining account actually reads/edits the new restored source. No old ACL repair, runtime install, account changes, native model completion, outside-user or paid acceptance.",
+    "raw_proof_sha256": "ccfc54e5de1617a92b43812e1c983e686d4f14626913fd61fe6fdedbc904c123"
+  }
+}

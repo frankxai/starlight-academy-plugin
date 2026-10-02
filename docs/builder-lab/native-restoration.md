@@ -71,3 +71,16 @@ eligibility and directory acceptance remain pending in [BL-01](https://github.co
 Actual seller, rights, terms and purchase/refund/revocation/update evidence remain
 pending in [BL-05](https://github.com/frankxai/starlight-academy-plugin/issues/9).
 No paid readiness or marketplace approval follows from this trial.
+
+## Later Codex observation and Windows fix
+
+The [2 October Codex record](native-codex-runtime.md) adds an actual assisted
+restore-to-quote attempt using existing Python 3.11 and the same 0.1.4 Builder
+source. Its 19 target operations were observed before timeout; complete session
+and usage evidence is absent. It revealed unreadable source folders for the
+maintaining account. Version 0.1.5 corrects fresh Windows folder ACL inheritance.
+The separate model-free replay proves ordinary-account source reading/editing,
+repack parity, preserved edits and fresh-sibling recovery. Original denied folders,
+Python 3.13 errors and earlier native receipts remain unchanged. These later
+observations supersede the earlier "no new Codex model attempt" statement only
+for their dated scope. BL-01 two-host/cold-use/Dots acceptance stays pending.
