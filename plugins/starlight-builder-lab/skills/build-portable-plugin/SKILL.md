@@ -1,6 +1,6 @@
 ---
 name: build-portable-plugin
-description: "Create, inspect or explain a portable skills-only agent plugin. Use when asked about the bundled research-brief example, scaffold/check/pack commands, preserving existing outputs or supplied full licence text, including read-only explanations when execution and writes are unavailable. Also use for plugin scaffolding, local package checks and reproducible ZIP preparation; installation and publication require a separate request."
+description: "Create, inspect, package or restore a portable skills-only agent plugin. Use for scaffold/check/pack/restore commands, supplied full licence text, checksum-verified downloads and preserving prior versions or edits, including read-only explanations when execution is unavailable. Host installation and publication require a separate request."
 ---
 
 # Build a portable plugin
@@ -21,7 +21,7 @@ Use the user's chosen repository and its ownership rules. Inspect existing
 skills before authoring. Preserve third-party skills as prerequisites rather than
 copying their bodies. Prefer the host's existing creator tools when sufficient.
 
-Read [the tool guide](../../README.md) and inspect
+Read [the tool guide](../../README.md). For authoring, inspect
 [the worked specification](../../examples/research-brief.json). The generator
 accepts a supplied license identifier and complete license text; it does not
 choose a license for the user. Turn the requested workflow into the
@@ -45,11 +45,24 @@ Run the package's `scripts/package_lab.py` with the requested operation:
 scaffold SPEC.json OUTPUT_DIRECTORY
 check PLUGIN_DIRECTORY
 pack PLUGIN_DIRECTORY OUTPUT.zip
+restore DOWNLOAD.zip NEW_DIRECTORY --sha256 PUBLISHER_SHA256
 ```
 
 Resolve failures before packaging. Inspect generated files and ZIP entries.
 The check enforces a limited skills-only contract and flags common packaging
 hazards; a full secret scan and current provider schema check remain separate.
+
+For a download or version update, obtain the expected hash from the owner's trusted
+publisher/channel record, independently of the ZIP. Never compute the download's
+own hash and present it as publisher verification. Restore into a fresh project-owned
+folder. Check the returned file hashes and supplied notices, inspect source, and use
+the host's existing installation controls only when requested. Keep the prior version
+and customer edits; do not overwrite them or migrate credentials/configuration.
+Wrong hashes, unsafe archive entries and invalid packages refuse before output creation.
+A write failure leaves a partial folder for inspection; preserve it and retry into a
+fresh sibling. Restore never executes source, installs a plugin, checks an entitlement,
+grants rights or proves publisher identity. Compare edits manually before switching
+versions; rollback uses the preserved prior version through host controls.
 
 Test workflow behavior in the intended host using a realistic task, bad input
 and transfer task. Record host/version, skill revision, artifact, assistance,

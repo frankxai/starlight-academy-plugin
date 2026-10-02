@@ -92,7 +92,6 @@ def verify() -> dict:
             raise ValueError("Existing scaffold was modified")
         first = run_json(PACKAGE, "pack", generated, base / "first.zip")
         restored = base / "restored"
-        restored.mkdir()
         with zipfile.ZipFile(base / "first.zip") as archive:
             for entry in archive.infolist():
                 destination = (restored / entry.filename).resolve()
@@ -100,7 +99,11 @@ def verify() -> dict:
                     raise ValueError("Generated ZIP path escapes the restoration directory")
                 if entry.create_system != 3 or entry.date_time != (2020, 1, 1, 0, 0, 0) or entry.compress_type != zipfile.ZIP_STORED:
                     raise ValueError("Generated ZIP lacks reproducible headers")
-            archive.extractall(restored)
+        restored_receipt = run_json(PACKAGE, "restore", base / "first.zip", restored, "--sha256", first["sha256"])
+        if (restored_receipt["status"] != "restored-structural-pass"
+                or restored_receipt["installation"] != "not-performed"
+                or (restored / "LICENSE").read_bytes() != (generated / "LICENSE").read_bytes()):
+            raise ValueError("Restored source or licence differs from the supplied release")
         run_json(PACKAGE, "check", restored)
         second = run_json(PACKAGE, "pack", restored, base / "second.zip")
         if first["sha256"] != second["sha256"]:
@@ -147,6 +150,7 @@ def verify() -> dict:
             "relative_references_checked": refs, "goals_reported": len(report["goals"]),
             "document_references_checked": document_refs,
             "catalogs": catalogs(ROOT), "host_behavior": "not-proven-by-this-check",
+            "restore": "generated-example-checksum-and-license-preserved; not-merchant-delivery",
             "directory_approval": "not-proven-by-this-check", "commerce": "not-proven-by-this-check",
             "secret_scan": "package-heuristic-only; retain full repository secret checks"}
 
