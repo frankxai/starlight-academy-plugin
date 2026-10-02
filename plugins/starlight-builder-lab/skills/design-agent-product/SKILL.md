@@ -9,7 +9,13 @@ Read [the worked blueprints](../../references/product-blueprints.md). Start with
 the user's workflow and available technology. Select an existing package to
 improve when it fits. Define an observable output before writing instructions.
 
-Write one workflow contract with:
+For a narrow specification or output-contract question, return only the requested
+fields. Use short field-value bullets within the caller's length limit. Preserve
+source/uncertainty, permission and recovery boundaries; omit unrequested examples,
+setup and evaluations. Add worked, adverse and transfer tasks when requested or
+when preparing the complete product design below.
+
+For a complete product design, write one workflow contract with:
 
 - User, trigger, present workaround and the change they need.
 - Input, artifact, acceptance test, failed-input behavior and recovery.

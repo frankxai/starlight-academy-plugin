@@ -9,6 +9,11 @@ Requires host file tools and Python 3.10 or later. This plugin has no server or
 model API requirement. If execution is unavailable, produce editable source text
 and commands without claiming that files or a ZIP exist.
 
+For a read-only command explanation, return just the requested commands, path
+requirements, licence handling and observed execution status. Fit the caller's
+length limit with short command lines and one clause per operation; do not append
+unrequested setup or host-test plans.
+
 Use the user's chosen repository and its ownership rules. Inspect existing
 skills before authoring. Preserve third-party skills as prerequisites rather than
 copying their bodies. Prefer the host's existing creator tools when sufficient.
@@ -21,6 +26,9 @@ specification's input, output, uncertainty, permission and recovery instructions
 Use the example as a shape, preserving the user's domain. Resolve the installed
 plugin's root before running its script. Use `python3` when that is the host's
 Python 3 command. Choose a project-owned output path and preserve existing work.
+The scaffold output directory must not exist, even if an existing directory is
+empty. Pack also requires a new ZIP path. On either collision, stop and select a
+new path; do not suggest force, cleanup or reuse of the existing output.
 
 When generating the bundled example, retain its complete supplied MIT licence
 and existing copyright notice. For copied or substantially reused content, keep
