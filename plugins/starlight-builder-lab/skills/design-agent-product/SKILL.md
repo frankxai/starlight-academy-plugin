@@ -18,6 +18,13 @@ Write one workflow contract with:
 - One worked example, one adverse case and one different-context transfer task.
 - A comparison with the host's baseline behavior on the same task.
 
+Keep current user-supplied evidence separate from bundled illustrations. Never
+reuse a reference example's facts or locators as evidence for the user's task.
+When sources are absent, produce a specification with placeholders or mark the
+entire worked example, including claims and locators, as synthetic. A factual
+brief requires the user's sources; ask for them and retain missing evidence as
+unknown. Label supplied observations, illustrative content and inferences.
+
 Use a portable skill for repeatable judgment; use a script for deterministic
 mechanics; add MCP only when the task requires connected data or actions. Keep
 instructions and reference resources small enough for selective loading.

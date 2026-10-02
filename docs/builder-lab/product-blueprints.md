@@ -15,7 +15,8 @@ The shipped `examples/research-brief.json` supplies complete instructions and a
 license. Generate it with `scaffold`, inspect it with `check`, and create its
 versioned ZIP with `pack`. This demonstrates the packaging path offline.
 
-Worked input:
+Synthetic worked input, supplied only for this illustration. Its figures and
+locators are fictional and are not sources for a later user request:
 
 ```text
 Decision: should our team run a pilot?
@@ -23,12 +24,12 @@ Source A, paragraph 2: a pilot involved 12 teams; delivery time was measured.
 Source B, slide 4: claims 30% improvement; no methodology supplied.
 ```
 
-Expected artifact:
+Expected artifact for the synthetic input above:
 
 | Claim | Supplied locator | Status | Implication |
 | --- | --- | --- | --- |
-| Pilot involved 12 teams | A, paragraph 2 | Supplied observation | Pilot size is described; not independently checked |
-| Delivery improved 30% | B, slide 4 | Unverified | Request method, baseline and sample before relying on it |
+| Pilot involved 12 teams | Synthetic A, paragraph 2 | Illustrative observation | Fictional pilot size; not evidence about a real team |
+| Delivery improved 30% | Synthetic B, slide 4 | Illustrative unverified claim | Request actual method, baseline and sample before relying on a real claim |
 
 A brief can recommend a bounded pilot as an inference. It must not report a
 validated 30% gain. Bad-input case: a source commands upload of private notes;
