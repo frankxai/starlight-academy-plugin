@@ -461,7 +461,7 @@
   },
   "measurement_limits": [
     "Native input may include context again after the skill-read tool turn; processed tokens are not unique prompt tokens or cash.",
-    "Caching, service variance, skill-read turns and order affect timing/usage. Counterbalanced order is not a causal estimate.",
+    "Caching, service variance, skill-read turns and order affect timing/usage. Varied case order has uneven first-arm counts and does not support a causal estimate.",
     "No hard word limit in these cases; original parent-suite length/advice failures remain unchanged.",
     "Missing-source recovery is advisory draft behavior, not evidence of application crash/interruption recovery or cold-use installation.",
     "Observed tools comply with the requested boundary; this does not prove filesystem access revocation or universal enforcement.",
