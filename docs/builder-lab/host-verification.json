@@ -332,7 +332,7 @@
   "limits": [
     "Lead assessments are scoped response checks, not independent provider certification",
     "Session-only Claude loading does not prove permanent marketplace installation",
-    "No native-host generated files or ZIP",
+    "No Codex-generated files or ZIP; Claude artifact was one assisted bundled example",
     "No observed improvement versus the plain host",
     "Local CLI trials do not establish ChatGPT cloud or Dots account behavior",
     "Source review gives no seller, legal or commerce approval"

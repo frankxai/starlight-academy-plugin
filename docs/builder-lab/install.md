@@ -38,12 +38,14 @@ remains a quality concern. The private machine profile and its personal paths
 are excluded from the package.
 
 After testing, `codex plugin remove` removed only the temporary test plugin and
-its owned cache. Existing configuration semantics were restored. A private
-activation index was refreshed after install and removal; the existing estate
-index was preserved. A debug listing still showed skill descriptors with
+its owned cache. Existing configuration semantics were restored. A debug
+listing still showed skill descriptors with
 `enabled=false`, so that listing does not prove runtime disable behavior.
 
 ## Before catalog release
+
+The Builder Lab source is licensed Apache-2.0. The separately generated
+research-brief example retains its own MIT licence.
 
 Resolve the example-attribution concern, obtain independent acceptance of the
 host receipts, run the plain-host comparison and prove runtime disable. Then

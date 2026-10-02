@@ -216,6 +216,8 @@ def project(goals: dict, evidence: dict) -> dict:
                 by_basis[basis] = by_basis.get(basis, Decimal(0)) + cost
         cost_subtotals = {basis: str(value.quantize(Decimal("0.000001"))) for basis, value in sorted(by_basis.items())}
         gaps = [g["reason"] for g in evidence.get("telemetry_gaps", []) if g["goal_id"] == row["id"]]
+        # Retain v1 aggregate keys for consumers; these include cache writes.
+        # Display the four disjoint TOKEN_FIELDS, never sum an aggregate again.
         totals.update(fresh_input_tokens=totals["input_tokens"] + totals["cache_creation_input_tokens"],
                       fresh_io_tokens=totals["input_tokens"] + totals["cache_creation_input_tokens"] + totals["output_tokens"],
                       processed_tokens=sum(totals[f] for f in TOKEN_FIELDS))
@@ -254,7 +256,7 @@ def markdown(report: dict) -> str:
         lines += ["", f"## {cell(row['id'])}", "", f"Agent receipt state: {cell(row['agent_state'])}.", f"Next gate: {cell(row['next_gate'])}."]
         if row["tokens_known_complete_subset"]:
             t = row["tokens_known_complete_subset"]
-            lines.append(f"Audited subset: {row['complete_token_receipts']} model receipts; fresh input {t['fresh_input_tokens']:,}; generated output {t['output_tokens']:,}; cache reads {t['cache_read_input_tokens']:,}; cache writes {t['cache_creation_input_tokens']:,}; processed {t['processed_tokens']:,}. Thinking tokens are included in output, never added twice.")
+            lines.append(f"Audited subset: {row['complete_token_receipts']} model receipts; ordinary input {t['input_tokens']:,}; cache writes {t['cache_creation_input_tokens']:,}; cache reads {t['cache_read_input_tokens']:,}; generated output {t['output_tokens']:,}; processed {t['processed_tokens']:,}. Thinking tokens are included in output, never added twice.")
         else:
             lines.append("Token totals unknown: no complete model receipt supplied.")
         lines.append(f"Incomplete token receipts: {row['missing_token_receipts']}; unknown-cost receipts: {row['unknown_cost_receipts']}. Invoiced cash, known subset: {row['invoiced_cash_usd_known_subset'] if row['invoiced_cash_usd_known_subset'] is not None else 'unknown'} USD; runs without invoice evidence: {row['missing_invoice_receipts']}.")

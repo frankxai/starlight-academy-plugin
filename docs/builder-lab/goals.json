@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T05:20:32.201108+00:00",
+  "observed_at": "2026-10-02T05:38:34.795339+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -52,10 +52,10 @@
       "target_date": "2026-10-05",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Eleven native receipts attributed, including all three Codex discovery failures; four Codex costs and all allocated invoices remain unknown; scoped report review pending",
+      "agent_state": "Report projects eleven BL-01 receipts and one BL-02 checker receipt. Reporting review returned ITERATE; corrections await review. BL-02 maker and whole-goal lead usage are unavailable; all invoices remain unknown",
       "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Independent acceptance of this real native maker/usage report; retain unallocated lead usage, timed-out review cost and unknown cash",
+      "next_gate": "Independent acceptance of the corrected scoped report plus an attributed BL-02 maker receipt; retain unknown lead usage, timed-out review expenditure and cash",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",

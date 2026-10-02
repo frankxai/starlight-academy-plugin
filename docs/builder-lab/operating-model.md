@@ -73,8 +73,11 @@ prompts or credentials. Keep raw receipts and invoices private. Multiple copies
 of one receipt must fail rather than double-count. A caller supplies audited,
 sanitized evidence; this CLI does not inspect actual agents, invoices or GitHub.
 
-Fresh input = uncached input + cache writes. Fresh I/O adds generated output.
-Processed tokens additionally include cache reads. Thinking is included in output.
+The report displays four disjoint buckets: ordinary input, cache writes, cache
+reads and generated output. Their sum is processed tokens. Thinking is included
+in output. In the v1 JSON output, the compatibility key `fresh_input_tokens`
+aggregates ordinary input and cache writes; `fresh_io_tokens` also adds output.
+These aggregate keys must not be added to the four buckets again.
 Partial token receipts are counted and excluded from the complete subtotal.
 Cost subtotals remain separated by the supplied `cost_basis`; mixed bases have
 no combined total. Invoice totals are labelled as a known subset, with the count

@@ -68,9 +68,18 @@ was removed through its native CLI; previous configuration semantics were restor
 Runtime disable, isolated triggering, plain-host comparison, final catalog and
 Dots account access remain unfinished.
 
-Eleven native receipts account for 619,260 processed tokens. The known Claude
-list-price subtotal is USD 1.763351; four Codex native costs are unknown. Native
-Codex input is partitioned into ordinary input, cache reads and observed cache
-writes using the [OpenAI token accounting definition](https://developers.openai.com/api/docs/guides/prompt-caching).
-Cache reads and reasoning output are each counted once. Whole-goal lead usage,
-one timed-out review cost, allocated invoices and cash ROI remain unknown.
+The eleven BL-01 receipts account for 619,260 processed tokens: ordinary input
+129,454, cache writes 211,542, cache reads 183,559 and output 94,705. The known
+Claude list-price subtotal is USD 1.763351; four Codex native costs are unknown.
+One separate BL-02 reporting review adds 43,365 processed tokens and USD 0.214148,
+bringing the twelve-receipt known subtotal to USD 1.977499. It returned ITERATE;
+the corrected reporting packet awaits re-review. It is a checker receipt, not a
+BL-02 maker run.
+
+Native Codex input is partitioned into ordinary input, cache reads and observed
+cache writes using the [OpenAI token accounting definition](https://developers.openai.com/api/docs/guides/prompt-caching).
+The four displayed buckets are disjoint and sum to processed tokens. The v1 JSON
+compatibility aggregates `fresh_input_tokens` and `fresh_io_tokens` already
+include cache writes and must not be added again. Reasoning remains within
+output. Whole-goal lead usage, BL-02 maker usage, one timed-out review expenditure,
+allocated invoices and cash ROI remain unknown.

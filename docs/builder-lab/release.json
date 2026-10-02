@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_release.v1",
-  "observed_at": "2026-10-02T05:20:32.201108+00:00",
+  "observed_at": "2026-10-02T05:38:34.795339+00:00",
   "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
   "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
   "status": "source merged; both native hosts observed; Codex example-attribution concern and remaining release gates open",
@@ -58,11 +58,18 @@
     "post_merge_ci_conclusion": "success"
   },
   "usage": {
-    "completed_model_receipts": 11,
-    "known_api_equivalent_usd": "1.763351",
+    "completed_model_receipts": 12,
+    "known_api_equivalent_usd": "1.977499",
     "unknown_cost_receipts": 4,
-    "coverage": "Five source reviews, two Claude host trials and four Codex native attempts; three discovery failures retained",
+    "coverage": "BL-01: five source reviews, two Claude trials and four Codex attempts, including three discovery failures. BL-02: one independent reporting review. No whole-goal lead, BL-02 maker or invoice-cash coverage.",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown"
+  },
+  "reporting_review": {
+    "revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
+    "verdict": "ITERATE",
+    "corrections": "Token labels, receipt ownership, stale artifact limit, licence scope and documentation encoding corrected; re-review pending",
+    "receipt_id": "builder-evidence-review-1",
+    "goal_id": "BL-02"
   }
 }

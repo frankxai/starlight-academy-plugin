@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_evidence.v1",
-  "observed_at": "2026-10-02T05:20:32.201108+00:00",
-  "coverage": "Five source reviews, two native Claude trials and four Codex native attempts, including three discovery failures; no whole-goal lead or invoice-cash coverage.",
+  "observed_at": "2026-10-02T05:38:34.795339+00:00",
+  "coverage": "BL-01: five source reviews, two Claude trials and four Codex attempts, including three discovery failures. BL-02: one independent reporting review. No whole-goal lead, BL-02 maker or invoice-cash coverage.",
   "runs": [
     {
       "id": "builder-review-1",
@@ -207,6 +207,24 @@
       "token_normalization": "CLI input total partitioned into ordinary input, cache reads and cache writes; cache writes are observed zero, not assumed. Reasoning remains included in output.",
       "normalization_reference": "https://developers.openai.com/api/docs/guides/prompt-caching",
       "outcome": "loaded"
+    },
+    {
+      "id": "builder-evidence-review-1",
+      "goal_id": "BL-02",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/11",
+      "source_sha256": "e784ea0ab6996588159514ce5770f0667d1954f8dfd8261eb23538c094b5c3ac",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.214148",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 4341,
+      "input_tokens": 2,
+      "output_tokens": 6782,
+      "cache_creation_input_tokens": 36581,
+      "cache_read_input_tokens": 0,
+      "source_revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
+      "outcome": "ITERATE",
+      "scope": "Independent frozen reporting review; not a maker run or billing invoice"
     }
   ],
   "telemetry_gaps": [
