@@ -81,5 +81,24 @@ cache writes using the [OpenAI token accounting definition](https://developers.o
 The four displayed buckets are disjoint and sum to processed tokens. The v1 JSON
 compatibility aggregates `fresh_input_tokens` and `fresh_io_tokens` already
 include cache writes and must not be added again. Reasoning remains within
-output. Whole-goal lead usage, BL-02 maker usage, one timed-out review expenditure,
+output. Whole-goal lead and source-maker usage, one timed-out review expenditure,
 allocated invoices and cash ROI remain unknown.
+
+## Version 0.1.1 patch evidence
+
+The original 0.1.0 trials above remain dated evidence. The 0.1.1 patch separates
+bundled synthetic examples from current user evidence and preserves existing
+copyright when reusing the MIT demo. An intermediate Claude response contradicted
+licence preservation; it remains failed in the [versioned trial record](native-patch-trials.json).
+Final batches at `1af40b2` returned eight lead-accepted cases in each host. The
+Codex temporary install was removed and prior configuration semantics restored.
+These are prompted batches with assistance, not baseline or isolated-trigger proof.
+
+A separate Claude model used the merged reporting tool to produce its actual
+JSON and Markdown outputs. Codex compared both to the frozen generator, with
+exact matches. The [adoption receipt](report-adoption.json) records the artifact
+hashes, commands, assistance and scope. It covers one report-maker use; whole-goal
+source-maker telemetry and cash remain unknown. Final patch publication review
+is pending.
+
+The updated snapshot contains 18 attributed receipts, 1,071,459 processed tokens and USD 2.499784 known list-price API-equivalent cost. Six Codex costs and all allocated invoices remain unknown. One subsequent patch review was stopped for a RAM reserve shortfall without final usage/cost or verdict. Its incomplete attempt is retained separately and excluded from complete-subset token totals.

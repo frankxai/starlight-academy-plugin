@@ -56,3 +56,12 @@ The [OpenAI packaging guide](https://developers.openai.com/plugins/build/plugins
 distinguishes repository marketplaces from the universal directory. Local CLI
 installation establishes no ChatGPT cloud, Dots account or directory approval.
 Those statuses remain in [release.json](release.json).
+
+## Version 0.1.1 reruns
+
+The [versioned trial record](native-patch-trials.json) preserves the intermediate
+failed response and the final eight-case batches at `1af40b2` in both hosts.
+All twelve payload hashes matched the tested source. The native Codex install
+was removed; owned cache and temporary profile are absent and previous global
+configuration semantics were restored. Final independent acceptance, comparison,
+isolated triggers, runtime disable and catalogs remain open.

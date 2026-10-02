@@ -22,6 +22,12 @@ Use the example as a shape, preserving the user's domain. Resolve the installed
 plugin's root before running its script. Use `python3` when that is the host's
 Python 3 command. Choose a project-owned output path and preserve existing work.
 
+When generating the bundled example, retain its complete supplied MIT licence
+and existing copyright notice. For copied or substantially reused content, keep
+its required notices and permissions; never replace its original attribution
+with the user's name. A separately authored specification may choose its own
+licence for its original assets, with reused assets inventoried separately.
+
 Run the package's `scripts/package_lab.py` with the requested operation:
 
 ```text

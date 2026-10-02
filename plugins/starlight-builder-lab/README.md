@@ -39,8 +39,11 @@ multiline YAML needs a full validator. It is not a general Agent Skills validato
 
 `scaffold` accepts a JSON object with `name`, `version`, `description`, `author`,
 `license`, `license_text` and `skills[]`. Each skill supplies `name`,
-`description` and complete `instructions`. The example is MIT-licensed for
-demonstration. Replace its attribution and select the license for your own work.
+`description` and complete `instructions`. The bundled example is MIT-licensed;
+retain its complete licence and existing copyright notice when reusing its
+content. For a separately authored specification, choose a licence for its
+original assets and retain the required notices of reused assets. See the
+[MIT licence text](https://spdx.org/licenses/MIT.html).
 Generation retains the supplied text; it does not assess its legal sufficiency.
 
 ## Troubleshooting and removal
