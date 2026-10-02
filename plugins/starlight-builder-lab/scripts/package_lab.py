@@ -342,7 +342,11 @@ def restore(source: Path, output: Path, expected_sha256: str) -> dict:
             (stage / name).write_bytes(content)
         result = check(stage)
     ordinary_parents(output.parent)
-    output.mkdir(mode=0o700)  # Exclusive on every supported OS, even for an empty existing directory.
+    # Windows 0o700 installs a creator-only DACL. In an agent host, that creator
+    # can be a separate sandbox account, locking the human out of their source.
+    # Inherit the chosen workspace ACL on Windows; retain private POSIX folders.
+    directory_mode = 0o755 if os.name == "nt" else 0o700
+    output.mkdir(mode=directory_mode)  # Exclusive, including an existing empty directory.
     try:
         marker = output / RESTORE_MARKER
         with marker.open("xb") as stream:
@@ -351,7 +355,7 @@ def restore(source: Path, output: Path, expected_sha256: str) -> dict:
             stream.flush()
             os.fsync(stream.fileno())
         for name in sorted(directories, key=lambda value: (value.count("/"), value)):
-            (output / name).mkdir(mode=0o700)
+            (output / name).mkdir(mode=directory_mode)
         for name, content in payload.items():
             with (output / name).open("xb") as stream:
                 stream.write(content)

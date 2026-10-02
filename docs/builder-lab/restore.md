@@ -1,6 +1,6 @@
 # Download to inspectable source
 
-The existing Builder Lab 0.1.4 adds `restore` to scaffold/check/pack. A customer can
+Builder Lab 0.1.5 retains `restore` alongside scaffold/check/pack. A customer can
 verify a publisher-supplied ZIP hash, reopen independently usable source, inspect
 the supplied licence and test an update without overwriting prior work. This is
 a free supporting capability within the existing lab, not a new product or proof
@@ -15,6 +15,14 @@ routes download/update requests through the same helper. Its detailed source is
 ```text
 python -B plugins/starlight-builder-lab/scripts/package_lab.py restore DOWNLOAD.zip NEW_DIRECTORY --sha256 PUBLISHER_SHA256
 ```
+
+Version 0.1.5 fixes Windows creator-only output permissions observed when an agent
+restored source under a separate sandbox account. New Windows folders inherit
+the selected workspace parent's ACL; nested folders retain that inheritance.
+Use a parent restricted to intended collaborators. POSIX directories keep mode
+`0700`. Verify read/edit access from the maintaining account before adopting the
+package. Preserve any unreadable older output and restore into a fresh sibling;
+the helper never repairs existing ACLs or takes ownership.
 
 The expected hash must come independently from a trusted release/channel record.
 The local archive hash alone establishes byte identity, not publisher identity,

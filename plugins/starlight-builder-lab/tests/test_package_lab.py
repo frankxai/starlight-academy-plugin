@@ -4,6 +4,8 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
+import stat
 import subprocess
 import tempfile
 import unittest
@@ -56,6 +58,59 @@ class PackageTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             lab.scaffold(invalid, self.package)
         self.assertFalse(self.package.exists())
+
+    @unittest.skipUnless(os.name == "nt", "Windows directory ACL inheritance")
+    def test_restore_inherits_workspace_reader_acl_through_nested_directories(self):
+        self.build()
+        packed = lab.pack(self.package, self.base / "download.zip")
+        parent = self.base / "workspace"
+        parent.mkdir()
+        shell = "pwsh" if shutil.which("pwsh") else "powershell.exe"
+        shell_env = os.environ.copy()
+        shell_env.pop("PSModulePath", None)  # Let the selected shell load its own modules.
+        literal = "'" + str(parent).replace("'", "''") + "'"
+        setup = (
+            "$ErrorActionPreference='Stop'; $path=" + literal + "; "
+            "$acl=Get-Acl -LiteralPath $path; "
+            "$sid=[System.Security.Principal.SecurityIdentifier]::new('S-1-5-32-545'); "
+            "$rule=[System.Security.AccessControl.FileSystemAccessRule]::new("
+            "$sid,'ReadAndExecute','ContainerInherit,ObjectInherit','None','Allow'); "
+            "$acl.AddAccessRule($rule); Set-Acl -LiteralPath $path -AclObject $acl"
+        )
+        result = subprocess.run([shell, "-NoProfile", "-Command", setup],
+                                env=shell_env, capture_output=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr.decode(errors="replace"))
+        output = parent / "restored"
+        lab.restore(self.base / "download.zip", output, packed["sha256"])
+        for directory in [output, *sorted(p for p in output.rglob("*") if p.is_dir())]:
+            with self.subTest(directory=directory.relative_to(parent)):
+                literal = "'" + str(directory).replace("'", "''") + "'"
+                inspect = (
+                    "$ErrorActionPreference='Stop'; $acl=Get-Acl -LiteralPath " + literal + "; "
+                    "if($acl.AreAccessRulesProtected){throw 'Inheritance blocked'}; "
+                    "$rules=@($acl.GetAccessRules($true,$true,"
+                    "[System.Security.Principal.SecurityIdentifier]) | Where-Object {"
+                    "$_.IdentityReference.Value -eq 'S-1-5-32-545' -and $_.IsInherited -and "
+                    "$_.AccessControlType -eq 'Allow' -and "
+                    "($_.FileSystemRights -band [System.Security.AccessControl.FileSystemRights]::ReadAndExecute) "
+                    "-eq [System.Security.AccessControl.FileSystemRights]::ReadAndExecute}); "
+                    "if($rules.Count -eq 0){throw 'Workspace reader lost'}"
+                )
+                result = subprocess.run([shell, "-NoProfile", "-Command", inspect],
+                                        env=shell_env, capture_output=True, timeout=20)
+                self.assertEqual(result.returncode, 0, result.stderr.decode(errors="replace"))
+        self.assertEqual((output / "LICENSE").read_bytes(), (self.package / "LICENSE").read_bytes())
+        self.assertEqual(lab.pack(output, self.base / "repacked.zip")["sha256"], packed["sha256"])
+
+    @unittest.skipIf(os.name == "nt", "POSIX permission bits")
+    def test_restore_retains_private_posix_directories(self):
+        self.build()
+        packed = lab.pack(self.package, self.base / "download.zip")
+        output = self.base / "restored"
+        lab.restore(self.base / "download.zip", output, packed["sha256"])
+        for directory in [output, *(p for p in output.rglob("*") if p.is_dir())]:
+            with self.subTest(directory=directory.relative_to(self.base)):
+                self.assertEqual(stat.S_IMODE(directory.stat().st_mode) & 0o077, 0)
 
     def test_portable_components_reject_windows_extractor_hazards(self):
         for name in ('..\\..\\escape.md', 'a:b.md', 'aux.md', 'CON.txt', 'con .txt', 'COM¹.md', 'CONIN$.txt', 'lpt1.data', 'trailing.', 'trailing ', 'bad?.md'):

@@ -72,3 +72,21 @@ marked not-run. An already available supported host may run a separately scoped
 trial, with its own permission and artifact evidence. Preserve the earlier
 failure. Re-test the original host after a supported correction before asserting
 two-host compatibility. The lab remains an offline free candidate.
+
+## Windows output access in version 0.1.5
+
+Use an ordinary project parent whose ACL admits the maintaining account and only
+intended collaborators. Fresh restored folders inherit that parent's permissions
+on Windows; POSIX folders stay mode `0700`. Verify reading and editing with the
+maintaining account before using the package. Preserve unreadable older folders
+and retry into a fresh sibling using 0.1.5. Do not take ownership or rewrite old
+ACLs as a restore step. Existing destinations remain refused.
+
+[The current Codex observation](native-codex-runtime.md) records a timed-out 0.1.4
+model attempt and a separate 0.1.5 model-free correction. Existing Python 3.11 ran
+the corrected sandbox commands; ordinary-account source reading, editing and
+repacking passed. Python 3.13 and two PowerShell launch probes remain denied.
+Test the exact executable in the intended sandbox before claiming compatibility.
+A normal terminal's success or version output alone does not close host acceptance.
+No new runtime, account permission, global sandbox setting or native installation
+was introduced. Outside-user and commercial acceptance remain pending.
