@@ -1,0 +1,48 @@
+name: Builder lab source checks
+
+on:
+  pull_request:
+  push:
+    branches: [main, agent/codex/dots-builder-lab-20261001]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: builder-lab-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source:
+    name: Source (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Check whitespace
+        run: git diff --check HEAD^ HEAD
+        if: github.event_name != 'workflow_dispatch'
+      - name: Package preservation and hostile paths
+        run: python -B -m unittest discover -s plugins/starlight-builder-lab/tests -v
+      - name: Accounting and distribution scenarios
+        run: python -B -m unittest discover -s docs/builder-lab/tests -v
+      - name: Release contract regressions
+        run: python -B -m unittest discover -s tests -v
+      - name: Exercise documented commands and release boundaries
+        run: python -B scripts/verify_builder_release.py
