@@ -241,6 +241,47 @@ class GoalReportTests(unittest.TestCase):
         self.assertIsNone(result["runs"][0]["api_equivalent_usd"])
         self.assertTrue(all(result["runs"][0][field] is None for field in lab.TOKEN_FIELDS))
 
+    def test_deeply_nested_input_is_refused_by_all_imports(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / 'deep.json'
+            source.write_bytes(b'[' * 200000)
+            for operation in [lambda: lab.read_json(source),
+                              lambda: lab.import_claude(source, 'G1', 'deep', URL),
+                              lambda: lab.import_claude_eval(source, 'G1', 'deep', URL)]:
+                with self.subTest(operation=operation):
+                    with self.assertRaisesRegex(ValueError, 'nesting'):
+                        operation()
+
+    def test_sanitized_real_native_eval_cost_receipt(self):
+        source = Path(__file__).parent / 'fixtures/claude-eval-costs-2.1.287.json'
+        result = lab.import_claude_eval(source, 'G1', 'real-eval', URL)
+        self.assertEqual(result['native_agent_runs_observed'], 16)
+        self.assertLess(abs(sum(lab.money(r['api_equivalent_usd']) for r in result['runs']) - lab.money('0.4237956')), lab.money('0.000000000001'))
+        self.assertTrue(all(r[field] is None for r in result['runs'] for field in lab.TOKEN_FIELDS))
+        self.assertNotIn('tracePath', source.read_text())
+
+    def test_native_eval_reserialized_parent_preserves_identity(self):
+        data = self.native_eval()
+        first = self.import_eval(data)
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / 'pretty.json'
+            source.write_text(json.dumps(data, indent=4, sort_keys=True), encoding='utf-8')
+            second = lab.import_claude_eval(source, 'G1', 'renamed', URL)
+        self.assertNotEqual(first['runs'][0]['parent_source_sha256'], second['runs'][0]['parent_source_sha256'])
+        self.assertEqual(first['runs'][0]['source_sha256'], second['runs'][0]['source_sha256'])
+        self.evidence['runs'] = first['runs'] + second['runs']
+        with self.assertRaises(ValueError):
+            self.report()
+
+    def test_actual_usage_must_replace_the_same_native_run_id(self):
+        aggregate = self.import_eval(self.native_eval())['runs'][0]
+        actual = dict(self.run, id=aggregate['id'], source_sha256='b' * 64)
+        self.evidence['runs'] = [aggregate, actual]
+        with self.assertRaises(ValueError):
+            self.report()
+        self.evidence['runs'] = [actual]
+        self.assertEqual(self.report()['complete_token_receipts'], 1)
+
     def test_native_eval_inconsistent_summary_schema_and_arms_fail(self):
         original = self.native_eval()
         alternatives = []

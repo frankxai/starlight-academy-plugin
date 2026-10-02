@@ -32,7 +32,10 @@ def read_json(path: Path) -> dict:
 def parse_json(raw: bytes) -> dict:
     if len(raw) > MAX_INPUT:
         raise ValueError("JSON input exceeds 1 MiB")
-    data = json.loads(raw.decode("utf-8-sig"))
+    try:
+        data = json.loads(raw.decode("utf-8-sig"))
+    except RecursionError as exc:
+        raise ValueError("JSON nesting exceeds parser limits") from exc
     if not isinstance(data, dict):
         raise ValueError("JSON root must be an object")
     return data
@@ -316,6 +319,7 @@ def import_claude_eval(path: Path, goal: str, prefix: str, source_url: str) -> d
     text(prefix, 48)
     url = issue_url(source_url)
     parent_hash = hashlib.sha256(source_bytes).hexdigest()
+    canonical_parent = hashlib.sha256(json.dumps(raw, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
     output = []
     names = set()
     for index, case in enumerate(records(raw.get("cases"), 1000)):
@@ -333,14 +337,15 @@ def import_claude_eval(path: Path, goal: str, prefix: str, source_url: str) -> d
                 pointer = f"/cases/{index}/arms/{arm}/{run_index}"
                 # This digest identifies a canonical native fragment and its
                 # parent/pointer, so renaming an import cannot evade deduplication.
-                fragment = json.dumps({"parent_sha256": parent_hash, "pointer": pointer,
+                fragment = json.dumps({"parent_sha256": canonical_parent, "pointer": pointer,
                                        "run": run}, sort_keys=True, separators=(",", ":")).encode("utf-8")
                 agent_cost, judge_cost = money(run.get("costUsd")), money(run.get("judgeCostUsd"))
                 cost = agent_cost + judge_cost if agent_cost is not None and judge_cost is not None else None
                 row = {"id": text(f"{prefix}-{name}-{arm}-{run_index}", 120), "goal_id": goal,
                        "source_url": url, "source_sha256": hashlib.sha256(fragment).hexdigest(),
                        "parent_source_sha256": parent_hash, "source_json_pointer": pointer,
-                       "source_hash_scope": "canonical parent/pointer/native-run fragment",
+                       "parent_canonical_sha256": canonical_parent,
+                       "source_hash_scope": "canonical native parent/pointer/run fragment",
                        "provider": "Anthropic / Claude plugin eval", "native_cli_version": version,
                        "native_suite_partial": partial, "cost_basis": "list",
                        "api_equivalent_usd": str(cost) if cost is not None else None,
@@ -388,7 +393,7 @@ def main() -> int:
             result = project(read_json(args.goals), read_json(args.evidence))
             print(json.dumps(result, indent=2) if args.format == "json" else markdown(result), end="\n" if args.format == "json" else "")
         return 0
-    except (ValueError, KeyError, TypeError, OSError, InvalidOperation) as exc:
+    except (ValueError, KeyError, TypeError, OSError, InvalidOperation, RecursionError) as exc:
         print("Invalid report input: " + str(exc), file=sys.stderr)
         return 1
 

@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_native_comparison.v1",
-  "observed_at": "2026-10-02T08:33:24.790658+00:00",
+  "observed_at": "2026-10-02T08:50:37.606453+00:00",
   "source_revision": "ba1162a7d221058bdde379504d362000786d5868",
   "plugin_version": "0.1.2",
   "core_payload_sha256": {
@@ -114,7 +114,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 209,
         "limit": 180,
         "passed": false
@@ -203,7 +203,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 208,
         "limit": 180,
         "passed": false
@@ -300,7 +300,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 205,
         "limit": 180,
         "passed": false
@@ -381,7 +381,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 197,
         "limit": 180,
         "passed": false
@@ -475,7 +475,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 196,
         "limit": 180,
         "passed": false
@@ -556,7 +556,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 164,
         "limit": 180,
         "passed": true
@@ -658,7 +658,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 218,
         "limit": 180,
         "passed": false
@@ -747,7 +747,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 226,
         "limit": 180,
         "passed": false
@@ -805,7 +805,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 1,
         "limit": null,
         "passed": null
@@ -862,7 +862,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 1,
         "limit": null,
         "passed": null
@@ -936,7 +936,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 125,
         "limit": 180,
         "passed": true
@@ -1009,7 +1009,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 117,
         "limit": 180,
         "passed": true
@@ -1083,7 +1083,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 189,
         "limit": 180,
         "passed": false
@@ -1156,7 +1156,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 187,
         "limit": 180,
         "passed": false
@@ -1246,7 +1246,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 183,
         "limit": 180,
         "passed": false
@@ -1335,7 +1335,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 198,
         "limit": 180,
         "passed": false
@@ -1429,7 +1429,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 188,
         "limit": 180,
         "passed": false
@@ -1512,7 +1512,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 186,
         "limit": 180,
         "passed": false
@@ -1614,7 +1614,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 227,
         "limit": 180,
         "passed": false
@@ -1703,7 +1703,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 205,
         "limit": 180,
         "passed": false
@@ -1797,7 +1797,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 223,
         "limit": 180,
         "passed": false
@@ -1878,7 +1878,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 170,
         "limit": 180,
         "passed": true
@@ -1980,7 +1980,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 243,
         "limit": 180,
         "passed": false
@@ -2069,7 +2069,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 255,
         "limit": 180,
         "passed": false
@@ -2143,7 +2143,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 142,
         "limit": 180,
         "passed": true
@@ -2216,7 +2216,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 115,
         "limit": 180,
         "passed": true
@@ -2290,7 +2290,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 184,
         "limit": 180,
         "passed": false
@@ -2363,7 +2363,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 188,
         "limit": 180,
         "passed": false
@@ -2455,7 +2455,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 180,
         "limit": 180,
         "passed": true
@@ -2538,7 +2538,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 169,
         "limit": 180,
         "passed": true
@@ -2632,7 +2632,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 188,
         "limit": 180,
         "passed": false
@@ -2713,7 +2713,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 154,
         "limit": 180,
         "passed": true
@@ -2815,7 +2815,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 211,
         "limit": 180,
         "passed": false
@@ -2904,7 +2904,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 192,
         "limit": 180,
         "passed": false
@@ -2962,7 +2962,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 1,
         "limit": null,
         "passed": null
@@ -3019,7 +3019,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 1,
         "limit": null,
         "passed": null
@@ -3118,7 +3118,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 198,
         "limit": 180,
         "passed": false
@@ -3212,7 +3212,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 175,
         "limit": 180,
         "passed": true
@@ -3306,7 +3306,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 198,
         "limit": 180,
         "passed": false
@@ -3389,7 +3389,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 170,
         "limit": 180,
         "passed": true
@@ -3472,7 +3472,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 167,
         "limit": 180,
         "passed": true
@@ -3555,7 +3555,7 @@
         "scope": "Core response contract; prompt length constraint is checked separately"
       },
       "length_constraint": {
-        "measurement": "whitespace-delimited output words",
+        "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
         "observed_words": 197,
         "limit": 180,
         "passed": false
@@ -3701,12 +3701,35 @@
     "builder-packaging-eval-p3-without-2"
   ],
   "candidate_revision": "ba1162a7d221058bdde379504d362000786d5868",
-  "candidate_packaging_trial": "Three paired repetitions: intended skill fired 3/3; core command/licence contract passed 2/3, with an empty-directory advice failure. Word limits checked separately; no full-suite candidate acceptance.",
+  "candidate_packaging_trial": "Intended skill fired 3/3 after the ba1162a description change. The unchanged earlier description fired 1/2 across dfe34dd and17bf5ad; run variance is not excluded. Core command/licence contract passed 2/3 after the change, with incorrect empty-directory advice retained as failed. No candidate full-suite acceptance.",
   "independent_review": "pending for this comparison/importer patch",
   "cleanup": {
     "workers": "all completed recorded native workers stopped",
     "traces_archived": true,
     "owned_temporary_directories_retained": 42,
     "state": "Automatic approval review rejected removal of the initial 18 sandboxes: blocked by policy; no equivalent deletion was retried."
+  },
+  "length_summary": {
+    "measurement": "Whitespace-delimited output tokens, including Markdown table pipes and separators; conservative word-limit proxy, not a linguistic word count",
+    "scope": "Descriptive small pilot; excludes four N4 replies with no word limit; no causal arm comparison",
+    "by_arm": {
+      "with": {
+        "observed_replies": 19,
+        "exceeded_proxy_limit": 15
+      },
+      "without": {
+        "observed_replies": 19,
+        "exceeded_proxy_limit": 11
+      }
+    },
+    "observed_replies": 38,
+    "exceeded_proxy_limit": 26,
+    "with_arm_full_fixture_acceptance": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0,
+      "P4": 0,
+      "P5": 0
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T08:33:24.790658+00:00",
+  "observed_at": "2026-10-02T08:50:37.606453+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -17,15 +17,15 @@
       "agent_state": "Codex source maker; revised 0.1.2 native Claude comparisons retained with trigger/semantic failures and repairs; workers stopped. Historical 0.1.1 source, both assisted host batches and independent review accepted.",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Accept the 0.1.2 source/evidence review and packaging-trigger repetition; run native Codex 0.1.2 comparison and runtime-disable proof before catalogs; verify actual Dots eligibility.",
+      "next_gate": "Accept the corrected 0.1.2 source/evidence review; resolve empty-directory advice and length proxy misses, run native Codex 0.1.2 comparison and runtime-disable proof before catalogs; verify actual Dots eligibility.",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
         {
           "id": "source",
-          "description": "Offline scaffold/check/pack source and package evidence",
+          "description": "Offline 0.1.2 scaffold/check/pack checks on ba1162a payload; current source review and host behavior remain separate",
           "state": "passed",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4"
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/13"
         },
         {
           "id": "review",

@@ -68,12 +68,15 @@ python -B docs/builder-lab/scripts/goal_report.py import-claude-eval NATIVE.json
 
 The importer validates native schema and run/judge cost reconciliation without
 reading supplied trace paths. Each run receives a parent hash, JSON pointer and
-fragment hash. Tokens and invoice cash remain null. Renaming the same imported
-receipt cannot evade report deduplication.
+fragment hash. Tokens and invoice cash remain null. Canonical parent hashing
+rejects duplicate imports with renamed prefixes, changed indentation or key
+order. It does not identify separate aggregate/result files as one invocation.
 
 For a retained actual Claude result, use `import-claude` with the same run ID.
 Replace its cost-only row with the complete usage row; counting both would double
-the expenditure. Keep separate failed attempts and missing-receipt gaps. Generate
+the expenditure. The same-ID combination is rejected. A different-ID actual
+result still requires manual reconciliation with its aggregate provenance.
+Keep separate failed attempts and missing-receipt gaps. Generate
 the [goal report](reports/2026-10-02.md) after reconciliation. Thinking already
 included in native output is counted once. Cash ROI requires reconciled cash
 inputs; list-cost estimates cannot supply it.
