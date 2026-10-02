@@ -295,6 +295,70 @@ def import_claude(path: Path, goal: str, run_id: str, source_url: str) -> dict:
     return row
 
 
+def import_claude_eval(path: Path, goal: str, prefix: str, source_url: str) -> dict:
+    """Import native eval cost rows without reading any supplied trace path.
+
+    The native cost field is a list-price estimate, including separate judge
+    costs. Its aggregate contains no token usage. Retain those fields as null;
+    replace a row under the same id when a real per-run usage receipt is added.
+    Scores and file paths are deliberately excluded from the exported receipts.
+    """
+    with path.open("rb") as source:
+        source_bytes = source.read(MAX_INPUT + 1)
+    raw = parse_json(source_bytes)
+    if raw.get("schemaVersion") != 1 or isinstance(raw.get("schemaVersion"), bool):
+        raise ValueError("Unsupported native Claude eval schema")
+    version = text(raw.get("claudeVersion"), 64)
+    partial = raw.get("partial")
+    if not isinstance(partial, bool):
+        raise ValueError("Native eval must report partial coverage explicitly")
+    text(goal, 64)
+    text(prefix, 48)
+    url = issue_url(source_url)
+    parent_hash = hashlib.sha256(source_bytes).hexdigest()
+    output = []
+    names = set()
+    for index, case in enumerate(records(raw.get("cases"), 1000)):
+        name = text(case.get("name"), 48)
+        if name in names:
+            raise ValueError("Duplicate native eval case")
+        names.add(name)
+        arms = case.get("arms")
+        if not isinstance(arms, dict) or set(arms) - {"with", "without"}:
+            raise ValueError("Unknown native eval arm")
+        for arm, runs in arms.items():
+            for run_index, run in enumerate(records(runs, 100)):
+                if len(output) >= 10000:
+                    raise ValueError("Too many native eval runs")
+                pointer = f"/cases/{index}/arms/{arm}/{run_index}"
+                # This digest identifies a canonical native fragment and its
+                # parent/pointer, so renaming an import cannot evade deduplication.
+                fragment = json.dumps({"parent_sha256": parent_hash, "pointer": pointer,
+                                       "run": run}, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                agent_cost, judge_cost = money(run.get("costUsd")), money(run.get("judgeCostUsd"))
+                cost = agent_cost + judge_cost if agent_cost is not None and judge_cost is not None else None
+                row = {"id": text(f"{prefix}-{name}-{arm}-{run_index}", 120), "goal_id": goal,
+                       "source_url": url, "source_sha256": hashlib.sha256(fragment).hexdigest(),
+                       "parent_source_sha256": parent_hash, "source_json_pointer": pointer,
+                       "source_hash_scope": "canonical parent/pointer/native-run fragment",
+                       "provider": "Anthropic / Claude plugin eval", "native_cli_version": version,
+                       "native_suite_partial": partial, "cost_basis": "list",
+                       "api_equivalent_usd": str(cost) if cost is not None else None,
+                       "invoiced_cash_usd": None, "thinking_tokens_included_in_output": None,
+                       "native_outcome": "run-error" if run.get("error") else "reported-complete",
+                       "token_coverage": "not supplied in native aggregate; retained as unknown"}
+                row.update({field: None for field in TOKEN_FIELDS})
+                output.append(row)
+    total = money(raw.get("costUsd"))
+    known = [money(row["api_equivalent_usd"]) for row in output]
+    if total is not None and all(cost is not None for cost in known):
+        if abs(sum(known, Decimal(0)) - total) > Decimal("0.000001"):
+            raise ValueError("Native eval cost summary does not reconcile with run/judge costs")
+    return {"schema": "starlight.claude_eval_import.v1", "runs": output,
+            "native_agent_runs_observed": len(output), "suite_partial": partial,
+            "coverage": "Cost receipts only; tokens, invoices, acceptance and ROI are not inferred"}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -307,10 +371,18 @@ def main() -> int:
     imp.add_argument("--goal", required=True)
     imp.add_argument("--id", required=True)
     imp.add_argument("--source-url", required=True)
+    native = commands.add_parser("import-claude-eval")
+    native.add_argument("receipt", type=Path)
+    native.add_argument("--goal", required=True)
+    native.add_argument("--id-prefix", required=True)
+    native.add_argument("--source-url", required=True)
     args = parser.parse_args()
     try:
         if args.command == "import-claude":
             result = import_claude(args.receipt, args.goal, args.id, args.source_url)
+            print(json.dumps(result, indent=2))
+        elif args.command == "import-claude-eval":
+            result = import_claude_eval(args.receipt, args.goal, args.id_prefix, args.source_url)
             print(json.dumps(result, indent=2))
         else:
             result = project(read_json(args.goals), read_json(args.evidence))

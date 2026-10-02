@@ -188,6 +188,82 @@ class GoalReportTests(unittest.TestCase):
             self.assertIsNone(result["invoiced_cash_usd"])
             self.assertEqual(result["cache_creation_input_tokens"], 20)
 
+    def native_eval(self):
+        return {"schemaVersion": 1, "claudeVersion": "2.1.287", "partial": False,
+                "costUsd": 0.22, "cases": [{"name": "contract", "promptMarkdown": "private source text",
+                "arms": {"with": [{"costUsd": 0.10, "judgeCostUsd": 0.02,
+                                    "tracePath": "Z:/never-open/private-credentials.json", "error": None}],
+                         "without": [{"costUsd": 0.10, "judgeCostUsd": 0, "error": None}]}}]}
+
+    def import_eval(self, data, prefix="native"):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "native.json"
+            path.write_text(json.dumps(data), encoding="utf-8")
+            return lab.import_claude_eval(path, "G1", prefix, URL)
+
+    def test_native_eval_preserves_cost_and_unknown_tokens_without_reading_trace(self):
+        result = self.import_eval(self.native_eval())
+        self.assertEqual(result["native_agent_runs_observed"], 2)
+        self.evidence["runs"] = result["runs"]
+        report = self.report()
+        self.assertEqual(report["api_equivalent_usd_known_subset"], "0.220000")
+        self.assertEqual(report["missing_token_receipts"], 2)
+        self.assertIsNone(report["tokens_known_complete_subset"])
+        self.assertIsNone(report["invoiced_cash_usd_known_subset"])
+        serialized = json.dumps(result)
+        self.assertNotIn("private source text", serialized)
+        self.assertNotIn("private-credentials.json", serialized)
+
+    def test_native_eval_failed_and_partial_runs_keep_cost_receipts(self):
+        data = self.native_eval()
+        data["partial"] = True
+        data["cases"][0]["arms"]["with"][0]["error"] = "private failure explanation"
+        result = self.import_eval(data)
+        self.assertTrue(result["suite_partial"])
+        self.assertEqual(result["runs"][0]["native_outcome"], "run-error")
+        self.assertEqual(result["runs"][0]["api_equivalent_usd"], "0.12")
+        self.assertNotIn("private failure explanation", json.dumps(result))
+
+    def test_native_eval_duplicate_import_renaming_cannot_double_count(self):
+        data = self.native_eval()
+        first = self.import_eval(data)
+        renamed = self.import_eval(data, "renamed")
+        self.assertEqual(first["runs"][0]["source_sha256"], renamed["runs"][0]["source_sha256"])
+        self.evidence["runs"] = first["runs"] + renamed["runs"]
+        with self.assertRaises(ValueError):
+            self.report()
+
+    def test_native_eval_unknown_cost_stays_unknown(self):
+        data = self.native_eval()
+        data["costUsd"] = None
+        del data["cases"][0]["arms"]["with"][0]["judgeCostUsd"]
+        result = self.import_eval(data)
+        self.assertIsNone(result["runs"][0]["api_equivalent_usd"])
+        self.assertTrue(all(result["runs"][0][field] is None for field in lab.TOKEN_FIELDS))
+
+    def test_native_eval_inconsistent_summary_schema_and_arms_fail(self):
+        original = self.native_eval()
+        alternatives = []
+        mismatch = copy.deepcopy(original)
+        mismatch["costUsd"] = 1
+        alternatives.append(mismatch)
+        boolean_schema = copy.deepcopy(original)
+        boolean_schema["schemaVersion"] = True
+        alternatives.append(boolean_schema)
+        bad_arm = copy.deepcopy(original)
+        bad_arm["cases"][0]["arms"]["unknown"] = []
+        alternatives.append(bad_arm)
+        bad_partial = copy.deepcopy(original)
+        bad_partial["partial"] = "false"
+        alternatives.append(bad_partial)
+        duplicate = copy.deepcopy(original)
+        duplicate["cases"].append(copy.deepcopy(duplicate["cases"][0]))
+        alternatives.append(duplicate)
+        for data in alternatives:
+            with self.subTest(data=data):
+                with self.assertRaises(ValueError):
+                    self.import_eval(data)
+
 
 if __name__ == "__main__":
     unittest.main()

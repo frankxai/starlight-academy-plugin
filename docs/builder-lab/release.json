@@ -1,9 +1,9 @@
 {
   "schema": "starlight.builder_release.v1",
-  "observed_at": "2026-10-02T06:34:14.840359+00:00",
+  "observed_at": "2026-10-02T08:33:24.790658+00:00",
   "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
   "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
-  "status": "Original 0.1.0 proof retained; final 0.1.1 native batches accepted by lead; patch publication and remaining release gates pending",
+  "status": "Historical 0.1.0 and 0.1.1 source proofs retained; current 0.1.2 implicit-trigger/comparison candidate awaits review and native Codex verification",
   "source_checks": {
     "windows": {
       "tests": 56,
@@ -34,14 +34,14 @@
     "verification": "host-verification.json",
     "responses": "host-responses.json",
     "generated_artifact": "host-artifact.json",
-    "plain_host_baseline": "not-run"
+    "plain_host_baseline": "Historical 0.1.0 batch did not compare; current Claude paired native results are separately scoped in native-comparison.json"
   },
   "dots": "actual eligibility not verified",
   "catalogs": "builder not listed",
   "directory": "not submitted",
   "paid_release": "not admitted; buyer/price/seller/sandbox evidence missing",
   "production": "not verified",
-  "machine_gate": "Sequential bounded trials admitted above the 4 GiB floor; no active owned host worker",
+  "machine_gate": "One sequential native worker at a time, fresh RAM recheck before launch; all completed workers stopped. First packaging launch held for reserve, later admitted on fresh sample. Cleanup automatically rejected, 42 retained sandbox paths are archived privately.",
   "secret_checks": "Staged hooks passed; gitleaks 8.30.1 full-history scan on 2026-10-02 inspected 14 commits / 440543 bytes and found no leaks; package checker remains heuristic-only",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
@@ -58,14 +58,13 @@
     "post_merge_ci_conclusion": "success"
   },
   "usage": {
-    "completed_model_receipts": 18,
-    "known_api_equivalent_usd": "2.499784",
-    "unknown_cost_receipts": 7,
-    "coverage": "Eighteen complete model receipts plus one interrupted patch review; complete-subset totals exclude the incomplete attempt",
+    "receipts": 96,
+    "complete_token_receipts": 61,
+    "missing_token_receipts": 35,
+    "processed_tokens": 1860362,
+    "known_api_equivalent_usd": "5.074620",
     "invoiced_cash_usd": null,
-    "cash_roi": "unknown",
-    "attributed_attempt_receipts": 19,
-    "incomplete_model_receipts": 1
+    "cash_roi": "unknown"
   },
   "reporting_review": {
     "revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
@@ -76,19 +75,42 @@
     "accepted_revision": "0e3d02d117aa018de3f19298df4ecff550792050",
     "accepted_verdict": "PASS for corrected partial record",
     "accepted_merge_revision": "35babbfe6efab1d8bf963ec6377ede6cb9762c7f",
-    "accepted_evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/11#issuecomment-5946282694"
+    "accepted_evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/11#issuecomment-5946282694",
+    "current_status": "Scoped original BL-02 adoption accepted and issue6 completed in PR12; native-eval importer expansion awaits separate review"
   },
   "historical_source_scope": "Top-level source_revision, source_checks, integration, ZIPs, independent_reviews and native_hosts retain the original 0.1.0 proof; current 0.1.1 evidence is in patch_candidate",
   "patch_candidate": {
     "plugin_version": "0.1.1",
     "source_revision": "1af40b25a7486f8493fd051f4fc28a99777104e1",
     "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
-    "status": "native final batches accepted by lead; independent publication review pending",
+    "status": "Merged and independently accepted 0.1.1; historical assisted trials, not isolated/baseline or Dots proof",
     "plugin_zip_sha256": "6755b99cd6ce99bdf0f265fe0209dd7032355a2e31d11d8293866a6a13578014",
     "example_zip_sha256": "fdc40d65c85efb69e827b25dbf0914b9fd246a4d07b8102b79564a0078a12825",
     "host_trials": "native-patch-trials.json",
     "report_adoption": "report-adoption.json",
     "codex": "8/8 lead-accepted",
-    "claude": "8/8 lead-accepted"
+    "claude": "8/8 lead-accepted",
+    "source_review_revision": "f6c356d08f6a04e064c0959c7fd1960fa4e4df52",
+    "merge_revision": "5c803f5ca6731c4cd094e7995adc7ba3579fa794",
+    "accepted_review_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12#issuecomment-5946920531"
+  },
+  "comparison_candidate": {
+    "plugin_version": "0.1.2",
+    "source_revision": "ba1162a7d221058bdde379504d362000786d5868",
+    "plugin_zip_sha256": "ba59916f0869fbde9e5d76cdb328c22215e6fffd923f2b92e7f2e5c743c31c60",
+    "example_zip_sha256": "fdc40d65c85efb69e827b25dbf0914b9fd246a4d07b8102b79564a0078a12825",
+    "comparison": "native-comparison.json",
+    "implicit_claude_triggers": "17bf5ad four of five positives fired; P3 missed. ba1162a packaging repair fired 3/3 in paired repetitions; one core-contract failure and output length misses retained.",
+    "native_codex": "not-run for 0.1.2",
+    "runtime_disable": "not-proved",
+    "independent_review": "pending",
+    "catalogs": "candidate-not-listed",
+    "offline_source_checks": {
+      "tests": 61,
+      "passed": 58,
+      "skipped": 3,
+      "windows_python": "3.13",
+      "verification": "offline-release-checks-pass; no host/commerce certification"
+    }
   }
 }
