@@ -2,6 +2,8 @@ import copy
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -304,6 +306,138 @@ class GoalReportTests(unittest.TestCase):
             with self.subTest(data=data):
                 with self.assertRaises(ValueError):
                     self.import_eval(data)
+
+    def codex_events(self, thread="controlled-thread"):
+        # Counts copied from the completed 0.1.5 native trial, 2 October 2026.
+        return [{"type": "thread.started", "thread_id": thread}, {"type": "turn.started"},
+                {"type": "item.completed", "item": {"type": "agent_message", "text": "private source"}},
+                {"type": "turn.completed", "usage": {"input_tokens": 1102987,
+                 "cached_input_tokens": 1030400, "cache_write_input_tokens": 0,
+                 "output_tokens": 4117, "reasoning_output_tokens": 404}}]
+
+    def import_codex(self, events, run_id="codex", pretty=False):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / "native.jsonl"
+            # JSONL events remain single-line, even when reserialized.
+            source.write_text("\n".join(json.dumps(event, sort_keys=pretty) for event in events)
+                              + ("\n\n" if pretty else "\n"), encoding="utf-8")
+            return lab.import_codex(source, "G1", run_id, URL)
+
+    def test_codex_real_terminal_counts_are_disjoint_and_unpriced(self):
+        row = self.import_codex(self.codex_events())
+        self.evidence["runs"] = [row]
+        result = self.report()
+        self.assertEqual(result["complete_token_receipts"], 1)
+        self.assertEqual(row["native_input_tokens_including_cache"], 1102987)
+        self.assertEqual(row["input_tokens"], 72587)
+        self.assertEqual(row["thinking_tokens_included_in_output"], 404)
+        self.assertEqual(result["tokens_known_complete_subset"]["processed_tokens"], 1107104)
+        self.assertIsNone(result["api_equivalent_usd_known_subset"])
+        self.assertIsNone(result["invoiced_cash_usd_known_subset"])
+
+    def test_codex_explicit_cache_writes_are_separated_from_inclusive_input(self):
+        events = self.codex_events()
+        events[-1]["usage"]["cache_write_input_tokens"] = 200
+        row = self.import_codex(events)
+        self.assertEqual(row["input_tokens"], 72387)
+        self.assertEqual(row["cache_creation_input_tokens"], 200)
+        self.assertEqual(sum(row[field] for field in lab.TOKEN_FIELDS), 1107104)
+
+    def test_codex_missing_usage_stays_unknown_without_a_schema_default(self):
+        for field in ["cache_write_input_tokens", "cached_input_tokens", "input_tokens", "output_tokens"]:
+            with self.subTest(field=field):
+                events = self.codex_events()
+                del events[-1]["usage"][field]
+                row = self.import_codex(events)
+                self.evidence["runs"] = [row]
+                self.assertEqual(self.report()["missing_token_receipts"], 1)
+                self.assertIsNone(self.report()["tokens_known_complete_subset"])
+                if field != "output_tokens":
+                    self.assertIsNone(row["input_tokens"])
+        events = self.codex_events()
+        del events[-1]["usage"]["reasoning_output_tokens"]
+        self.assertIsNone(self.import_codex(events)["thinking_tokens_included_in_output"])
+
+    def test_codex_no_content_thread_or_unattested_cost_leaks(self):
+        events = self.codex_events(thread="private-thread-identifier")
+        events[2]["item"]["command"] = "Z:/private/credentials.json"
+        events[-1].update(total_cost_usd=99, model="private model")
+        events[-1]["usage"]["invoice"] = "private invoice"
+        row = self.import_codex(events)
+        encoded = json.dumps(row)
+        for private in ["private source", "private-thread-identifier", "credentials.json", "private invoice", "private model"]:
+            self.assertNotIn(private, encoded)
+        self.assertIsNone(row["api_equivalent_usd"])
+        self.assertIsNone(row["invoiced_cash_usd"])
+
+    def test_codex_replayed_content_or_serialization_cannot_be_relabelled(self):
+        events = self.codex_events()
+        first = self.import_codex(events)
+        events[2]["item"]["text"] = "different ignored content"
+        second = self.import_codex(events, "renamed", pretty=True)
+        self.assertNotEqual(first["source_bytes_sha256"], second["source_bytes_sha256"])
+        self.assertEqual(first["source_sha256"], second["source_sha256"])
+        self.evidence["runs"] = [first, second]
+        with self.assertRaises(ValueError):
+            self.report()
+        self.evidence["runs"] = [first, self.import_codex(self.codex_events("another-thread"), "different")]
+        self.assertEqual(self.report()["complete_token_receipts"], 2)
+
+    def test_codex_bad_numbers_and_impossible_usage_are_refused(self):
+        for field, value in [("input_tokens", True), ("output_tokens", -1), ("output_tokens", 1.5),
+                             ("cache_write_input_tokens", 10**12 + 1), ("cached_input_tokens", 1102988),
+                             ("cache_write_input_tokens", 72588), ("reasoning_output_tokens", 4118)]:
+            with self.subTest(field=field, value=value):
+                events = self.codex_events()
+                events[-1]["usage"][field] = value
+                with self.assertRaises(ValueError):
+                    self.import_codex(events)
+        events = self.codex_events()
+        events[-1]["usage"] = {}
+        with self.assertRaises(ValueError):
+            self.import_codex(events)
+
+    def test_codex_incomplete_failed_multiturn_and_out_of_order_are_refused(self):
+        complete = self.codex_events()
+        alternatives = [[], complete[:-1], complete + [complete[-1]], complete + [{"type": "turn.started"}],
+                        [complete[1], complete[0], *complete[2:]],
+                        [complete[0], complete[1], complete[0], *complete[2:]],
+                        [complete[0], complete[1], {"type": "turn.failed"}, complete[-1]],
+                        [complete[0], complete[1], {"type": "turn.started"}, complete[-1]],
+                        [complete[0], complete[2], complete[1], complete[-1]],
+                        [complete[0], complete[1], ["invalid object"], complete[-1]]]
+        for events in alternatives:
+            with self.subTest(events=events):
+                with self.assertRaises(ValueError):
+                    self.import_codex(events)
+
+    def test_codex_bounded_stream_and_ambiguous_json_are_refused(self):
+        cases = [b"x" * (lab.MAX_INPUT + 1), b"[" * 200000, b"\xff", b'{"type":"thread.started",',
+                 b'{"type":"thread.started","type":"turn.started","thread_id":"x"}\n',
+                 b'{"type":"thread.started","thread_id":"x"}\n{"type":"turn.started"}\n' + b'{"type":"error"}\n' * 10000]
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / "bad.jsonl"
+            for raw in cases:
+                with self.subTest(size=len(raw)):
+                    source.write_bytes(raw)
+                    with self.assertRaises(ValueError):
+                        lab.import_codex(source, "G1", "bad", URL)
+
+    def test_codex_cli_roundtrip_and_truncated_receipt_exit(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / "native.jsonl"
+            events = self.codex_events()
+            source.write_text("\n".join(json.dumps(event) for event in events), encoding="utf-8")
+            command = [sys.executable, "-B", str(Path(__file__).parents[1] / "scripts/goal_report.py"),
+                       "import-codex", str(source), "--goal", "G1", "--id", "cli", "--source-url", URL]
+            result = subprocess.run(command, capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout)["input_tokens"], 72587)
+            source.write_text("\n".join(json.dumps(event) for event in events[:-1]), encoding="utf-8")
+            result = subprocess.run(command, capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, 1)
+            self.assertEqual(result.stdout, "")
+            self.assertNotIn("private source", result.stderr)
 
 
 if __name__ == "__main__":
