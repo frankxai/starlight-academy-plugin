@@ -1,0 +1,140 @@
+{
+  "schema": "starlight.builder_native_installed_recovery.v1",
+  "observed_at": "2026-10-02T22:59:39.160660+00:00",
+  "goal_id": "BL-01",
+  "builder_source_revision": "e2d9032a21184ddeda70ed46dca83555d20c3266",
+  "builder_version": "0.1.5",
+  "quote_source_revision": "8fbd3ae606f256d25a59aeea6a52ac063654ff5c",
+  "host": {
+    "client": "Codex CLI",
+    "version": "0.159.3",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "sandbox": "workspace-write",
+    "network_actions": false,
+    "ephemeral": true
+  },
+  "native_install": {
+    "task_owned_local_marketplace": true,
+    "cached_git_files_matched": 13,
+    "rendered_available_plugin_skills": 3,
+    "actual_model_read_installed_skill": true,
+    "local_copied_skill_fallback": false
+  },
+  "native_attempt": {
+    "model_calls": 1,
+    "status": "timeout-incomplete",
+    "worker_state": "stopped",
+    "timeout_seconds": 240,
+    "elapsed_seconds": 242.391,
+    "exit_code": 1,
+    "jsonl_events": 25,
+    "completed_shell_command_items": 9,
+    "shell_items_exit_zero": 9,
+    "embedded_inspection_error_incidents": 2,
+    "embedded_errors": [
+      "inline Python quoting SyntaxError",
+      "Get-FileHash unavailable in the invoked shell"
+    ],
+    "package_operations_observed": [
+      "restore",
+      "check",
+      "pack",
+      "restore"
+    ],
+    "quote_operations_observed": [
+      "init",
+      "intake",
+      "edit"
+    ],
+    "turn_completed": false,
+    "tokens": null,
+    "cost": null
+  },
+  "scenarios": {
+    "native_positive": {
+      "restore_and_inspect": "passed",
+      "check_and_byte_identical_repack": "passed",
+      "fresh_sibling_restore": "passed",
+      "author_save_and_reopen": "saved revision2; native reopen not reached",
+      "buyer_export_and_retained_hash_verification": "not reached"
+    },
+    "native_adverse": {
+      "existing_destination": "not reached",
+      "wrong_expected_hash": "not reached",
+      "partial_marker": "not reached"
+    }
+  },
+  "artifact_recovery": {
+    "actor": "lead, new deterministic Node processes after stopped native agent",
+    "model_calls": 0,
+    "reopened_revision": 2,
+    "saved_snapshot_sha256": "c6c68ea86a7608163533d2a9fec39acb3a0aa9677354e0dafa5117d24f1a33d5",
+    "saved_draft_sha256": "4ec518754393e038688cea44b353f41d8c28a0a0671350257949db9143aff74f",
+    "saved_draft_bytes": 387,
+    "exact_saved_wording_exported": true,
+    "buyer_files": 4,
+    "retained_receipt_sha256": "8e6910d6e36587f9017a1cc8933c388b82fe53f91f5fd6d2b032733d4473280a",
+    "independent_retained_hash_verification": true,
+    "original_working_files_preserved": 48,
+    "lead_calls": {
+      "successes": 3,
+      "expected_refusals": 3
+    },
+    "native_full_suite_completed": false,
+    "approval_required": true,
+    "outbound": "disabled",
+    "runtime_model_generation": false,
+    "host_authorship": "observed installed Codex model saved operator wording"
+  },
+  "restored_payload": {
+    "archive_sha256": "0ef3efa023ad62e34578ec3163c4d8f47f62f873f522982d6acbc1e1010e6a95",
+    "files_per_folder": 10,
+    "both_folders_match_archive": true,
+    "maintaining_account_readable": true,
+    "repacked_bytes_match_original": true
+  },
+  "cleanup": {
+    "first_cleanup": "Workload-start reserve check blocked removal after memory fell; retained as a helper failure",
+    "recovery": "Ordinary targeted native plugin removal and owned profile cleanup",
+    "free_ram_mb_at_cleanup": 3217.08,
+    "native_plugin_absent": true,
+    "owned_cache_absent": true,
+    "owned_profile_absent": true,
+    "global_config_bytes_restored": true,
+    "global_config_semantics_restored": true,
+    "runtime_bytes_preserved": true,
+    "fixture_bytes_preserved": true,
+    "cached_source_bytes_preserved_during_model": true
+  },
+  "lead_export_error": {
+    "first_call": "Unsupported guessed option names rejected",
+    "corrected_from_skill_contract": true,
+    "failed_streams_preserved": true,
+    "new_output_used": true
+  },
+  "evidence_hashes": {
+    "native_trace": "2630994b58a411fa3aef64076729f668dbe3c72b1864601cc4f81c077b6e9ae7",
+    "original_private_receipt": "b044a876072b360279cf7261e4fb658be73b4e57e6242dac2c7806228ca731b2",
+    "lead_partial_inspection": "04b5e03f6b1b71603e2334024beae3b4880b6e15d56e690d6f0a0cc6cc54dc5f",
+    "cleanup_recovery": "7b1296567dd113ea4f35e7e8a17e7e4ff4c172e75155d5ce861d19213f244041",
+    "lead_artifact_recovery": "f0947424c2c661a6b3c66a9411a0cf54502b04663729a7af617e770a55d39f33"
+  },
+  "dots_access": {
+    "status": "Actual account/workspace eligibility unknown; plan/workspace question pending",
+    "official_source": "https://learn.chatgpt.com/docs/dots",
+    "documented_personal_pro_regions": "Outside EEA, UK and Switzerland; age over18 required",
+    "documented_business_premium": "Gradual worldwide rollout",
+    "documented_enterprise": "Gradual worldwide rollout; admin enablement required, off by default",
+    "connections_changed": false
+  },
+  "limits": [
+    "Assisted synthetic input with supplied interpreter paths, producer-known hash, fictional service/amount and explicit cases",
+    "Native run did not complete; full two-host suite and resumed native-agent completion pending",
+    "Actual interruption occurred after a saved edit, not during a filesystem write",
+    "Lead recovery/export and adverse commands are distinct from native model commands",
+    "No outside-user, directory, Dots, rights, seller, payment or paid advantage acceptance",
+    "Manual unpack/source inspection/edit/copy remains a capable alternative; output advantage, repair effort and comparative time/cost unmeasured",
+    "Private hashes identify retained evidence and do not make unpublished traces independently inspectable"
+  ]
+}

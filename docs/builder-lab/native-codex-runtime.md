@@ -114,3 +114,7 @@ source and completed authored editing, reopen, buyer export and retained-hash
 verification, with a final native usage receipt. This later success does not
 change the original timeout, access denial, assisted scope or missing historical
 usage. Full native host and commercial gates remain open.
+
+## Installed-plugin interruption and recovery
+
+The [installed Codex trial](native-codex-installed-workflow.md) observed actual native cached-skill execution and saved authored revision2 before a timed-out agent was stopped. A new lead process reopened that exact state, exported its existing wording and verified the retained receipt hash while preserving original files. This establishes the recorded artifact recovery; the native model case set remains incomplete and its usage/cost unknown. Cleanup restored configuration bytes. Prior completed and failed local-skill evidence remains unchanged.
