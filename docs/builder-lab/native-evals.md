@@ -80,3 +80,27 @@ Keep separate failed attempts and missing-receipt gaps. Generate
 the [goal report](reports/2026-10-02.md) after reconciliation. Thinking already
 included in native output is counted once. Cash ROI requires reconciled cash
 inputs; list-cost estimates cannot supply it.
+
+## Version 0.1.3 direct CLI trials
+
+[The new record](native-0-1-3.json) uses fresh `claude --print` sessions with
+`--plugin-dir` for the with arm and no Builder Lab plugin for selected controls.
+It preserves the original nine prompts, the Read/Skill restriction, plan mode,
+strict empty MCP configuration and actual stream/result usage. Built-in Claude
+plugins remain visible. This is a different harness from `claude plugin eval`;
+it produces no native comparative scores and creates no kept evaluator sandbox.
+Actual responses, tool selections, source hashes and the word proxy are retained.
+
+Codex uses project `.agents/skills` with reference paths preserved, an owned
+temporary skill-enable profile and the existing login launcher. Security hooks
+and rules remain inherited; the actual sessions use read-only sandboxing and
+disabled browsing/MCP configuration. Other skill descriptors remain, so pure
+host isolation is not claimed. A separate D1 prompt checks the model-visible
+catalog in fresh enabled and disabled sessions. Its pair proves catalog toggling,
+without proving plugin registry removal or revoking access to readable files.
+The no-command P3 prompt prevents reading the bundle through shell-based file
+tools; its generic Codex reply remains limited rather than accepted.
+
+Use a new source fixture and fresh receipt IDs for retries. Run one admitted
+worker at a time, retain actual failures and reconcile complete results once.
+The local debug renderer is a discovery diagnostic, excluded from model costs.

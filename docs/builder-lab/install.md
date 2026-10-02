@@ -75,3 +75,13 @@ cases. The [method](native-evals.md) explains why a heuristic pass cannot certif
 skill selection or safe verification guidance. Payload changes need independent
 source review and native Codex 0.1.2 verification before catalog registration.
 Runtime disable, actual Dots access and directory approval remain unproved.
+
+## Version 0.1.3 scoped repository-skill trial
+
+The [fresh record](native-0-1-3.json) observes all three Codex repository skills
+in an enabled session and none in a disabled session. The owned profile was
+removed and global metadata hashes stayed unchanged. This uses project skill
+discovery, with relative reference layout preserved; it does not install or
+remove a plugin from the global registry. Keep that lifecycle gate separate.
+Claude loads the exact source with session-only `--plugin-dir`; partial response
+acceptance and earlier failed candidates remain in the record.

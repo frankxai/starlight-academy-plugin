@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T08:50:37.606453+00:00",
+  "observed_at": "2026-10-02T10:08:06.818045+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -14,28 +14,28 @@
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Codex source maker; revised 0.1.2 native Claude comparisons retained with trigger/semantic failures and repairs; workers stopped. Historical 0.1.1 source, both assisted host batches and independent review accepted.",
+      "agent_state": "Codex source maker; 0.1.2 source/review accepted in PR13. New 0.1.3 source patch and 17 fresh native runs recorded; all workers stopped. Full current host/cold-use and Dots gates remain open.",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Accept the corrected 0.1.2 source/evidence review; resolve empty-directory advice and length proxy misses, run native Codex 0.1.2 comparison and runtime-disable proof before catalogs; verify actual Dots eligibility.",
+      "next_gate": "Independent exact-source review and CI for PR14; P2/P4/P5 length and N2 advice remain failed; native Codex bundle behavior and actual plugin lifecycle/cold-use proof remain open before catalogs; verify actual Dots eligibility.",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
         {
           "id": "source",
-          "description": "Offline 0.1.2 scaffold/check/pack checks on ba1162a payload; current source review and host behavior remain separate",
+          "description": "Accepted merged 0.1.2 offline source; 0.1.3 local checks pass but source release awaits PR14 review/CI",
           "state": "passed",
           "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/13"
         },
         {
           "id": "review",
-          "description": "Independent review of current 0.1.2 exact source; historical 0.1.1 acceptance retained in release evidence",
-          "state": "pending",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
+          "description": "Independent 0.1.2 exact source accepted at 670d2ef; 0.1.3 PR14 review remains separate",
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/13#issuecomment-5948724619"
         },
         {
           "id": "hosts",
-          "description": "Current 0.1.2 behavioral cases in Codex and Claude; historical 0.1.1 assisted batches accepted",
+          "description": "Current 0.1.3 full Codex/Claude behavior remains incomplete; 5/5 Claude positives selected the skill, 2/5 meet full proxy/semantic contract; scoped runtime catalog toggle observed",
           "state": "pending",
           "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
         },
@@ -52,10 +52,10 @@
       "target_date": "2026-10-05",
       "status": "Done",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Three scoped reporting criteria independently accepted in merged PR12; Claude maker output checked by Codex. Native-eval importer expansion awaits its own source review; whole-goal lead usage and cash remain unknown.",
+      "agent_state": "Scoped BL-02 adoption completed in PR12; native-eval importer corrections accepted in PR13. Whole-goal lead/cash attribution remains unknown.",
       "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Keep future receipts and cash attribution with existing accounting owners; review the new native-eval importer without reclassifying completed scoped adoption.",
+      "next_gate": "Reconcile subsequent actual receipts with existing accounting owners; preserve scoped completion and missing invoice/lead usage.",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",

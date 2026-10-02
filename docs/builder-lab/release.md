@@ -1,16 +1,16 @@
 # Current release checkpoint
 
-Builder Lab 0.1.1 was independently accepted and merged in [PR12](https://github.com/frankxai/starlight-academy-plugin/pull/12). Scoped BL-02 reporting adoption is complete. The current 0.1.2 candidate repairs implicit triggers and unsupported earnings-interface guidance. Its [native comparison record](native-comparison.json) retains actual responses, baseline results and failures. See the [evaluation method](native-evals.md) and [current usage report](reports/2026-10-02.md).
+Builder Lab 0.1.2 source and reporting corrections were independently accepted and merged in [PR13](https://github.com/frankxai/starlight-academy-plugin/pull/13#issuecomment-5948724619). [PR14](https://github.com/frankxai/starlight-academy-plugin/pull/14) prepares 0.1.3 with shorter response guidance and an explicit requirement that scaffold and ZIP targets be new paths. Source acceptance for the new revision awaits its own review and CI.
 
-The 17bf5ad Claude pilot selected four of five intended skills; the packaging case missed while still scoring 1 under heuristic graders. The intended skill fired 3/3 after the ba1162a description change. The unchanged earlier description fired 1/2 across dfe34dd and17bf5ad, so run variance is not excluded. One reply still gave incorrect empty-directory advice; two met the core command/licence contract. Output length misses are separately recorded. The earlier earnings case failed lead review despite its heuristic pass; the revised map skill gave evidence-based verification steps in its observed rerun. Generic baseline replies often meet the same contract. No general performance advantage is inferred.
+The [0.1.3 native record](native-0-1-3.json) retains 17 fresh model runs and both tested source payloads. At 5a1624c, Claude selected the intended skill in all five positive cases once. The role table and packaging reply meet the 180-word proxy; research, meeting and rights replies exceed it. The collision reply still gives ambiguous empty-directory advice. The generator independently rejected an existing empty target and preserved it. These are descriptive observations with selected plain-host controls; they establish no general advantage.
 
-The output-length proxy exceeded 180 in 26 of 38 limit-bearing replies: 15/19 with the plugin and11/19 without. The proxy counts whitespace-delimited tokens, including Markdown pipes and separators; it can overcount words in tables. This is a descriptive small pilot, with no causal arm comparison. Under this conservative proxy, no with-arm full-fixture acceptance is recorded for any of P1 through P5.
+Two fresh Codex sessions report all three repository skills when enabled and none when disabled. Global metadata stayed unchanged and the temporary profile was removed. This proves the scoped catalog toggle. Codex's P3 reply stayed generic because the unchanged prompt forbids commands and it did not read the bundle. Plugin registry installation, removal and broader host behavior remain open.
 
-Current source review, native Codex 0.1.2, runtime disable, catalog registration and actual Dots eligibility remain open. Paid release also requires a selected buyer workflow, seller/rights evidence and a verified sandbox delivery lifecycle. The known USD figures are native list-price estimates. Cash, invoice allocation and ROI remain unknown.
+The [dated usage report](reports/2026-10-02.md) includes 115 attributed receipts before PR14 review: 80 complete token receipts and 35 incomplete ones. Dots eligibility, catalog release, buyers, seller/rights evidence and sandbox delivery remain open. Native list-price costs, allocated invoices, cash revenue and ROI have separate evidence requirements.
 
 ## Historical snapshots
 
-The dated sections below preserve earlier source and receipt scopes. Their pending states are historical; the current machine-readable state is [release.json](release.json).
+The dated sections below retain their original source and receipt scopes. Their pending states are historical; the current machine-readable checkpoint is [release.json](release.json).
 
 # Builder Lab release checks
 
