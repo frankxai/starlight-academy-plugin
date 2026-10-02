@@ -6,7 +6,7 @@ The [0.1.3 native record](native-0-1-3.json) retains 17 fresh model runs and bot
 
 Two fresh Codex sessions report all three repository skills when enabled and none when disabled. Global metadata stayed unchanged and the temporary profile was removed. This proves the scoped catalog toggle. Codex's P3 reply stayed generic because the unchanged prompt forbids commands and it did not read the bundle. Plugin registry installation, removal and broader host behavior remain open.
 
-The [dated usage report](reports/2026-10-02.md) includes 115 attributed receipts before PR14 review: 80 complete token receipts and 35 incomplete ones. Dots eligibility, catalog release, buyers, seller/rights evidence and sandbox delivery remain open. Native list-price costs, allocated invoices, cash revenue and ROI have separate evidence requirements.
+The [dated usage report](reports/2026-10-02.md) includes 116 attributed receipts through the first PR14 review: 81 complete token receipts and 35 incomplete ones. The final correction review will postdate this snapshot. Dots eligibility, catalog release, buyers, seller/rights evidence and sandbox delivery remain open. Native list-price costs, allocated invoices, cash revenue and ROI have separate evidence requirements.
 
 ## Historical snapshots
 

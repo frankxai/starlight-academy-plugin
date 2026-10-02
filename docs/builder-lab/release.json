@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_release.v2",
-  "observed_at": "2026-10-02T10:08:06.818045+00:00",
+  "observed_at": "2026-10-02T10:19:40.317100+00:00",
   "status": "0.1.2 source accepted and merged; 0.1.3 development candidate records fresh partial native behavior, pending independent source review and final CI. Catalog/production/commerce gates remain open.",
   "dots": {
     "state": "unverified",
@@ -41,16 +41,16 @@
     "No public or priced checkout enabled"
   ],
   "usage": {
-    "receipts": 115,
-    "complete_token_receipts": 80,
+    "receipts": 116,
+    "complete_token_receipts": 81,
     "missing_token_receipts": 35,
-    "processed_tokens": 2433263,
-    "known_api_equivalent_usd": "6.668971",
+    "processed_tokens": 2553410,
+    "known_api_equivalent_usd": "7.253985",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown",
-    "state_observed_at": "2026-10-02T10:08:06.818045+00:00",
+    "state_observed_at": "2026-10-02T10:19:40.317100+00:00",
     "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
-    "scope": "Dated subset before PR14 independent review; no lead/invoice/revenue coverage"
+    "scope": "Includes first PR14 review once; final correction review postdates this committed checkpoint"
   },
   "comparison_candidate": {
     "plugin_version": "0.1.3",
@@ -85,11 +85,38 @@
         "map-agent-ecosystem"
       ],
       "disabled_available": [],
-      "scope": "Fresh sessions using per-skill enable flags in a temporary profile; global metadata unchanged and owned profile removed. No plugin registry install/removal or filesystem access revocation proof."
+      "scope": "Fresh sessions using per-skill enable flags in a temporary profile; global metadata unchanged and owned profile removed. No plugin registry install/removal or filesystem access revocation proof.",
+      "subsequent_rendered_catalogs": [
+        {
+          "arm": "with",
+          "available_builder_names": [
+            "build-portable-plugin",
+            "design-agent-product",
+            "map-agent-ecosystem"
+          ],
+          "catalog_characters": 16654,
+          "catalog_whitespace_tokens": 1942,
+          "builder_descriptor_characters": 1278,
+          "raw_render_sha256": "5677f2a45a66fa17d2b39f981e5552fd6c8b60257ba42ebe3955925568b4380a",
+          "scope": "Subsequent local renderer diagnostic, not the exact model request or a model receipt"
+        },
+        {
+          "arm": "disabled",
+          "available_builder_names": [],
+          "catalog_characters": 15373,
+          "catalog_whitespace_tokens": 1794,
+          "builder_descriptor_characters": 0,
+          "raw_render_sha256": "645a895623480d9b1a219d96de129b2711ddb6675850cd003339a0099e4455f0",
+          "scope": "Subsequent local renderer diagnostic, not the exact model request or a model receipt"
+        }
+      ],
+      "token_delta_limit": "Native D1 input totals differ by only 42 tokens. Subsequent renderer shows descriptor exclusion, but the exact raw model requests and tokenization are unavailable; the small native delta remains unexplained. Do not reuse this as plugin lifecycle or access-revocation evidence."
     },
     "independent_review": {
-      "state": "pending",
-      "scope": "Exact final PR14 source/evidence requires provider verdict"
+      "state": "pending-correction-review",
+      "latest_verdict": "PASS for 0f2aef3",
+      "receipt_id": "builder-013-provider-review-1",
+      "scope": "Reporting encoding/usage/deltas corrected after first review; final exact-source review and CI required before merge"
     },
     "catalogs": {
       "state": "not-listed",
@@ -105,7 +132,11 @@
       "ci_revision": "5a1624c5bbe6caa425a55038bc8ac2ae6eafdaa6",
       "scope": "Final docs commit CI is checked separately"
     },
-    "prior_candidate_revision": "e47752a3413ceea76722207e04b1f6794224e2ac"
+    "prior_candidate_revision": "e47752a3413ceea76722207e04b1f6794224e2ac",
+    "open_response_gaps": [
+      "P2/P4/P5/N2/N3 exceed the word proxy",
+      "N2 is a generic response that did not invoke the skill and gives ambiguous empty-target advice"
+    ]
   },
   "historical_0_1_0": {
     "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",

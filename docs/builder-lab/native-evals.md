@@ -104,3 +104,11 @@ tools; its generic Codex reply remains limited rather than accepted.
 Use a new source fixture and fresh receipt IDs for retries. Run one admitted
 worker at a time, retain actual failures and reconcile complete results once.
 The local debug renderer is a discovery diagnostic, excluded from model costs.
+
+The 0.1.3 Codex export reads native response files as UTF-8 and retains raw native
+usage plus the disjoint token-normalization arithmetic. One JSONL stream contains
+trace events and final usage, so its receipt and trace hashes attest the same
+object. The response-file hash is separate. Subsequent local catalog renders
+confirm descriptor exclusion, but the 42-token D1 native-input difference remains
+unexplained without exact raw requests. Trigger descriptions were tuned on these
+prompts; use held-out phrasings and repeated cases before claiming general accuracy.
