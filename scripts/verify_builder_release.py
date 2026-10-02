@@ -82,7 +82,7 @@ def verify() -> dict:
     refs = relative_references(PLUGIN)
     document_refs = relative_references(ROOT, ROOT / 'docs/builder-lab')
     with tempfile.TemporaryDirectory(prefix="builder-release-") as scratch:
-        base = Path(scratch)
+        base = Path(scratch).resolve()
         generated = base / "research-brief"
         run_json(PACKAGE, "scaffold", PLUGIN / "examples/research-brief.json", generated)
         run_json(PACKAGE, "check", generated)

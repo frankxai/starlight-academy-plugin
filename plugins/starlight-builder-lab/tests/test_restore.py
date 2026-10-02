@@ -25,7 +25,7 @@ class RestoreTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="builder-restore-test-")
         self.addCleanup(self.temp.cleanup)
-        self.base = Path(self.temp.name)
+        self.base = Path(self.temp.name).resolve()
         self.package = self.base / "source"
         lab.scaffold(lab.read_json(EXAMPLE), self.package)
         self.archive = self.base / "release.zip"
@@ -55,6 +55,24 @@ class RestoreTests(unittest.TestCase):
         for name, sha in result["files_sha256"].items():
             self.assertEqual(hashlib.sha256((restored / name).read_bytes()).hexdigest(), sha)
         self.assertEqual(lab.pack(restored, self.base / "repacked.zip")["sha256"], self.release["sha256"])
+        self.assertFalse((restored / lab.RESTORE_MARKER).exists())
+
+    def test_pack_restore_repack_preserves_crlf_and_cr_file_bytes(self):
+        for name, content in [("README.md", b"Windows-authored package\r\n"),
+                              ("LICENSE", b"Exact licence text\rSecond line\r"),
+                              ("skills/create-research-brief/SKILL.md", None)]:
+            path = self.package / name
+            if content is None:
+                content = path.read_bytes().replace(b"\n", b"\r\n")
+            path.write_bytes(content)
+        archive = self.base / "windows-edited.zip"
+        release = lab.pack(self.package, archive)
+        with zipfile.ZipFile(archive) as reader:
+            for name in ("README.md", "LICENSE", "skills/create-research-brief/SKILL.md"):
+                self.assertEqual(reader.read(name), (self.package / name).read_bytes())
+        restored = self.base / "windows-restored"
+        lab.restore(archive, restored, release["sha256"])
+        self.assertEqual(lab.pack(restored, self.base / "windows-repacked.zip")["sha256"], release["sha256"])
 
     def test_update_never_replaces_prior_empty_or_edited_versions(self):
         target = self.base / "version-one"
@@ -152,6 +170,26 @@ class RestoreTests(unittest.TestCase):
             lab.restore(self.archive, target, self.release["sha256"])
         lab.restore(self.archive, self.base / "fresh-retry", self.release["sha256"])
         self.assertEqual(before, {str(path.relative_to(target)): path.read_bytes() for path in target.rglob("*") if path.is_file()})
+
+    def test_optional_file_failure_cannot_pass_check_or_pack(self):
+        archive, checksum = self.rewrite(self.entries() + [("references/optional.md", b"Optional reference\n")])
+        target = self.base / "optional-partial"
+        original = Path.open
+        def fail_optional(path, *args, **kwargs):
+            if path == target / "references/optional.md":
+                raise OSError("Injected optional-file failure after required files")
+            return original(path, *args, **kwargs)
+        with patch.object(Path, "open", fail_optional), self.assertRaisesRegex(ValueError, "preserve the partial"):
+            lab.restore(archive, target, checksum)
+        self.assertTrue((target / lab.RESTORE_MARKER).is_file())
+        self.assertTrue((target / "LICENSE").is_file())
+        with self.assertRaisesRegex(ValueError, "Incomplete restore"):
+            lab.check(target)
+        with self.assertRaisesRegex(ValueError, "Incomplete restore"):
+            lab.pack(target, self.base / "partial.zip")
+        self.assertFalse((self.base / "partial.zip").exists())
+        lab.restore(archive, self.base / "optional-retry", checksum)
+        self.assertFalse((self.base / "optional-retry" / lab.RESTORE_MARKER).exists())
 
     def test_linked_output_parent_is_refused(self):
         real = self.base / "real"; real.mkdir()

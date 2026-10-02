@@ -3,6 +3,9 @@
 Three portable skills and offline tooling for researching, building and restoring
 agent workflow packages. Requires Python 3.10 or later for scripts. No API key,
 server, dependency installation or billing account is needed to try the lab.
+Source checks cover Windows and Linux on Python 3.10 and 3.13. Other operating
+systems remain unverified; restore rejects symlinked output ancestors, including
+system aliases such as macOS `/var`. Choose a canonical ordinary local parent.
 
 This is source for a candidate plugin. It is not registered in the Academy
 marketplaces or approved for an OpenAI directory. Host behavior tests and
@@ -79,7 +82,8 @@ python -B scripts/package_lab.py check NEW_DIRECTORY
 
 Restore reads and hashes the same bounded archive bytes. It checks the complete
 skills-only package and supplied licence before creating the requested folder.
-The result reports the archive and per-file hashes. It preserves UTF-8 file bytes
+The result reports the archive and per-file hashes. Restore and pack preserve UTF-8 file bytes,
+including CRLF and CR line endings,
 and accepts inspected Python or JavaScript/Node text source; no code is executed.
 The checks remain structural and the secret scan heuristic-only. A checksum
 matches a supplied artifact; it does not authenticate its publisher, prove rights,
@@ -89,12 +93,16 @@ Supported ZIPs use stored or DEFLATE compression, at most 32 MiB archive size,
 512 entries, 16 MiB total expanded content and 1 MiB per file. Paths use at most
 12 components and 240 characters. Links, reparse/special files, encryption,
 ambiguous paths, duplicates, case collisions, invalid UTF-8 and bad CRCs are
-refused. This is a bounded text-package tool, not a general ZIP extractor.
+refused. The package contract also refuses private-key patterns and personal paths.
+Unicode normalization equivalence across filesystems is not certified. This is a
+bounded text-package tool, not a general ZIP extractor.
 
 Prior versions and customer edits are preserved. An existing destination, even
 an empty folder, stops the command. Wrong hashes or invalid archives/packages
 stop before output creation. A write failure can leave a partial new folder;
-keep it for inspection and retry into a fresh sibling. No complete restore is
+keep it for inspection and retry into a fresh sibling. A `.restore-incomplete`
+marker remains until all files are written; check and pack refuse a marked folder.
+Keep the marker and partial files together. No complete restore is
 claimed without a successful command result. Review the source and returned
 hashes before using it. The code assumes a trusted local filesystem and cooperating
 writers, without adversarial path replacement or a power-loss guarantee.

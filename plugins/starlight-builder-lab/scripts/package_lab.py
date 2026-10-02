@@ -32,6 +32,7 @@ MAX_ARCHIVE = 32 * 1024 * 1024
 MAX_RESTORED = 16 * 1024 * 1024
 MAX_MEMBER = 1024 * 1024
 MAX_ENTRIES = 512
+RESTORE_MARKER = ".restore-incomplete"
 
 
 def indirect(path: Path) -> bool:
@@ -134,6 +135,8 @@ def scaffold(spec: dict, target: Path) -> dict:
 def package_files(root: Path) -> list[Path]:
     if indirect(root) or not root.is_dir():
         raise ValueError("Package must be a real directory")
+    if os.path.lexists(root / RESTORE_MARKER):
+        raise ValueError("Incomplete restore; preserve this directory and retry into a fresh sibling")
     files = []
     paths = []
     pending = [root]
@@ -259,7 +262,9 @@ def pack(root: Path, output: Path) -> dict:
                 info.create_system = 3
                 info.compress_type = zipfile.ZIP_STORED
                 info.external_attr = 0o100644 << 16
-                archive.writestr(info, path.read_text(encoding="utf-8").encode("utf-8"))
+                content = path.read_bytes()
+                content.decode("utf-8")  # Validate text without translating CRLF/CR bytes.
+                archive.writestr(info, content)
     except Exception:
         if created:
             output.unlink(missing_ok=True)
@@ -339,6 +344,12 @@ def restore(source: Path, output: Path, expected_sha256: str) -> dict:
     ordinary_parents(output.parent)
     output.mkdir(mode=0o700)  # Exclusive on every supported OS, even for an empty existing directory.
     try:
+        marker = output / RESTORE_MARKER
+        with marker.open("xb") as stream:
+            stream.write(("Incomplete restore. Preserve this folder; retry into a fresh sibling.\n"
+                          f"Expected archive SHA-256: {actual}\n").encode("utf-8"))
+            stream.flush()
+            os.fsync(stream.fileno())
         for name in sorted(directories, key=lambda value: (value.count("/"), value)):
             (output / name).mkdir(mode=0o700)
         for name, content in payload.items():
@@ -346,6 +357,7 @@ def restore(source: Path, output: Path, expected_sha256: str) -> dict:
                 stream.write(content)
                 stream.flush()
                 os.fsync(stream.fileno())
+        marker.unlink()  # Only a completely written output becomes eligible for check/pack.
     except OSError as exc:
         raise ValueError(f"Restore write failed; preserve the partial directory and retry into a fresh sibling. {exc}") from exc
     return {**result, "status": "restored-structural-pass", "directory": str(output),

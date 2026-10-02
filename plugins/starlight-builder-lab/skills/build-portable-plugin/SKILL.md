@@ -59,8 +59,9 @@ folder. Check the returned file hashes and supplied notices, inspect source, and
 the host's existing installation controls only when requested. Keep the prior version
 and customer edits; do not overwrite them or migrate credentials/configuration.
 Wrong hashes, unsafe archive entries and invalid packages refuse before output creation.
-A write failure leaves a partial folder for inspection; preserve it and retry into a
-fresh sibling. Restore never executes source, installs a plugin, checks an entitlement,
+A write failure leaves a partial folder with a `.restore-incomplete` marker; preserve
+both and retry into a fresh sibling. Check and pack refuse marked folders. Restore
+never executes source, installs a plugin, checks an entitlement,
 grants rights or proves publisher identity. Compare edits manually before switching
 versions; rollback uses the preserved prior version through host controls.
 

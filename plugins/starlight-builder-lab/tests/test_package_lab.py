@@ -160,14 +160,17 @@ class PackageTests(unittest.TestCase):
         path.write_text("---\nname: research-brief\ndescription: Prepare a cited brief.\n---\n\nUse supplied sources.\n", encoding="utf-8")
         self.assertEqual(lab.check(self.package)["skills"], 1)
 
-    def test_newlines_do_not_change_zip_bytes(self):
+    def test_changed_newline_bytes_change_zip_hash_and_are_preserved(self):
         self.build()
         first = lab.pack(self.package, self.base / "lf.zip")
         for path in lab.package_files(self.package):
             text = path.read_text(encoding="utf-8")
             path.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))
         second = lab.pack(self.package, self.base / "crlf.zip")
-        self.assertEqual(first["sha256"], second["sha256"])
+        self.assertNotEqual(first["sha256"], second["sha256"])
+        with zipfile.ZipFile(self.base / "crlf.zip") as archive:
+            for path in lab.package_files(self.package):
+                self.assertEqual(archive.read(path.relative_to(self.package).as_posix()), path.read_bytes())
 
     def test_missing_parent_is_preserved(self):
         with self.assertRaises(ValueError):

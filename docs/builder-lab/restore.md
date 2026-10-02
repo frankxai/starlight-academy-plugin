@@ -41,7 +41,9 @@ outside-user cold use or a claim that any directory has listed these packages.
 The previous host/evidence files and commercial gates remain unchanged.
 
 Wrong hash or invalid package stops before output creation. Interrupted writing
-preserves the partial new directory; retry into a fresh sibling. Updates restore
+preserves the partial new directory with a `.restore-incomplete` marker; check and
+pack refuse that marked folder. Keep it intact and retry into a fresh sibling. Pack
+and restore retain UTF-8 bytes, including Windows CRLF and CR line endings. Updates restore
 alongside older versions, followed by human edit reconciliation. Rollback uses the
 preserved prior version. There is no automatic update process, credential migration,
 per-run entitlement server, hosted customer inference or support bot.
@@ -49,6 +51,10 @@ per-run entitlement server, hosted customer inference or support bot.
 Limits: stored/DEFLATE ZIPs, 32 MiB archive, 16 MiB expanded content, 512 entries,
 1 MiB per file, 12 path components and 240-character entry paths. Files are UTF-8 text under
 the existing skills-only layout, with Python and JavaScript/Node source allowed.
+The package contract also refuses private-key patterns and personal paths. Windows
+and Linux source checks cover Python 3.10 and 3.13; other platforms and Unicode
+normalization equivalence remain unverified. Every output ancestor must be ordinary,
+so system aliases such as macOS `/var` are refused; choose a canonical local parent.
 The code assumes ordinary local directories and cooperating writers; it does not
 defend against a privileged process replacing paths during a write or guarantee
 power-loss recovery. Temporary validation directories belong to that invocation;
