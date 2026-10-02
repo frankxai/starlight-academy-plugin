@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_release.v2",
-  "observed_at": "2026-10-02T10:19:40.317100+00:00",
-  "status": "0.1.2 source accepted and merged; 0.1.3 development candidate records fresh partial native behavior, pending independent source review and final CI. Catalog/production/commerce gates remain open.",
+  "observed_at": "2026-10-02T10:57:54.192239+00:00",
+  "status": "0.1.3 development source accepted on main in PR14. Native local plugin lifecycle observed in three sessions; this evidence slice awaits its independent review and exact CI. Full host/cold-use, catalog, Dots and commerce gates remain open.",
   "dots": {
     "state": "unverified",
     "plugin_version": "0.1.3",
@@ -32,8 +32,8 @@
     "state_observed_at": "2026-10-02T10:08:06.818045+00:00",
     "reason": "not verified"
   },
-  "machine_gate": "One sequential admitted native worker at a time; 5120 MiB fresh RAM floor including 1 GiB reserve; all 17 model workers stopped. Temporary Codex profile removed; global metadata unchanged. Prior 42 native-eval folders retained after rejected cleanup; no new such sandboxes.",
-  "secret_checks": "Staged hooks passed; gitleaks 8.30.1 full-history scan on 2026-10-02 inspected 14 commits / 440543 bytes and found no leaks; package checker remains heuristic-only",
+  "machine_gate": "One sequential admitted worker at a time; fresh 5120 MiB floor with 1 GiB reserve; native lifecycle workers stopped. Owned cache/profile removed through targeted native lifecycle; global semantics restored. Prior 42 evaluator folders remain after rejected cleanup.",
+  "secret_checks": "PR14 staged hooks passed and full-history gitleaks found no leaks. Current lifecycle evidence staging/security checks are pending; package checker remains heuristic-only.",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
     "Native list-price review usage is not invoiced cash",
@@ -41,16 +41,16 @@
     "No public or priced checkout enabled"
   ],
   "usage": {
-    "receipts": 116,
-    "complete_token_receipts": 81,
+    "receipts": 120,
+    "complete_token_receipts": 85,
     "missing_token_receipts": 35,
-    "processed_tokens": 2553410,
-    "known_api_equivalent_usd": "7.253985",
+    "processed_tokens": 2673123,
+    "known_api_equivalent_usd": "7.403816",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown",
-    "state_observed_at": "2026-10-02T10:19:40.317100+00:00",
+    "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
     "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
-    "scope": "Includes first PR14 review once; final correction review postdates this committed checkpoint"
+    "scope": "Final PR14 correction review and three actual Codex lifecycle trials included once. Current lifecycle evidence review will postdate this checkpoint; thirteen native costs, invoices and root lead unknown."
   },
   "comparison_candidate": {
     "plugin_version": "0.1.3",
@@ -303,5 +303,45 @@
       "merge_revision": "ebdae2fa3bbc026178b2e6da7dfb587b38b2bdaa",
       "post_merge_ci": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36987631617"
     }
+  },
+  "historical_0_1_3_checkpoint_before_native_lifecycle": {
+    "observed_at": "2026-10-02T10:19:40.317100+00:00",
+    "status": "0.1.2 source accepted and merged; 0.1.3 development candidate records fresh partial native behavior, pending independent source review and final CI. Catalog/production/commerce gates remain open.",
+    "usage": {
+      "receipts": 120,
+      "complete_token_receipts": 85,
+      "missing_token_receipts": 35,
+      "processed_tokens": 2673123,
+      "known_api_equivalent_usd": "7.403816",
+      "invoiced_cash_usd": null,
+      "cash_roi": "unknown",
+      "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
+      "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
+      "scope": "Final PR14 correction review and three actual Codex lifecycle trials included once. Current lifecycle evidence review will postdate this checkpoint; thirteen native costs, invoices and root lead unknown."
+    },
+    "machine_gate": "One sequential admitted native worker at a time; 5120 MiB fresh RAM floor including 1 GiB reserve; all 17 model workers stopped. Temporary Codex profile removed; global metadata unchanged. Prior 42 native-eval folders retained after rejected cleanup; no new such sandboxes."
+  },
+  "source_integration": {
+    "state": "accepted-on-main",
+    "revision": "392e2a75c4987024a30bf572dcbd59d922b394fa",
+    "reviewed_revision": "7e1a65dde3fdd9f5f310d5b201f38ba591cb0184",
+    "review_url": "https://github.com/frankxai/starlight-academy-plugin/pull/14#issuecomment-5950302439",
+    "reviewed_and_merged_tree": "dd6754fe4750c6d32e173670ea16eaa09b6d577f",
+    "post_merge_ci_url": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36995338500",
+    "scope": "PR14 source/evidence acceptance; new lifecycle evidence reviewed separately"
+  },
+  "native_plugin_lifecycle": {
+    "state": "observed-local-three-phases",
+    "record": "native-plugin-lifecycle.json",
+    "source_revision": "392e2a75c4987024a30bf572dcbd59d922b394fa",
+    "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
+    "independent_evidence_review": "pending",
+    "catalog_available_counts": {
+      "enabled": 3,
+      "disabled": 0,
+      "removed": 0
+    },
+    "cleanup": "verified after final session",
+    "scope": "Native installed-plugin flag; no targeted per-skill enable overrides. Descriptor discovery, not access revocation or workflow certification."
   }
 }

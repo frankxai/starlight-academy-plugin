@@ -1,0 +1,192 @@
+{
+  "schema": "starlight.builder_plugin_lifecycle.v1",
+  "observed_at": "2026-10-02T10:57:54.192239+00:00",
+  "started_at": "2026-10-02T10:47:03.652768+00:00",
+  "completed_at": "2026-10-02T10:49:17.547921+00:00",
+  "plugin_version": "0.1.3",
+  "source_revision": "392e2a75c4987024a30bf572dcbd59d922b394fa",
+  "source_acceptance_url": "https://github.com/frankxai/starlight-academy-plugin/pull/14#issuecomment-5950302439",
+  "host": "Codex CLI 0.159.3",
+  "selector": "starlight-builder-lab@builder-lifecycle-validation",
+  "scope": "One owned temporary local marketplace containing exact accepted Git blobs; native local CLI only",
+  "source_payload_sha256": {
+    "plugins/starlight-builder-lab/.claude-plugin/plugin.json": "d5dea36c5d4c3921f317ba4a40e40ca690e8f630ad483908f61527a60d662937",
+    "plugins/starlight-builder-lab/LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "plugins/starlight-builder-lab/README.md": "b34ae402fc377025174d63e10ba0c6ef89fbbda9f4e50f682af751e8e32e7c4e",
+    "plugins/starlight-builder-lab/examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+    "plugins/starlight-builder-lab/plugin.json": "63bcc1de40370999cd23a919b3fdbf120b3abf67d229507f17923b8266a9ed7c",
+    "plugins/starlight-builder-lab/references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "plugins/starlight-builder-lab/references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+    "plugins/starlight-builder-lab/scripts/package_lab.py": "67be796a4357fc40381d80f8c989b16d3e3e7555ee39ef2696e9d3a0fce8bebb",
+    "plugins/starlight-builder-lab/skills/build-portable-plugin/SKILL.md": "f40ddb579a3605f273d37d8d3fe6165fbefeabfa3571f8d631c73892f31715df",
+    "plugins/starlight-builder-lab/skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+    "plugins/starlight-builder-lab/skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+    "plugins/starlight-builder-lab/tests/test_package_lab.py": "f71a9074124ae8bdc9d504f3a680da1e0eeb36fe879669155d6f4536e73ca27b"
+  },
+  "manifest_preflight": {
+    "portable_manifest": "plugin.json",
+    "claude_manifest": ".claude-plugin/plugin.json",
+    "name_and_version_match": true,
+    "hooks_and_mcp_absent": true,
+    "package_check": "passed"
+  },
+  "install": {
+    "exit_code": 0,
+    "version": "0.1.3",
+    "cached_payload_files_matched": 12,
+    "native_result_sha256": "8f9645e06fd820ee7b2bc6cd0bad2142fdfc61ef80cc7ac2761439a3de244059"
+  },
+  "profile": {
+    "owned_and_temporary": true,
+    "other_configured_plugins_disabled_in_scope": 117,
+    "inherited_disabled_skill_entries": 666,
+    "targeted_per_skill_enable_overrides": false,
+    "skills_max_context_tokens": 10000,
+    "mcp_servers": {},
+    "browsing": "disabled",
+    "session": "ephemeral",
+    "filesystem_mode": "read-only",
+    "other_skill_descriptors": "remain present"
+  },
+  "prompt": "From the available skills catalog in this session, report whether build-portable-plugin, design-agent-product and map-agent-ecosystem are listed. Use only the model-visible catalog; do not infer availability from this question, read files, execute commands, browse or call external services. Return only a JSON object with available as an array of the listed names and unavailable as an array of the absent names.",
+  "local_debug": {
+    "enabled_builder_descriptor_count": 3,
+    "model_call": false,
+    "scope": "Local rendered catalog diagnostic before the enabled trial; not the exact raw model request"
+  },
+  "trials": [
+    {
+      "phase": "enabled",
+      "receipt_id": "builder-plugin-lifecycle-enabled",
+      "actual_response": {
+        "available": [
+          "build-portable-plugin",
+          "design-agent-product",
+          "map-agent-ecosystem"
+        ],
+        "unavailable": []
+      },
+      "accepted": true,
+      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "native_usage": {
+        "input_tokens": 29156,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 54,
+        "reasoning_output_tokens": 25
+      },
+      "normalized_disjoint_tokens": {
+        "input_tokens": 29156,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "output_tokens": 54
+      },
+      "processed_tokens": 29210,
+      "cost": "unknown",
+      "observed_tools": [],
+      "trace_and_usage_sha256": "98a8b5bf3ce075ed44061eb576c12a75ef1bd3e8971d42f5dacc74327b2c63e1",
+      "response_file_sha256": "1286b7f2b7f2453d1597ddab0e0756d371fc8f954a7747655b29d8797924bcaf"
+    },
+    {
+      "phase": "disabled",
+      "receipt_id": "builder-plugin-lifecycle-disabled",
+      "actual_response": {
+        "available": [],
+        "unavailable": [
+          "build-portable-plugin",
+          "design-agent-product",
+          "map-agent-ecosystem"
+        ]
+      },
+      "accepted": true,
+      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "native_usage": {
+        "input_tokens": 29116,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 57,
+        "reasoning_output_tokens": 28
+      },
+      "normalized_disjoint_tokens": {
+        "input_tokens": 29116,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "output_tokens": 57
+      },
+      "processed_tokens": 29173,
+      "cost": "unknown",
+      "observed_tools": [],
+      "trace_and_usage_sha256": "38686f648b10bdeddd095faa3f291461e5e5d0478b510b517f2a840f5f6b3597",
+      "response_file_sha256": "4aa3185a17f8bbad047030442a1c06ec39146bd1fffb2972e99c225547cf532c"
+    },
+    {
+      "phase": "removed",
+      "receipt_id": "builder-plugin-lifecycle-removed",
+      "actual_response": {
+        "available": [],
+        "unavailable": [
+          "build-portable-plugin",
+          "design-agent-product",
+          "map-agent-ecosystem"
+        ]
+      },
+      "accepted": true,
+      "acceptance": "Exact available and unavailable name sets; no observed tool calls",
+      "native_usage": {
+        "input_tokens": 29116,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 46,
+        "reasoning_output_tokens": 17
+      },
+      "normalized_disjoint_tokens": {
+        "input_tokens": 29116,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "output_tokens": 46
+      },
+      "processed_tokens": 29162,
+      "cost": "unknown",
+      "observed_tools": [],
+      "trace_and_usage_sha256": "9942b9a89fec5180316467614f01237ff3c1aa40309872137cb620ed950e0ed1",
+      "response_file_sha256": "4aa3185a17f8bbad047030442a1c06ec39146bd1fffb2972e99c225547cf532c"
+    }
+  ],
+  "activation_refreshes": [
+    {
+      "state": "installed",
+      "generated_at": "2026-10-02T10:47:19.7551562Z",
+      "sha256": "c2a35bf00752613f8e487d46fe450d8aad56dc9dd3317cff09080138d0fa7dea",
+      "known_cache_skill_records": 3,
+      "legacy_plugin_manifest_count": 147
+    },
+    {
+      "state": "removed",
+      "generated_at": "2026-10-02T10:48:46.2585436Z",
+      "sha256": "16149d58de35e3a04b61b8c407def4f848ed7de08b11176faec00a4a46af7c69",
+      "known_cache_skill_records": 0,
+      "legacy_plugin_manifest_count": 147
+    }
+  ],
+  "cleanup": {
+    "native_targeted_remove_exit_code": 0,
+    "selector_absent_after_final_session": true,
+    "owned_plugin_cache_absent_after_final_session": true,
+    "temporary_profile_absent_after_final_session": true,
+    "global_configuration_semantics_restored_after_final_session": true,
+    "worker_state": "stopped"
+  },
+  "private_receipt_sha256": "033ec5cd7428760c8f6796f0b31aca1e4dec6194be013ecae60f6ece49e1a122",
+  "registry_followup_url": "https://github.com/frankxai/ai-capability-registry/issues/6",
+  "limitations": [
+    "Model replies and the local render support catalog discovery in this scope, not filesystem access revocation or execution after disable.",
+    "Other host skill descriptors remain; no pure-host isolation, general trigger precision or workflow superiority is established.",
+    "Native Codex billed cost is unavailable; reasoning tokens are already included in output.",
+    "Activation outputs are private task-scoped scanner results. The shared canonical index remains dirty on a foreign branch; no global router refresh is claimed.",
+    "The scanner counts legacy .codex-plugin manifests. Portable native installation is separately attested; cache inventory is not configured enablement.",
+    "No ChatGPT cloud, Dots account eligibility, directory approval or commercial release is established."
+  ],
+  "processed_tokens_complete_subset": 87545,
+  "actual_model_calls": 3,
+  "activation_scope": "Existing scanner invoked with an explicit private OutputPath; portable-plugin metadata added separately from legacy inventory. Shared-index byte preservation was not measured before the run and is not attested."
+}
