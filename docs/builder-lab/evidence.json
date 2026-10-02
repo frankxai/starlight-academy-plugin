@@ -1,0 +1,82 @@
+{
+  "schema": "starlight.builder_evidence.v1",
+  "observed_at": "2026-10-02T03:38:24.108519+00:00",
+  "coverage": "Four audited completed Claude review receipts only; final delta review and native hosts pending. No fleet-wide or invoice-cash claim.",
+  "runs": [
+    {
+      "id": "builder-review-1",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "e0b5de047c8effe6f0c6706a7c7623630f18cf85d75c2f9f1042749b2875f0c4",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.276531",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 14408,
+      "input_tokens": 2,
+      "output_tokens": 16726,
+      "cache_creation_input_tokens": 27290,
+      "cache_read_input_tokens": 535
+    },
+    {
+      "id": "builder-review-2",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "2b8cee9a805041f63d05755585bffc504e2250f4360fd5bb094372da49b345f9",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.27119899999999997",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 11814,
+      "input_tokens": 2,
+      "output_tokens": 13270,
+      "cache_creation_input_tokens": 34516,
+      "cache_read_input_tokens": 2155
+    },
+    {
+      "id": "builder-review-3",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "6ad3bebc127403c0852d960a62e01c19253c57cecf309bfb669f417ef1862bb1",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.352141",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 18060,
+      "input_tokens": 2,
+      "output_tokens": 20227,
+      "cache_creation_input_tokens": 37440,
+      "cache_read_input_tokens": 535
+    },
+    {
+      "id": "builder-review-4",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+      "source_sha256": "c17e72302ecaccb0ac7d1d01d2c92e08603d2e3ffdb36e216e0a15adddcd9473",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.457523",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 24375,
+      "input_tokens": 2,
+      "output_tokens": 26488,
+      "cache_creation_input_tokens": 48052,
+      "cache_read_input_tokens": 2155
+    }
+  ],
+  "telemetry_gaps": [
+    {
+      "goal_id": "BL-01",
+      "reason": "Prior Codex maker token and subscription allocation unavailable for this scope"
+    },
+    {
+      "goal_id": "BL-02",
+      "reason": "Current Codex input/output/cache telemetry and allocated invoice cost unavailable; goal counter alone is not a native billing receipt"
+    },
+    {
+      "goal_id": "BL-02",
+      "reason": "One tool-free independent review was admitted BOUNDED and timed out at180 seconds without a verdict or usage/cost receipt; its actual expenditure is unknown"
+    }
+  ],
+  "financials": []
+}

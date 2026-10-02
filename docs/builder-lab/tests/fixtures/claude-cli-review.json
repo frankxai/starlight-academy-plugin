@@ -1,0 +1,66 @@
+{
+  "provenance": {
+    "kind": "sanitized observed native receipt",
+    "host": "Claude Code 2.1.287",
+    "source_sha256": "6ad3bebc127403c0852d960a62e01c19253c57cecf309bfb669f417ef1862bb1",
+    "omitted": [
+      "response",
+      "session identity",
+      "duration",
+      "permissions"
+    ],
+    "scope": "Schema fixture, never add this sanitized copy to the accounting evidence runs"
+  },
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 37440,
+    "cache_read_input_tokens": 535,
+    "output_tokens": 20227,
+    "output_tokens_details": {
+      "thinking_tokens": 18060
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 37440,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 20227,
+        "cache_read_input_tokens": 535,
+        "cache_creation_input_tokens": 37440,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 37440
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 2,
+      "outputTokens": 20227,
+      "cacheReadInputTokens": 535,
+      "cacheCreationInputTokens": 37440,
+      "webSearchRequests": 0,
+      "costUSD": 0.352141,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 18060,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "total_cost_usd": 0.352141,
+  "is_error": false
+}

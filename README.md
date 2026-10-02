@@ -19,3 +19,15 @@ The **Starlight Academy** connection plugin adds eight teaching methods, four ch
 [Install the conversation plugin](docs/academy/connection.md) · [Meet your guide](https://starlightintelligence.academy/academy/connect)
 
 Both Codex and Claude catalogs include this plugin. It is independently distributed; OpenAI public directory submission and ChatGPT host verification are pending.
+
+## Build your own agent package
+
+The candidate [Starlight Builder Lab](plugins/starlight-builder-lab/README.md)
+adds three skills, an offline package generator and reproducible ZIPs. An
+[external distribution kit](docs/builder-lab/distribution.md) adds a fourth skill,
+marketplace cost scenarios and [product blueprints](docs/builder-lab/product-blueprints.md). Start with the supplied research
+brief example and inspect its package before testing it in your host.
+
+It is source for review and is not yet included in the marketplaces. See the
+[implementation and release packet](docs/builder-lab/ROADMAP.md) for the remaining
+behavior, directory and commercial gates.

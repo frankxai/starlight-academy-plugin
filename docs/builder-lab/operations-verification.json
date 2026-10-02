@@ -1,0 +1,94 @@
+{
+  "schema": "starlight.builder_operations_verification.v1",
+  "observed_at": "2026-10-01T19:44:09.377845+00:00",
+  "base_artifact_sha": "5a2b84a52937f7fa203b6d935f83ff1f1af49bb5",
+  "draft_pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+  "programme_issue": "https://github.com/frankxai/starlight-academy-plugin/issues/5",
+  "board": "https://github.com/users/frankxai/projects/8",
+  "goal_links": {
+    "BL-01": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
+    "BL-02": "https://github.com/frankxai/starlight-academy-plugin/issues/6",
+    "BL-03": "https://github.com/frankxai/starlight-academy-plugin/issues/7",
+    "BL-04": "https://github.com/frankxai/starlight-academy-plugin/issues/8",
+    "BL-05": "https://github.com/frankxai/starlight-academy-plugin/issues/9",
+    "BL-06": "https://github.com/frankxai/starlight-academy-plugin/issues/10"
+  },
+  "tests": {
+    "new_accounting_regressions": 15,
+    "status": "passed",
+    "earlier_distribution_regressions": 9,
+    "status_distribution": "passed",
+    "local_reference_links": 12,
+    "generated_report_and_actual_receipt_totals": "passed",
+    "external_tests_in_final_run": 24
+  },
+  "github_verification": {
+    "items": 7,
+    "native_subissues": 6,
+    "dates_statuses_and_known_subset_cost": "passed",
+    "active_agent_claims": "empty at handoff"
+  },
+  "secret_scan": "gitleaks dir passed; staged hook required on commit",
+  "independent_review": {
+    "status": "incomplete-no-verdict",
+    "scope": "Frozen portable plugin and new operations source; prior two reviews do not approve new source",
+    "admission": "Fresh review-lite BOUNDED;7399MB free versus6144MB required;one configured worker",
+    "attempt": "Tool-free strict-empty-MCP Anthropic review,180-second timeout;direct subprocess terminated at timeout",
+    "usage_and_cost": "unknown;no output receipt",
+    "next": "Freshly admitted, narrower frozen-source review before adoption/release"
+  },
+  "slack": {
+    "workspace": "FrankX Intelligence System",
+    "existing_public_channels": [
+      "starlight-systems",
+      "brand-starlight"
+    ],
+    "verified": "read-only discovery",
+    "digest_delivery": "not-verified; config issue50",
+    "messages_sent": 0
+  },
+  "design_skill": {
+    "name": "emil-design-eng",
+    "selected": true,
+    "read": true,
+    "applied": "concise labelled report tables and explicit states; native GitHub interface reused",
+    "verified": [
+      "Markdown destination escaping",
+      "report generation",
+      "local reference links"
+    ],
+    "reduced_motion": "No custom motion implemented; native platform behavior not audited",
+    "focus": "native GitHub platform not audited",
+    "touch": "native GitHub platform not audited",
+    "interrupted_transitions": "No custom transitions implemented; native platform behavior not audited"
+  },
+  "source_sha256": {
+    "docs/builder-lab/operating-model.md": "578c616230517b508c751b2395ec4e8fad6a9221bf61321909476f5ad32b18b8",
+    "docs/builder-lab/GOALS.md": "f9fc1f302c212f12c253db429dae7652c8569e3e6f0340deca75675488d69653",
+    "docs/builder-lab/goals.json": "05c645ba920db72223b1d304a51c1feb465462c8a97a66f2ce59700f3b4ec82a",
+    "docs/builder-lab/evidence.json": "8526c7147bbfbfa1d8d6f484ca847eb60cf55b9bd2fcea9be8a7779a84485f82",
+    "docs/builder-lab/reports/2026-10-01.md": "2fb05b73930cd030212f0ba8872a35274c5c3ac83455c97e32a530938a5513ee",
+    "docs/builder-lab/scripts/goal_report.py": "71b576907944c09ba8c66bc2d8ce6fe977a07e101f5e4ce2ed9a9a21ca97ec38",
+    "docs/builder-lab/tests/test_goal_report.py": "75d819c52ad9ac47e77c567eb13dff5f0ff68393c5910971babc17ccd1740afc",
+    "docs/builder-lab/licensing-and-compliance.md": "b9ebd2ae641e5d7e49dac4ec1618b6dacb7b3bb1a9393a767eadb47d063364d8",
+    "docs/builder-lab/support.md": "9d361efb547e6d3b52719b746d402ab8de6e9b98b068d09f373cbe40397714b5",
+    "docs/builder-lab/ROADMAP.md": "24c400a2a41f2ed7a3a6eb021b0f51adafbce35f0d6c631ff3c7a5c7ec520d0e"
+  },
+  "not_claimed": [
+    "Independent source PASS",
+    "Full fleet usage coverage",
+    "Actual invoiced cash",
+    "Revenue or ROI",
+    "Dots eligibility",
+    "Host behavior",
+    "Seller/legal approval",
+    "Paid release",
+    "New runtime dispatch"
+  ],
+  "hub_handover": {
+    "repo": "frankxai/agentic-ops-hub",
+    "status": "pending owned checkout",
+    "blocker": "Primary belongs to Hermes; new worktrees blocked below 15% free storage; existing handover lane owned by another task"
+  },
+  "source_hash_basis": "Exact Git staged blobs; verification receipt excluded. Working-copy newline differences are not source drift."
+}

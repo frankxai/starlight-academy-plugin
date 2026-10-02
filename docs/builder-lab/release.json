@@ -1,0 +1,48 @@
+{
+  "schema": "starlight.builder_release.v1",
+  "observed_at": "2026-10-02T03:41:59.398172+00:00",
+  "source_revision": "e0259e75f3d99c8ff232eb0000139a2874adb3f9",
+  "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
+  "status": "source-candidate; final delta review pending",
+  "source_checks": {
+    "windows": {
+      "tests": 56,
+      "passed": 53,
+      "skipped": 3
+    },
+    "linux": "Four-matrix CI passed; Windows-only junction case skipped on Linux",
+    "ci": [
+      "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36961065168",
+      "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36961061923"
+    ]
+  },
+  "plugin_zip_sha256": "821ebea97da09f54d707602d3585506d88f0e332085101fec646c045940996ed",
+  "example_zip_sha256": "d88a455af996a5cdd15ad1f90ae6d4b937ed0d5b8b1bc63d5f327752d1fe2118",
+  "independent_reviews": {
+    "provider": "Anthropic / Claude CLI",
+    "completed_receipts": 4,
+    "latest_verdict": "PASS for prior frozen free source conditional on CI; final delta still pending",
+    "final_scope": "Frozen hashes in private receipt; source changes after that review are not implied approved",
+    "known_api_equivalent_usd": "1.357394",
+    "invoiced_cash_usd": null
+  },
+  "native_hosts": {
+    "codex": "not-run",
+    "claude": "not-run",
+    "fixtures": "host-cases.json",
+    "prepared_fixture": "Private copy predates final fixes; refresh hashes before actual trials"
+  },
+  "dots": "actual eligibility not verified",
+  "catalogs": "builder not listed",
+  "directory": "not submitted",
+  "paid_release": "not admitted; buyer/price/seller/sandbox evidence missing",
+  "production": "not verified",
+  "machine_gate": "RAM below 4 GiB floor observed; no new native host or final-review worker started",
+  "secret_checks": "Local staged gitleaks hook passed; plugin scanner heuristic only",
+  "limitations": [
+    "CI proves source behaviour, not host workflow success",
+    "Native list-price review usage is not invoiced cash",
+    "No inferred fleet-agent progress or whole-goal native token coverage",
+    "No public or priced checkout enabled"
+  ]
+}
