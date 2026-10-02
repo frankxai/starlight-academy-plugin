@@ -1,0 +1,310 @@
+{
+  "schema": "starlight.builder_native_restoration.v1",
+  "observed_at": "2026-10-02T18:39:28.423797+00:00",
+  "execution_source_revision": "1a1953264187f447d767dbd6d536f9f3f1d6c87b",
+  "plugin_version": "0.1.4",
+  "runtime_sha256": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+  "source_files_sha256": {
+    ".claude-plugin/plugin.json": "021d1f4cc787bf49f7376e6cc499c25b3320cd324348abcf66bc2424f348ee33",
+    "LICENSE": "eccf99000d0c9b64aa919269fbc665a2d0d14efbf05716f7786d05b83202c760",
+    "README.md": "16ff2ce983c1ac2e4bf03c7ca8cc133297fe46c638a74bae9f010e1c887febfa",
+    "examples/research-brief.json": "c3544e1966ca81209ee8b6cb674596e0440ab1a6b4498db0694d5962a0d1cd89",
+    "plugin.json": "0ff4e38637537d80c2396a8a16d54b1677bfee04924e5bb529609dd0fed470e9",
+    "references/ecosystem.md": "d1cee0e4424a2721a24525c0f86144087053914028331c5921c23576a1cc5100",
+    "references/product-blueprints.md": "ec6607ba83ee99be23400c1e8c75f1293800870de1149351cb6715cae43b347e",
+    "scripts/package_lab.py": "03935e1c776218a8f00010acf213b31c48d14f1b6d89d4b60d24d849ba5a6cec",
+    "skills/build-portable-plugin/SKILL.md": "568ca843d86581f7adafb4698cc1420e8104fd0b0006de3f8a0c5a37d6705eab",
+    "skills/design-agent-product/SKILL.md": "065f9d23a084ee2c50fda777c84654c1b841ccbba7cd6f4bef2a8633e10a391a",
+    "skills/map-agent-ecosystem/SKILL.md": "8823e9ea68aef63c9f2abe18452b0e1eff0b3be2dba845b7d5c69597c8d904f1",
+    "tests/test_package_lab.py": "8fa91e8039a3cfddac26420c64d1f73b3d22936ba8f9188f043e43507238f831",
+    "tests/test_restore.py": "fa45a36293440f4c391c66cb17ad2dbd362731c31c61c1d0249d81d2438e3966"
+  },
+  "trial": {
+    "host": "Claude Code",
+    "native_cli_version": "2.1.287",
+    "model": "claude-sonnet-5-5",
+    "skill_identity": "starlight-builder-lab:build-portable-plugin",
+    "loading": "Session-only --plugin-dir; not global installation or catalog registration",
+    "tools": [
+      "Bash",
+      "Read",
+      "Skill"
+    ],
+    "mcp_servers": {},
+    "permission_scope": "Explicit generator prefix and task-fixture Read paths; restricted tools, not an OS sandbox",
+    "assistance": "Lead-supplied installed interpreter path, operation cases, fresh output paths and controlled producer-receipt expected hashes. One sequential multi-operation session. No human cold use.",
+    "elapsed_seconds": 48.061,
+    "elapsed_scope": "Spawn to native process completion, including client overhead",
+    "calls": [
+      {
+        "operation_arguments": "restore inputs/quote-desk.zip scratch/quote-v1 --sha256 6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+        "exit_code": 0,
+        "native_result": {
+          "status": "restored-structural-pass",
+          "name": "quote-desk",
+          "skills": 1,
+          "files": 10,
+          "hostTests": "not-run",
+          "directoryApproval": "not-submitted",
+          "commercialRelease": "not-evaluated",
+          "secretScan": "heuristic-only",
+          "directory": "scratch/quote-v1",
+          "archive_sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+          "files_sha256": {
+            ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+            "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+            "README.md": "d89a2cc21ed6d4cc91f754515b7e37bf108263ee5726cdff0a0fa7de46684423",
+            "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+            "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+            "skills/quote-desk/SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+            "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+            "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+            "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+            "skills/quote-desk/scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+          },
+          "bytes_restored": 44127,
+          "installation": "not-performed",
+          "publisherIdentity": "not-verified-by-checksum",
+          "priorVersions": "not-modified"
+        }
+      },
+      {
+        "operation_arguments": "check scratch/quote-v1",
+        "exit_code": 0,
+        "native_result": {
+          "status": "structural-pass",
+          "name": "quote-desk",
+          "skills": 1,
+          "files": 10,
+          "hostTests": "not-run",
+          "directoryApproval": "not-submitted",
+          "commercialRelease": "not-evaluated",
+          "secretScan": "heuristic-only"
+        }
+      },
+      {
+        "operation_arguments": "pack scratch/quote-v1 scratch/quote-v1-repacked.zip",
+        "exit_code": 0,
+        "native_result": {
+          "status": "structural-pass",
+          "name": "quote-desk",
+          "skills": 1,
+          "files": 10,
+          "hostTests": "not-run",
+          "directoryApproval": "not-submitted",
+          "commercialRelease": "not-evaluated",
+          "secretScan": "heuristic-only",
+          "zip": "scratch/quote-v1-repacked.zip",
+          "sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/quote-desk.zip scratch/quote-v2 --sha256 6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+        "exit_code": 0,
+        "native_result": {
+          "status": "restored-structural-pass",
+          "name": "quote-desk",
+          "skills": 1,
+          "files": 10,
+          "hostTests": "not-run",
+          "directoryApproval": "not-submitted",
+          "commercialRelease": "not-evaluated",
+          "secretScan": "heuristic-only",
+          "directory": "scratch/quote-v2",
+          "archive_sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+          "files_sha256": {
+            ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+            "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+            "README.md": "d89a2cc21ed6d4cc91f754515b7e37bf108263ee5726cdff0a0fa7de46684423",
+            "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+            "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+            "skills/quote-desk/SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+            "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+            "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+            "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+            "skills/quote-desk/scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+          },
+          "bytes_restored": 44127,
+          "installation": "not-performed",
+          "publisherIdentity": "not-verified-by-checksum",
+          "priorVersions": "not-modified"
+        }
+      },
+      {
+        "operation_arguments": "check scratch/quote-v2",
+        "exit_code": 0,
+        "native_result": {
+          "status": "structural-pass",
+          "name": "quote-desk",
+          "skills": 1,
+          "files": 10,
+          "hostTests": "not-run",
+          "directoryApproval": "not-submitted",
+          "commercialRelease": "not-evaluated",
+          "secretScan": "heuristic-only"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/quote-desk.zip scratch/wrong-hash --sha256 0000000000000000000000000000000000000000000000000000000000000000",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "ZIP checksum mismatch; preserve the download and obtain the correct release"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/quote-desk.zip scratch/empty-existing --sha256 6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Output directory already exists; existing versions and edits are preserved"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/quote-desk.zip scratch/edited-prior --sha256 6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Output directory already exists; existing versions and edits are preserved"
+        }
+      },
+      {
+        "operation_arguments": "check scratch/marked-partial",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Incomplete restore; preserve this directory and retry into a fresh sibling"
+        }
+      },
+      {
+        "operation_arguments": "pack scratch/marked-partial scratch/marked-partial.zip",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Incomplete restore; preserve this directory and retry into a fresh sibling"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/unsafe.zip scratch/unsafe-output --sha256 8e4d77176ca5686c80e0cbd51142e08efb03e76855616b6d20f976d267a0b008",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Unsafe cross-platform package filename"
+        }
+      },
+      {
+        "operation_arguments": "restore inputs/corrupt.zip scratch/corrupt-output --sha256 a76f337b2e0f59a773f1cac4cfbe04fe92f08ac51e14d546115fab0136ae00e8",
+        "exit_code": 1,
+        "native_result": {
+          "status": "fail",
+          "error": "Bad CRC-32 for file 'LICENSE'"
+        }
+      }
+    ],
+    "read_errors": [
+      {
+        "path": "scratch",
+        "result": "EISDIR: illegal operation on a directory, read 'TASK_ROOT\\scratch'"
+      },
+      {
+        "path": "scratch/marked-partial.zip",
+        "result": "<tool_use_error>This tool cannot read binary files. The file appears to be a binary .zip file. Please use appropriate tools for binary file analysis.</tool_use_error>"
+      },
+      {
+        "path": "scratch/wrong-hash/plugin.json",
+        "result": "File does not exist."
+      },
+      {
+        "path": "scratch/unsafe-output/plugin.json",
+        "result": "File does not exist."
+      },
+      {
+        "path": "scratch/corrupt-output/plugin.json",
+        "result": "File does not exist."
+      }
+    ],
+    "response_correction": "The final model response says 13 operations. The trace contains exactly 12 generator commands: five successful commands and seven expected refusals. Read cannot enumerate directories or establish binary-file absence.",
+    "native_usage": {
+      "input_tokens": 20,
+      "cache_creation_input_tokens": 23781,
+      "cache_read_input_tokens": 151604,
+      "output_tokens": 4377
+    },
+    "processed_tokens": 179782,
+    "thinking_tokens_included_in_output": 296,
+    "native_list_api_equivalent_usd": "0.1692548",
+    "cost_scope": "Native list metadata; not invoiced cash, total lead spend or ROI",
+    "trace_sha256": "3ca8126d4116fbb2bee7c230c311eee7dd61ba1d5c2a044983437532eb1bb462",
+    "native_result_sha256": "5093638b08abac0b9a1c96bca7506f00d348ed20519a6ac86737852107f7a7ac",
+    "response_sha256": "c4e1c16d9c98d9fc0d84c79237dce9e6959d01cca84b3876afc01b38b719920b",
+    "prompt_sha256": "ce643d0b8918263905f1022bdb3b619678fab7d862df94de69d7326f0d4e5b5b",
+    "worker_state": "stopped"
+  },
+  "lead_verification": {
+    "scope": "Independent lead artifact inspection after the native model session; no extra model invocation",
+    "both_restored_versions_equal_input_file_bytes": true,
+    "restored_files_sha256": {
+      ".claude-plugin/plugin.json": "b7044b7fbaf7dda386d660d671194482efff85ca9629a352f58d536c19fa3743",
+      "LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "README.md": "d89a2cc21ed6d4cc91f754515b7e37bf108263ee5726cdff0a0fa7de46684423",
+      "plugin.json": "fdb11aef3b8fc95b5cbe22b3fe79de833e36d5a4e3c9a1db78319628ac3d2668",
+      "skills/quote-desk/LICENSE": "32f9d0c9c6c843b615cd318b1b56bdca5e5adc79dba9ec5cf405102dcb557079",
+      "skills/quote-desk/SKILL.md": "7426187fba4e12c570c6608f78aa451b7146bacf1fb771d6470fead24356c1c8",
+      "skills/quote-desk/examples/catalog.json": "6862e18c922d9bfee65c68f92956b3fe051ea86132ecf0d9f08f382e8e550c62",
+      "skills/quote-desk/examples/principal.json": "7bcf8c92a3eb486b5085b2fa341f31a7d46cbb2ad7f038a859df4a157be8e60f",
+      "skills/quote-desk/examples/request.json": "7dffb801441598e243bcf3e6858e1c74194b691fc094dbb282812e94fe868611",
+      "skills/quote-desk/scripts/quote-desk.mjs": "1c34f56897141aafd7b406e5ff30bb7f2d3aa87e6e9768391fa36c6647bb6a57"
+    },
+    "repacked_archive_byte_equal_input": true,
+    "archive_sha256": "6916d2104a0f063e77aba9f75b0bbfe5f4e42c2d9085fe30f9092fe0b94e34f4",
+    "original_fixture_and_edited_prior_bytes_unchanged": true,
+    "existing_empty_directory_still_empty": true,
+    "partial_marker_and_original_files_unchanged": true,
+    "refused_outputs_and_escape_file_absent": [
+      "scratch/wrong-hash",
+      "scratch/unsafe-output",
+      "scratch/corrupt-output",
+      "scratch/marked-partial.zip",
+      "escape.md"
+    ],
+    "protected_configurations_unchanged": true,
+    "quote_source_revision": "907ada31c536bbb53d8746a4b47dca4856c68981",
+    "quote_fixture_scope": "Existing accepted MIT skill with controlled trial adapter metadata; source restored and inspected, quote code not executed in this native trial"
+  },
+  "codex_diagnostics": {
+    "native_cli_version": "0.159.3",
+    "interpreter_version": "3.13",
+    "model_attempts": 0,
+    "narrow_profiles": [
+      {
+        "profile": "minimal-only",
+        "exit_code": 1,
+        "error": "Elevated Windows sandbox requires effective :root read access"
+      },
+      {
+        "profile": "python-read-only",
+        "exit_code": 1,
+        "error": "Elevated Windows sandbox requires effective :root read access"
+      }
+    ],
+    "workspace_profile": {
+      "profile": ":workspace",
+      "exit_code": 1,
+      "error": "CreateProcessAsUserW failed: 5 (Access is denied.) while spawning the explicit installed Python executable with -B --version",
+      "stdout_empty": true,
+      "receipt_sha256": "0b882475375b0e7d90913dad41f0dbfa208cf0ed16169039d34236c2ca0ca223"
+    },
+    "global_configurations_changed": false,
+    "root_cause": "Unresolved beyond observed sandbox child-spawn access denial; explicit interpreter path alone did not resolve it"
+  },
+  "acceptance": "Assisted current-version Claude restoration and bounded refusal behavior observed; final report count and filesystem uncertainty corrected by lead. Current Codex execution, two-host/cold-user/Dots and commercial acceptance remain pending.",
+  "alternative": "Manual ZIP extraction plus SHA256 and separate source/licence inspection remains a capable alternative. This one assisted session has no control arm, no repair/time advantage estimate and no demand or paid-benefit evidence.",
+  "limits": [
+    "Controlled expected producer hashes are not publisher authentication, purchase or entitlement records.",
+    "No global plugin installation, source execution, marketplace submission, account or payment change.",
+    "Pre-marked partial fixture checks refusal; no native mid-write interruption or power-loss test.",
+    "A single assisted batch does not establish isolated-trigger precision, two-host acceptance or outside-user cold recovery.",
+    "Heuristic secret and structural/licence-presence checks are not safety, legal-rights or notices-completeness certification.",
+    "Historical 0.1.3 host receipts and earlier failed/timed-out trials are preserved unchanged."
+  ]
+}

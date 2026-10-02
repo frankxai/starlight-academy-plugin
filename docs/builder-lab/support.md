@@ -15,6 +15,8 @@ host and runtime. Dots availability must be verified for the actual account.
 | Licence missing | Supply the complete authorized licence and inventory; identifier alone is insufficient | Licence ID and public upstream revision |
 | Unknown spend or ROI | Supply a scoped usage receipt or reconciled financial evidence; do not substitute zero | Receipt type/hash and missing field names |
 | Duplicate usage receipt | Remove the duplicate attribution, preserve the original receipt | Run IDs and receipt digests |
+| Python missing from host command lookup | Verify the installed Python 3.10+ interpreter in the intended native host; use its exact path where allowed | Host/runtime version and sanitized short error |
+| Explicit Python path returns Windows access denied | Stop execution claims; retain the native diagnostic and follow the scoped recovery below | CLI/runtime version, exit code and short sanitized sandbox error |
 | Host cannot load the skill | Verify provider packaging and host/version support; use a clean copy | Host/version, manifest, reproducible non-sensitive sample |
 | Marketplace rejects product | Preserve rejection and category reason; review policy before altering scope | Public policy link, sanitized rejection |
 
@@ -47,4 +49,26 @@ Builder Lab 0.1.4 implements checksum-bound source restoration, with a copied-sk
 guide and preservation tests. This makes downloaded packages inspectable without
 manual raw extraction. It does not verify Polar or any other merchant's purchase,
 refund, revocation or update entitlement. Existing 0.1.3 native host receipts remain
-historical; new host/cold-user and commercial lifecycle acceptance is pending.
+historical. The [current native restore evidence](native-restoration.md) verifies
+one assisted Claude workflow; Codex execution, outside-user and commercial
+lifecycle acceptance remain pending.
+
+## Native runtime recovery
+
+Verify Python 3.10+ in the same native host and permission context used for the
+package command. A normal terminal's success is not evidence that the host's
+sandbox can spawn that interpreter. If command lookup fails, use a verified
+installed interpreter path only when the current task permissions allow it.
+
+If that exact path still returns Windows error 5 / access denied, preserve the
+short error and stop reporting generated artifacts. Consult the installed CLI
+help and current official [Windows sandbox guide](https://learn.chatgpt.com/docs/windows/windows-sandbox).
+Investigate host/runtime compatibility through its supported controls. Keep
+security checks enabled; do not disable the sandbox, grant broad root permissions,
+change global account settings or weaken ACLs as a package recovery step.
+
+If execution remains unavailable, return the source draft and exact commands
+marked not-run. An already available supported host may run a separately scoped
+trial, with its own permission and artifact evidence. Preserve the earlier
+failure. Re-test the original host after a supported correction before asserting
+two-host compatibility. The lab remains an offline free candidate.
