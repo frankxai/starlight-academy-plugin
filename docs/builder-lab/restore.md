@@ -63,3 +63,10 @@ partial requested outputs and prior versions are preserved.
 BL-01 two-host/cold-use/Dots acceptance and BL-05 actual seller/rights/terms/native
 benefit lifecycle stay pending. No catalog registration, price, account, live
 purchase, refund or customer messaging is authorized by a local restore result.
+
+The first replay remains at its original 213afd2 execution revision. The nested
+`refinement_replay` retains a second actual 13-call replay at 3b58cde, after exact
+line-ending preservation and incomplete-output refusal were added. The current
+package tests also cover CRLF/CR byte identity and an optional-file write failure
+that would otherwise leave a structurally valid partial package. These are local
+engineering checks, without new native-host or paid acceptance.
