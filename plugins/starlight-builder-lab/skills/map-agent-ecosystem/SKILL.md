@@ -1,6 +1,6 @@
 ---
 name: map-agent-ecosystem
-description: "Research Dots, skills, plugins and AI-lab developer ecosystems when deciding which capability to build or which host can run it. Produce dated evidence and distinguish platform requirements from uncertainties."
+description: "Explain or verify agent ecosystem layers: hosts, skills, plugins, MCP connections and catalogs. Use for evidence-status tables, Dots eligibility questions, capability selection and distribution decisions, including requests without browsing. Keep rollout and actual account access unverified without evidence."
 ---
 
 # Map an agent ecosystem

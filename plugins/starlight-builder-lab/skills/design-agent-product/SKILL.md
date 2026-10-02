@@ -1,6 +1,6 @@
 ---
 name: design-agent-product
-description: "Turn a user workflow into a portable agent package or technical blueprint, with worked examples, evidence tests and licensing boundaries. Use before implementing an agent workflow."
+description: "Design or transfer an agent workflow specification, output contract or rights inventory. Use for research briefs, meeting decisions, missing-source recovery, permissions, licensing boundaries and plain-host comparison tasks. Apply to specification-only requests as well as preparation for implementation."
 ---
 
 # Design an agent workflow
