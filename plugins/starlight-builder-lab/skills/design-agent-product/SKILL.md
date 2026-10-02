@@ -1,6 +1,6 @@
 ---
 name: design-agent-product
-description: "Design or transfer an agent workflow specification, output contract or rights inventory. Use for research briefs, meeting decisions, missing-source recovery, permissions, licensing boundaries and plain-host comparison tasks. Apply to specification-only requests as well as preparation for implementation."
+description: "Consult this skill when asked to design a research-brief workflow, transfer a workflow contract to meeting decisions, or prepare an instruction-pack rights inventory. Covers trigger, inputs, artifact, acceptance, failed-input recovery, permissions and plain-host comparison. Use for narrow specification-only questions and full product design."
 ---
 
 # Design an agent workflow
@@ -10,7 +10,8 @@ the user's workflow and available technology. Select an existing package to
 improve when it fits. Define an observable output before writing instructions.
 
 For a narrow specification or output-contract question, return only the requested
-fields. Use short field-value bullets within the caller's length limit. Preserve
+fields, with one short sentence per field. Aim below three quarters of a supplied
+word limit so field labels and formatting fit. Preserve
 source/uncertainty, permission and recovery boundaries; omit unrequested examples,
 setup and evaluations. Add worked, adverse and transfer tasks when requested or
 when preparing the complete product design below.

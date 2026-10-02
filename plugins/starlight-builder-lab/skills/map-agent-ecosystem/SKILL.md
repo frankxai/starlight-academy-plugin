@@ -18,6 +18,8 @@ availability and computer connection; local skills need its connected computer.
 Match the requested output and length limit. For a short role/evidence answer,
 use one compact row per role and state common missing verification once. Include
 the requested distinctions and uncertainty without appending a full research plan.
+Use a single table instead of repeating role definitions in a separate list.
+Aim below three quarters of a supplied word limit so table markers and labels fit.
 For a source-backed research packet, include claim, primary URL, checked date,
 supported surface, limit and confidence. Label inferred lab incentives as inference.
 Do not claim knowledge of a lab's private roadmap or revenue-sharing program.

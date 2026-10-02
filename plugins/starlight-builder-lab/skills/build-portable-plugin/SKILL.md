@@ -11,8 +11,11 @@ and commands without claiming that files or a ZIP exist.
 
 For a read-only command explanation, return just the requested commands, path
 requirements, licence handling and observed execution status. Fit the caller's
-length limit with short command lines and one clause per operation; do not append
-unrequested setup or host-test plans.
+length limit with short command lines and one clause per operation. Aim below
+three quarters of a supplied word limit so command tokens and formatting fit.
+Combine status and licence handling into one short sentence each. Omit headings,
+setup requirements and host-test plans unless requested. Before responding,
+remove extra explanation that repeats the commands or preservation rule.
 
 Use the user's chosen repository and its ownership rules. Inspect existing
 skills before authoring. Preserve third-party skills as prerequisites rather than
