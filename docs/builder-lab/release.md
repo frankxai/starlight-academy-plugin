@@ -1,5 +1,17 @@
 # Current release checkpoint
 
+The [native package build and recovery](cold-workflow.md) retains three actual Claude builds, six identical ZIPs, occupied-output refusals, invalid-input refusal and verified byte preservation at accepted source `1e9b159`. Both arms succeed with identical direct-command assistance. Native model ZIP-entry inspection remained incomplete and was performed separately by the lead. The first Claude baseline denial, Codex interpreter failure and unknown 180-second timeout remain in the record. This packet awaits its independent exact-revision publication review and CI.
+
+[PR16](https://github.com/frankxai/starlight-academy-plugin/pull/16) accepted the earlier six generated research briefs after the independent review chain; the reviewed/merged trees matched and [four post-merge CI jobs passed](https://github.com/frankxai/starlight-academy-plugin/actions/runs/37005378173). The original 0.1.3 source payload remains unchanged. Neither comparison establishes differentiated paid value.
+
+The [dated usage report](reports/2026-10-02.md) now contains 137 attributed receipts: 101 complete, 36 incomplete and 4,024,663 processed tokens in the complete subset. Known native list/API-equivalent cost is USD 8.756534; twenty-one costs, root lead usage, invoices, revenue and cash ROI remain unknown. Current publication review usage will postdate this frozen snapshot. BL-01 remains 2/4; native Codex execution, original parent response gaps, human cold use, Dots, catalogs and commerce remain open.
+
+## Historical PR16 checkpoint before native cold builds
+
+The following text retains the frozen snapshot and its original pending scope. PR16 acceptance is recorded above and in [release.json](release.json).
+
+# Current release checkpoint
+
 Builder Lab 0.1.3 development source and separately reviewed lifecycle evidence are accepted through [PR15](https://github.com/frankxai/starlight-academy-plugin/pull/15), merged as `967f03b`; the reviewed/merged trees match and [four post-merge CI jobs passed](https://github.com/frankxai/starlight-academy-plugin/actions/runs/36999994079).
 
 The new [research-brief comparison](outcome-comparison.md) retains six actual editable drafts, three paired tasks, native usage and lead criteria. Both arms produced usable grounded drafts and safe missing-source/adversarial recovery. The skill consistently adds an evidence table; no clear decision-quality or speed advantage was observed. This generated 0.1.1 example remains a free demonstration, with paid offer selection pending. This packet awaits its independent review and exact CI.
