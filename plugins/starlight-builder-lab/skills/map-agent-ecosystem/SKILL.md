@@ -1,6 +1,6 @@
 ---
 name: map-agent-ecosystem
-description: "Research Dots, skills, plugins and AI-lab developer ecosystems when deciding which capability to build or which host can run it. Produce dated evidence and distinguish platform requirements from uncertainties."
+description: "Explain agent ecosystem layers or assess host, Dots access, directory approval and creator earnings claims. Use for evidence-status tables, capability selection and distribution decisions, including requests without browsing. Keep rollout, account access and programme availability unverified without evidence."
 ---
 
 # Map an agent ecosystem
@@ -18,6 +18,10 @@ availability and computer connection; local skills need its connected computer.
 Return a compact evidence table: claim, primary URL, checked date, supported
 surface, limit and confidence. Label inferred lab incentives as inference.
 Do not claim knowledge of a lab's private roadmap or revenue-sharing program.
+Verification steps also require evidence: do not invent an account interface,
+dashboard or payout programme. If current official programme terms and account
+eligibility are unavailable, verify those first before requesting payout records
+or directing the user to an assumed interface.
 
 Evaluate one user task against what the host already supplies. Identify
 the missing workflow, obtainable data, output contract, permission boundary,

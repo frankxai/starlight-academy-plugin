@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "partial": false,
+  "costUsd": 0.42379559999999994,
+  "sanitized_from_sha256": "8c7819433e8be0e534e2845a0dddcaefe33cac2f8415997b112cfe954f9a8c99",
+  "sanitization": "Real native 2.1.287 cost fields retained; prompts, traces, private paths, grader responses and error text excluded.",
+  "cases": [
+    {
+      "name": "contract",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.027352599999999998,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0262766,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "n1",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.025056600000000002,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0239206,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "n2",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.0255606,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0246626,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "n3",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.0259266,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.025138599999999997,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "p1",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.0264886,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0251126,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "p3",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.036613999999999994,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.028411199999999998,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "p4",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.0262786,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0249486,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "p5",
+      "arms": {
+        "with": [
+          {
+            "costUsd": 0.0264666,
+            "judgeCostUsd": 0
+          }
+        ],
+        "without": [
+          {
+            "costUsd": 0.0255806,
+            "judgeCostUsd": 0
+          }
+        ]
+      }
+    }
+  ]
+}

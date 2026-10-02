@@ -47,8 +47,8 @@ listing still showed skill descriptors with
 The Builder Lab source is licensed Apache-2.0. The separately generated
 research-brief example retains its own MIT licence.
 
-Resolve the example-attribution concern, obtain independent acceptance of the
-host receipts, run the plain-host comparison and prove runtime disable. Then
+The example-attribution concern was repaired and independently accepted in
+merged PR12. Complete current-version host comparisons and prove runtime disable. Then
 publish the reviewed payload through the existing catalogs with an immutable
 Claude source pin. Preserve the current Academy entries and customer files.
 
@@ -63,5 +63,15 @@ The [versioned trial record](native-patch-trials.json) preserves the intermediat
 failed response and the final eight-case batches at `1af40b2` in both hosts.
 All twelve payload hashes matched the tested source. The native Codex install
 was removed; owned cache and temporary profile are absent and previous global
-configuration semantics were restored. Final independent acceptance, comparison,
-isolated triggers, runtime disable and catalogs remain open.
+configuration semantics were restored. Independent acceptance and merge completed
+in PR12. These were assisted batches, with isolated triggers and comparisons
+tracked separately in the next candidate.
+
+## Version 0.1.2 candidate
+
+The [native comparison record](native-comparison.json) includes fresh Claude
+sessions with and without the plugin, actual replies and failed trigger/semantic
+cases. The [method](native-evals.md) explains why a heuristic pass cannot certify
+skill selection or safe verification guidance. Payload changes need independent
+source review and native Codex 0.1.2 verification before catalog registration.
+Runtime disable, actual Dots access and directory approval remain unproved.

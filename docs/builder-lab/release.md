@@ -1,3 +1,17 @@
+# Current release checkpoint
+
+Builder Lab 0.1.1 was independently accepted and merged in [PR12](https://github.com/frankxai/starlight-academy-plugin/pull/12). Scoped BL-02 reporting adoption is complete. The current 0.1.2 candidate repairs implicit triggers and unsupported earnings-interface guidance. Its [native comparison record](native-comparison.json) retains actual responses, baseline results and failures. See the [evaluation method](native-evals.md) and [current usage report](reports/2026-10-02.md).
+
+The 17bf5ad Claude pilot selected four of five intended skills; the packaging case missed while still scoring 1 under heuristic graders. The intended skill fired 3/3 after the ba1162a description change. The unchanged earlier description fired 1/2 across dfe34dd and17bf5ad, so run variance is not excluded. One reply still gave incorrect empty-directory advice; two met the core command/licence contract. Output length misses are separately recorded. The earlier earnings case failed lead review despite its heuristic pass; the revised map skill gave evidence-based verification steps in its observed rerun. Generic baseline replies often meet the same contract. No general performance advantage is inferred.
+
+The output-length proxy exceeded 180 in 26 of 38 limit-bearing replies: 15/19 with the plugin and11/19 without. The proxy counts whitespace-delimited tokens, including Markdown pipes and separators; it can overcount words in tables. This is a descriptive small pilot, with no causal arm comparison. Under this conservative proxy, no with-arm full-fixture acceptance is recorded for any of P1 through P5.
+
+Current source review, native Codex 0.1.2, runtime disable, catalog registration and actual Dots eligibility remain open. Paid release also requires a selected buyer workflow, seller/rights evidence and a verified sandbox delivery lifecycle. The known USD figures are native list-price estimates. Cash, invoice allocation and ROI remain unknown.
+
+## Historical snapshots
+
+The dated sections below preserve earlier source and receipt scopes. Their pending states are historical; the current machine-readable state is [release.json](release.json).
+
 # Builder Lab release checks
 
 Run `python -B scripts/verify_builder_release.py` from a checkout with Python

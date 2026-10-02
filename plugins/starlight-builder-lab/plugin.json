@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "starlight-builder-lab",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Build portable agent skills and packages with source-backed ecosystem research, worked examples and inspectable package checks.",
   "author": {"name": "Starlight Intelligence Systems", "url": "https://starlightintelligence.academy"},
   "repository": "https://github.com/frankxai/starlight-academy-plugin",
