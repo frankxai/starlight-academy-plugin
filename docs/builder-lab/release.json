@@ -1,9 +1,9 @@
 {
   "schema": "starlight.builder_release.v1",
-  "observed_at": "2026-10-02T03:41:59.398172+00:00",
-  "source_revision": "e0259e75f3d99c8ff232eb0000139a2874adb3f9",
+  "observed_at": "2026-10-02T05:38:34.795339+00:00",
+  "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
   "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
-  "status": "source-candidate; final delta review pending",
+  "status": "source merged; both native hosts observed; Codex example-attribution concern and remaining release gates open",
   "source_checks": {
     "windows": {
       "tests": 56,
@@ -13,36 +13,63 @@
     "linux": "Four-matrix CI passed; Windows-only junction case skipped on Linux",
     "ci": [
       "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36961065168",
-      "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36961061923"
+      "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36961061923",
+      "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36963997335"
     ]
   },
   "plugin_zip_sha256": "821ebea97da09f54d707602d3585506d88f0e332085101fec646c045940996ed",
   "example_zip_sha256": "d88a455af996a5cdd15ad1f90ae6d4b937ed0d5b8b1bc63d5f327752d1fe2118",
   "independent_reviews": {
     "provider": "Anthropic / Claude CLI",
-    "completed_receipts": 4,
-    "latest_verdict": "PASS for prior frozen free source conditional on CI; final delta still pending",
-    "final_scope": "Frozen hashes in private receipt; source changes after that review are not implied approved",
-    "known_api_equivalent_usd": "1.357394",
+    "completed_receipts": 5,
+    "latest_verdict": "PASS for frozen final delta at afdde34; exact CI passed and identical tree merged",
+    "final_scope": "Prior source review plus final delta coverage; neither verdict certifies these later host receipts or commerce",
+    "known_api_equivalent_usd": "1.582423",
     "invoiced_cash_usd": null
   },
   "native_hosts": {
-    "codex": "not-run",
-    "claude": "not-run",
+    "codex": "three native skills read; 8 responses returned, 7 accepted by lead and P2 flagged",
+    "claude": "three native skills invoked; 8/8 constrained responses accepted; actual example scaffold/check/pack observed",
     "fixtures": "host-cases.json",
-    "prepared_fixture": "Private copy predates final fixes; refresh hashes before actual trials"
+    "verification": "host-verification.json",
+    "responses": "host-responses.json",
+    "generated_artifact": "host-artifact.json",
+    "plain_host_baseline": "not-run"
   },
   "dots": "actual eligibility not verified",
   "catalogs": "builder not listed",
   "directory": "not submitted",
   "paid_release": "not admitted; buyer/price/seller/sandbox evidence missing",
   "production": "not verified",
-  "machine_gate": "RAM below 4 GiB floor observed; no new native host or final-review worker started",
-  "secret_checks": "Local staged gitleaks hook passed; plugin scanner heuristic only",
+  "machine_gate": "Sequential bounded trials admitted above the 4 GiB floor; no active owned host worker",
+  "secret_checks": "Staged hooks passed; gitleaks 8.30.1 full-history scan on 2026-10-02 inspected 14 commits / 440543 bytes and found no leaks; package checker remains heuristic-only",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
     "Native list-price review usage is not invoiced cash",
     "No inferred fleet-agent progress or whole-goal native token coverage",
     "No public or priced checkout enabled"
-  ]
+  ],
+  "source_integration": {
+    "reviewed_revision": "afdde34d7e5d9485bebfef35b053e924519fbecf",
+    "merge_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
+    "merged_at": "2026-10-02T04:18:41Z",
+    "reviewed_and_merged_trees_identical": true,
+    "post_merge_ci": "https://github.com/frankxai/starlight-academy-plugin/actions/runs/36963997335",
+    "post_merge_ci_conclusion": "success"
+  },
+  "usage": {
+    "completed_model_receipts": 12,
+    "known_api_equivalent_usd": "1.977499",
+    "unknown_cost_receipts": 4,
+    "coverage": "BL-01: five source reviews, two Claude trials and four Codex attempts, including three discovery failures. BL-02: one independent reporting review. No whole-goal lead, BL-02 maker or invoice-cash coverage.",
+    "invoiced_cash_usd": null,
+    "cash_roi": "unknown"
+  },
+  "reporting_review": {
+    "revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
+    "verdict": "ITERATE",
+    "corrections": "Token labels, receipt ownership, stale artifact limit, licence scope and documentation encoding corrected; re-review pending",
+    "receipt_id": "builder-evidence-review-1",
+    "goal_id": "BL-02"
+  }
 }

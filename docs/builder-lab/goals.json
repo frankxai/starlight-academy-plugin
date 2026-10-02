@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T03:45:05.415931+00:00",
+  "observed_at": "2026-10-02T05:38:34.795339+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -14,10 +14,10 @@
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Codex source handoff; four completed Anthropic review receipts; final delta and native hosts awaiting machine admission; no live host worker",
+      "agent_state": "Source merged; both native hosts loaded three skills; Claude 8/8 constrained cases plus actual artifact; Codex 7/8 accepted and P2 flagged; all test workers stopped",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Machine-admitted final delta review, current CI, then bounded native host cases; cash and ROI remain unknown",
+      "next_gate": "Independent host/report acceptance; resolve Codex synthetic-example attribution in P2; plain-host baseline, runtime disable, final catalog and Dots gates remain",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
@@ -30,12 +30,14 @@
         {
           "id": "review",
           "description": "Independent review of final exact source",
-          "state": "pending"
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4#issuecomment-5945522436"
         },
         {
           "id": "hosts",
           "description": "Codex and Claude behavioral cases with missing/malicious evidence",
-          "state": "not-run"
+          "state": "pending",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
         },
         {
           "id": "dots",
@@ -50,10 +52,10 @@
       "target_date": "2026-10-05",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Codex source handoff; four completed Anthropic review receipts; final delta and native hosts awaiting machine admission; no live host worker",
+      "agent_state": "Report projects eleven BL-01 receipts and one BL-02 checker receipt. Reporting review returned ITERATE; corrections await review. BL-02 maker and whole-goal lead usage are unavailable; all invoices remain unknown",
       "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Machine-admitted final delta review, current CI, then bounded native host cases; cash and ROI remain unknown",
+      "next_gate": "Independent acceptance of the corrected scoped report plus an attributed BL-02 maker receipt; retain unknown lead usage, timed-out review expenditure and cash",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",

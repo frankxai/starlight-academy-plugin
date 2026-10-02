@@ -34,6 +34,10 @@ class GoalReportTests(unittest.TestCase):
         self.assertEqual(t["fresh_input_tokens"], 22)
         self.assertEqual(t["fresh_io_tokens"], 32)
         self.assertEqual(t["processed_tokens"], 62)
+        self.assertEqual(sum(t[field] for field in lab.TOKEN_FIELDS), t["processed_tokens"])
+        rendered = lab.markdown(lab.project(self.goals, self.evidence))
+        self.assertIn("ordinary input 2; cache writes 20; cache reads 30; generated output 10; processed 62", rendered)
+        self.assertNotIn("fresh input 22", rendered)
 
     def test_duplicate_receipt_under_new_id_rejected(self):
         other = dict(self.run, id="different-id")
