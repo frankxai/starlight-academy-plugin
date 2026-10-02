@@ -1,6 +1,6 @@
 {
   "schema": "starlight.builder_goals.v1",
-  "observed_at": "2026-10-02T05:38:34.795339+00:00",
+  "observed_at": "2026-10-02T06:18:46.006614+00:00",
   "timezone": "Europe/Amsterdam",
   "project_url": "https://github.com/users/frankxai/projects/8",
   "authority": "GitHub owning issues; this file is a dated projection",
@@ -14,10 +14,10 @@
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Source merged; both native hosts loaded three skills; Claude 8/8 constrained cases plus actual artifact; Codex 7/8 accepted and P2 flagged; all test workers stopped",
+      "agent_state": "Final 0.1.1 native batches accepted 8/8 by lead in both hosts; prior Codex P2 and intermediate Claude P3 failures retained; all host workers stopped",
       "measure": "At least five positive and three negative cases per Codex/Claude host; record Dots eligibility and one bounded trial only if eligible",
       "rationale": "Host reliability and source trust make the existing free lab useful and reusable",
-      "next_gate": "Independent host/report acceptance; resolve Codex synthetic-example attribution in P2; plain-host baseline, runtime disable, final catalog and Dots gates remain",
+      "next_gate": "Independent acceptance and merge of final 0.1.1 patch; plain-host baseline, isolated triggers, runtime disable, catalogs and actual Dots access remain open",
       "proposed_api_equivalent_budget_usd": "5",
       "dependencies": [],
       "acceptance": [
@@ -30,14 +30,14 @@
         {
           "id": "review",
           "description": "Independent review of final exact source",
-          "state": "passed",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/4#issuecomment-5945522436"
+          "state": "pending",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12"
         },
         {
           "id": "hosts",
           "description": "Codex and Claude behavioral cases with missing/malicious evidence",
-          "state": "pending",
-          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/3"
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12"
         },
         {
           "id": "dots",
@@ -52,10 +52,10 @@
       "target_date": "2026-10-05",
       "status": "In review",
       "owner_role": "Codex acknowledged source maker; Academy steward retains release ownership",
-      "agent_state": "Report projects eleven BL-01 receipts and one BL-02 checker receipt. Reporting review returned ITERATE; corrections await review. BL-02 maker and whole-goal lead usage are unavailable; all invoices remain unknown",
+      "agent_state": "Scoped Claude report maker observed and checked by Codex; two BL-02 checker receipts separately attributed; final publication review pending; whole-goal lead usage and cash unknown",
       "measure": "Report all six goals; reconcile both original and subsequent observed review receipts; reject duplicate usage and unsupported Done; show unknown lead usage and cash",
       "rationale": "Measured cost and acceptance prevent money and tokens going to unsupported progress claims",
-      "next_gate": "Independent acceptance of the corrected scoped report plus an attributed BL-02 maker receipt; retain unknown lead usage, timed-out review expenditure and cash",
+      "next_gate": "Publish the independently reviewed adoption record and preserve future receipt coverage; no invoice, whole-goal or ROI inference",
       "proposed_api_equivalent_budget_usd": "3",
       "dependencies": [
         "https://github.com/frankxai/agentic-ops/issues/93",
@@ -78,7 +78,8 @@
         {
           "id": "adoption",
           "description": "Real maker run receipt and independently checked scoped report",
-          "state": "not-run"
+          "state": "passed",
+          "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/6#issuecomment-5946603185"
         }
       ],
       "issue_url": "https://github.com/frankxai/starlight-academy-plugin/issues/6"

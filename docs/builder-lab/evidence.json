@@ -1,7 +1,7 @@
 {
   "schema": "starlight.builder_evidence.v1",
-  "observed_at": "2026-10-02T05:38:34.795339+00:00",
-  "coverage": "BL-01: five source reviews, two Claude trials and four Codex attempts, including three discovery failures. BL-02: one independent reporting review. No whole-goal lead, BL-02 maker or invoice-cash coverage.",
+  "observed_at": "2026-10-02T06:18:46.006614+00:00",
+  "coverage": "BL-01: source reviews and versioned native host trials, including discovery and behavior failures. BL-02: two reporting checker receipts plus one scoped native report maker; no whole-goal lead or invoice cash coverage.",
   "runs": [
     {
       "id": "builder-review-1",
@@ -225,6 +225,126 @@
       "source_revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
       "outcome": "ITERATE",
       "scope": "Independent frozen reporting review; not a maker run or billing invoice"
+    },
+    {
+      "id": "builder-evidence-review-2",
+      "goal_id": "BL-02",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/11",
+      "source_sha256": "5c4ff4b9fa97b5839e5dd1ecbae9d3acf9ce2cea44ed8251b2bfff19cc3561eb",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.2621862",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 3195,
+      "input_tokens": 2,
+      "output_tokens": 5371,
+      "cache_creation_input_tokens": 52017,
+      "cache_read_input_tokens": 2021
+    },
+    {
+      "id": "builder-report-maker-1",
+      "goal_id": "BL-02",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/issues/6#issuecomment-5946603185",
+      "source_sha256": "e452c76d436cac0886fd1e0acbb376630c76663cdd20569c062cd1b61115d8b9",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.0485866",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 40,
+      "input_tokens": 4,
+      "output_tokens": 811,
+      "cache_creation_input_tokens": 9899,
+      "cache_read_input_tokens": 4363
+    },
+    {
+      "id": "builder-patch-codex-host",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+      "source_sha256": "425e954e2ffb5fc20074abfc55a21d181dfa035398b012eb64987f8aaabd614c",
+      "provider": "OpenAI / Codex CLI",
+      "cost_basis": "unknown",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "input_tokens": 40240,
+      "output_tokens": 3196,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 62080,
+      "thinking_tokens_included_in_output": 554,
+      "native_usage": {
+        "input_tokens": 102320,
+        "cached_input_tokens": 62080,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3196,
+        "reasoning_output_tokens": 554
+      },
+      "token_normalization": "Native input partitioned into ordinary input, reads and writes; reasoning stays within output",
+      "normalization_reference": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "source_revision": "50e0684ddcb21d04c705004dc0cd09be0d4df020",
+      "outcome": "lead-assessed 8/8",
+      "scope": "Three native skills; explicitly prompted eight-case batch, not isolated triggers or baseline comparison"
+    },
+    {
+      "id": "builder-patch-claude-host",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+      "source_sha256": "51e38eec178e6d3c6749e0a63e93ef80651a19b28f68d616a76de42be596ebf5",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.11492179999999999",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 186,
+      "input_tokens": 6,
+      "output_tokens": 4085,
+      "cache_creation_input_tokens": 17372,
+      "cache_read_input_tokens": 22859,
+      "source_revision": "50e0684ddcb21d04c705004dc0cd09be0d4df020",
+      "outcome": "lead-assessed 7/8; P3 failed",
+      "scope": "Three native skills; explicitly prompted eight-case batch, not isolated triggers or baseline comparison"
+    },
+    {
+      "id": "builder-final-codex-host",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+      "source_sha256": "5f2c1c25b37cb9e7ec3260a077080f4e93fcbca34adb98c185f4ad328f81c972",
+      "provider": "OpenAI / Codex CLI",
+      "cost_basis": "unknown",
+      "api_equivalent_usd": null,
+      "invoiced_cash_usd": null,
+      "input_tokens": 40600,
+      "output_tokens": 3186,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 97664,
+      "thinking_tokens_included_in_output": 565,
+      "native_usage": {
+        "input_tokens": 138264,
+        "cached_input_tokens": 97664,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3186,
+        "reasoning_output_tokens": 565
+      },
+      "token_normalization": "Native input partitioned into ordinary input, reads and writes; reasoning stays within output",
+      "normalization_reference": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "source_revision": "1af40b25a7486f8493fd051f4fc28a99777104e1",
+      "outcome": "lead-assessed 8/8",
+      "scope": "Three native skills; explicitly prompted eight-case batch, not isolated triggers or baseline comparison"
+    },
+    {
+      "id": "builder-final-claude-host",
+      "goal_id": "BL-01",
+      "source_url": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+      "source_sha256": "e12de21e25796bf77c7f40c3dde3621f6f3a4f1b30780aeacf792685da58a39b",
+      "provider": "Anthropic / Claude CLI",
+      "cost_basis": "list",
+      "api_equivalent_usd": "0.0965896",
+      "invoiced_cash_usd": null,
+      "thinking_tokens_included_in_output": 369,
+      "input_tokens": 6,
+      "output_tokens": 4177,
+      "cache_creation_input_tokens": 12377,
+      "cache_read_input_tokens": 26498,
+      "source_revision": "1af40b25a7486f8493fd051f4fc28a99777104e1",
+      "outcome": "lead-assessed 8/8",
+      "scope": "Three native skills; explicitly prompted eight-case batch, not isolated triggers or baseline comparison"
     }
   ],
   "telemetry_gaps": [
@@ -234,11 +354,11 @@
     },
     {
       "goal_id": "BL-02",
-      "reason": "Current Codex input/output/cache telemetry and allocated invoice cost unavailable; goal counter alone is not a native billing receipt"
+      "reason": "Whole-goal Codex lead/source-maker telemetry and allocated invoice cash remain unavailable; one scoped Claude report-maker receipt is included"
     },
     {
       "goal_id": "BL-02",
-      "reason": "One tool-free independent review was admitted BOUNDED and timed out at180 seconds without a verdict or usage/cost receipt; its actual expenditure is unknown"
+      "reason": "One tool-free independent review was admitted BOUNDED and timed out at 180 seconds without a verdict or usage/cost receipt; its actual expenditure is unknown"
     }
   ],
   "financials": []

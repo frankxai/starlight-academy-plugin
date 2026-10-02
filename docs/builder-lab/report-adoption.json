@@ -1,0 +1,27 @@
+{
+  "source_revision": "35babbfe6efab1d8bf963ec6377ede6cb9762c7f",
+  "goal_id": "BL-02",
+  "maker_provider": "Anthropic / Claude CLI",
+  "checker_provider": "OpenAI / Codex lead",
+  "raw_trace_sha256": "2115c71ce651ab6c2269d5b228a186ced75d1a5586e697eacf60dc591b418978",
+  "native_result_sha256": "e452c76d436cac0886fd1e0acbb376630c76663cdd20569c062cd1b61115d8b9",
+  "commands": [
+    "python -B goal_report.py report goals.json evidence.json --format json",
+    "python -B goal_report.py report goals.json evidence.json --format markdown"
+  ],
+  "artifacts_lf_normalized_sha256": {
+    "builder-report-maker-observed.json": "cd456c03de288ced5266b12cbb681babdc53ab4dedff2041437731d8a3979800",
+    "builder-report-maker-observed.md": "56be4a9486facc0ec85d08af6f1fe9c57e46e3fb1ed24ca7e311f3f8b348c7f9"
+  },
+  "json_equals_frozen_projection": true,
+  "markdown_equals_frozen_projection": true,
+  "goal_count": 6,
+  "source_snapshot_receipts": 12,
+  "assistance": "Lead froze three Git-blob inputs, restricted two exact commands, saved LF-normalized tool outputs and compared them to that source",
+  "scope": "One native model used the reporting tool on a supplied dated snapshot; no whole-goal source-maker, live fleet, billing or ROI certification",
+  "schema": "starlight.builder_report_adoption.v1",
+  "observed_at": "2026-10-02T06:18:46.006614+00:00",
+  "state": "Native maker tool use checked by a separate provider lead",
+  "evidence_url": "https://github.com/frankxai/starlight-academy-plugin/issues/6#issuecomment-5946603185",
+  "independent_publication_review": "pending"
+}

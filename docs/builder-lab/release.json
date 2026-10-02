@@ -1,9 +1,9 @@
 {
   "schema": "starlight.builder_release.v1",
-  "observed_at": "2026-10-02T05:38:34.795339+00:00",
+  "observed_at": "2026-10-02T06:18:46.006614+00:00",
   "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
   "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/4",
-  "status": "source merged; both native hosts observed; Codex example-attribution concern and remaining release gates open",
+  "status": "Original 0.1.0 proof retained; final 0.1.1 native batches accepted by lead; patch publication and remaining release gates pending",
   "source_checks": {
     "windows": {
       "tests": 56,
@@ -58,18 +58,35 @@
     "post_merge_ci_conclusion": "success"
   },
   "usage": {
-    "completed_model_receipts": 12,
-    "known_api_equivalent_usd": "1.977499",
-    "unknown_cost_receipts": 4,
-    "coverage": "BL-01: five source reviews, two Claude trials and four Codex attempts, including three discovery failures. BL-02: one independent reporting review. No whole-goal lead, BL-02 maker or invoice-cash coverage.",
+    "completed_model_receipts": 18,
+    "known_api_equivalent_usd": "2.499784",
+    "unknown_cost_receipts": 6,
+    "coverage": "BL-01: source reviews and versioned native host trials, including discovery and behavior failures. BL-02: two reporting checker receipts plus one scoped native report maker; no whole-goal lead or invoice cash coverage.",
     "invoiced_cash_usd": null,
     "cash_roi": "unknown"
   },
   "reporting_review": {
     "revision": "f2e5c861d21662cdc4db36477aaa4e1d9e0502c0",
     "verdict": "ITERATE",
-    "corrections": "Token labels, receipt ownership, stale artifact limit, licence scope and documentation encoding corrected; re-review pending",
+    "corrections": "Corrected record passed independent review at 0e3d02d and merged as 35babbf; current extra receipts/adoption await patch publication review",
     "receipt_id": "builder-evidence-review-1",
-    "goal_id": "BL-02"
+    "goal_id": "BL-02",
+    "accepted_revision": "0e3d02d117aa018de3f19298df4ecff550792050",
+    "accepted_verdict": "PASS for corrected partial record",
+    "accepted_merge_revision": "35babbfe6efab1d8bf963ec6377ede6cb9762c7f",
+    "accepted_evidence_url": "https://github.com/frankxai/starlight-academy-plugin/pull/11#issuecomment-5946282694"
+  },
+  "historical_source_scope": "Top-level source_revision, source_checks, integration, ZIPs, independent_reviews and native_hosts retain the original 0.1.0 proof; current 0.1.1 evidence is in patch_candidate",
+  "patch_candidate": {
+    "plugin_version": "0.1.1",
+    "source_revision": "1af40b25a7486f8493fd051f4fc28a99777104e1",
+    "pr": "https://github.com/frankxai/starlight-academy-plugin/pull/12",
+    "status": "native final batches accepted by lead; independent publication review pending",
+    "plugin_zip_sha256": "6755b99cd6ce99bdf0f265fe0209dd7032355a2e31d11d8293866a6a13578014",
+    "example_zip_sha256": "fdc40d65c85efb69e827b25dbf0914b9fd246a4d07b8102b79564a0078a12825",
+    "host_trials": "native-patch-trials.json",
+    "report_adoption": "report-adoption.json",
+    "codex": "8/8 lead-accepted",
+    "claude": "8/8 lead-accepted"
   }
 }
