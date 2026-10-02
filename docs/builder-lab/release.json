@@ -33,7 +33,7 @@
     "reason": "not verified"
   },
   "machine_gate": "One sequential admitted worker at a time; fresh 5120 MiB floor with 1 GiB reserve; native lifecycle workers stopped. Owned cache/profile removed through targeted native lifecycle; global semantics restored. Prior 42 evaluator folders remain after rejected cleanup.",
-  "secret_checks": "PR14 staged hooks passed and full-history gitleaks found no leaks. Current lifecycle evidence staging/security checks are pending; package checker remains heuristic-only.",
+  "secret_checks": "Full-history gitleaks on 2026-10-02 inspected 27 commits / 989730 bytes with no leaks. Lifecycle evidence staged hooks scanned 32443 bytes with no leaks. Package checker remains heuristic-only; retain repository security hooks.",
   "limitations": [
     "CI proves source behaviour, not host workflow success",
     "Native list-price review usage is not invoiced cash",
@@ -308,16 +308,16 @@
     "observed_at": "2026-10-02T10:19:40.317100+00:00",
     "status": "0.1.2 source accepted and merged; 0.1.3 development candidate records fresh partial native behavior, pending independent source review and final CI. Catalog/production/commerce gates remain open.",
     "usage": {
-      "receipts": 120,
-      "complete_token_receipts": 85,
+      "receipts": 116,
+      "complete_token_receipts": 81,
       "missing_token_receipts": 35,
-      "processed_tokens": 2673123,
-      "known_api_equivalent_usd": "7.403816",
+      "processed_tokens": 2553410,
+      "known_api_equivalent_usd": "7.253985",
       "invoiced_cash_usd": null,
       "cash_roi": "unknown",
-      "state_observed_at": "2026-10-02T10:57:54.192239+00:00",
+      "state_observed_at": "2026-10-02T10:19:40.317100+00:00",
       "plugin_version": "mixed 0.1.0,0.1.1,0.1.2,0.1.3 receipts",
-      "scope": "Final PR14 correction review and three actual Codex lifecycle trials included once. Current lifecycle evidence review will postdate this checkpoint; thirteen native costs, invoices and root lead unknown."
+      "scope": "Includes first PR14 review once; final correction review postdates this committed checkpoint"
     },
     "machine_gate": "One sequential admitted native worker at a time; 5120 MiB fresh RAM floor including 1 GiB reserve; all 17 model workers stopped. Temporary Codex profile removed; global metadata unchanged. Prior 42 native-eval folders retained after rejected cleanup; no new such sandboxes."
   },
