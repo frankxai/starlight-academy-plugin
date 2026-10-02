@@ -19,7 +19,8 @@
     "cached_git_files_matched": 13,
     "rendered_available_plugin_skills": 3,
     "actual_model_read_installed_skill": true,
-    "local_copied_skill_fallback": false
+    "local_copied_skill_fallback": false,
+    "payload_identity": "Installed Builder runtime package: thirteen Git source files. This is a separate package from the ten-file Quote Desk input archive."
   },
   "native_attempt": {
     "model_calls": 1,
@@ -63,7 +64,8 @@
       "existing_destination": "not reached",
       "wrong_expected_hash": "not reached",
       "partial_marker": "not reached"
-    }
+    },
+    "evidence_scope": "Passed entries denote observed individual native operations only; full native suite and the composite save/reopen scenario remain incomplete."
   },
   "artifact_recovery": {
     "actor": "lead, new deterministic Node processes after stopped native agent",
@@ -92,7 +94,8 @@
     "files_per_folder": 10,
     "both_folders_match_archive": true,
     "maintaining_account_readable": true,
-    "repacked_bytes_match_original": true
+    "repacked_bytes_match_original": true,
+    "payload_identity": "Quote Desk input: seven domain Git files plus three controlled adapter metadata files, ten files per restored folder. These do not count the thirteen Builder cache files."
   },
   "cleanup": {
     "first_cleanup": "Workload-start reserve check blocked removal after memory fell; retained as a helper failure",
@@ -136,5 +139,10 @@
     "No outside-user, directory, Dots, rights, seller, payment or paid advantage acceptance",
     "Manual unpack/source inspection/edit/copy remains a capable alternative; output advantage, repair effort and comparative time/cost unmeasured",
     "Private hashes identify retained evidence and do not make unpublished traces independently inspectable"
-  ]
+  ],
+  "evidence_retention": {
+    "scope": "Owned private task receipts and traces retained without publishing raw prompts, commands, local paths or thread identifiers. The exported artifact and published example use fictional inputs.",
+    "approval_scope": "Buyer source, scope, tax, price, rights and delivery require approval; this flag does not claim verified publisher identity or commercial acceptance.",
+    "verification_scope": "Retained private hashes provide provenance references; public documentary review cannot inspect their unpublished contents."
+  }
 }

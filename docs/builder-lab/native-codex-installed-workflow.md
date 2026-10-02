@@ -1,10 +1,10 @@
 # Installed Codex interruption and artifact recovery
 
-Observed 3 October 2026 (Amsterdam). The [JSON record](native-codex-installed-workflow.json) distinguishes the incomplete installed-agent attempt from the lead's successful artifact recovery. This extends the earlier [completed local-skill workflow](native-codex-completion.md) and [native version-update check](native-codex-upgrade.md).
+Observed 3 October 2026 (Amsterdam). The [JSON record](native-codex-installed-workflow.json) distinguishes the incomplete installed-agent attempt from the lead's successful artifact recovery. This extends the earlier [completed local-skill workflow](native-codex-completion.md) and [native version-update check](native-codex-upgrade.md). The [runtime history](native-codex-runtime.md) preserves the separate 0.1.4 failure and earlier 0.1.5 local-skill attempt; the installed trial recorded here is a later attempt.
 
 ## Installed workflow outcome
 
-Codex CLI 0.159.3 used gpt-6.1-sol/high with workspace-write sandbox and tool network disabled. Its task-owned local marketplace installed Builder 0.1.5 from main `e2d9032a21184ddeda70ed46dca83555d20c3266`. All thirteen cached files matched Git blobs; the debug renderer showed three plugin skills, and the model read the installed build-portable-plugin skill and ran its cached tool.
+Codex CLI 0.159.3 used gpt-6.1-sol/high with workspace-write sandbox and tool network disabled. Its task-owned local marketplace installed Builder 0.1.5 from main `e2d9032a21184ddeda70ed46dca83555d20c3266`. All thirteen cached Builder files matched Git blobs; the debug renderer showed three plugin skills, and the model read the installed build-portable-plugin skill and ran its cached tool. Those thirteen Builder files are separate from the input Quote Desk archive, which contains seven domain Git files plus three adapter metadata files.
 
 The model restored two fresh ten-file Quote Desk folders, inspected source and notices, checked and repacked the first byte-identically, initialized the supplied fictional service workflow, authored buyer wording and saved revision 2. The maintaining account independently read both restored folders and matched every file to the retained archive.
 
@@ -18,7 +18,7 @@ A new ordinary Node process reopened the exact saved revision 2 and snapshot has
 Thank you for requesting an inspection of one unit at your workshop. The draft amount for one equipment inspection visit is EUR 120.00. Please confirm the equipment type and the inspection you need. The scope, tax treatment, final price and proposed timing next week all remain pending the owner's approval. No appointment or booking is confirmed, and this draft is not a binding quote.
 ```
 
-Saved wording SHA-256: `4ec518754393e038688cea44b353f41d8c28a0a0671350257949db9143aff74f`. Retained buyer receipt SHA-256: `8e6910d6e36587f9017a1cc8933c388b82fe53f91f5fd6d2b032733d4473280a`. These identify the retained synthetic artifact; source, price, rights and delivery approval remain pending.
+Saved wording SHA-256: `4ec518754393e038688cea44b353f41d8c28a0a0671350257949db9143aff74f`. Retained buyer receipt SHA-256: `8e6910d6e36587f9017a1cc8933c388b82fe53f91f5fd6d2b032733d4473280a`. These identify the retained synthetic artifact; source, price, rights and delivery approval remain pending. Private task receipts and traces remain retained without publishing raw prompts, commands, local paths or thread identifiers. The approval flag concerns buyer/domain/delivery approval; it grants no publisher identity or commercial acceptance. Published wording uses fictional inputs.
 
 The lead separately exercised existing-output, wrong-hash and partial-marker refusals, preserving the previous edit/marker and leaving wrong-hash output absent. Those three adverse cases are lead-executed, separate from the incomplete native case set. The first lead export used unsupported guessed flags and was refused; its streams remain, then the documented skill flags succeeded in a fresh output. Six corrected deterministic calls produced three successes and three expected refusals, adding no model calls.
 
