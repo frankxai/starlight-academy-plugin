@@ -71,14 +71,23 @@ references support the dated research; future provider behavior needs fresh test
 
 ## Restore a downloaded package or inspect an update
 
-Version 0.1.4 adds a download-to-source path. Obtain the expected SHA-256 from a
-trusted publisher release or channel record independently of the downloaded ZIP.
+Version 0.1.5 retains the download-to-source path and fixes Windows output access.
+Obtain the expected SHA-256 from a trusted publisher release or channel record
+independently of the downloaded ZIP.
 Choose a new folder under an ordinary fully local project directory:
 
 ```text
 python -B scripts/package_lab.py restore DOWNLOAD.zip NEW_DIRECTORY --sha256 PUBLISHER_SHA256
 python -B scripts/package_lab.py check NEW_DIRECTORY
 ```
+
+On Windows, restored folders inherit the chosen parent's permissions, so the
+workspace owner can inspect and edit source created by a separate agent account.
+Choose a parent whose access rules allow only the intended collaborators; restore
+does not make a shared parent private. POSIX output folders use mode `0700`.
+Check access in the account that will maintain the package before using it.
+If an older restore is unreadable, preserve it and retry with version 0.1.5 into a
+fresh sibling under an accessible parent. Restore never changes an existing ACL.
 
 Restore reads and hashes the same bounded archive bytes. It checks the complete
 skills-only package and supplied licence before creating the requested folder.
@@ -111,4 +120,4 @@ For an update, restore to a new versioned folder, inspect differences and manual
 reconcile your edits. Choose the version through your host's normal controls only
 when installation is requested. Rollback selects the preserved prior version.
 Restore never installs a plugin, migrates secrets, connects accounts or changes an
-entitlement. Historic 0.1.3 host receipts do not verify the new 0.1.4 behavior.
+entitlement. Historic host receipts verify only their recorded version and scope.
