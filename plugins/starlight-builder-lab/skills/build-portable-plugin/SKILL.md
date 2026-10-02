@@ -1,6 +1,6 @@
 ---
 name: build-portable-plugin
-description: "Create or inspect a portable skills-only agent plugin from an explicit workflow specification. Use for plugin scaffolding, local package checks or reproducible ZIP preparation, without installing or publishing automatically."
+description: "Create, inspect or explain a portable skills-only agent plugin. Use when asked about the bundled research-brief example, scaffold/check/pack commands, preserving existing outputs or supplied full licence text, including read-only explanations when execution and writes are unavailable. Also use for plugin scaffolding, local package checks and reproducible ZIP preparation; installation and publication require a separate request."
 ---
 
 # Build a portable plugin
