@@ -1,0 +1,36 @@
+{
+  "schema": "starlight.builder_host_artifact.v1",
+  "observed_at": "2026-10-02T05:09:15.007364+00:00",
+  "source_revision": "0d77f5c7054f92057cfa173920f40ca8b79efeca",
+  "host": "Claude Code 2.1.287",
+  "mode": "restricted Read/Skill plus three exact Bash rules; dontAsk; strict empty MCP",
+  "native_receipt_id": "builder-claude-artifact-1",
+  "native_result_sha256": "1f2635e39efedb4e61b0853f0b7095505b83b8fcb9da504e0d698a9ca88302a4",
+  "native_trace_sha256": "347df23cca73d486166834546a10a97ac905148c2ed1d7901dd959c42ecdc4ee",
+  "actual_operations": [
+    "scaffold: generated native-research-brief from research-brief.json (1 skill, status generated-unverified)",
+    "check: structural-pass for plugin research-brief-demo (1 skill, 5 files)",
+    "pack: wrote native-research-brief.zip (structural-pass, 5 files, sha256 d88a455af996a5cdd15ad1f90ae6d4b937ed0d5b8b1bc63d5f327752d1fe2118)"
+  ],
+  "actual_relative_artifacts": [
+    "native-research-brief",
+    "native-research-brief.zip"
+  ],
+  "zip_sha256": "d88a455af996a5cdd15ad1f90ae6d4b937ed0d5b8b1bc63d5f327752d1fe2118",
+  "entries": [
+    ".claude-plugin/plugin.json",
+    "LICENSE",
+    "README.md",
+    "plugin.json",
+    "skills/create-research-brief/SKILL.md"
+  ],
+  "lead_verified_license_text_preserved": true,
+  "lead_verified_same_zip_as_offline_example": true,
+  "global_metadata_unchanged": true,
+  "independent_artifact_acceptance": "pending",
+  "limits": [
+    "One assisted bundled example only",
+    "Native artifact trace permits only three exact Bash commands",
+    "No baseline comparison, directory approval, Dots eligibility or buyer proof"
+  ]
+}
