@@ -298,6 +298,88 @@ def import_claude(path: Path, goal: str, run_id: str, source_url: str) -> dict:
     return row
 
 
+def import_codex(path: Path, goal: str, run_id: str, source_url: str) -> dict:
+    """Normalize one completed `codex exec --json` turn, without exporting content.
+
+    Native input includes cached input; this report uses disjoint buckets. A
+    missing cache-write field remains unknown even when a CLI schema has a
+    default. Native terminal usage is a reported receipt, not a billing invoice.
+    """
+    with path.open("rb") as source:
+        source_bytes = source.read(MAX_INPUT + 1)
+    if len(source_bytes) > MAX_INPUT:
+        raise ValueError("Codex JSONL input exceeds 1 MiB")
+
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("Duplicate Codex JSON key")
+            result[key] = value
+        return result
+
+    thread_id, started, usage, count = None, False, None, 0
+    try:
+        for line in source_bytes.decode("utf-8-sig").splitlines():
+            if not line.strip():
+                continue
+            count += 1
+            if count > 10000:
+                raise ValueError("Too many Codex events")
+            event = json.loads(line, object_pairs_hook=unique_object)
+            if not isinstance(event, dict) or usage is not None:
+                raise ValueError("Expected one Codex turn with a final terminal event")
+            kind = event.get("type")
+            if kind == "thread.started":
+                if count != 1:
+                    raise ValueError("Expected one Codex thread")
+                thread_id = text(event.get("thread_id"), 120)
+            elif kind == "turn.started":
+                if thread_id is None or started or count != 2:
+                    raise ValueError("Expected one Codex turn")
+                started = True
+            elif kind == "turn.completed":
+                if not started or not isinstance(event.get("usage"), dict):
+                    raise ValueError("No completed Codex usage receipt")
+                usage = event["usage"]
+            elif kind in {"item.started", "item.updated", "item.completed", "error"}:
+                if not started:
+                    raise ValueError("Codex item precedes turn start")
+            else:
+                raise ValueError("Failed or unsupported Codex event")
+    except RecursionError as exc:
+        raise ValueError("Codex JSON nesting exceeds parser limits") from exc
+    if usage is None:
+        raise ValueError("No completed Codex usage receipt")
+    fields = ("input_tokens", "cached_input_tokens", "cache_write_input_tokens",
+              "output_tokens", "reasoning_output_tokens")
+    native = {field: token(usage.get(field)) for field in fields}
+    if all(value is None for value in native.values()):
+        raise ValueError("No Codex token counts supplied")
+    inclusive, cached, written = (native[field] for field in fields[:3])
+    known_cache = sum(value for value in (cached, written) if value is not None)
+    if inclusive is not None and known_cache > inclusive:
+        raise ValueError("Codex cache counts exceed inclusive input")
+    reasoning, output = native["reasoning_output_tokens"], native["output_tokens"]
+    if reasoning is not None and output is not None and reasoning > output:
+        raise ValueError("Included reasoning cannot exceed output")
+    ordinary = inclusive - cached - written if all(value is not None for value in (inclusive, cached, written)) else None
+    # Replay identity is stable across whitespace and ignored message changes.
+    # Keep the actual byte hash separately; do not export the thread identifier.
+    fragment = json.dumps({"kind": "codex.exec", "thread_id": thread_id, "usage": native},
+                          sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return {"id": text(run_id, 120), "goal_id": text(goal, 64), "source_url": issue_url(source_url),
+            "source_sha256": hashlib.sha256(fragment).hexdigest(),
+            "source_bytes_sha256": hashlib.sha256(source_bytes).hexdigest(),
+            "source_hash_scope": "canonical Codex thread/terminal-usage fragment",
+            "provider": "OpenAI / Codex CLI", "native_outcome": "turn.completed",
+            "native_input_tokens_including_cache": inclusive,
+            "input_tokens": ordinary, "cache_creation_input_tokens": written,
+            "cache_read_input_tokens": cached, "output_tokens": output,
+            "thinking_tokens_included_in_output": reasoning,
+            "cost_basis": "unknown", "api_equivalent_usd": None, "invoiced_cash_usd": None}
+
+
 def import_claude_eval(path: Path, goal: str, prefix: str, source_url: str) -> dict:
     """Import native eval cost rows without reading any supplied trace path.
 
@@ -376,6 +458,11 @@ def main() -> int:
     imp.add_argument("--goal", required=True)
     imp.add_argument("--id", required=True)
     imp.add_argument("--source-url", required=True)
+    codex = commands.add_parser("import-codex")
+    codex.add_argument("receipt", type=Path)
+    codex.add_argument("--goal", required=True)
+    codex.add_argument("--id", required=True)
+    codex.add_argument("--source-url", required=True)
     native = commands.add_parser("import-claude-eval")
     native.add_argument("receipt", type=Path)
     native.add_argument("--goal", required=True)
@@ -385,6 +472,9 @@ def main() -> int:
     try:
         if args.command == "import-claude":
             result = import_claude(args.receipt, args.goal, args.id, args.source_url)
+            print(json.dumps(result, indent=2))
+        elif args.command == "import-codex":
+            result = import_codex(args.receipt, args.goal, args.id, args.source_url)
             print(json.dumps(result, indent=2))
         elif args.command == "import-claude-eval":
             result = import_claude_eval(args.receipt, args.goal, args.id_prefix, args.source_url)

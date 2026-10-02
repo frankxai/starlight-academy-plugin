@@ -99,9 +99,18 @@ same wording remain capable alternatives; no paid or repair-time advantage was
 measured. Native mid-write interruption was not tested. Prior failures remain.
 
 [BL-01](https://github.com/frankxai/starlight-academy-plugin/issues/3) remains
-In review with two of four criteria accepted. Completed current-host sessions,
-isolated plugin lifecycle, outside-user recovery and Dots evidence remain pending
+In review with two of four criteria accepted. A later controlled 0.1.5 current-host
+session completed; the full native host suite, isolated plugin lifecycle,
+outside-user recovery and Dots evidence remain pending
 by 8 October. Actual seller, rights, terms and purchase/refund/revocation/update
 evidence remains under [BL-05](https://github.com/frankxai/starlight-academy-plugin/issues/9).
 The timed-out model attempt belongs only to BL-01; its total tokens and cost are
 unknown. Model-free diagnostics are excluded from model-spend accounting.
+
+## Later completed current-host attempt
+
+The [0.1.5 completed workflow](native-codex-completion.md) restored readable
+source and completed authored editing, reopen, buyer export and retained-hash
+verification, with a final native usage receipt. This later success does not
+change the original timeout, access denial, assisted scope or missing historical
+usage. Full native host and commercial gates remain open.
