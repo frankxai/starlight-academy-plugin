@@ -110,6 +110,27 @@ little exclusivity. Record third-party attribution and sell original added value
 | Etsy | Eligible original design downloads or workbooks | AI prompt bundles are excluded; AI-created work needs disclosure where required. [Creativity standards](https://www.etsy.com/legal/creativity/) |
 | OpenAI / Claude catalogs | Workflow discovery and installation | Directory rules are host-specific. Catalog availability provides no automatic payment rail. |
 
+### Polar product eligibility
+
+Policy checked: 2026-10-03; effective date: 2026-03-25. Polar's AUP prohibits
+third-party resale marketplaces, physical goods, human services and get-rich
+schemes. AI content-generation tools and eBooks require closer review and may be
+refused. Software or file delivery alone does not establish eligibility.
+[Polar acceptable-use policy](https://polar.sh/legal/acceptable-use-policy).
+
+The offline planner accepts `polar_offer_categories` as a list. Declare every
+applicable supported category: `software`, `digital-download`, `premium-content`,
+`ai-generation`, `ebook`, `third-party-marketplace`, `physical-goods`,
+`human-services` or `get-rich-scheme`. A declared prohibited category refuses the
+whole plan. AI-generation or eBook declarations keep closer review pending even
+when combined with `software`. Missing or empty declarations remain unclassified.
+Other declarations remain subject to category review; none establish approval.
+
+These checks cover selected declarations, not the complete AUP or actual product.
+Review the full policy, other applicable categories, rights and seller context
+before release. Record Polar's actual decision where review is required. Do not
+use a broader label to bypass closer review or transfer approval between products.
+
 ### Polar delivery contract
 
 Use a versioned ZIP and hash. Define the buyer's use rights and update period.
@@ -200,10 +221,15 @@ account rates and cost assumptions.
 Example requirements request:
 
 ```json
-{"name":"Research brief package","channels":["openai","claude","polar","gumroad","whop"],"openai_commerce":"usage-only","directory_candidate_commerce_free":true}
+{"name":"Research brief package","channels":["openai","claude","polar","gumroad","whop"],"openai_commerce":"usage-only","directory_candidate_commerce_free":true,"polar_offer_categories":["software","ai-generation"]}
 ```
 
 `plan` returns a draft and required evidence; it never certifies readiness or
 consumes release receipts. Use the product owner's real release gate for that.
 Etsy's `original-design` flag is a declaration, not an eligibility check.
 OpenAI plugin use and external sales retain separate policies and approvals.
+The example's categories are illustrative declarations, not an assessment of a
+live product. Its Polar row returns `closer-review-required`, dated policy
+provenance and `providerApproval: "not-verified"`. Adding `approved: true` to the
+input cannot make it release-ready. Unknown or malformed category labels fail;
+the planner makes no eligibility decision for other storefronts.

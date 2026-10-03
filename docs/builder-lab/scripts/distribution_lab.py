@@ -72,6 +72,26 @@ def economics(data: dict) -> dict:
             "excludes": ["Income tax", "Unspecified payout/FX/platform fees", "Unpriced founder time"]}
 
 
+def polar_eligibility(data: dict) -> dict:
+    """Bounded declaration checks, not product classification or seller approval."""
+    categories = data.get("polar_offer_categories", [])
+    prohibited = {"third-party-marketplace", "physical-goods", "human-services", "get-rich-scheme"}
+    closer_review = {"ai-generation", "ebook"}
+    known = {"software", "digital-download", "premium-content"} | closer_review | prohibited
+    if not isinstance(categories, list) or any(not isinstance(c, str) or c not in known for c in categories):
+        raise ValueError("polar_offer_categories must be a list drawn from: " + ", ".join(sorted(known)))
+    blocked = sorted(set(categories) & prohibited)
+    if blocked:
+        raise ValueError("Polar AUP prohibits declared categories: " + ", ".join(blocked)
+                         + "; review https://polar.sh/legal/acceptable-use-policy and choose another eligible channel")
+    state = ("classification-required" if not categories else
+             "closer-review-required" if set(categories) & closer_review else "category-review-required")
+    return {"declaredCategories": list(dict.fromkeys(categories)), "state": state,
+            "providerApproval": "not-verified", "policyCheckedAt": "2026-10-03",
+            "policyEffectiveDate": "2026-03-25", "policyUrl": "https://polar.sh/legal/acceptable-use-policy",
+            "scope": "Selected declared categories only; does not inspect the product, cover the full AUP, or verify seller approval"}
+
+
 def plan(data: dict) -> dict:
     name = text_field(data, "name", 120)
     channels = data.get("channels")
@@ -83,17 +103,23 @@ def plan(data: dict) -> dict:
         raise ValueError("Explicitly declare a commerce-free OpenAI candidate and usage-only surface; external sales are separate")
     if "etsy" in channels and data.get("artifact_type") != "original-design":
         raise ValueError("Etsy requires separate eligibility review; prompt bundles are excluded")
+    polar = polar_eligibility(data) if "polar" in channels else None
     requirements = {
         "openai": ["Refresh plugin policy", "Verify developer identity", "Scan skills and metadata", "No digital sales or upgrade promotion", "Record review and publishing separately"],
         "claude": ["Validate native manifest/catalog", "Pin source revision", "Test install and workflow in Claude"],
-        "polar": ["Confirm organization plan and country", "Attach managed file or repository benefit", "Test grant/refund/revocation in sandbox", "Keep admin token server-side"],
+        "polar": ["Review all applicable categories against the current Polar AUP", "Record product and seller eligibility evidence; obtain Polar review where required", "Confirm organization plan and country", "Attach managed file or repository benefit", "Test grant/refund/revocation in sandbox", "Keep admin token server-side"],
         "gumroad": ["Choose direct or Discover channel", "Recalculate channel fees", "Inspect buyer download and license"],
         "whop": ["Check enabled fee components", "Test access/refund lifecycle", "Define self-service delivery"],
         "etsy": ["Review original-design eligibility", "Disclose AI use where required", "Exclude prompt bundles"],
         "stripe": ["Choose payment/MoR responsibilities explicitly", "Provide download entitlements", "Test verified webhook replay and refund behavior"]}
+    rows = [{"channel": c, "state": "not-configured", "requirements": requirements[c]} for c in dict.fromkeys(channels)]
+    if polar is not None:
+        next(row for row in rows if row["channel"] == "polar")["eligibility"] = polar
+    evidence = ["demand", "price", "rights", "hostBehavior", "independentReview", "deliveryLifecycle"]
+    if polar is not None:
+        evidence.append("channelEligibility")
     return {"name": name, "status": "draft", "releaseReady": False,
-            "channels": [{"channel": c, "state": "not-configured", "requirements": requirements[c]} for c in dict.fromkeys(channels)],
-            "requiredEvidence": ["demand", "price", "rights", "hostBehavior", "independentReview", "deliveryLifecycle"]}
+            "channels": rows, "requiredEvidence": evidence}
 
 
 def main() -> int:

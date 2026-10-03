@@ -1,6 +1,10 @@
 """Scenario arithmetic and honest distribution boundaries."""
 import importlib.util
+import json
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
 
 MODULE = Path(__file__).parents[1] / "scripts/distribution_lab.py"
@@ -83,6 +87,79 @@ class PlanTests(unittest.TestCase):
         result = lab.plan({"name": "Original workbook", "channels": ["etsy"], "artifact_type": "original-design"})
         self.assertFalse(result["releaseReady"])
         self.assertIn("eligibility", result["channels"][0]["requirements"][0])
+
+    def test_missing_polar_classification_is_unresolved(self):
+        for fields in ({}, {"polar_offer_categories": []}):
+            with self.subTest(fields=fields):
+                result = lab.plan({"name": "Unclassified offer", "channels": ["polar"], **fields})
+                self.assertEqual(result["channels"][0]["eligibility"]["state"], "classification-required")
+                self.assertEqual(result["channels"][0]["eligibility"]["providerApproval"], "not-verified")
+                self.assertIn("channelEligibility", result["requiredEvidence"])
+                self.assertFalse(result["releaseReady"])
+
+    def test_ai_and_ebook_require_closer_review_even_when_also_software(self):
+        for category in ("ai-generation", "ebook"):
+            with self.subTest(category=category):
+                result = lab.plan({"name": "Mixed offer", "channels": ["polar", "polar"],
+                                   "polar_offer_categories": ["software", category, category]})
+                self.assertEqual(len(result["channels"]), 1)
+                eligibility = result["channels"][0]["eligibility"]
+                self.assertEqual(eligibility["state"], "closer-review-required")
+                self.assertEqual(eligibility["declaredCategories"], ["software", category])
+                self.assertEqual(eligibility["providerApproval"], "not-verified")
+                self.assertFalse(result["releaseReady"])
+
+    def test_ordinary_categories_do_not_establish_approval(self):
+        for category in ("software", "digital-download", "premium-content"):
+            with self.subTest(category=category):
+                result = lab.plan({"name": "Declared offer", "channels": ["polar"],
+                                   "polar_offer_categories": [category], "approved": True, "releaseReady": True})
+                self.assertEqual(result["channels"][0]["eligibility"]["state"], "category-review-required")
+                self.assertEqual(result["channels"][0]["eligibility"]["providerApproval"], "not-verified")
+                self.assertFalse(result["releaseReady"])
+
+    def test_prohibited_polar_categories_refuse_the_entire_draft(self):
+        for category in ("third-party-marketplace", "physical-goods", "human-services", "get-rich-scheme"):
+            with self.subTest(category=category), self.assertRaisesRegex(ValueError, "Polar AUP prohibits"):
+                lab.plan({"name": "Ineligible offer", "channels": ["gumroad", "polar"],
+                          "polar_offer_categories": ["software", "ai-generation", category]})
+
+    def test_malformed_or_unknown_polar_categories_are_not_accepted_as_software(self):
+        for value in (None, True, "software", {"software": True}, [None], [False], [["software"]],
+                      [""], [" Software "], ["unlisted-category"]):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, "polar_offer_categories"):
+                lab.plan({"name": "Malformed offer", "channels": ["polar"], "polar_offer_categories": value})
+
+    def test_other_channels_do_not_inherit_polar_eligibility(self):
+        result = lab.plan({"name": "Separate channel", "channels": ["gumroad", "claude"],
+                           "polar_offer_categories": ["human-services"]})
+        self.assertEqual([row["channel"] for row in result["channels"]], ["gumroad", "claude"])
+        self.assertTrue(all("eligibility" not in row for row in result["channels"]))
+        self.assertNotIn("channelEligibility", result["requiredEvidence"])
+        self.assertFalse(result["releaseReady"])
+
+    def test_cli_refusal_emits_no_partial_draft_and_can_recover(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / "offer.json"
+            offer = {"name": "Resale proposal", "channels": ["gumroad", "polar"],
+                     "polar_offer_categories": ["third-party-marketplace"]}
+            source.write_text(json.dumps(offer), encoding="utf-8")
+            refused = subprocess.run([sys.executable, "-B", str(MODULE), "plan", str(source)],
+                                     capture_output=True, text=True, timeout=10)
+            self.assertEqual(refused.returncode, 1)
+            self.assertEqual(refused.stdout, "")
+            self.assertEqual(json.loads(refused.stderr)["status"], "fail")
+            self.assertIn("Polar AUP prohibits", json.loads(refused.stderr)["error"])
+            self.assertEqual(json.loads(source.read_text(encoding="utf-8")), offer)
+            offer["channels"] = ["gumroad"]
+            source.write_text(json.dumps(offer), encoding="utf-8")
+            recovered = subprocess.run([sys.executable, "-B", str(MODULE), "plan", str(source)],
+                                       capture_output=True, text=True, timeout=10)
+            self.assertEqual(recovered.returncode, 0)
+            self.assertEqual(recovered.stderr, "")
+            draft = json.loads(recovered.stdout)
+            self.assertEqual(draft["channels"][0]["state"], "not-configured")
+            self.assertFalse(draft["releaseReady"])
 
 
 if __name__ == "__main__":
