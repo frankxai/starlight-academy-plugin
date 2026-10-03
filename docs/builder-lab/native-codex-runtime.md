@@ -86,8 +86,10 @@ all four buyer files and their payload hashes. Integrity does not approve a quot
 
 ## Remaining acceptance
 
-Python 3.13 still cannot launch inside the tested sandbox, including a correctly
-parsed per-invocation read profile. The existing 3.11 executable has a pre-existing
+The original dated Python3.13 probes could not launch inside the tested sandbox,
+including a correctly parsed per-invocation read profile. Their observed errors
+are retained in the [runtime JSON record](native-codex-runtime.json). The later
+continuation uses the existing3.11 interpreter and does not retest3.13. The existing 3.11 executable has a pre-existing
 sandbox-user modify ACL; this work neither changed nor certified it. Follow the
 [official Windows sandbox guide](https://learn.chatgpt.com/docs/windows/windows-sandbox)
 and [support recovery steps](support.md). Global config and protected fixture
@@ -118,3 +120,7 @@ usage. Full native host and commercial gates remain open.
 ## Installed-plugin interruption and recovery
 
 The [installed Codex trial](native-codex-installed-workflow.md) observed actual native cached-skill execution and saved authored revision2 before a timed-out agent was stopped. A new lead process reopened that exact state, exported its existing wording and verified the retained receipt hash while preserving original files. This establishes the recorded artifact recovery; the native model case set remains incomplete and its usage/cost unknown. Cleanup restored configuration bytes. Prior completed and failed local-skill evidence remains unchanged.
+
+## Later installed saved-artifact continuation
+
+The [current installed record](native-codex-installed-workflow.md) now also retains a completed fresh native0.1.5 process with five positive/three adverse cases. It reopened the earlier model-authored saved revision2, exported exact existing387-byte wording, verified its externally retained receipt and completed owned cleanup. All original files remain unchanged. The prior installed timeout still has unknown usage; the separate new completed turn reports907,348 processed tokens with native cost unknown. It inherited gpt-6-sol/high configuration, with no response model identifier exposed in the terminal schema. Current Claude session-only loading exposed the same source/skills, then provider quota429 rejected before execution. These separate scopes preserve the earlier local-skill/source-access history; full two-host, outside-user, Dots and paid acceptance remain pending.
