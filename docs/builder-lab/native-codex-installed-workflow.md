@@ -10,6 +10,21 @@ The model read the actual installed skill and executed its cached package tool. 
 
 Existing-output, wrong-hash and partial-marker commands each refused with exit1. The customer note and partial marker remained unchanged; wrong-hash output stayed absent. The58-event trace contains22 successful tool-command items and3 expected refusals. All48 original files and49 protected copied inputs were preserved. The package check/repack and buyer export/verify each form one positive scenario, so scenario counts differ from command counts.
 
+The private trace's target-operation mapping is retained below. These item references identify lead-inspected, unpublished trace records; they do not make the private trace independently inspectable.
+
+| Scenario | Target operations | Native trace items | Observed exit codes |
+| --- | --- | --- | --- |
+| Fresh source | Restore | item_9 | 0 |
+| Check and byte-identical repack | Check, pack | item_13, item_14 | 0,0 |
+| Fresh sibling | Restore | item_15 | 0 |
+| Prior saved revision2 | Show | item_17 | 0 |
+| Exact buyer packet | Export-buyer, verify-buyer | item_19, item_21 | 0,0 |
+| Existing customer edit | Restore | item_25 | 1 |
+| Wrong expected hash | Restore | item_26 | 1 |
+| Preserved partial marker | Check | item_27 | 1 |
+
+These are seven package calls and three Quote calls: seven target successes and three expected refusals. The other fifteen successful tool commands inspect source/state, retain the packet hash or check preservation. Forty-eight files remained in the original scratch instance; the protected input copy contains those48files plus the archive,49files. The two instances are separately preserved.
+
 The new phase reopens actual work saved by the earlier stopped model. It does not resume that model's ephemeral rollout or author new wording. The original timeout, ordinary lead recovery and new native execution are separately retained. Buyer wording and receipt hashes match the retained artifact below; synthetic/domain/prose/rights review and outbound-disabled state remain.
 
 Native usage is907,348 processed tokens:60,035 ordinary input,840,576 cache-read,0 cache-write and6,737 output including1,718 reasoning. Native cost and invoice allocation are unknown. This receipt belongs once to BL01. The large cumulative context is a cost-control observation; equivalent full-case manual timing, repair effort and paid advantage remain unmeasured.
@@ -18,7 +33,7 @@ The owned plugin/cache/profile/worker were removed, and global config bytes and 
 
 ## Current Claude loading probe
 
-Claude Code2.1.287 loaded the same current0.1.5 thirteen-file source through session-only `--plugin-dir` and exposed its three skills. The provider then returned weekly quota429 before any model iteration, skill invocation or case execution. CLI exit1 and `is_error: true` establish failure even though result subtype says `success`. The terminal reports zero tokens and cost0; these are retained as a CLI admission event, adding no model-spend row or invoice claim. Its worker stopped and source, original/copy inputs and global metadata remained intact. The provider reports reset4October06:00Europe/Amsterdam; no billing/account fallback was attempted. [Official session-only loading guidance](https://code.claude.com/docs/en/cli-reference).
+Claude Code2.1.287 loaded the same current0.1.5 thirteen-file source through session-only `--plugin-dir` and exposed its three skills. The provider then returned weekly quota429 before any model iteration, skill invocation or case execution. CLI exit1 and `is_error: true` establish failure even though result subtype says `success`. The terminal reports zero tokens and cost0; these are retained as a CLI admission event, adding no model-spend row or invoice claim. This separate error metadata does not price either Codex attempt; their native costs and all invoice allocations remain unknown. Its worker stopped and source, original/copy inputs and global metadata remained intact. The provider reports reset4October06:00Europe/Amsterdam; no billing/account fallback was attempted. [Official session-only loading guidance](https://code.claude.com/docs/en/cli-reference).
 
 The current Codex saved-artifact component passed. Full Claude behavior, outside-user comparison, Dots eligibility, mid-write recovery and paid/commercial acceptance remain open; BL01 retains2/4 full criteria. Native loader discovery is separate from execution and persistent marketplace installation.
 

@@ -178,7 +178,12 @@
       "positive_cases": 5,
       "adverse_cases": 3,
       "worker_state": "stopped",
-      "case_grouping": "Check/repack is one positive scenario; export/verify is one positive scenario; target package and Quote calls are distinct from supporting inspections."
+      "case_grouping": "Check/repack is one positive scenario; export/verify is one positive scenario; target package and Quote calls are distinct from supporting inspections.",
+      "target_package_calls": 7,
+      "target_quote_calls": 3,
+      "target_call_successes": 7,
+      "target_expected_refusals": 3,
+      "supporting_successful_tool_commands": 15
     },
     "scenarios": {
       "restore_checksums_and_notices": "passed",
@@ -209,7 +214,8 @@
       "protected_copied_input_files_unchanged": 49,
       "source_and_existing_interpreters_unchanged": true,
       "two_restored_quote_folders_match_ten_archive_files": true,
-      "repacked_archive_byte_identical": true
+      "repacked_archive_byte_identical": true,
+      "count_scope": "Forty-eight original scratch files remain in their original instance. A separate protected copy contains those48files plus one ZIP:49copied inputs. Counts describe preserved instances, not97distinct original files."
     },
     "cleanup": {
       "native_plugin_absent": true,
@@ -241,7 +247,137 @@
       "lead_inspection_sha256": "3f0f45abbcce58b66cef5ae4dad067fcd545eeb4c62a607b3db601651e79f6ea",
       "final_response_sha256": "b7878d2218cde71e4c8ae0bcbef86b26ac0d47db88fe26bf9aa25980006c32f0"
     },
-    "scope": "Fresh native process reopens existing saved artifact, not ephemeral rollout resume. Prior authorship, earlier deterministic lead recovery and this native export remain separate. Exact installed-source provenance and model-performed actions inspected by lead; public documentary review cannot inspect unpublished traces. Assisted supplied paths/interpreters/ID/hashes/cases. Manual unpack/inspect/reopen/copy remains a serious alternative; equivalent full-case repair/time/cost advantage unmeasured. Full two-host/outside-user/Dots/rights/seller/native-commerce/paid acceptance remains pending."
+    "scope": "Fresh native process reopens existing saved artifact, not ephemeral rollout resume. Prior authorship, earlier deterministic lead recovery and this native export remain separate. Exact installed-source provenance and model-performed actions inspected by lead; public documentary review cannot inspect unpublished traces. Assisted supplied paths/interpreters/ID/hashes/cases. Manual unpack/inspect/reopen/copy remains a serious alternative; equivalent full-case repair/time/cost advantage unmeasured. Full two-host/outside-user/Dots/rights/seller/native-commerce/paid acceptance remains pending. Original top-level native_attempt/artifact_recovery describe the earlier stopped authoring attempt and lead recovery. These added continuation fields describe the later new-process reopen/export; no authorship contradiction or change to original scopes is claimed.",
+    "command_to_scenario_mapping": [
+      {
+        "scenario": "restore_checksums_and_notices",
+        "private_native_trace_item_ids": [
+          "item_9"
+        ],
+        "target_operations": [
+          "restore"
+        ],
+        "observed_exit_codes": [
+          0
+        ],
+        "private_command_result_sha256": [
+          "6c19b9f03488f4ebc2bbd017f801959f886fd65d3b8ef1cbf72b3b7f21b46862"
+        ]
+      },
+      {
+        "scenario": "check_and_byte_identical_repack",
+        "private_native_trace_item_ids": [
+          "item_13",
+          "item_14"
+        ],
+        "target_operations": [
+          "check",
+          "pack"
+        ],
+        "observed_exit_codes": [
+          0,
+          0
+        ],
+        "private_command_result_sha256": [
+          "bd0c4e7bacc8192f6c0d71ec14eade94522bf0096b9f4d94d7015773100e8a17",
+          "a9eed9f3acf3fe6443adda557d09f2136056f34346ab94cc93eae3898ca79d8c"
+        ]
+      },
+      {
+        "scenario": "fresh_sibling_restore",
+        "private_native_trace_item_ids": [
+          "item_15"
+        ],
+        "target_operations": [
+          "restore"
+        ],
+        "observed_exit_codes": [
+          0
+        ],
+        "private_command_result_sha256": [
+          "f987a5632a74a82c99e855094337c8aa833d699e9b88adc33712ab5191813f13"
+        ]
+      },
+      {
+        "scenario": "reopen_prior_authored_revision2",
+        "private_native_trace_item_ids": [
+          "item_17"
+        ],
+        "target_operations": [
+          "show"
+        ],
+        "observed_exit_codes": [
+          0
+        ],
+        "private_command_result_sha256": [
+          "1208472469a6ae4ef713bb575550d817d7ae959bf13b038d32d1488b800fc950"
+        ]
+      },
+      {
+        "scenario": "exact_buyer_export_and_external_retained_hash_verification",
+        "private_native_trace_item_ids": [
+          "item_19",
+          "item_21"
+        ],
+        "target_operations": [
+          "export-buyer",
+          "verify-buyer"
+        ],
+        "observed_exit_codes": [
+          0,
+          0
+        ],
+        "private_command_result_sha256": [
+          "f9bcdeaefe10bd0500d4408b49d31b7d10346c5f95e757666710d10fcc085723",
+          "654c76c0e34473361a6caeb7d36f5075e025929ad73d2a72c06d9fa9657a2fb7"
+        ]
+      },
+      {
+        "scenario": "existing_destination_preserves_customer_note",
+        "private_native_trace_item_ids": [
+          "item_25"
+        ],
+        "target_operations": [
+          "restore"
+        ],
+        "observed_exit_codes": [
+          1
+        ],
+        "private_command_result_sha256": [
+          "7eec8a4aa370222d35025fe3c3e10add1c2e07c403a1ae76a22f2e9f5f188255"
+        ]
+      },
+      {
+        "scenario": "wrong_hash_output_absent",
+        "private_native_trace_item_ids": [
+          "item_26"
+        ],
+        "target_operations": [
+          "restore"
+        ],
+        "observed_exit_codes": [
+          1
+        ],
+        "private_command_result_sha256": [
+          "8aaa6b334109dd44f847c8f6f6543e95023ee49091f8c67a0cc4e2bf56f6e0fe"
+        ]
+      },
+      {
+        "scenario": "partial_marker_preserved",
+        "private_native_trace_item_ids": [
+          "item_27"
+        ],
+        "target_operations": [
+          "check"
+        ],
+        "observed_exit_codes": [
+          1
+        ],
+        "private_command_result_sha256": [
+          "df59bc066c6805e821cdcb5230f8e7233181f89c3506ba1898cf37bac962993d"
+        ]
+      }
+    ]
   },
   "later_claude_session_only_probe": {
     "observed_at": "2026-10-03T03:03:20.360273+00:00",
@@ -273,6 +409,7 @@
     "billing_or_account_fallback": false,
     "private_native_trace_sha256": "75dd1a15f561b75f91ec925a0453a9126b3d5c87aa2a292e98f81346138b76e9",
     "private_native_result_sha256": "163cdf99c73a76073eea8a605e88a99cb900a3ae666338c0a5ee62000b2e78d2",
-    "official_loading_reference": "https://code.claude.com/docs/en/cli-reference"
+    "official_loading_reference": "https://code.claude.com/docs/en/cli-reference",
+    "cost_scope": "Explicit0tokens/cost0 are native429-error metadata for this separate Claude admission event only. Earlier Codex timeout and later907348-token Codex cost remain unknown; invoice cash is unknown for every phase."
   }
 }

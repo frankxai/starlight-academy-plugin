@@ -86,8 +86,10 @@ all four buyer files and their payload hashes. Integrity does not approve a quot
 
 ## Remaining acceptance
 
-Python 3.13 still cannot launch inside the tested sandbox, including a correctly
-parsed per-invocation read profile. The existing 3.11 executable has a pre-existing
+The original dated Python3.13 probes could not launch inside the tested sandbox,
+including a correctly parsed per-invocation read profile. Their observed errors
+are retained in the [runtime JSON record](native-codex-runtime.json). The later
+continuation uses the existing3.11 interpreter and does not retest3.13. The existing 3.11 executable has a pre-existing
 sandbox-user modify ACL; this work neither changed nor certified it. Follow the
 [official Windows sandbox guide](https://learn.chatgpt.com/docs/windows/windows-sandbox)
 and [support recovery steps](support.md). Global config and protected fixture
