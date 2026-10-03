@@ -22,6 +22,15 @@ channel-specific eligibility. For Polar, prefer managed downloads or GitHub acce
 before inventing a billing server. License keys can control update access but
 cannot prevent copying local skill instructions. Never bundle an admin token.
 
+For a Polar plan, declare every applicable supported `polar_offer_categories`
+value described in the ecosystem reference. The 2026-10-03 AUP check flags AI
+content-generation tools and eBooks for closer review and refuses declared
+third-party resale marketplaces, physical goods, human services and get-rich
+schemes. Missing declarations remain unclassified. This is a bounded declaration
+check, not product inspection or provider approval: review the full current AUP,
+rights and seller context, and retain the actual provider decision where required.
+Do not replace a restricted category with `software` to bypass review.
+
 Resolve this external kit's root, then use
 `docs/builder-lab/scripts/distribution_lab.py economics INPUT.json` from the
 repository root for explicit scenario inputs.
