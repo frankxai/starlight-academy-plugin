@@ -37,10 +37,10 @@
         "source": "git-subdir",
         "url": "https://github.com/frankxai/starlight-academy-plugin.git",
         "path": "plugins/starlight-academy",
-        "sha": "5a03a810f2abfd6b744c1677b6b410f310f6f595"
+        "sha": "817285bcb45d871308cdda1c5b2fddae0107ee6c"
       },
-      "description": "Practice with public Academy teachers, challenges and feedback guides in your AI conversation.",
-      "version": "0.1.0"
+      "description": "Practice with public Academy guides and prepare a local handoff to canonical AI Architect delivery.",
+      "version": "0.1.1"
     }
   ]
 }

@@ -1,0 +1,128 @@
+{
+  "schema": "starlight.academy_branch_review.v1",
+  "reviewedDate": "2026-10-05",
+  "repository": "frankxai/starlight-academy-plugin",
+  "reviewedMain": "062a857275697ffeda44234831be15b8448e4b46",
+  "openPullRequests": 0,
+  "openPullRequestsSource": "GitHub plugin search_prs state=open plus all listed PR metadata",
+  "remoteBranchesIncludingMain": 16,
+  "directAncestors": 7,
+  "squashTreeMatches": 8,
+  "branchesDeleted": false,
+  "branches": [
+    {
+      "branch": "agent/codex/builder-codex-runtime-20261002",
+      "head": "7e82a88c1fa85aa319f56b383b9aa38b47b28f44",
+      "tree": "4a45cab75ba821310e64429d4493c4e1703daeeb",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 20,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/20",
+      "mergeCommit": "6392b1cc5b129d521752d6c47ec7b1f6b6aba35e"
+    },
+    {
+      "branch": "agent/codex/builder-cold-workflow-20261002",
+      "head": "17df16a0d88158fe3f4b3e516dc378289609c49d",
+      "tree": "d6f224a86eccffbd4cb01527fd263aa84eee64b5",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/builder-distribution-20261002",
+      "head": "670d2efef62bb5e9681be79b33339600b711db06",
+      "tree": "b90acb41b9d78f92ba678839ae979170ce3a332f",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/builder-host-release-20261002",
+      "head": "7e1a65dde3fdd9f5f310d5b201f38ba591cb0184",
+      "tree": "dd6754fe4750c6d32e173670ea16eaa09b6d577f",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/builder-installed-recovery-20261003",
+      "head": "581989a4f3359db8470155b21c9fcd0ab7d00226",
+      "tree": "de8b203c8381ec4e3c310a86fe757475ccbe7dac",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 22,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/22",
+      "mergeCommit": "f90885e0e8f639316f1f93c17a417368f4282220"
+    },
+    {
+      "branch": "agent/codex/builder-native-completion-20261002",
+      "head": "f711dbf95896999ec092bf0621e703e17289450f",
+      "tree": "a12008107a7f6d3ab19bdce3c2796ea645e2587c",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 21,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/21",
+      "mergeCommit": "e2d9032a21184ddeda70ed46dca83555d20c3266"
+    },
+    {
+      "branch": "agent/codex/builder-native-release-20261002",
+      "head": "f6c356d08f6a04e064c0959c7fd1960fa4e4df52",
+      "tree": "11ac8ba54618be289a9683409e2383795fbb6328",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/builder-native-restore-20261002",
+      "head": "0b85ef50b5104b3c0cb85ee8996951d8375812e2",
+      "tree": "2bef24c969c6cd0ba4f838930a48724194f2772e",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 19,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/19",
+      "mergeCommit": "a653f01cd69bbc30aa3394b9a4a3485231cd92ec"
+    },
+    {
+      "branch": "agent/codex/builder-plugin-lifecycle-20261002",
+      "head": "9df4601794bad52a23e492f226f52aa5524a1786",
+      "tree": "8b48a7dd8a1e22e5194a92b5c1923cea36731f31",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 15,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/15",
+      "mergeCommit": "967f03be641dcfcaa1794ed81431e112be4f50ef"
+    },
+    {
+      "branch": "agent/codex/builder-restore-20261002",
+      "head": "df5cb1353f6b12b5a037186af238b500026e69a7",
+      "tree": "be314ec1a841c94ab6b436d2e9e76f4c9fdaaa9f",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 18,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/18",
+      "mergeCommit": "1a1953264187f447d767dbd6d536f9f3f1d6c87b"
+    },
+    {
+      "branch": "agent/codex/builder-workflow-outcomes-20261002",
+      "head": "875bed443f5f2068fa577fab871d66ab1e69e2c4",
+      "tree": "82ee6384b9cf7f69d33831044cf2c87036eee1e9",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/dots-builder-lab-20261001",
+      "head": "afdde34d7e5d9485bebfef35b053e924519fbecf",
+      "tree": "ed6e4aa8a69aff9f01fe6ce94787eca024f5d0b9",
+      "disposition": "already-ancestor-of-main"
+    },
+    {
+      "branch": "agent/codex/installed-native-continuation-20261003",
+      "head": "28760c2910c2c9545d5d8adde8276d0c84ccf316",
+      "tree": "4acd3323e40200e4165e68d51535f7e6d45a8d6d",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 24,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/24",
+      "mergeCommit": "062a857275697ffeda44234831be15b8448e4b46"
+    },
+    {
+      "branch": "agent/codex/polar-offer-eligibility-20261003",
+      "head": "0b046b344fbc1d84f44b6dd0a9bd772719824403",
+      "tree": "57191a5337d83cee5584c1d67377058aa75b2fe9",
+      "disposition": "already-squash-merged-exact-tree",
+      "pullRequest": 23,
+      "pullRequestUrl": "https://github.com/frankxai/starlight-academy-plugin/pull/23",
+      "mergeCommit": "d9105f2975fdfe30002fe50d0a382927143fefa4"
+    },
+    {
+      "branch": "preserve/2026-09-29-main",
+      "head": "68e2da44ace583d0bcf13a5bd38fae41f4057401",
+      "tree": "c32fe6c3470d12387639ac5c5eada4ae06f38cec",
+      "disposition": "already-ancestor-of-main"
+    }
+  ]
+}
