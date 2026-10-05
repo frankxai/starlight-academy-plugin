@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "starlight-academy",
-  "version": "0.1.0",
-  "description": "Practice with Academy teaching guides, source-backed challenges and useful AI feedback in your own conversation.",
+  "version": "0.1.1",
+  "description": "Practice with Academy teaching guides, preserve evidence and connect canonical AI Architect delivery in your own workspace.",
   "author": {
     "name": "Starlight Intelligence Systems",
     "url": "https://starlightintelligence.academy"
@@ -14,8 +14,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Starlight Academy",
-        "shortDescription": "A challenge. A guide. Your own judgment.",
-        "longDescription": "Choose a public mission, preserve your first attempt, practice with fictional teaching methods, critique the evidence and test transfer. Your AI host guides the conversation. The public connection accepts catalog IDs only and does not store work, run models or issue credentials.",
+        "shortDescription": "Practice. Review. Build.",
+        "longDescription": "Practice with public teaching methods, preserve an attempt, critique and test transfer. Prepare a local handoff to the separate AI Architect Academy and its canonical team. The host supplies the conversation; the public MCP accepts catalog IDs only. The local handoff grants no private access, deployment authority or architecture verification.",
         "developerName": "Starlight Intelligence Systems",
         "category": "Education",
         "capabilities": [

@@ -3,7 +3,7 @@
 Public teaching material for your AI conversation: choose a challenge, make your
 own first attempt, practice with a guide, critique, revise and test transfer.
 
-The plugin provides one guiding skill and connects four public MCP tools:
+Version 0.1.1 provides two skills and connects four public MCP tools:
 `get_academy`, `get_teacher`, `get_challenge`, `get_feedback_guide`.
 The server is `https://starlightintelligence.academy/mcp` (Streamable HTTP).
 It accepts catalog IDs only. No drafts, accounts, private data, model calls,
@@ -39,6 +39,27 @@ after it is published. A direct MCP connection is not a plugin-directory install
 
 Start a fresh conversation: “Use Starlight Academy. Help me choose a challenge
 and ask for my own first attempt before showing a solution.”
+
+## Continue into AI architecture
+
+`connect-ai-architect` preserves this learning record and prepares a handoff to
+the separate [AI Architect Academy](https://github.com/frankxai/ai-architect-academy)
+human or sponsored-agent lane and the canonical
+[AI Architect team](https://github.com/frankxai/ai-architect). The local script
+prints links and optional stdio configuration without installation or networking:
+
+```sh
+node scripts/architect_handoff.mjs --academy-origin https://aiarchitectacademy.com --lane agent --architect-root /absolute/path/to/ai-architect
+```
+
+Node 20+ is required for this local helper. `--architect-root` is optional; omit
+it when the canonical checkout is not present. Read the
+[handoff contract](skills/connect-ai-architect/references/handoff.md) before use.
+The Academy origin is explicitly supplied so preview deployments work too.
+This helper does not authenticate private resources or validate a tenant.
+The four public remote tools retain their existing contract.
+
+Verify the local behavior with `node --test tests/architect_handoff.test.mjs`.
 
 ## Publication status
 
