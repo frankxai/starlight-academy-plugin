@@ -1,0 +1,3 @@
+# The connection receipt hashes the authored payload bytes on every platform.
+# Windows checkout must not rewrite LF to CRLF inside this pinned package.
+plugins/starlight-academy/** -text
