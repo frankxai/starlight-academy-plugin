@@ -14,7 +14,7 @@ Licensed under [Apache-2.0](LICENSE).
 
 ## Learn in your AI conversation
 
-The **Starlight Academy** connection plugin adds eight teaching methods, four challenges and a practical feedback loop through two skills and four public remote MCP tools. Version 0.1.1 includes a local handoff to the separate AI Architect Academy and canonical architect team.
+The **Starlight Academy** connection plugin adds eight teaching methods, four challenges and a practical feedback loop through four skills and four public remote MCP tools. Version 0.2.0 adds artifact-based quest coaching and curriculum management while preserving the local AI Architect handoff.
 
 [Install the conversation plugin](docs/academy/connection.md) · [Meet your guide](https://starlightintelligence.academy/academy/connect)
 
@@ -23,7 +23,7 @@ Both Codex and Claude catalogs include this plugin. It is independently distribu
 The [current connection receipt](docs/academy/connection-release.json) tracks Git
 source, while the [0.1.0 receipt](docs/academy/connection-release-0.1.0.json) keeps
 the historical hosted ZIP evidence. Hosted archives are not updated by a Git
-source release. Use the pinned marketplace source for the 0.1.1 handoff.
+source release. Use the pinned marketplace source for the current connection release.
 
 ## Build your own agent package
 
