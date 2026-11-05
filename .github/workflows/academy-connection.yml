@@ -27,6 +27,6 @@ jobs:
         with:
           node-version: '22'
       - name: Human and agent handoff, invalid inputs and package parity
-        run: node --test plugins/starlight-academy/tests/architect_handoff.test.mjs
+        run: node --test plugins/starlight-academy/tests/architect_handoff.test.mjs plugins/starlight-academy/tests/quest_record.test.mjs
       - name: Connection payload receipt and immutable Claude pin
         run: node scripts/verify_academy_connection.mjs

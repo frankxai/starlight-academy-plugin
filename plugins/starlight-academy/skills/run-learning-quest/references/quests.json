@@ -1,0 +1,358 @@
+{
+  "schema": "starlight.academy_quest_catalog.v1",
+  "version": "1.0.0",
+  "checkedOn": "2026-10-31",
+  "title": "Starlight Academy quest paths",
+  "mode": "host-guided-practice",
+  "recommendedOrderIsEditorial": true,
+  "progressIsSelfReported": true,
+  "hostedLms": false,
+  "authenticatedAssessment": false,
+  "issuesCredentials": false,
+  "grantsAuthority": false,
+  "quests": [
+    {
+      "id": "frontier-operator",
+      "title": "Direct frontier intelligence",
+      "outcome": "Route one research-to-release assignment across Astra, Sol and Terra, then defend the route against a measured baseline.",
+      "level": "advanced",
+      "prerequisites": [],
+      "artifact": "A frozen benchmark, source ledger, model-routing decision and tested handoff.",
+      "firstAttempt": "Choose one recurring workflow. Predict its hardest failure and the cheapest acceptable route before running it.",
+      "workedExample": "Synthetic case: a studio must turn three contradictory product notes into one release recommendation. Sol normalizes claims; Astra resolves architectural tradeoffs; Terra inspects the resulting interface. Each output carries its source revision. The team compares this route with one capable worker; no speed or cost improvement is assumed.",
+      "specialists": [
+        "Starlight Agent Designer",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Start with one available model at High. Use Astra for unresolved tradeoffs, Sol for synthesis and implementation, Terra for visual inspection or a scoped fix; test these assignments. Work/Codex Ultra is a host orchestration mode, not an API effort value.",
+      "connectors": [
+        "GitHub source reads and draft branch",
+        "Google Drive selected document reads",
+        "Vercel preview inspection"
+      ],
+      "checks": [
+        "Freeze the same task and rubric before comparing routes.",
+        "Mark requested and observed models separately.",
+        "Measure accepted output, elapsed time and available usage, including review.",
+        "Preserve contradictions and failed checks; no invented benchmark.",
+        "Inspect the final artifact and exact destination revision."
+      ],
+      "transfer": "Repeat with one important source revoked. Show which claims become unknown and how the route changes.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+        "https://learn.chatgpt.com/docs/models"
+      ],
+      "boundaries": [
+        "Models and connectors belong to the learner's host/account.",
+        "No Academy-hosted model run or credential is supplied."
+      ]
+    },
+    {
+      "id": "agent-and-skill-design",
+      "title": "Forge a capability that travels",
+      "outcome": "Package one proven workflow as a skill and introduce a persistent agent only when a durable boundary requires it.",
+      "level": "advanced",
+      "prerequisites": [
+        "frontier-operator"
+      ],
+      "artifact": "A capability brief, tested skill, connector contract, package and exact source/host evidence.",
+      "firstAttempt": "Name a recurring input and output. Decide whether the job needs a procedure, temporary worker or persistent identity, and defend the smallest choice.",
+      "workedExample": "Synthetic case: a studio repeatedly checks a draft against its source pack. A skill encodes evidence checks, an offline script validates the record, and the existing GitHub connector provides scoped source reads. No new agent server is needed. The package is tested against missing sources and an injected instruction before a private account save.",
+      "specialists": [
+        "Starlight Agent Designer",
+        "Starlight Plugin Forge",
+        "Plugin Creator",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Astra for the agent-or-skill decision, Sol for the portable implementation and Terra for output or interaction inspection. Record actual host capabilities before binding tools.",
+      "connectors": [
+        "GitHub canonical skill/plugin source",
+        "Existing authorized source connector",
+        "Plugin Creator guarded private update"
+      ],
+      "checks": [
+        "Separate model, role, procedure, connector and runtime authority.",
+        "Test ordinary, missing-context, contradictory-source and injected-instruction cases.",
+        "Preserve existing plugin identity, audience, MCP and publisher metadata on update.",
+        "Read back saved source; packaging and account saving are not native-host execution.",
+        "Maintain one source owner and a tested rollback path."
+      ],
+      "transfer": "Move the procedure to a host without its connector. Preserve useful offline behavior and identify the exact integration still missing.",
+      "sources": [
+        "https://developers.openai.com/plugins/build/plugins"
+      ],
+      "boundaries": [
+        "Installing a plugin does not grant credentials or change model selection.",
+        "No public marketplace submission occurs from a private package save."
+      ]
+    },
+    {
+      "id": "product-studio",
+      "title": "Turn a capability into a product",
+      "outcome": "Build a useful product slice that a real intended user can inspect and test.",
+      "level": "advanced",
+      "prerequisites": [
+        "frontier-operator"
+      ],
+      "artifact": "A product brief, canonical source, first usable slice, acceptance evidence and support/rollback note.",
+      "firstAttempt": "Write the user job, the artifact that would solve it, and one observation that would make you stop building.",
+      "workedExample": "Synthetic case: a consultant repeatedly turns a source pack into a client briefing. The publishing studio owns the briefing template; software contributes a bounded validator; the template studio packages an editable derivative. One source release owns all formats. A sample client is a fixture, not a testimonial.",
+      "specialists": [
+        "Starlight Product Studios",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Sol to implement the bounded product; escalate unresolved ownership or architecture to Astra. Ask Terra to inspect a rendered output when visual evidence is available.",
+      "connectors": [
+        "GitHub versioned source",
+        "Google Drive approved masters",
+        "Figma editable components",
+        "Vercel preview"
+      ],
+      "checks": [
+        "Choose one primary studio and one release owner.",
+        "Produce a real usable artifact, not only a product plan.",
+        "Trace claims, assets, rights and source revisions.",
+        "Test the first-value journey and one failure/recovery path.",
+        "Keep proposed pricing and unobserved demand explicitly unvalidated."
+      ],
+      "transfer": "Change delivery from a self-serve template to a managed service. Identify which support, quality and cost assumptions change.",
+      "sources": [],
+      "boundaries": [
+        "No customer outreach, price commitment or purchase occurs from completing this quest.",
+        "Marketplace publication is a separate destination-specific release."
+      ]
+    },
+    {
+      "id": "living-web-design",
+      "title": "Build an interface people can use",
+      "outcome": "Carry an authored interaction from a Figma design to an inspected web artifact with coherent visual states.",
+      "level": "advanced",
+      "prerequisites": [
+        "product-studio"
+      ],
+      "artifact": "A design brief, reusable component states, responsive implementation and visual acceptance record.",
+      "firstAttempt": "Sketch the user's first decision and the minimum screen state that makes it possible. State what failure looks like on mobile.",
+      "workedExample": "Synthetic case: a learner opens a quest, compares their first attempt with a critique and exports a revised artifact. The designer creates empty, active, error and recovery states. The implementer preserves keyboard order and editable text; the reviewer inspects the actual 390px and desktop render.",
+      "specialists": [
+        "Starlight Product Studios",
+        "Starlight Living Design",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Terra for concrete visual interpretation and interaction checks; Sol for implementation; Astra for difficult product tradeoffs. Verify the host exposes the required modalities and tools.",
+      "connectors": [
+        "Figma selected design file",
+        "GitHub feature branch",
+        "Vercel preview"
+      ],
+      "checks": [
+        "Inspect 2 relevant existing exemplars and explain the chosen mechanism.",
+        "Bind tokens, component states and source ownership.",
+        "Check keyboard, mobile, zoom, contrast and reduced motion.",
+        "Show actual rendered evidence; do not treat code compilation as visual review.",
+        "Verify export and recovery; remove fake live status or unsupported claims."
+      ],
+      "transfer": "Make the same experience usable with no motion and a slow connection while retaining its key decision.",
+      "sources": [],
+      "boundaries": [
+        "A skin changes presentation; it must not change access permissions.",
+        "Generated imagery is not evidence of product operation."
+      ]
+    },
+    {
+      "id": "private-second-brain",
+      "title": "Build a private memory atlas",
+      "outcome": "Design and inspect a selected-source second brain whose records, retrieval and visual map remain under the person's control.",
+      "level": "advanced",
+      "prerequisites": [
+        "frontier-operator"
+      ],
+      "artifact": "A source map, memory schema, retrieval evaluation, deletion/export plan and local visual explorer.",
+      "firstAttempt": "Choose five authorized source items. State which facts should remain source records, which may become summaries, and what must never be retained.",
+      "workedExample": "Synthetic case: a founder has a project brief, design file, meeting note, decision record and release receipt. The atlas stores source IDs, revisions and permitted audiences; graph edges distinguish citation, dependency and interpretation. A stale summary is visibly stale. Embeddings are retrieval indexes, not permissions or truth.",
+      "specialists": [
+        "Starlight Memory",
+        "Starlight Second Brain",
+        "Starlight Living Design",
+        "Starlight Agent Designer"
+      ],
+      "modelRoute": "Use Astra for memory boundaries and conflict rules, Sol for a deterministic prototype, and Terra for the graph inspector's visual usability. Start without embeddings until a retrieval benchmark justifies them.",
+      "connectors": [
+        "Google Drive explicitly selected sources",
+        "GitHub public or authorized project records",
+        "Figma visual map"
+      ],
+      "checks": [
+        "Keep private, shared-team and public projections separate.",
+        "Every derived record points to exact source identity and revision.",
+        "Test stale, contradictory, missing and revoked sources.",
+        "Export originals and derived records with lineage; describe deletion across indexes/caches.",
+        "A visual edge has a typed meaning and does not imply a verified relationship."
+      ],
+      "transfer": "Revoke one source and move the explorer to another workspace. Show what must disappear and what can be exported.",
+      "sources": [],
+      "boundaries": [
+        "No bulk personal-data ingestion or private chat access is implied.",
+        "No hosted memory service or cross-tenant isolation is supplied by this skill."
+      ]
+    },
+    {
+      "id": "agent-canvas",
+      "title": "Make an agent system inspectable",
+      "outcome": "Build a canvas whose agents, skills, connectors, artifacts and action boundaries can be inspected rather than guessed.",
+      "level": "advanced",
+      "prerequisites": [
+        "private-second-brain"
+      ],
+      "artifact": "A typed agent graph, one task envelope, inspector UI and replayable bounded scenario.",
+      "firstAttempt": "Draw one workflow with roles, tool calls, artifacts and a human decision. Name the node that owns completion.",
+      "workedExample": "Synthetic case: a research worker reads three allowed documents, a builder writes a draft branch, and a verifier inspects the exact commit. The canvas separates planned from observed edges and displays denied actions. A companion portrait is presentation metadata; tool admission belongs to the actual runtime.",
+      "specialists": [
+        "Starlight Agent Designer",
+        "Starlight Living Design",
+        "Starlight Product Studios",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Astra to allocate boundaries, Sol to implement the graph contract, and Terra to inspect readability and screen behavior. Add parallel workers only for separable outputs.",
+      "connectors": [
+        "GitHub exact revisions",
+        "Figma graph/inspector components",
+        "Existing runtime receipt source"
+      ],
+      "checks": [
+        "Use distinct node types for agent, skill, connector, artifact and human.",
+        "Differentiate declared capability from observed run state.",
+        "Show the scope and evidence behind each action edge.",
+        "Exercise denial, cancellation, duplicate event and recovery.",
+        "A personality, role prompt or diagram never grants authority."
+      ],
+      "transfer": "Replace one worker and revoke one connector. Show the graph diff and prove which actions remain eligible.",
+      "sources": [],
+      "boundaries": [
+        "A canvas is a projection, not a replacement runtime or permission service.",
+        "No background agent starts solely by adding a node."
+      ]
+    },
+    {
+      "id": "service-business",
+      "title": "Design a service worth paying for",
+      "outcome": "Turn one repeatable customer job into a bounded Outcome Pack with delivery evidence and fully loaded economics.",
+      "level": "advanced",
+      "prerequisites": [
+        "product-studio"
+      ],
+      "artifact": "A buyer-job brief, sample delivery, acceptance terms, scenario economics and test checkout/delivery specification.",
+      "firstAttempt": "Name a buyer, painful recurring job and observable acceptance condition. Calculate the support effort you can afford.",
+      "workedExample": "Synthetic case: an agency offers a fixed-scope research briefing. The model prepares evidence and drafts; a named operator reviews before delivery. The cost model includes tools, retries, review, support, fees and refunds. A sample invoice or checkout in test mode proves neither demand nor revenue.",
+      "specialists": [
+        "Agentic Income",
+        "Starlight Product Studios",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Sol for the repeatable workflow, Astra for difficult scope/economics tradeoffs, Terra for the customer-facing artifact and checkout inspection.",
+      "connectors": [
+        "GitHub service source",
+        "Stripe test-mode configuration only within explicit scope",
+        "Google Drive selected delivery example"
+      ],
+      "checks": [
+        "Distinguish paid-work services from owned income assets and capital strategies.",
+        "Measure costs per accepted outcome, including failed attempts and human work.",
+        "Use test-mode payment events and verify entitlement/delivery idempotency before live operation.",
+        "State licence, refund/support scope and delivery owner.",
+        "No earnings, passive-income or customer-success claim without observed evidence."
+      ],
+      "transfer": "Double review time and add one refund scenario. Recalculate viability and choose what to change.",
+      "sources": [],
+      "boundaries": [
+        "No live charge, price publication or outreach is authorized by practice completion.",
+        "DPI investing, lending and yield require a separate financial research scope."
+      ]
+    },
+    {
+      "id": "owned-income-assets",
+      "title": "Publish a reusable asset",
+      "outcome": "Package one owned template, guide, plugin or workflow for a specific destination with a clean adoption path.",
+      "level": "advanced",
+      "prerequisites": [
+        "living-web-design",
+        "service-business"
+      ],
+      "artifact": "A versioned asset, licence/rights record, clean-install test, listing draft and support/update plan.",
+      "firstAttempt": "Choose one artifact you own and one intended buyer. Explain why the buyer would reuse it and where they would discover it.",
+      "workedExample": "Synthetic case: an operator turns a tested research workflow into a template kit and optional plugin. The canonical source remains in GitHub; an editable Figma file and reviewed PDF are versioned derivatives. The marketplace listing names exactly what the buyer receives. The plugin uses the buyer's existing authorized tools.",
+      "specialists": [
+        "Starlight Product Studios",
+        "Starlight Plugin Forge",
+        "Agentic Passive Income",
+        "Starlight Excellence"
+      ],
+      "modelRoute": "Use Sol for packaging and documentation, Terra for installation and presentation review, Astra for difficult product/licensing boundaries. Verify rights through actual source records.",
+      "connectors": [
+        "GitHub release candidate",
+        "Figma selected template",
+        "Google Drive approved master",
+        "Selected marketplace draft tools"
+      ],
+      "checks": [
+        "Bind every derivative to a source revision and actual rights record.",
+        "Test from a clean environment and preserve failures.",
+        "Keep store approval, account saving, installation and runtime behavior distinct.",
+        "Verify purchase-to-entitlement-to-delivery only in the authorized test context.",
+        "Describe maintenance, support and platform fees; ownership does not imply passive returns."
+      ],
+      "transfer": "Move the asset to a second marketplace. Identify format, licence, support and pricing differences without duplicating the source owner.",
+      "sources": [],
+      "boundaries": [
+        "No store submission or public launch occurs from a generated listing draft.",
+        "Affiliate relationships require actual approval and disclosure."
+      ]
+    },
+    {
+      "id": "portfolio-capstone",
+      "title": "Publish a portfolio you can defend",
+      "outcome": "Assemble selected artifacts into an evidence-linked portfolio and a bounded next product decision.",
+      "level": "capstone",
+      "prerequisites": [
+        "agent-canvas",
+        "owned-income-assets"
+      ],
+      "artifact": "A private evidence bundle, explicit public projection, inspected portfolio preview and maintenance plan.",
+      "firstAttempt": "Choose three artifacts that demonstrate a specific capability. State what each proves and what remains unverified.",
+      "workedExample": "Synthetic case: a builder selects a routing benchmark, an interface and a reusable template. Their private bundle retains source notes and failed runs. The public portfolio includes only approved artifact links, exact versions, assistance disclosure and observed checks. A preview stays a preview until its public destination is verified; a paid-work proposal stays unvalidated until a customer accepts it.",
+      "specialists": [
+        "Starlight Product Studios",
+        "Starlight Living Design",
+        "Starlight Excellence",
+        "Agentic Income"
+      ],
+      "modelRoute": "Use Sol to assemble consistent evidence, Terra to inspect the portfolio and Astra to challenge the capability claims. Retain a human publication decision.",
+      "connectors": [
+        "GitHub selected source revisions",
+        "Figma approved design derivative",
+        "Google Drive selected source masters",
+        "Vercel portfolio preview"
+      ],
+      "checks": [
+        "Select public fields explicitly; private notes and personal records are excluded by default.",
+        "Bind each claim to an artifact and observed check scope.",
+        "Keep learning practice, engineering release and commercial outcomes separate.",
+        "Verify links, mobile accessibility, source rights and recovery.",
+        "Record one owner and review date without inventing an active scheduler."
+      ],
+      "transfer": "Replace one source artifact with a newer revision and revoke another. Update claims and public links while preserving private history.",
+      "sources": [],
+      "boundaries": [
+        "The capstone grants no certificate, assessment pass or revenue claim.",
+        "A draft public profile is not published without its authorized release action."
+      ]
+    }
+  ],
+  "webProjection": {
+    "url": "https://starlightintelligence.academy/academy/quests",
+    "version": "1.0.0",
+    "state": "candidate-not-production-verified",
+    "mapping": "Same stable pathway IDs; website navigation and local quest coaching are distinct projections. Reconcile both source revisions before claiming parity."
+  }
+}

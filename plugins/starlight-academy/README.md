@@ -75,3 +75,25 @@ https://starlightintelligence.academy/privacy. The server returns public materia
 and processes selected catalog IDs. Hosting may process technical request data.
 The plugin does not collect feedback text or opt you into model training.
 You choose what to preserve or share through your host's tools.
+
+## Artifact quests in version 0.2.0
+
+`run-learning-quest` adds nine advanced practice paths: frontier orchestration, capability packaging,
+product studios, designed experiences, private memory atlases, agent canvases,
+accepted paid work, owned asset releases and a portfolio capstone. `manage-quest-curriculum` maintains
+versioned teaching content and facilitator plans. Specialist plugin names are
+method-routing suggestions; each host discovers actual available skills/tools.
+
+The offline record inspector preserves exact learner text and checks bounded
+record structure, never correctness or learning. It has no network or storage:
+
+```sh
+node scripts/quest_record.mjs create frontier-operator
+node scripts/quest_record.mjs inspect < practice.json
+node --test tests/quest_record.test.mjs
+```
+
+The existing public MCP remains four catalog tools and receives no learner text.
+Quests run in the learner's host conversation. No account, hosted evaluation,
+certificate, paid entitlement or autonomous business service is added. Private
+account saving, website deployment and public directory approval are separate.

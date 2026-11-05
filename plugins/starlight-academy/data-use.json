@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "starlight.data-use.v1",
+  "capability": "starlight-academy",
+  "state": "declared",
+  "declaration": {
+    "purpose": "Teach artifact-based quests and prepare learner-controlled practice records using the selected host. The remote MCP receives catalog identifiers only; the offline helper performs format inspection without network or file writes.",
+    "personalData": "possible",
+    "storage": "unknown",
+    "retentionDays": null,
+    "processingRegions": [],
+    "exportMode": "machine-readable",
+    "deletionMode": "manual",
+    "externalActions": "approval-required"
+  },
+  "review": {
+    "state": "required",
+    "unresolved": [
+      "storage",
+      "retentionDays",
+      "processingRegions"
+    ],
+    "legalComplianceVerified": false,
+    "runtimeEnforced": false,
+    "permissionsGranted": false,
+    "releaseApproved": false
+  }
+}
